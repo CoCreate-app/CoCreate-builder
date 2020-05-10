@@ -17,6 +17,28 @@ client.onload = () => {
 
     }
 
+    (function injectScript() {
+        let scripts = ['util/elements.js', 'util/util.js', 'util/common.js', 'iframe.js'];
+        for (let i = 0, len = scripts.length; i < 4; i++) {
+
+            let script = document.createElement('script');
+            script.src = scripts[i];
+            script.id = "CoCreate-builder"
+            clientDocument.head.append(script)
+        }
+
+        let styles = ['iframe.css'];
+        for (let i = 0, len = styles.length; i < 4; i++) {
+
+            let style = document.createElement('link');
+            style.rel = "stylesheet";
+            style.type = "text/css";
+            style.href = styles[i];
+            style.id = "CoCreate-builder"
+            clientDocument.head.append(style)
+        }
+
+    }())
     document.addEventListener('dragstart', (e) => {
         return false;
     })

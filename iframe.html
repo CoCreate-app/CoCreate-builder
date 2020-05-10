@@ -2,43 +2,6 @@
 <html>
 
 <head>
-  <style>
-    #box {
-      margin: 40px;
-      padding: 50px;
-      background-color: #faf;
-    }
-
-    /* wierd padding when used "border"*/
-
-    *[data-CoC-draggable],
-    *[data-CoC-droppable],
-    *[data-CoC-hoverable] {
-      outline: 1px dashed gray;
-    }
-
-
-
-    *[CoC-hovered=true] {
-      outline: 2px solid blue
-    }
-
-    /* must be defined after CoC-hovered because of css specificity to show selected with higher priority */
-
-    *[CoC-selected=true] {
-      outline: 3px solid green;
-    }
-
-    *[CoC-dragging=true] {
-      outline: 3px solid red;
-    }
-
-    * {
-      cursor: default;
-      box-sizing: content-box;
-
-    }
-  </style>
 </head>
 
 <body contenteditable="true" style="padding: 20px; margin:20px;">
@@ -79,10 +42,10 @@
 
 </body>
 
-<script src="util/elements.js"></script>
-<script src="util/util.js"></script>
-<script src="util/common.js"></script>
-<script src="iframe.js"></script>
+<!--<script src="util/elements.js"></script>-->
+<!--<script src="util/util.js"></script>-->
+<!--<script src="util/common.js"></script>-->
+<!--<script src="iframe.js"></script>-->
 
 
 </html>
