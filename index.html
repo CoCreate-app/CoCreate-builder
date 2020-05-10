@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Building an awesome Drag Drop Interface - by hossein alipour</title>
+  <style>
+    * {
+      box-sizing: content-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #container {
+
+      display: flex;
+      flex-direction: column;
+      margin: 5px;
+    }
+
+    #client {
+      height: 600px;
+    }
+
+
+    #box {
+      margin: 40px;
+      padding: 50px;
+      background-color: #aff;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <div id="container">
+
+    <div id="dragitemslist">
+      <h3>Element List</h3>
+      <div>
+        <ul id="dragitemslistcontainer">
+          <li id="header" data-CoC-draggable="true" data-insert-html='<h1 droppable="true" class="CoC-droppable">This is a Header</h1>"><i class="fa fa-header'>
+            </i>
+            <p>Header</p>
+          </li>
+          <li id="span" data-CoC-draggable="true" data-insert-html='<span droppable="true" class="CoC-droppable">This is an Span</span>"><i class="fa fa-header'>
+            </i>
+            <p>Span</p>
+          </li>
+          <li id="li" data-CoC-draggable="true" data-insert-html='<li droppable="true" class="CoC-droppable">this is a Li</li>"><i class="fa fa-header'>
+            </i>
+            <p>Li</p>
+          </li>
+          <li id="chart-image" data-CoC-draggable="true" data-insert-html="<img droppable='true' class='CoC-droppable' src='http://blogs-images.forbes.com/anthonykosner/files/2014/06/us-browser-share-adobe-index-2014.jpg'>">
+            <i class="fa fa-bar-chart"></i>
+            <p>Chart Image</p>
+          </li>
+          <li id="login-from" data-CoC-draggable="true" data-insert-html='<div droppable="true" class="CoC-droppable" class="well login-box"> <form action=""> <legend>Login</legend> <div class="form-group"> <label for="username-email">E-mail or Username</label> <input value="" id="username-email" placeholder="E-mail or Username" type="text" class="form-control"/> </div><div class="form-group"> <label for="password">Password</label> <input id="password" value="" placeholder="Password" type="text" class="form-control"/> </div><div class="form-group text-center"> <button class="btn btn-danger btn-cancel-action">Cancel</button> <input type="submit" class="btn btn-success btn-login-submit" value="Login"/> </div></form> </div>'>
+            <i class="fa fa-sign-in"></i>
+            <p>Login Form</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <iframe id="client" src="iframe.html" frameborder="0"></iframe>
+
+  </div>
+
+  <script src="util/util.js"></script>
+  <script src="util/common.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
