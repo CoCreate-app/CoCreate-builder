@@ -116,7 +116,7 @@ let dom = new domElements();
 
 dom.element('default', {
   displayName: '',
-  selector: '*',
+  selector: 'body *',
   classes: ['test'],
   attributtes: { 'uno': 'testing this' },
   draggable: 'true',
