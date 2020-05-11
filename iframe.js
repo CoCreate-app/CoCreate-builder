@@ -113,7 +113,8 @@ function DND() {
     finally {
       greenDropMarker.hide()
       this.position = null;
-      this.dragedEl.removeAttribute('CoC-dragging')
+      if (this.dragedEl)
+        this.dragedEl.removeAttribute('CoC-dragging')
       dfonclk.onInactive(e.target)
       console.log('dnd completed')
     }
@@ -154,6 +155,7 @@ document.mydnd = dnd;
 document.addEventListener('touchstart', (e) => {
   console.log('touch start')
   let el = getCoc(e.target, 'data-CoC-draggable')
+  if (!el) return;
   dnd.dragStart(e, el)
 
 })
@@ -239,7 +241,7 @@ document.addEventListener('mousedown', (e) => {
 document.addEventListener('mouseup', (e) => {
   console.log('mouse up', e);
   let el = getCoc(e.target, 'data-CoC-hoverable')
-
+  if (!el) return;
   if (e.which != 1)
     return;
 
