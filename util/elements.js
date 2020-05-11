@@ -27,6 +27,7 @@ function domEditor({ obj, selector_type, selector, method, index, property, sub_
   let element;
   objs.forEach(obj => {
     let result = apply_method({ obj, method, property, value })
+
     if (result)
       results.push(result);
     else
@@ -92,7 +93,7 @@ domElements.prototype.element = function(type, { displayName, selector, classes,
 
   var dataset = {
     "data-CoC-type": type, // type calendar
-    "data-CoC-name": displayName
+    "data-CoC-name": displayName ? displayName : ''
   };
   if (typeof draggable === 'string') dataset['data-CoC-draggable'] = draggable;
   if (typeof droppable === 'string') dataset['data-CoC-droppable'] = droppable;
@@ -101,8 +102,9 @@ domElements.prototype.element = function(type, { displayName, selector, classes,
   if (typeof hoverable === 'string') dataset['data-CoC-hoverable'] = hoverable;
 
   domEditor({ selector_type: 'querySelectorAll', selector, method: 'setAttribute', value: dataset });
-  domEditor({ selector_type: 'querySelectorAll', selector, method: 'classList.add', value: classes });
-  domEditor({ selector_type: 'querySelectorAll', selector, method: 'setAttribute', value: attributtes });
+  // unkown use case and cause exception! I will make them work in a way that corresponds our requirement when needed
+  // domEditor({ selector_type: 'querySelectorAll', selector, method: 'classList.add', value: classes = [] });
+  // domEditor({ selector_type: 'querySelectorAll', selector, method: 'setAttribute', value: attributtes = [] });
 
 }
 
@@ -113,16 +115,50 @@ function domElements() {
 
 let dom = new domElements();
 
-
 dom.element('default', {
-  displayName: '',
-  selector: 'body *',
-  classes: ['test'],
-  attributtes: { 'uno': 'testing this' },
+  // displayName: '',
+  selector: ['body, body *'],
+  // classes: ['test'],
+  // attributtes: { 'test': 'testing this' },
   draggable: 'true',
   droppable: 'true',
   hoverable: 'true',
   selectable: 'true',
   editable: 'true'
-
 });
+
+dom.element('form', {
+  selector: ['form'],
+  editable: 'true'
+});
+
+dom.element('input', {
+  selector: 'input',
+  editable: 'false'
+});
+
+dom.element('textarea', {
+  selector: 'textarea',
+  editable: 'false'
+});
+
+dom.element('select', {
+  selector: 'select',
+  editable: 'false'
+});
+
+/*
+dom.element('default', {
+  displayName: '',
+  selector: ['body, body *'],
+  classes: ['test'],
+  attributtes: { 'test': 'testing this' },
+  draggable: 'true',
+  droppable: 'true',
+  hoverable: 'true',
+  selectable: 'true',
+  editable: 'true'
+});
+*/
+
+// tag name not appearing is relted to here? line 119
