@@ -12,12 +12,19 @@ client.onload = () => {
 
     function dragStart(e) {
         let el = getCoc(e.target, 'data-CoC-draggable');
-        let insertEl, html = el.getAttribute('data-insert-html');
+        if (!el) return;
+        let insertEl
+        let html = el.getAttribute('data-insert-html');
 
-        if (!html)
-            insertEl = el.cloneNode(true);
+        if (!html || html == '{{html}}') {
+            // temporary
+            let el2 = el.querySelector('[data-insert-html]')
+            let html = el2.getAttribute('data-insert-html')
+            insertEl = parse(html);
+            // insertEl = el.cloneNode(true);
+        }
         else
-            insertEl = parse(el.getAttribute('data-insert-html'));
+            insertEl = parse(html);
 
         clientDocument.mydnd.dragStart(e, insertEl, el.id);
 
@@ -25,7 +32,7 @@ client.onload = () => {
 
     (function injectScript() {
         let scripts = ['util/elements.js', 'util/util.js', 'util/common.js', 'iframe.js'];
-        for (let i = 0, len = scripts.length; i < 4; i++) {
+        for (let i = 0, len = scripts.length; i < len; i++) {
 
             let script = document.createElement('script');
             script.src = scripts[i];
@@ -34,7 +41,7 @@ client.onload = () => {
         }
 
         let styles = ['iframe.css'];
-        for (let i = 0, len = styles.length; i < 4; i++) {
+        for (let i = 0, len = styles.length; i < len; i++) {
 
             let style = document.createElement('link');
             style.rel = "stylesheet";
