@@ -12,7 +12,13 @@ client.onload = () => {
 
     function dragStart(e) {
         let el = getCoc(e.target, 'data-CoC-draggable');
-        let insertEl = parse(el.getAttribute('data-insert-html'));
+        let insertEl, html = el.getAttribute('data-insert-html');
+
+        if (!html)
+            insertEl = el.cloneNode(true);
+        else
+            insertEl = parse(el.getAttribute('data-insert-html'));
+
         clientDocument.mydnd.dragStart(e, insertEl, el.id);
 
     }
