@@ -10,6 +10,32 @@ document.addEventListener('selectstart', (e) => {
 client.onload = () => {
     let clientDocument = client.contentDocument;
 
+    let tree = document.getElementById('sortable-dom-tree');
+    // already delared in index.js
+    // let client = document.getElementById('client');
+    let spaceSize = 10;
+
+
+
+    function renderItems(elList, level) {
+        for (let el of elList) {
+            let treeItem = document.createElement('div');
+            treeItem.classList.add('sortable-item');
+            let displayName = el.getAttribute('data-CoC-name');
+            treeItem.style.paddingLeft = spaceSize * level + 'px'
+
+            treeItem.innerHTML = (displayName ? displayName : el.tagName);
+            tree.appendChild(treeItem);
+            if (el.children)
+                renderItems(el.children, level + 1)
+        }
+
+    }
+
+
+
+    renderItems([clientDocument.body], 0)
+
     function dragStart(e) {
         let el = getCoc(e.target, 'data-CoC-draggable');
         if (!el) return;

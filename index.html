@@ -6,7 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CoCreate-builder.js</title>
+  <style>
+    .sortable-item {
+      background-color: white;
+      border: 1px solid gray;
 
+    }
+  </style>
   <!-- CoCreateUI -->
   <link rel="stylesheet" href="https://cdn.cocreate.app/CoCreate.min.css" type="text/css" />
 
@@ -107,24 +113,21 @@
   <!-- End CoCreate SideNav Left -->
 
   <!-- CoCreate SideNav Right -->
-  <div id="menuR" class="cocreate-sidenav sidenav-right bg-medium-gray" data-main_content="canvas" sidenav_default_desktop="expanded" sidenav_default_tablet="expanded">
+  <div id="menuR" class="cocreate-sidenav sidenav-right bg-medium-gray" style="min-width: 200px;" data-main_content="canvas" sidenav_default_desktop="expanded" sidenav_default_tablet="expanded">
     <ul class="adminUI-menu cocreate-scroll">
 
       <!-- saveFetch -->
       <div class="saveFetch" name='saveFetch1' data-collection="module_activity" data-document_id="5e78cacb1c1bd413d9714d9a" data-pass_id="me1234">
 
         <!-- sortable project -->
-        <div class="Sortable padding-top-50px" data-group_name="test">
-          <div class="text-align-center">hello</div>
-          <div class="text-align-center">Test - 2 </div>
-          <div class="text-align-center">Test - 3 </div>
+        <div id="sortable-dom-tree" class="Sortable padding-top-50px" data-group_name="test">
+
         </div>
         <!-- end sortable project -->
 
       </div>
       <!-- end saveFetch -->
-
-      <textarea data-collection="module_activity" name='saveFetch1' data-document_id="5e78cacb1c1bd413d9714d9a"></textarea>
+      <!--<textarea data-collection="module_activity" name='saveFetch1' data-document_id="5e78cacb1c1bd413d9714d9a"></textarea>-->
 
     </ul>
     <div class="resizeHandler"></div>
@@ -133,6 +136,7 @@
 
   <script src="util/util.js"></script>
   <script src="util/common.js"></script>
+  <script src="util/sortable-dom-tree.js"></script>
   <script src="index.js"></script>
 
   <script>
@@ -143,11 +147,11 @@
     }
   </script>
 
-  <!--<script src="https://cdn.cocreate.app/CoCreate.min.js"></script>-->
-  <!--<script src="https://cdn.cocreate.app/CoCreateUI.min.js"></script>-->
+  <script src="https://cdn.cocreate.app/CoCreate.min.js"></script>
+  <script src="https://cdn.cocreate.app/CoCreateUI.min.js"></script>
 
   <!--CoCreate Plugins-->
-  <!--<script src="https://cdn.cocreate.app/CoCreate-modal.min.js"></script>-->
+    <script src="https://cdn.cocreate.app/CoCreate-modal.min.js"></script>
 
 
 </body>
