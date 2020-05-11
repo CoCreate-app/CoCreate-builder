@@ -1,7 +1,6 @@
 function createMarker() {
   let marker = document.createElement("div");
   marker.id = "marker";
-  marker.classList.add('hidden')
   marker.style.backgroundColor = "green";
   marker.style.transition = "all 0.2s ease-in-out";
   marker.style.position = "absolute";
@@ -13,7 +12,6 @@ function createMarker() {
 function createBlockMarker(border = "2px solid blue") {
   let marker = document.createElement("div");
   marker.id = "block-marker";
-  marker.classList.add('hidden')
   marker.style.backgroundColor = "transparent";
   marker.style.position = "absolute";
   marker.style.display = "none";
@@ -25,7 +23,6 @@ function createBlockMarker(border = "2px solid blue") {
 function createTagBox() {
   let marker = document.createElement("div");
   marker.id = "tagBox";
-  marker.classList.add('hidden')
   marker.style.backgroundColor = "blue";
   marker.style.color = "white";
   marker.style.position = "absolute";
