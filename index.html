@@ -24,11 +24,18 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
   <style>
+    body {
+      height: 100%!important;
+    }
+
+    .cocreate-sidenav {
+      z-index: 10;
+    }
   </style>
 
 </head>
 
-<body>
+<body id="customVPhere">
   <div class="nav display-flex align-items-center bg-medium-light-gray" data-main_content_id="canvas" data-scroll_effect="hide-nav" data-scroll_position="5">
     <!--<a href="#" class="logo">Navbar</a>-->
     <a class="nav-toggle menu_icon--Vdots" data-toggle_sidenav="menuL">
@@ -83,7 +90,7 @@
   <!-- Main Content with Viewport/Boundaries for windows -->
 
   <!-- Main Container -->
-  <div id="customVPhere" data-main_content_id="canvas" class="height-100-percent cocreate-container">
+  <div data-main_content_id="canvas" class="height-100-percent cocreate-container">
     <iframe src="iframe.html" id="client" frameborder="0" width="100%" height="100%"></iframe>
     <!--<iframe id="client" data-collection="files" data-document_id="5eb8dc8b194a6b1531ea6533" name="html" frameborder="0" width="100%" height="100%"></iframe>-->
   </div>
@@ -120,8 +127,16 @@
   <div id="menuR" class="cocreate-sidenav sidenav-right bg-medium-gray" data-main_content="canvas" sidenav_default_desktop="expanded" sidenav_default_tablet="expanded">
     <ul class="adminUI-menu cocreate-scroll">
 
+      <div class="Sortable padding-top-50px">
+        <p>test</p>
+        <p>test1</p>
+        <p>test2</p>
+      </div>
+
+      <div id="sortable-dom-tree" style="min-width: 400px;" class="Sortable padding-top-50px"></div>
+
       <!-- saveFetch -->
-      <div class="saveFetch" name='domtree' data-collection="module_activity" data-document_id="5e78cacb1c1bd413d9714d9a" data-pass_id="me1234">
+      <div class="saveetch" name='domtree' data-collection="module_activity" data-document_id="5e78cacb1c1bd413d9714d9a" data-pass_id="me1234">
 
         <!-- sortable project -->
         <div id="sortable-dom-tree" style="min-width: 400px;" class="Sortable padding-top-50px" data-group_name="test">
@@ -152,22 +167,19 @@
 
   <!--<script src="https://cdn.cocreate.app/CoCreate.min.js"></script>-->
   <!--<script src="https://cdn.cocreate.app/CoCreateUI.min.js"></script>-->
-  <!--<script src="CoCreate-sort.js"></script>-->
+
 
   <!-- CoCreate Plugins -->
-  <!--<script src="https://cdn.cocreate.app/CoCreate-modal.min.js"></script>-->
+  <!--<scr/ipt src="https://cdn.cocreate.app/CoCreate-modal.min.js"></script>-->
   <!--<script src="util/CoCreate-iframe.js"></script>-->
 
-  <!-- CoCreate-builder host-->
-  <!-- <script src="insert-scripts-in-iframe.js"></script>-->
-  <!-- <script src="communicate-with-iframe-dragevent.js"></script>-->
-  <script src="util/sortable-dom-tree.js"></script>
-
-  <!-- CoCreate-builder iframe-->
+  <!-- CoCreate-builder -->
   <script src="util/util.js"></script>
   <script src="util/common.js"></script>
   <script src="index.js"></script>
-  <!-- <script src="dom-dnd.js"></script>-->
+
+
+
 
 
 </body>
