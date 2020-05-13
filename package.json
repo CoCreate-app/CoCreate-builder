@@ -1,0 +1,8 @@
+{
+  "name": "CoCreate-builder.js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/CoCreate-app/CoCreate-builder.js",
+  "author": "hossein <hossien.alipour@gmail.com>",
+  "license": "MIT"
+}
