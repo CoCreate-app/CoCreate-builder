@@ -1,14 +1,16 @@
+import { dropMarker, boxMarker, boxMarkerTooltip, getCoc, closestChild } from './util/common'
+import selectorUtil from './util/selectorUtil';
+import './util/elements';
+
 document.mydnd = {}
-let borderSize = 2;
-let markerWidth = 2;
-let dropMarkerMargin = 5;
+
 
 let consolePrintedEl = null; // dev
 
 const onAdd = (el) => {
   console.log({
     comment: 'onSelect',
-    obj: getSelectorPath(el),
+    obj: selectorUtil.cssPath(el),
     method: 'setAttribute',
     value: ['id']
   })
@@ -20,7 +22,7 @@ const onRemove = (lastEl) => {
 
   console.log({
     comment: 'onUnselect',
-    obj: getSelectorPath(lastEl),
+    obj: selectorUtil.cssPath(lastEl),
     method: 'removeAttribute',
   });
 
@@ -61,9 +63,9 @@ function DND() {
   this.dragStart = (e, el, id) => {
     // #broadcast
     // domEditor({
-    //   obj: getSelectorPath( this.dropedEl),
+    //   obj: selectorUtil.cssPath( this.dropedEl),
     //   method: 'insertAdjacentElement',
-    //   value: { param1: [this.position, getSelectorPath(this.dragedEl)] }
+    //   value: { param1: [this.position, selectorUtil.cssPath(this.dragedEl)] }
     // });
     this.id = id;
     console.log({
@@ -92,15 +94,15 @@ function DND() {
         // broadcast the object inside the domEditor
         // it's serializable
         // domEditor({
-        //   obj: getSelectorPath(this.dropedEl),
+        //   obj: selectorUtil.cssPath(this.dropedEl),
         //   method: 'insertAdjacentElement',
-        //   value: { param1: [this.position, getSelectorPath(this.dragedEl)] }
+        //   value: { param1: [this.position, selectorUtil.cssPath(this.dragedEl)] }
         // });
         console.log({
           comment: 'dragEnd',
-          obj: this.id ? this.id : getSelectorPath(this.dropedEl),
+          obj: this.id ? this.id : selectorUtil.cssPath(this.dropedEl),
           method: 'insertAdjacentElement',
-          value: { param1: [this.position, getSelectorPath(this.dragedEl)] }
+          value: { param1: [this.position, selectorUtil.cssPath(this.dragedEl)] }
         })
         this.id = null;
         this.dropedEl.insertAdjacentElement(this.position, this.dragedEl);

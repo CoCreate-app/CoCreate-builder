@@ -89,7 +89,11 @@ function apply_method({ obj, method, property, value }) {
 }
 
 
-domElements.prototype.element = function(type, { displayName, selector, classes, attributtes, draggable, droppable, selectable, editable, hoverable }) {
+
+
+
+
+function element(type, { displayName, selector, classes, attributtes, draggable, droppable, selectable, editable, hoverable }) {
 
   var dataset = {
     "data-CoC-type": type, // type calendar
@@ -109,13 +113,9 @@ domElements.prototype.element = function(type, { displayName, selector, classes,
 }
 
 
-function domElements() {
 
-}
 
-let dom = new domElements();
-
-dom.element('default', {
+element('default', {
   // displayName: '',
   selector: ['body, body *'],
   // classes: ['test'],
@@ -127,28 +127,28 @@ dom.element('default', {
   editable: 'true'
 });
 
-dom.element('form', {
+element('form', {
   selector: ['form'],
   editable: 'true'
 });
 
-dom.element('input', {
+element('input', {
   selector: 'input',
   editable: 'false'
 });
 
-dom.element('textarea', {
+element('textarea', {
   selector: 'textarea',
   editable: 'false'
 });
 
-dom.element('select', {
+element('select', {
   selector: 'select',
   editable: 'false'
 });
 
 /*
-dom.element('default', {
+element('default', {
   displayName: '',
   selector: ['body, body *'],
   classes: ['test'],

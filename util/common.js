@@ -1,4 +1,9 @@
-function createMarker() {
+// configuration for some function
+let borderSize = 2;
+let markerWidth = 2;
+let dropMarkerMargin = 5;
+
+export function createMarker() {
   let marker = document.createElement("div");
   marker.id = "marker";
   marker.style.backgroundColor = "green";
@@ -9,7 +14,7 @@ function createMarker() {
   return marker;
 }
 
-function createBlockMarker(border = "2px solid blue") {
+export function createBlockMarker(border = "2px solid blue") {
   let marker = document.createElement("div");
   marker.id = "block-marker";
   marker.style.backgroundColor = "transparent";
@@ -20,7 +25,7 @@ function createBlockMarker(border = "2px solid blue") {
   return marker;
 }
 
-function createTagBox() {
+export function createTagBox() {
   let marker = document.createElement("div");
   marker.id = "tagBox";
   marker.style.backgroundColor = "blue";
@@ -35,7 +40,7 @@ function createTagBox() {
 }
 
 // return droppable-candidate element or false if no candidate found
-function getDropable(el) {
+export function getDropable(el) {
   do {
     if (el.getAttribute('droppable')) return el;
     el = el.parentElement;
@@ -44,7 +49,7 @@ function getDropable(el) {
 }
 
 
-function getCoc(el, att) {
+export function getCoc(el, att) {
   if (!el.tagName)
     el = el.parentElement;
   do {
@@ -57,7 +62,7 @@ function getCoc(el, att) {
 
 
 
-function computeStyles(el, properties) {
+export function computeStyles(el, properties) {
   let computed = window.getComputedStyle(el);
   console.log('fff');
   let result = {};
@@ -67,14 +72,14 @@ function computeStyles(el, properties) {
   return result;
 }
 
-function randomId() {
+export function randomId() {
   const uint32 = window.crypto.getRandomValues(new Uint32Array(1))[0];
   return uint32.toString(16);
 }
 
 
 
-function pDistance(x, y, x1, y1, x2, y2) {
+export function pDistance(x, y, x1, y1, x2, y2) {
 
   var A = x - x1;
   var B = y - y1;
@@ -108,7 +113,7 @@ function pDistance(x, y, x1, y1, x2, y2) {
 }
 
 
-function closestChild(p, children) {
+export function closestChild(p, children) {
   let closestDistance = Infinity;
   let closestchild;
   let topOrientation;
@@ -128,7 +133,7 @@ function closestChild(p, children) {
 
 let orientations = ['left', 'top', 'right', 'bottom']
 
-function distanceToChild(p, child) {
+export function distanceToChild(p, child) {
   let rect = child.getBoundingClientRect();
 
   let line1 = { p1: [rect.top, rect.left, ], p2: [rect.bottom, rect.left] }
@@ -156,7 +161,7 @@ function distanceToChild(p, child) {
 }
 
 
-function boxMarkerTooltip(callback) {
+export function boxMarkerTooltip(callback) {
   let tagBox = createTagBox();
   document.body.append(tagBox);
   this.obj = tagBox;
@@ -180,7 +185,7 @@ function boxMarkerTooltip(callback) {
 
 let markerPname = "marker-priority";
 
-function boxMarker(attributeName, priority) {
+export function boxMarker(attributeName, priority) {
   this.lastEl = document.head;
 
   this.draw = function(el, callback, lastElCallback) {
@@ -205,7 +210,7 @@ function boxMarker(attributeName, priority) {
 
 
 
-function dropMarker() {
+export function dropMarker() {
   this.lastOrigntaion = undefined;
 
   let marker = createMarker();
@@ -289,10 +294,4 @@ function dropMarker() {
   this.hide = function(el) {
     marker.style.display = "none";
   };
-}
-
-
-function getSelectorPath(el) {
-  return "ffff"
-  // return window.util.cssPath(el)
 }

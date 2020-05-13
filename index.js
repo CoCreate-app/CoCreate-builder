@@ -1,3 +1,6 @@
+/*global DOMParser*/
+import { getCoc } from './util/common';
+
 let client = document.getElementById('client');
 
 document.addEventListener('selectstart', (e) => {
@@ -40,7 +43,7 @@ client.onload = () => {
 
     (function injectScript() {
 
-        let scripts = ['util/elements.js', 'util/util.js', 'util/common.js', 'iframe.js'];
+        let scripts = ['dist/CoCreate-builder-iframe.js'];
         for (let i = 0, len = scripts.length; i < len; i++) {
 
             let script = document.createElement('script');

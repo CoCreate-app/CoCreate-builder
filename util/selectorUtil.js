@@ -185,4 +185,4 @@ UTILS.DOMNodePathStep.prototype = {
 }
 
 
-window.util = UTILS;
+export default UTILS;
