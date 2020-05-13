@@ -59,6 +59,7 @@ function getCoc(el, att) {
 
 function computeStyles(el, properties) {
   let computed = window.getComputedStyle(el);
+  console.log('fff');
   let result = {};
   properties.forEach((property) => {
     result[property] = parseInt(computed[property]);

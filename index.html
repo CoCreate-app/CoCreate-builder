@@ -9,8 +9,11 @@
   <style>
     .sortable-item {
       background-color: white;
-      border: 1px solid gray;
-
+      border-bottom: 1px solid gray;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
     }
   </style>
   <!-- CoCreateUI -->
@@ -81,7 +84,8 @@
 
   <!-- Main Container -->
   <div id="customVPhere" data-main_content_id="canvas" class="height-100-percent cocreate-container">
-    <iframe id="client" data-collection="files" data-document_id="5eb8dc8b194a6b1531ea6533" name="html" frameborder="0" width="100%" height="100%"></iframe>
+    <iframe src="iframe.html" id="client" frameborder="0" width="100%" height="100%"></iframe>
+    <!--<iframe id="client" data-collection="files" data-document_id="5eb8dc8b194a6b1531ea6533" name="html" frameborder="0" width="100%" height="100%"></iframe>-->
   </div>
 
   <!-- CoCreate SideNav Left -->
@@ -113,31 +117,30 @@
   <!-- End CoCreate SideNav Left -->
 
   <!-- CoCreate SideNav Right -->
-  <div id="menuR" class="cocreate-sidenav sidenav-right bg-medium-gray" style="min-width: 200px;" data-main_content="canvas" sidenav_default_desktop="expanded" sidenav_default_tablet="expanded">
+  <div id="menuR" class="cocreate-sidenav sidenav-right bg-medium-gray" data-main_content="canvas" sidenav_default_desktop="expanded" sidenav_default_tablet="expanded">
     <ul class="adminUI-menu cocreate-scroll">
 
       <!-- saveFetch -->
       <div class="saveFetch" name='domtree' data-collection="module_activity" data-document_id="5e78cacb1c1bd413d9714d9a" data-pass_id="me1234">
 
         <!-- sortable project -->
-        <div id="sortable-dom-tree" class="Sortable padding-top-50px" data-group_name="test">
+        <div id="sortable-dom-tree" style="min-width: 400px;" class="Sortable padding-top-50px" data-group_name="test">
 
         </div>
         <!-- end sortable project -->
 
       </div>
+
+
+
       <!-- end saveFetch -->
-      <!--<textarea data-collection="module_activity" name='saveFetch1' data-document_id="5e78cacb1c1bd413d9714d9a"></textarea>-->
+
+
 
     </ul>
     <div class="resizeHandler"></div>
   </div>
-  <!-- End CoCreate SideNav Left -->
-
-  <script src="util/util.js"></script>
-  <script src="util/common.js"></script>
-  <script src="util/sortable-dom-tree.js"></script>
-  <script src="index.js"></script>
+  <!-- End CoCreate SideNav Right -->
 
   <script>
     var config = {
@@ -147,12 +150,24 @@
     }
   </script>
 
-  <script src="https://cdn.cocreate.app/CoCreate.min.js"></script>
-  <script src="https://cdn.cocreate.app/CoCreateUI.min.js"></script>
+  <!--<script src="https://cdn.cocreate.app/CoCreate.min.js"></script>-->
+  <!--<script src="https://cdn.cocreate.app/CoCreateUI.min.js"></script>-->
+  <!--<script src="CoCreate-sort.js"></script>-->
 
-  <!--CoCreate Plugins-->
-  <script src="https://cdn.cocreate.app/CoCreate-modal.min.js"></script>
-  <script src="util/CoCreate-iframe.js"></script>
+  <!-- CoCreate Plugins -->
+  <!--<script src="https://cdn.cocreate.app/CoCreate-modal.min.js"></script>-->
+  <!--<script src="util/CoCreate-iframe.js"></script>-->
+
+  <!-- CoCreate-builder host-->
+  <!-- <script src="insert-scripts-in-iframe.js"></script>-->
+  <!-- <script src="communicate-with-iframe-dragevent.js"></script>-->
+  <script src="util/sortable-dom-tree.js"></script>
+
+  <!-- CoCreate-builder iframe-->
+  <script src="util/util.js"></script>
+  <script src="util/common.js"></script>
+  <script src="index.js"></script>
+  <!-- <script src="dom-dnd.js"></script>-->
 
 
 </body>

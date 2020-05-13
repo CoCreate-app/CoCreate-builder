@@ -10,31 +10,13 @@ document.addEventListener('selectstart', (e) => {
 client.onload = () => {
     let clientDocument = client.contentDocument;
 
+
     let tree = document.getElementById('sortable-dom-tree');
-    // already delared in index.js
-    // let client = document.getElementById('client');
-    let spaceSize = 10;
+
+    let rightVirtualDom = new virtualDom({ realDom: clientDocument.body, virtualDom: tree });
 
 
 
-    function renderItems(elList, level) {
-        for (let el of elList) {
-            let treeItem = document.createElement('div');
-            treeItem.classList.add('sortable-item');
-            let displayName = el.getAttribute('data-CoC-name');
-            treeItem.style.paddingLeft = spaceSize * level + 'px'
-
-            treeItem.innerHTML = (displayName ? displayName : el.tagName);
-            tree.appendChild(treeItem);
-            if (el.children)
-                renderItems(el.children, level + 1)
-        }
-
-    }
-
-
-
-    renderItems([clientDocument.body], 0)
 
     function dragStart(e) {
         let el = getCoc(e.target, 'data-CoC-draggable');
@@ -57,6 +39,7 @@ client.onload = () => {
     }
 
     (function injectScript() {
+
         let scripts = ['util/elements.js', 'util/util.js', 'util/common.js', 'iframe.js'];
         for (let i = 0, len = scripts.length; i < len; i++) {
 
@@ -78,6 +61,7 @@ client.onload = () => {
         }
 
     }())
+
     document.addEventListener('dragstart', (e) => {
         return false;
     })
@@ -142,4 +126,100 @@ function parse(text) {
         return doc.head.children[0];
     else
         return doc.body.children[0];
+}
+
+
+
+function virtualDom({ realDom, virtualDom, options }) {
+
+    // set options to this.options and set defualts
+    this.options = options ? options : {};
+    Object.assign(this.options, { indentBase: 10, indentSum: 15 });
+
+
+    this.render = function(elList, level) {
+        for (let el of elList) {
+
+
+            let displayName = el.getAttribute('data-CoC-name');
+            let virtualEl = this.createVirtualElement({
+                name: (displayName ? displayName : el.tagName),
+                isParent: el.children.length,
+                indent: this.options.indentBase + this.options.indentSum * level,
+                element: el
+            })
+
+
+            virtualDom.append(virtualEl);
+            if (el.children)
+                this.render(el.children, level + 1)
+        }
+
+    }
+
+
+    this.createVirtualElement = function({ name, isParent, indent, options, element }) {
+
+        let treeItem = document.createElement('div');
+        treeItem.classList.add('sortable-item');
+
+
+
+        let text = document.createElement('span');
+        text.innerHTML = name;
+        text.style.flex = '1';
+        text.style.paddingLeft = indent + 'px';
+
+        let lastDisplay;
+        let eye = this.createFAIcon({
+            name: 'fa-eye',
+            event: {
+                'click': (e) => {
+                    if (element.style.display == "none") {
+                        element.style.display = lastDisplay
+                    }
+                    else {
+                        lastDisplay = element.style.display;
+                        element.style.display = 'none'
+                    }
+                }
+            }
+        })
+        let arrow = this.createFAIcon({ name: 'fa-arrows-alt' })
+
+
+        treeItem.append(eye);
+
+        if (isParent) {
+            if (options && options.collapsed == false) {
+                let down = this.createFAIcon({ name: 'fa-caret-down' })
+                text.insertAdjacentElement('afterbegin', down)
+            }
+            else {
+
+                let right = this.createFAIcon({ name: 'fa-caret-right' })
+                text.insertAdjacentElement('afterbegin', right)
+            }
+        }
+
+
+        treeItem.append(text);
+        treeItem.append(arrow);
+        return treeItem;
+    }
+
+
+    this.createFAIcon = function({ name, event }) {
+        let icon = document.createElement('i');
+        icon.classList.add('fa');
+        icon.classList.add(name);
+        if (event) {
+            let eventType = Object.keys(event)[0];
+            let func = event[eventType];
+            icon.addEventListener(eventType, func)
+        }
+        return icon;
+    }
+    this.render([realDom], 0)
+
 }

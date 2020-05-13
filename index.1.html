@@ -5,48 +5,36 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Website</title>
+  <title>CoCreate-builder.js</title>
+  <style>
+    .sortable-item {
+      background-color: white;
+      border-bottom: 1px solid gray;
 
+    }
+  </style>
   <!-- CoCreateUI -->
   <link rel="stylesheet" href="https://cdn.cocreate.app/CoCreate.min.css" type="text/css" />
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/99ba925095.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link rel="stylesheet" href="iframe.css">
+
+  <style>
+  </style>
+
 </head>
 
-<body contenteditable="true" class="cocreate-scroll padding-20px height-unset">
-
-  <div>
-    <h3>Element List</h3>
-    <div>
-
-      <ul style="padding:20px;">
-        <li><i class="fa fa-header"></i>
-          <p>Header</p>
-        </li>
-        <li>
-          <i class="fa fa-bar-chart"></i>
-          <p>Chart Image</p>
-        </li>
-        <li>
-          <i class="fa fa-sign-in"></i>
-          <p>Login Form</p>
-          <p>Login Form</p>
-          <p>Login Form</p>
-          <p>Login Form</p>
-        </li>
-      </ul>
-
-    </div>
+<body>
+  <!-- sortable project -->
+  <div id="sortable-dom-tree" class="Sortable padding-top-50px" data-group_name="test">
+    <div class="sortable-item text-align-center">111</div>
+    <div class="sortable-item text-align-center">222</div>
+    <div class="sortable-item text-align-center">333</div>
   </div>
+  <!-- end sortable project -->
 
-  <div id="box">
-    <div style=" padding: 20px;">
-      <div style=" padding: 20px;">empty</div>
-    </div>
-  </div>
+
 
   <script>
     var config = {
@@ -58,11 +46,11 @@
 
   <!--<script src="https://cdn.cocreate.app/CoCreate.min.js"></script>-->
   <!--<script src="https://cdn.cocreate.app/CoCreateUI.min.js"></script>-->
-  <script src="util/elements.js"></script>
-  <script src="util/util.js"></script>
-  <script src="util/common.js"></script>
-  <script src="iframe.js"></script>
+  <script src="CoCreate-sort.js"></script>
 
+  <!--CoCreate Plugins-->
+<!--<script src="https://cdn.cocreate.app/CoCreate-modal.min.js"></script>-->
+  
 
 </body>
 
