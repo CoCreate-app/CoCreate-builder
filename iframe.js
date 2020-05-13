@@ -12,7 +12,7 @@ const onAdd = (el) => {
     method: 'setAttribute',
     value: ['id']
   })
-  el.setAttribute('data-seecte_users', 'id')
+  el.setAttribute('data-selected_users', 'id')
 };
 
 
@@ -24,7 +24,7 @@ const onRemove = (lastEl) => {
     method: 'removeAttribute',
   });
 
-  lastEl.removeAttribute('data-seecte_users')
+  lastEl.removeAttribute('data-selected_users')
 }
 
 
