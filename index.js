@@ -224,5 +224,4 @@ function virtualDom({ realDom, virtualDom, options }) {
         return icon;
     }
     this.render([realDom], 0)
-
 }

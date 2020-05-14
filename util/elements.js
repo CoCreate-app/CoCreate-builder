@@ -116,15 +116,13 @@ function element(type, { displayName, selector, classes, attributtes, draggable,
 
 
 element('default', {
-  // displayName: '',
   selector: ['body, body *'],
-  // classes: ['test'],
-  // attributtes: { 'test': 'testing this' },
   draggable: 'true',
   droppable: 'true',
   hoverable: 'true',
   selectable: 'true',
-  editable: 'true'
+  editable: 'true',
+  // toolbar: { 'test': 'testing this' },
 });
 
 element('form', {
@@ -160,5 +158,3 @@ element('default', {
   editable: 'true'
 });
 */
-
-// tag name not appearing is relted to here? line 119
