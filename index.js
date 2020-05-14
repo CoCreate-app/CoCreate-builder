@@ -1,6 +1,6 @@
 /*global DOMParser*/
 import { parse, getCoc } from './util/common';
-import virtualDom from 'util/virtualDom';
+import virtualDom from './util/virtualDom';
 
 let client = document.getElementById('client');
 

@@ -1,10 +1,15 @@
+/**
+ * styling classes:
+ * on hide element, the row get .layer-hidden
+ **/
+
 export default function virtualDom({ realDom, virtualDom, options }) {
 
   // set options to this.options and set defualts
   this.options = options ? options : {};
   Object.assign(this.options, { indentBase: 10, indentSum: 15 });
 
-  this.render([realDom], 0)
+
   this.render = function(elList, level) {
     for (let el of elList) {
 
@@ -45,10 +50,13 @@ export default function virtualDom({ realDom, virtualDom, options }) {
         'click': (e) => {
           if (element.style.display == "none") {
             element.style.display = lastDisplay
+            treeItem.classList.remove('layer-hidden');
           }
           else {
             lastDisplay = element.style.display;
             element.style.display = 'none'
+            treeItem.classList.add('layer-hidden');
+
           }
         }
       }
@@ -89,4 +97,6 @@ export default function virtualDom({ realDom, virtualDom, options }) {
     return icon;
   }
 
+
+  this.render([realDom], 0)
 }
