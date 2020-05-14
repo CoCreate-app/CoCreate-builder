@@ -13,7 +13,21 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      padding: 2px 10px;
+      cursor: pointer;
     }
+
+
+    .sortable-item .fa-arrows-alt {
+      cursor: all-scroll;
+    }
+
+    .sortable-item.layer-hidden {
+      opacity: .5;
+    }
+
+
+    #sortable-dom-tree {}
   </style>
   <!-- CoCreateUI -->
   <link rel="stylesheet" href="https://cdn.cocreate.app/CoCreate.min.css" type="text/css" />
@@ -30,11 +44,20 @@
     .cocreate-sidenav {
       z-index: 10;
     }
+
+    #customVPhere {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 15;
+      pointer-events: none;
+    }
   </style>
 
 </head>
 
-<body id="customVPhere">
+<body>
+  <div id="customVPhere"></div>
   <div class="nav display-flex align-items-center bg-medium-light-gray" data-main_content_id="canvas" data-scroll_effect="hide-nav" data-scroll_position="5">
     <!--<a href="#" class="logo">Navbar</a>-->
     <a class="nav-toggle menu_icon--Vdots" data-toggle_sidenav="menuL">
@@ -90,8 +113,8 @@
 
   <!-- Main Container -->
   <div data-main_content_id="canvas" class="height-100-percent cocreate-container">
-    <!--<iframe src="iframe.html" id="client" frameborder="0" width="100%" height="100%"></iframe>-->
-    <iframe id="client" data-collection="files" data-document_id="5eb8dc8b194a6b1531ea6533" name="html" frameborder="0" width="100%" height="100%"></iframe>
+    <iframe src="iframe.html" id="client" frameborder="0" width="100%" height="100%"></iframe>
+    <!--<iframe id="client" data-collection="files" data-document_id="5eb8dc8b194a6b1531ea6533" name="html" frameborder="0" width="100%" height="100%"></iframe>-->
   </div>
 
   <!-- CoCreate SideNav Left -->
@@ -125,26 +148,53 @@
   <!-- CoCreate SideNav Right -->
   <div id="menuR" class="cocreate-sidenav sidenav-right bg-medium-gray" data-main_content="canvas" sidenav_default_desktop="expanded" sidenav_default_tablet="expanded">
     <ul class="adminUI-menu cocreate-scroll">
-
-      <div class="Sortable padding-top-50px">
-        <p>test</p>
-        <p>test1</p>
-        <p>test2</p>
-      </div>
-
-      <div id="sortable-dom-tree" class="Sortable padding-5px"></div>
-
+      <ul id="dragitemslistcontainer">
+        <li id="header" data-CoC-draggable="true" data-insert-html='<h1 droppable="true" class="CoC-droppable">This is a Header</h1>"><i class="fa fa-header'>
+          </i>
+          <p>Header</p>
+        </li>
+        <li id="span" data-CoC-draggable="true" data-insert-html='<span droppable="true" class="CoC-droppable">This is an Span</span>"><i class="fa fa-header'>
+          </i>
+          <p>Span</p>
+        </li>
+        <li id="li" data-CoC-draggable="true" data-insert-html='<li droppable="true" class="CoC-droppable">this is a Li</li>"><i class="fa fa-header'>
+          </i>
+          <p>Li</p>
+        </li>
+        <li id="chart-image" data-CoC-draggable="true" data-insert-html="<img droppable='true' class='CoC-droppable' src='http://blogs-images.forbes.com/anthonykosner/files/2014/06/us-browser-share-adobe-index-2014.jpg'>">
+          <i class="fa fa-bar-chart"></i>
+          <p>Chart Image</p>
+        </li>
+        <li id="login-from" data-CoC-draggable="true" data-insert-html='<div droppable="true" class="CoC-droppable" class="well login-box"> <form action=""> <legend>Login</legend> <div class="form-group"> <label for="username-email">E-mail or Username</label> <input value="" id="username-email" placeholder="E-mail or Username" type="text" class="form-control"/> </div><div class="form-group"> <label for="password">Password</label> <input id="password" value="" placeholder="Password" type="text" class="form-control"/> </div><div class="form-group text-center"> <button class="btn btn-danger btn-cancel-action">Cancel</button> <input type="submit" class="btn btn-success btn-login-submit" value="Login"/> </div></form> </div>'>
+          <i class="fa fa-sign-in"></i>
+          <p>Login Form</p>
+        </li>
+      </ul>
       <!-- saveFetch -->
       <div class="saveetch" name='domtree' data-collection="module_activity" data-document_id="5e78cacb1c1bd413d9714d9a" data-pass_id="me1234">
 
         <!-- sortable project -->
-        <div id="sortable-dom-tree" class="Sortable padding-top-50px" data-group_name="test">
+        <div id="sortable-dom-tree" class=" padding-top-50px" data-group_name="test">
 
         </div>
         <!-- end sortable project -->
 
       </div>
 
+      <div id="sortable-dom-tree" style="min-width: 400px;" class=" padding-top-50px">
+        <div class="sortable-item"><i class="fa fa-eye" aria-hidden="true"></i><span style="flex: 1 1 0%; padding-left: 10px;"><i class="fa fa-caret-right" aria-hidden="true"></i>wwBODY</span><i class="fa fa-arrows-alt" aria-hidden="true"></i></div>
+        <div class="sortable-item"><i class="fa fa-eye" aria-hidden="true"></i><span style="flex: 1 1 0%; padding-left: 25px;"><i class="fa fa-caret-right" aria-hidden="true"></i>DIV</span><i class="fa fa-arrows-alt" aria-hidden="true"></i></div>
+        <div class="sortable-item"><i class="fa fa-eye" aria-hidden="true"></i><span style="flex: 1 1 0%; padding-left: 40px;">H3</span><i class="fa fa-arrows-alt" aria-hidden="true"></i></div>
+        <div class="sortable-item"><i class="fa fa-eye" aria-hidden="true"></i><span style="flex: 1 1 0%; padding-left: 40px;"><i class="fa fa-caret-right" aria-hidden="true"></i>DIV</span><i class="fa fa-arrows-alt" aria-hidden="true"></i></div>
+        <div>
+          <div class="sortable-item"><i class="fa fa-eye" aria-hidden="true"></i><span style="flex: 1 1 0%; padding-left: 55px;"><i class="fa fa-caret-right" aria-hidden="true"></i>UL</span><i class="fa fa-arrows-alt" aria-hidden="true"></i></div>
+          <div class="sortable-item"><i class="fa fa-eye" aria-hidden="true"></i><span style="flex: 1 1 0%; padding-left: 70px;"><i class="fa fa-caret-right" aria-hidden="true"></i>LI</span><i class="fa fa-arrows-alt" aria-hidden="true"></i></div>
+          <div class="sortable-item"><i class="fa fa-eye" aria-hidden="true"></i><span style="flex: 1 1 0%; padding-left: 55px;">DIV</span><i class="fa fa-arrows-alt" aria-hidden="true"></i></div>
+        </div>
+        <div class="sortable-item"><i class="fa fa-eye" aria-hidden="true"></i><span style="flex: 1 1 0%; padding-left: 25px;">SCRIPT</span><i class="fa fa-arrows-alt" aria-hidden="true"></i></div>
+        <div class="sortable-item"><i class="fa fa-eye" aria-hidden="true"></i><span style="flex: 1 1 0%; padding-left: 25px;">SCRIPT</span><i class="fa fa-arrows-alt" aria-hidden="true"></i></div>
+        <div class="sortable-item"><i class="fa fa-eye" aria-hidden="true"></i><span style="flex: 1 1 0%; padding-left: 25px;">SCRIPT</span><i class="fa fa-arrows-alt" aria-hidden="true"></i></div>
+      </div>
 
 
       <!-- end saveFetch -->
@@ -155,7 +205,7 @@
     <div class="resizeHandler"></div>
   </div>
   <!-- End CoCreate SideNav Right -->
-
+  <!--</div>-->
   <script>
     var config = {
       apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
@@ -169,7 +219,7 @@
 
 
   <!-- CoCreate Plugins -->
-  <!--<script src="https://cdn.cocreate.app/CoCreate-modal.min.js"></script>-->
+  <script src="https://cdn.cocreate.app/CoCreate-modal.min.js"></script>
   <script src="util/CoCreate-iframe.js"></script>
 
   <!-- CoCreate-builder -->
