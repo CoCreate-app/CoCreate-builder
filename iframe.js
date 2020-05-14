@@ -1,5 +1,6 @@
-import { dropMarker, boxMarker, boxMarkerTooltip, getCoc, closestChild } from './util/common'
+import { dropMarker, boxMarker, boxMarkerTooltip, getCoc } from './util/common'
 import selectorUtil from './util/selectorUtil';
+import VirtualDnd from './util/VirtualDnd';
 import './util/elements';
 
 document.mydnd = {}
@@ -32,7 +33,6 @@ const onRemove = (lastEl) => {
 
 
 
-let topleft = ['left', 'top'];
 
 let tagNameTooltip = new boxMarkerTooltip((el) => {
   let name = el.getAttribute('data-CoC-name');
@@ -55,101 +55,27 @@ document.addEventListener('selectstart', (e) => {
 })
 // &&disable native drag
 
-function DND() {
-  this.dragedEl;
-  this.dropedEl;
-  this.position;
-  this.id;
-  this.dragStart = (e, el, id) => {
-    // #broadcast
-    // domEditor({
-    //   obj: selectorUtil.cssPath( this.dropedEl),
-    //   method: 'insertAdjacentElement',
-    //   value: { param1: [this.position, selectorUtil.cssPath(this.dragedEl)] }
-    // });
-    this.id = id;
-    console.log({
-      comment: 'dragStart',
-    })
-    dfonclk.onActive(e.target)
-    selectBoxMarker.hide(onRemove)
-    greenDropMarker.hide();
-    el.setAttribute('CoC-dragging', true)
-    this.dragedEl = el;
-  }
-
-  this.dragEnd = (e) => {
-    try {
-      if (this.position) {
-        if (this.dropedEl === this.dragedEl)
-          throw 'dnd cancelled. you can dnd on the same element.'
-
-        // in future we should also disable hover and tag name in dragOver method
-        // parent can't be draged into children
-        if (this.dragedEl.contains(this.dropedEl))
-          throw 'dnd cancelled, you can\'t dnd from parent to its children.'
-
-        // #broadcast
-
-        // broadcast the object inside the domEditor
-        // it's serializable
-        // domEditor({
-        //   obj: selectorUtil.cssPath(this.dropedEl),
-        //   method: 'insertAdjacentElement',
-        //   value: { param1: [this.position, selectorUtil.cssPath(this.dragedEl)] }
-        // });
-        console.log({
-          comment: 'dragEnd',
-          obj: this.id ? this.id : selectorUtil.cssPath(this.dropedEl),
-          method: 'insertAdjacentElement',
-          value: { param1: [this.position, selectorUtil.cssPath(this.dragedEl)] }
-        })
-        this.id = null;
-        this.dropedEl.insertAdjacentElement(this.position, this.dragedEl);
-
-      }
-    }
-    catch (e) {
-      console.error(e)
-    }
-    finally {
-      greenDropMarker.hide()
-      this.position = null;
-      if (this.dragedEl)
-        this.dragedEl.removeAttribute('CoC-dragging')
-      dfonclk.onInactive(e.target)
-      console.log('dnd completed')
-    }
-  }
-
-  this.dragOver =
-    (e, el) => {
-      // el is the element hovered
-      if (el.children.length === 0) {
-        // place top or bottom inside the element
-        let [orientation, closestEl] = closestChild([e.x, e.y], [el]);
-        greenDropMarker.draw(el, el, orientation, true);
-        hoverBoxMarker.draw(el)
-        tagNameTooltip.draw(el)
-        this.position = topleft.includes(orientation) ? "afterbegin" : "beforeend";
-        this.dropedEl = el;
-      }
-      else {
-        // find closest child and put outside the child element on top or bottom relating to that child,
-        let [orientation, closestEl] = closestChild([e.x, e.y], el.children);
-        greenDropMarker.draw(el, closestEl, orientation, false);
-        hoverBoxMarker.draw(el)
-        tagNameTooltip.draw(el)
-        this.position = topleft.includes(orientation) ? "beforebegin" : "afterend";
-        this.dropedEl = closestEl;
-      }
-    }
-}
 
 
 
 
-let dnd = new DND();
+let dnd = new VirtualDnd();
+
+dnd.on('dragStart', ({ e }) => {
+  dfonclk.onActive(e.target)
+  selectBoxMarker.hide(onRemove)
+  greenDropMarker.hide();
+})
+dnd.on('dragEnd', ({ e }) => {
+  greenDropMarker.hide()
+  dfonclk.onInactive(e.target)
+})
+dnd.on('dragOver', ({ el, closestEl, orientation, hasChild }) => {
+  greenDropMarker.draw(el, closestEl, orientation, !hasChild);
+  hoverBoxMarker.draw(el)
+  tagNameTooltip.draw(el)
+})
+
 
 document.mydnd = dnd;
 
