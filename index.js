@@ -102,7 +102,7 @@ client.onload = () => {
 
     /* mouse */
     document.addEventListener('mouseover', (e) => {
-        console.log('host touch over')
+        console.log('host mouse over')
         typeof clientDocument.onHostMouseOver == 'function' && clientDocument.onHostMouseOver(e);
     })
 
