@@ -2,7 +2,9 @@
  * styling classes:
  * on hide element, the row get .layer-hidden
  **/
+import collapsible from './collapsible'
 
+const exclude = ['SCRIPT'];
 export default function virtualDom({ realDom, virtualDom, options }) {
 
   // set options to this.options and set defualts
@@ -10,8 +12,16 @@ export default function virtualDom({ realDom, virtualDom, options }) {
   Object.assign(this.options, { indentBase: 10, indentSum: 15 });
 
 
-  this.render = function(elList, level) {
+  this.render = function(elList, level, appendDom) {
+    let isAppended;
+
+    let wrapper = document.createElement('div');
     for (let el of elList) {
+      if (exclude.includes(el.tagName))
+        continue;
+
+
+
 
 
       let displayName = el.getAttribute('data-CoC-name');
@@ -23,10 +33,22 @@ export default function virtualDom({ realDom, virtualDom, options }) {
       })
 
 
-      virtualDom.append(virtualEl);
-      if (el.children)
-        this.render(el.children, level + 1)
+
+
+
+      wrapper.append(virtualEl);
+
+
+
+      if (el.children.length) {
+
+        virtualEl.classList.add('collapsible')
+
+        this.render(el.children, level + 1, wrapper)
+      }
+
     }
+    appendDom.append(wrapper);
 
   }
 
@@ -98,5 +120,6 @@ export default function virtualDom({ realDom, virtualDom, options }) {
   }
 
 
-  this.render([realDom], 0)
+  this.render([realDom], 0, virtualDom, )
+  collapsible(virtualDom)
 }

@@ -1,29 +1,41 @@
-/**
- * Creates a collapsible
- *  @params
- */
+// init the element tree with collapsible
+export default function initCollapsible(element) {
+  var coll = element.getElementsByClassName("collapsible");
+  for (let i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block" || content.style.display === "") {
+        content.style.display = "none";
+      }
+      else {
+        content.style.display = "block";
+      }
+    });
+  }
+
+}
 
 
+//////////////////////////////////////////////// VS ///////////////////////////////////////////
 
 
-var coll = document.getElementsByClassName("collapsible");
+// run this only once in the page load and collapsible work on any element change
+export function lazyCollapsible(element) {
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
+
+  document.body.addEventListener("click", function() {
+    if (!this.classList.contain('collapsible'))
+      return;
     this.classList.toggle("active");
     var content = this.nextElementSibling;
-    let p = content.children[0];
-    let pStyles = window.getComputedStyle(p);
-
-
-    let lastHeight = null;
-    if (content.style.height === "100px") {
-      content.style.height = "0px";
-
+    if (content.style.display === "block") {
+      content.style.display = "none";
     }
     else {
-      content.style.height = "100px";
-
+      content.style.display = "block";
     }
   });
+
+
 }
