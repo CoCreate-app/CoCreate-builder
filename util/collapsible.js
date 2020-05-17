@@ -2,9 +2,9 @@
 export default function initCollapsible(element) {
   var coll = element.getElementsByClassName("collapsible");
   for (let i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
+    coll[i].children[1].addEventListener("click", function() {
       this.classList.toggle("active");
-      var content = this.nextElementSibling;
+      var content = this.parentElement.nextElementSibling;
       if (content.style.display === "block" || content.style.display === "") {
         content.style.display = "none";
       }
