@@ -14,7 +14,7 @@ export default function eventUtil() {
 
   // dispatch an event
   this.dispatch = function(type, data) {
-    if (Object.hasOwnProperty(type)) {
+    if (this.listener.hasOwnProperty(type)) {
       this.listener[type].forEach(callback => callback(data))
     }
   }

@@ -1,6 +1,6 @@
 import { dropMarker, boxMarker, boxMarkerTooltip, getCoc } from './util/common'
 import selectorUtil from './util/selectorUtil';
-import VirtualDnd from './util/VirtualDnd';
+import VirtualDnd from './util/virtualDnd/virtualDnd';
 import './util/elements';
 
 document.mydnd = {}
@@ -61,19 +61,19 @@ document.addEventListener('selectstart', (e) => {
 
 let dnd = new VirtualDnd();
 
-dnd.on('dragStart', ({ e }) => {
-  dfonclk.onActive(e.target)
+dnd.on('dragStart', (data) => {
+  dfonclk.onActive(data.e.target)
   selectBoxMarker.hide(onRemove)
   greenDropMarker.hide();
 })
-dnd.on('dragEnd', ({ e }) => {
+dnd.on('dragEnd', (data) => {
   greenDropMarker.hide()
-  dfonclk.onInactive(e.target)
+  dfonclk.onInactive(data.e.target)
 })
-dnd.on('dragOver', ({ el, closestEl, orientation, hasChild }) => {
-  greenDropMarker.draw(el, closestEl, orientation, !hasChild);
-  hoverBoxMarker.draw(el)
-  tagNameTooltip.draw(el)
+dnd.on('dragOver', (data) => {
+  greenDropMarker.draw(data.el, data.closestEl, data.orientation, !data.hasChild);
+  hoverBoxMarker.draw(data.el)
+  tagNameTooltip.draw(data.el)
 })
 
 

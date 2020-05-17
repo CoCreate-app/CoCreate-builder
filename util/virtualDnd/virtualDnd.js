@@ -14,7 +14,9 @@ export default function virtualDnd() {
   let evnt = new eventUtil();
 
 
-  this.on = evnt.on;
+  this.on = function() {
+    evnt.on.apply(evnt, arguments);
+  }
 
   this.dragStart = (e, el, id) => {
     // #broadcast
@@ -76,7 +78,7 @@ export default function virtualDnd() {
       // greenDropMarker.hide()
       // dfonclk.onInactive(e.target)
       console.log('dnd completed')
-      evnt.dispatch('dragStart', { e })
+      evnt.dispatch('dragEnd', { e })
     }
   }
 
@@ -86,7 +88,7 @@ export default function virtualDnd() {
       if (el.children.length === 0) {
         // place top or bottom inside the element
         let [orientation, closestEl] = closestChild([e.x, e.y], [el]);
-        evnt.dispatch('dragStart', { el, closestEl, orientation, hasChild: el.children.length })
+        evnt.dispatch('dragOver', { el, closestEl, orientation, hasChild: el.children.length })
         // greenDropMarker.draw(el, el, orientation, true);
         // hoverBoxMarker.draw(el)
         // tagNameTooltip.draw(el)
@@ -96,7 +98,7 @@ export default function virtualDnd() {
       else {
         // find closest child and put outside the child element on top or bottom relating to that child,
         let [orientation, closestEl] = closestChild([e.x, e.y], el.children);
-        evnt.dispatch('dragStart', { el, closestEl, orientation, hasChild: el.children.length })
+        evnt.dispatch('dragOver', { el, closestEl, orientation, hasChild: el.children.length })
         // greenDropMarker.draw(el, closestEl, orientation, false);
         // hoverBoxMarker.draw(el)
         // tagNameTooltip.draw(el)
