@@ -1,7 +1,8 @@
-import { dropMarker, boxMarker, boxMarkerTooltip, getCoc } from './util/common'
+import './util/elements';
+import { getCoc } from './util/common';
+import { tagNameTooltip, greenDropMarker, hoverBoxMarker, selectBoxMarker } from './markers';
 import selectorUtil from './util/selectorUtil';
 import VirtualDnd from './util/virtualDnd/virtualDnd';
-import './util/elements';
 
 document.mydnd = {}
 
@@ -34,13 +35,7 @@ const onRemove = (lastEl) => {
 
 
 
-let tagNameTooltip = new boxMarkerTooltip((el) => {
-  let name = el.getAttribute('data-CoC-name');
-  return name ? name : el.tagName;
-});
-let greenDropMarker = new dropMarker();
-let hoverBoxMarker = new boxMarker("CoC-hovered", 1);
-let selectBoxMarker = new boxMarker("CoC-selected", 2);
+
 
 let dfonclk = new differentiateOnClick();
 
