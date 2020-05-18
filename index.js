@@ -13,11 +13,14 @@ document.addEventListener('selectstart', (e) => {
 
 client.onload = () => {
     let clientDocument = client.contentDocument;
+    let clientWindow = client.contentWindow;
+
+
 
 
     let tree = document.getElementById('sortable-dom-tree');
 
-    let myVirtualDom = new virtualDom({ realDom: clientDocument.body, virtualDom: tree });
+    let myVirtualDom = new virtualDom({ realDom: clientDocument.body, virtualDom: tree, document: clientDocument });
 
 
 

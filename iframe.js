@@ -1,10 +1,32 @@
 import './util/elements';
 import { getCoc } from './util/common';
-import { tagNameTooltip, greenDropMarker, hoverBoxMarker, selectBoxMarker } from './markers';
+import { dropMarker, boxMarker, boxMarkerTooltip } from './util/common'
+
 import selectorUtil from './util/selectorUtil';
 import VirtualDnd from './util/virtualDnd/virtualDnd';
+// import { setWindow } from './iframeWindow';
+
 
 document.mydnd = {}
+
+document.send_client = (callback) => callback(document, window)
+
+let tagNameTooltip, greenDropMarker, hoverBoxMarker, selectBoxMarker;
+
+
+tagNameTooltip = new boxMarkerTooltip((el) => {
+  let name = el.getAttribute('data-CoC-name');
+  return name ? name : el.tagName;
+}, window);
+greenDropMarker = new dropMarker();
+hoverBoxMarker = new boxMarker("CoC-hovered", 1);
+selectBoxMarker = new boxMarker("CoC-selected", 2);
+
+
+document.client_object = { tagNameTooltip, greenDropMarker, hoverBoxMarker, selectBoxMarker }
+
+
+
 
 
 let consolePrintedEl = null; // dev
@@ -179,11 +201,13 @@ document.onHostMouseUp = (e) => {
 }
 
 
-
+let vdom = document.getElementById('sortable-dom-tree');
 document.onHostMouseOver = (e) => {
 
-  hoverBoxMarker.hide();
-  tagNameTooltip.hide();
+  if (!vdom.contains(e.target)) {
+    hoverBoxMarker.hide();
+    tagNameTooltip.hide();
+  }
 
   dnd.position = null;
 

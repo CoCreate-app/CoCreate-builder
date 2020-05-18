@@ -80,20 +80,21 @@ export function randomId() {
 
 
 
-export function boxMarkerTooltip(callback) {
+export function boxMarkerTooltip(callback, referenceWindow) {
   let tagBox = createTagBox();
   document.body.append(tagBox);
   this.obj = tagBox;
   this.draw = function(el) {
     tagBox.style.display = "block";
     tagBox.innerHTML = callback(el);
-    let { height, paddingTop } = computeStyles(tagBox, [
+    let { height, paddingTop, paddingBottom } = computeStyles(tagBox, [
       "height",
       "paddingTop",
+      "paddingBottom",
     ]);
     let rect = el.getBoundingClientRect();
     tagBox.style.top =
-      rect.top - borderSize + window.scrollY - height - paddingTop * 2 + "px";
+      rect.top - borderSize + referenceWindow.scrollY - height - paddingTop - paddingBottom + "px";
     tagBox.style.left = rect.left - borderSize + window.scrollX + "px";
   };
 

@@ -4,8 +4,10 @@
  **/
 import collapsible from './collapsible'
 
+
+
 const exclude = ['SCRIPT'];
-export default function virtualDom({ realDom, virtualDom, options }) {
+export default function virtualDom({ realDom, virtualDom, document, options }) {
 
   // set options to this.options and set defualts
   this.options = options ? options : {};
@@ -33,8 +35,18 @@ export default function virtualDom({ realDom, virtualDom, options }) {
       })
 
 
+      virtualEl.addEventListener('mouseover', (e) => {
+        document.send_client((cdocument, cwindow) => {
+          let { hoverBoxMarker, tagNameTooltip } = cdocument.client_object;
+          hoverBoxMarker.draw(el);
+          tagNameTooltip.draw(el);
+        })
+      })
 
-
+      // virtualEl.addEventListener('mouseLeave', (e) => {
+      //   hoverBoxMarker.hide(el);
+      //   tagNameTooltip.hide(el);
+      // })
 
       wrapper.append(virtualEl);
 
