@@ -41,9 +41,7 @@ export default function virtualDom({ realDom, virtualDom, options }) {
 
 
       if (el.children.length) {
-
         virtualEl.classList.add('collapsible')
-
         this.render(el.children, level + 1, wrapper)
       }
 
