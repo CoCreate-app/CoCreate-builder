@@ -16,6 +16,17 @@ client.onload = () => {
     let clientWindow = client.contentWindow;
 
 
+    // hide any hover when its on vdom
+    // perhaps not necessary anymore
+    // let vdom = document.getElementById('sortable-dom-tree');
+    // document.onHostMouseOver = (e) => {
+    //     if (!vdom.contains(e.target)) {
+    //         hoverBoxMarker.hide();
+    //         tagNameTooltip.hide();
+    //     }
+    //     dnd.position = null;
+    // };
+
 
 
     let tree = document.getElementById('sortable-dom-tree');

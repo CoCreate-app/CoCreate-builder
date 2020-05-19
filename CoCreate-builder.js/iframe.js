@@ -204,19 +204,6 @@ document.onHostMouseUp = (e) => {
   dnd.dragEnd(e);
 }
 
-// todo: fix it
-let vdom = document.getElementById('sortable-dom-tree');
-document.onHostMouseOver = (e) => {
-
-  if (!vdom.contains(e.target)) {
-    hoverBoxMarker.hide();
-    tagNameTooltip.hide();
-  }
-
-  dnd.position = null;
-
-};
-
 
 
 document.addEventListener('mouseover', (e) => {
