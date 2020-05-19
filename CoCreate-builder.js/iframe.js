@@ -2,8 +2,9 @@ import './util/elements';
 import { getCoc } from './util/common';
 import { dropMarker, boxMarker, boxMarkerTooltip } from './util/common'
 
-import selectorUtil from './util/selectorUtil';
-import VirtualDnd from './util/virtualDnd/virtualDnd';
+import selectorUtil from '../util/selectorUtil';
+import VirtualDnd from '../CoCreate-dnd.js/dnd';
+
 // import { setWindow } from './iframeWindow';
 
 
