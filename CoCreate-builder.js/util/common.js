@@ -64,7 +64,6 @@ export function getCoc(el, att) {
 
 export function computeStyles(el, properties) {
   let computed = window.getComputedStyle(el);
-  console.log('fff');
   let result = {};
   properties.forEach((property) => {
     result[property] = parseInt(computed[property]);

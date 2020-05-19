@@ -1,12 +1,11 @@
 import './util/elements';
 import { getCoc } from './util/common';
 import { dropMarker, boxMarker, boxMarkerTooltip } from './util/common'
-
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/dnd';
+import '../util/onClickLeftEvent';
 
-// import { setWindow } from './iframeWindow';
-
+let isDraging = false;
 
 document.mydnd = {}
 
@@ -19,6 +18,8 @@ tagNameTooltip = new boxMarkerTooltip((el) => {
   let name = el.getAttribute('data-CoC-name');
   return name ? name : el.tagName;
 }, window);
+
+
 greenDropMarker = new dropMarker();
 hoverBoxMarker = new boxMarker("CoC-hovered", 1);
 selectBoxMarker = new boxMarker("CoC-selected", 2);
@@ -60,7 +61,6 @@ const onRemove = (lastEl) => {
 
 
 
-let dfonclk = new differentiateOnClick();
 
 // &&disable native drag
 document.addEventListener('dragstart', () => {
@@ -80,13 +80,13 @@ document.addEventListener('selectstart', (e) => {
 let dnd = new VirtualDnd();
 
 dnd.on('dragStart', (data) => {
-  dfonclk.onActive(data.e.target)
+
   selectBoxMarker.hide(onRemove)
   greenDropMarker.hide();
 })
 dnd.on('dragEnd', (data) => {
   greenDropMarker.hide()
-  dfonclk.onInactive(data.e.target)
+
 })
 dnd.on('dragOver', (data) => {
   greenDropMarker.draw(data.el, data.closestEl, data.orientation, !data.hasChild);
@@ -169,6 +169,7 @@ document.onHostTouchMove = ({ x, y }) => {
 // touch
 
 
+
 // mouse
 document.addEventListener('mousedown', (e) => {
   console.log('mouse down', e);
@@ -178,6 +179,7 @@ document.addEventListener('mousedown', (e) => {
 
   let el = getCoc(e.target, 'data-CoC-draggable')
   if (!el) return;
+  isDraging = true;
   hoverBoxMarker.hide();
   tagNameTooltip.hide();
   dnd.dragStart(e, el);
@@ -188,6 +190,7 @@ document.addEventListener('mouseup', (e) => {
   console.log('mouse up', e);
   let el = getCoc(e.target, 'data-CoC-hoverable')
   if (!el) return;
+  isDraging = false;
   if (e.which != 1)
     return;
 
@@ -201,7 +204,7 @@ document.onHostMouseUp = (e) => {
   dnd.dragEnd(e);
 }
 
-
+// todo: fix it
 let vdom = document.getElementById('sortable-dom-tree');
 document.onHostMouseOver = (e) => {
 
@@ -231,8 +234,8 @@ document.addEventListener('mouseover', (e) => {
   }
 
   el = getCoc(e.target, 'data-CoC-droppable');
-
-  if (!el || !dfonclk.isDraging) return;
+  // todo:
+  if (!el || !isDraging) return;
   dnd.dragOver(e, el)
 
 
@@ -242,46 +245,11 @@ document.addEventListener('mouseover', (e) => {
 
 
 // not working
-document.addEventListener('click', (e) => {
+document.addEventListener('CoCreateClickLeft', (e) => {
   console.log('dnd: on click', e);
 
-  if (dfonclk.isOnClick) {
-    let el = getCoc(e.target, 'data-CoC-selectable');
-    if (!el) return;
+  let el = getCoc(e.target, 'data-CoC-selectable');
+  if (!el) return;
+  selectBoxMarker.draw(el, onAdd, onRemove);
 
-
-    selectBoxMarker.draw(el, onAdd, onRemove);
-  }
 })
-
-
-function differentiateOnClick() {
-
-  this.isOnClick = false;
-  this.isDraging = false;
-
-  this._lastEl = null;
-  this._time = null;
-  // @param el: el as e.target
-  this.onActive = (el) => {
-    this._lastEl = el;
-    this._time = new Date().getTime()
-    this.isDraging = true;
-  }
-
-
-  // @param el: el as e.target
-  this.onInactive = (el) => {
-
-    let newTime = new Date().getTime();
-    if (this.isDraging) {
-      if (this._lastEl == el && newTime < this._time + 500)
-        this.isOnClick = true;
-      else
-        this.isOnClick = false;
-    }
-    this.isDraging = false;
-
-  }
-
-}
