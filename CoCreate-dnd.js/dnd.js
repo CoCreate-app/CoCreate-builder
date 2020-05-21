@@ -1,4 +1,208 @@
-export default function dnd(window, document) {
+import { dropMarker, boxMarker, boxMarkerTooltip, getCoc } from '../util/common'
+import selectorUtil from '../util/selectorUtil';
+import VirtualDnd from '../CoCreate-dnd.js/virtualDnd';
+import '../util/onClickLeftEvent';
+
+
+
+
+export default function dnd(window, document, options) {
+
+  options = Object.assign({
+
+    tagNameTooltip: new boxMarkerTooltip((el) => {
+      let name = el.getAttribute('data-CoC-name');
+      return name ? name : el.tagName;
+    }, window),
+
+    myDropMarker: new dropMarker(),
+
+    hoverBoxMarker: new boxMarker("CoC-hovered", 1),
+
+    selectBoxMarker: new boxMarker("CoC-selected", 2, {
+      onRemove: (lastEl) => {
+        console.log({
+          comment: 'onUnselect',
+          obj: selectorUtil.cssPath(lastEl),
+          method: 'removeAttribute',
+        });
+
+        lastEl.removeAttribute('data-selected_users')
+      },
+      onAdd: (el) => {
+        console.log({
+          comment: 'onSelect',
+          obj: selectorUtil.cssPath(el),
+          method: 'setAttribute',
+          value: ['id']
+        })
+        el.setAttribute('data-selected_users', 'id')
+      }
+    })
+
+  }, options)
+  // weird bug: dropMarker override the imported dropMarker in the above
+  let { myDropMarker, selectBoxMarker, hoverBoxMarker, tagNameTooltip } = options;
+  let isDraging = false;
+  let consolePrintedEl = null; // dev only
+  //// defining events
+
+  dndReady(document)
+
+  let dnd = new VirtualDnd();
+
+  dnd.on('dragStart', (data) => {
+    selectBoxMarker.hide()
+    myDropMarker.hide();
+  })
+  dnd.on('dragEnd', (data) => {
+    myDropMarker.hide()
+
+  })
+  dnd.on('dragOver', (data) => {
+    myDropMarker.draw(data.el, data.closestEl, data.orientation, !data.hasChild);
+    hoverBoxMarker.draw(data.el)
+    tagNameTooltip.draw(data.el)
+  })
+
+
+
+  function start(e) {
+
+
+    let el = getCoc(e.target, 'data-CoC-draggable')
+    if (!el) return;
+    isDraging = true;
+    hoverBoxMarker.hide();
+    tagNameTooltip.hide();
+    dnd.dragStart(e, el);
+  }
+
+  function end(e) {
+    dnd.dragEnd(e);
+    myDropMarker.hide();
+    hoverBoxMarker.hide();
+    tagNameTooltip.hide();
+    isDraging = false;
+
+
+  }
+
+  function move() {
+    // todo: after defining touch move event do this
+
+  }
+
+
+  // touch
+  document.addEventListener('touchstart', (e) => {
+    console.log('touch start')
+    start(e)
+  })
+
+  document.addEventListener('touchend', (e) => {
+
+    console.log('touch end')
+    end(e)
+
+  })
+  // todo: we should implement touch!!!!!!!!!!!!!! for sort and dnd
+  // document.onHostTouchMove = ({ x, y }) => {
+
+  //   let el = document.elementFromPoint(x, y);
+  //   if (!el) return; // it's out of iframe
+  //   let onEl = el; // dev
+  //   el = getCoc(el, 'data-CoC-droppable');
+  //   if (!el) return;
+
+  //   if (consolePrintedEl != el) { // dev
+  //     // dev
+  //     console.log("you are on: \n", onEl, "\nDroping in: \n", el);
+  //     consolePrintedEl = el;
+  //   }
+
+  //   dnd.dragOver({ x, y }, el)
+
+  // }
+  // touch
+
+  // mouse
+  document.addEventListener('mousedown', (e) => {
+    console.log('mouse down', e);
+
+    if (e.which != 1)
+      return;
+
+    start(e);
+
+  })
+
+
+  document.addEventListener('mouseup', (e) => {
+    console.log('mouse up', e);
+    // todo: why would we check for hoverable and what do we do whith this?
+    // let el = getCoc(e.target, 'data-CoC-hoverable')
+    // if (!el) return;
+    //
+
+    if (e.which != 1)
+      return;
+    end(e)
+
+
+  })
+
+
+  document.addEventListener('mouseover', (e) => {
+    console.log('mouse over')
+    let el = getCoc(e.target, 'data-CoC-hoverable');
+
+    if (!el) {
+      tagNameTooltip.hide(el);
+      hoverBoxMarker.hide(el);
+    }
+    else {
+      hoverBoxMarker.draw(el);
+      tagNameTooltip.draw(el);
+
+    }
+
+    el = getCoc(e.target, 'data-CoC-droppable');
+    // todo:
+    if (!el || !isDraging) return;
+    dnd.dragOver(e, el)
+
+
+  })
+  // mouse
+
+
+  // listen for click
+  document.addEventListener('CoCreateClickLeft', (e) => {
+    // todo: not working!?
+    let el = getCoc(e.target, 'data-CoC-selectable');
+    if (!el) return;
+    selectBoxMarker.draw(el);
+
+  })
+
+
+}
+
+
+
+function dndReady(document) {
+
+  // disable native drag
+  document.addEventListener('dragstart', () => {
+    return false;
+  })
+
+  // disable selection
+  document.addEventListener('selectstart', (e) => {
+    let el = getCoc(e.target, 'data-CoC-draggable')
+    if (el) e.preventDefault();
+  })
 
 
 }
