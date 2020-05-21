@@ -89,24 +89,26 @@ export function boxMarkerTooltip(callback, referenceWindow, options) {
 export function boxMarker(attributeName, priority, options) {
 
   options = Object.assign({}, options)
+  let { onRemove, onAdd } = options;
   this.lastEl = document.head;
 
   this.draw = function(el, callback, lastElCallback) {
     if (el === this.lastEl) return;
     el.setAttribute(attributeName, true);
-    if (callback) callback(el)
-    if (lastElCallback)
-      lastElCallback(this.lastEl)
+    if (onAdd) onAdd(el)
+    if (onRemove)
+      onRemove(this.lastEl)
 
     this.lastEl.removeAttribute(attributeName);
     this.lastEl = el;
 
   };
 
+  // todo: onRemove was onAdd, was that a bug?
   this.hide = function(callback) {
     this.lastEl.removeAttribute(attributeName);
-    if (callback)
-      callback(this.lastEl)
+    if (onRemove)
+      onRemove(this.lastEl)
     this.lastEl = document.head;
   };
 }
