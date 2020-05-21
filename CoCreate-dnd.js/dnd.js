@@ -88,8 +88,21 @@ export default function dnd(window, document, options) {
 
   }
 
-  function move() {
-    // todo: after defining touch move event do this
+  function move({ x, y, target }) {
+
+
+    if (!target || !isDraging) return; // it's out of iframe
+    let onEl = target; // dev
+    if (consolePrintedEl != target) { // dev
+      // dev
+      console.log("you are on: \n", onEl, "\nDroping in: \n", target);
+      consolePrintedEl = target;
+    }
+
+    let el = getCoc(target, 'data-CoC-droppable');
+    // todo:
+    if (!el || !isDraging) return;
+    dnd.dragOver({ x, y }, el)
 
   }
 
@@ -106,24 +119,21 @@ export default function dnd(window, document, options) {
     end(e)
 
   })
-  // todo: we should implement touch!!!!!!!!!!!!!! for sort and dnd
-  // document.onHostTouchMove = ({ x, y }) => {
 
-  //   let el = document.elementFromPoint(x, y);
-  //   if (!el) return; // it's out of iframe
-  //   let onEl = el; // dev
-  //   el = getCoc(el, 'data-CoC-droppable');
-  //   if (!el) return;
 
-  //   if (consolePrintedEl != el) { // dev
-  //     // dev
-  //     console.log("you are on: \n", onEl, "\nDroping in: \n", el);
-  //     consolePrintedEl = el;
-  //   }
+  document.addEventListener('touchmove', (e) => {
 
-  //   dnd.dragOver({ x, y }, el)
+    console.log('host touch move')
 
-  // }
+    let touch = e.touches[0];
+    let x = touch.clientX;
+    let y = touch.clientY;
+    let el = document.elementFromPoint(x, y);
+    if (!el) return; // it's out of iframe
+    move({ x, y, target: el })
+
+
+  })
   // touch
 
   // mouse
@@ -167,10 +177,7 @@ export default function dnd(window, document, options) {
 
     }
 
-    el = getCoc(e.target, 'data-CoC-droppable');
-    // todo:
-    if (!el || !isDraging) return;
-    dnd.dragOver(e, el)
+    move(e)
 
 
   })
