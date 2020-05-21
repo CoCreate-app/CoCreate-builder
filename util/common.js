@@ -115,7 +115,7 @@ export function boxMarker(attributeName, priority, options) {
 
 export function dropMarker(options) {
 
-  options = Object.assign({ borderSize: 2, markerWidth: 5 }, options)
+  options = Object.assign({ borderSize: 2, dropMarkerMargin: 5 }, options)
   let marker = document.createElement("div");
   marker.id = "marker";
   marker.style.backgroundColor = "green";
