@@ -11,13 +11,14 @@ module.exports = {
   // Path to your entry point. From this file Webpack will begin his work
   entry: {
     'CoCreate-builder': './CoCreate-builder.js/index.js',
-    'CoCreate-builder-iframe': './CoCreate-builder.js/iframe.js'
+    'CoCreate-builder-iframe': './CoCreate-builder.js/iframe.js',
+    'demo1': './CoCreate-dnd.js/demo1.js'
   },
 
   // Path and filename of your result bundle.
   // Webpack will bundle all JavaScript into this file
   output: {
-    path: path.resolve(__dirname, 'CoCreate-builder.js/dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'
   },
 
