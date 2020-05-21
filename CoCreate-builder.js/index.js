@@ -1,8 +1,17 @@
 /*global DOMParser*/
 import { parse, getCoc } from './util/common';
 import virtualDom from './util/virtualDom';
-
+import VirtualDnd from '../CoCreate-dnd.js/dnd';
+import { dropMarker, boxMarker, boxMarkerTooltip } from './util/common'
 let client = document.getElementById('client');
+
+
+
+let greenDropMarker, selectBoxMarker;
+
+
+greenDropMarker = new dropMarker();
+selectBoxMarker = new boxMarker("CoC-selected", 2);
 
 document.addEventListener('selectstart', (e) => {
     let el = getCoc(e.target, 'data-CoC-draggable')
@@ -29,10 +38,69 @@ client.onload = () => {
 
 
 
+
+
     let tree = document.getElementById('sortable-dom-tree');
 
     let myVirtualDom = new virtualDom({ realDom: clientDocument.body, virtualDom: tree, document: clientDocument });
 
+
+    // setup sorting for vdom
+    let dnd = new VirtualDnd();
+    dnd.on('dragStart', (data) => {
+
+        selectBoxMarker.hide()
+        greenDropMarker.hide();
+    })
+    dnd.on('dragEnd', (data) => {
+        greenDropMarker.hide()
+
+    })
+    dnd.on('dragOver', (data) => {
+        greenDropMarker.draw(data.el, data.closestEl, data.orientation, !data.hasChild);
+
+    })
+
+    let isDraging = false;
+    tree.addEventListener('mousedown', (e) => {
+        console.log('mouse down', e);
+
+        if (e.which != 1)
+            return;
+
+        let el = getCoc(e.target, 'data-CoC-draggable')
+        if (!el) return;
+        isDraging = true;
+
+        dnd.dragStart(e, el);
+    })
+
+
+    tree.addEventListener('mouseup', (e) => {
+        console.log('mouse up', e);
+        let el = getCoc(e.target, 'data-CoC-hoverable')
+        if (e.which != 1)
+            return;
+        if (!el) return;
+        isDraging = false;
+        if (e.which != 1)
+            return;
+
+        dnd.dragEnd(e)
+
+
+    })
+
+
+
+    tree.addEventListener('mouseover', (e) => {
+        console.log('mouse over')
+        let el = getCoc(e.target, 'data-CoC-droppable');
+        // todo:
+        if (!el || !isDraging) return;
+        dnd.dragOver(e, el)
+    })
+    // setup sorting for vdom
 
 
 

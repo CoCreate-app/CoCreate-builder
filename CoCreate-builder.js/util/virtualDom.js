@@ -48,6 +48,7 @@ export default function virtualDom({ realDom, virtualDom, document, options }) {
       //   tagNameTooltip.hide(el);
       // })
 
+      wrapper.setAttribute('data-CoC-droppable', true);
       wrapper.append(virtualEl);
 
 
@@ -67,6 +68,9 @@ export default function virtualDom({ realDom, virtualDom, document, options }) {
 
     let treeItem = document.createElement('div');
     treeItem.classList.add('sortable-item');
+
+    treeItem.setAttribute('data-CoC-draggable', true);
+
 
 
 
