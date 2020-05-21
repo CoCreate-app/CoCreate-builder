@@ -1,8 +1,8 @@
 /*global DOMParser*/
-import { parse, getCoc } from './util/common';
+
 import virtualDom from './util/virtualDom';
 import VirtualDnd from '../CoCreate-dnd.js/dnd';
-import { dropMarker, boxMarker, boxMarkerTooltip } from './util/common'
+import { dropMarker, boxMarker, boxMarkerTooltip, parse, getCoc } from '../util/common'
 let client = document.getElementById('client');
 
 
@@ -126,7 +126,7 @@ client.onload = () => {
 
     (function injectScript() {
 
-        let scripts = ['dist/CoCreate-builder-iframe.js'];
+        let scripts = ['../dist/CoCreate-builder-iframe.js'];
         for (let i = 0, len = scripts.length; i < len; i++) {
 
             let script = document.createElement('script');

@@ -1,6 +1,6 @@
 import './util/elements';
-import { getCoc } from './util/common';
-import { dropMarker, boxMarker, boxMarkerTooltip } from './util/common'
+
+import { dropMarker, boxMarker, boxMarkerTooltip, getCoc } from '../util/common'
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/dnd';
 import '../util/onClickLeftEvent';
