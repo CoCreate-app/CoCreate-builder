@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CoCreate-dnd.js</title>
   <style>
-    /* dnd specic */
-
     .sortable-item {
       background-color: white;
       border-bottom: 1px solid gray;
@@ -27,6 +25,12 @@
     .sortable-item.layer-hidden {
       opacity: .5;
     }
+
+    .myinline {
+      display: inline-block;
+    }
+
+    /* dnd specic */
 
     [data-CoC-draggable] {
       cursor: pointer;
@@ -105,15 +109,15 @@
 
 
   <div data-CoC-droppable="true">
-    <span data-CoC-draggable="true" class="block">example block 1</span>
-    <span data-CoC-draggable="true" class="block">example block 2</span>
-    <span data-CoC-draggable="true" class="block">example block 3</span>
+    <div data-CoC-draggable="true" class="block myinline">example block 1</div>
+    <div data-CoC-draggable="true" class="block myinline">example block 2</div>
+    <div data-CoC-draggable="true" class="block myinline">example block 3</div>
     <div data-CoC-draggable="true" class="block">example block 4</div>
     <div data-CoC-draggable="true" class="block">example block 5</div>
     <div data-CoC-draggable="true" class="block">example block 6</div>
-    <span data-CoC-draggable="true" class="block">example block 7</span>
-    <span data-CoC-draggable="true" class="block">example block 8</span>
-    <span data-CoC-draggable="true" class="block">example block 9</span>
+    <div data-CoC-draggable="true" class="block myinline">example block 7</div>
+    <div data-CoC-draggable="true" class="block myinline">example block 8</div>
+    <div data-CoC-draggable="true" class="block myinline">example block 9</div>
   </div>
 
 
