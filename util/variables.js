@@ -1,4 +1,4 @@
-export const droppable = "droppable";
+export const droppable = "data-CoC-droppable";
 export const draggable = "data-CoC-draggable";
 export const selectable = "data-CoC-selectable";
 export const editable = "data-CoC-editable";
