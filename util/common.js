@@ -211,14 +211,13 @@ export function parse(text) {
 }
 
 
-export function ghostEffect(e, el, referenceDocument, referenceWindow) {
+export function ghostEffect(e, el, referenceDocument) {
   this.effectCb
   this.draw = () => {
     if (!referenceDocument)
       referenceDocument = document;
 
-    if (!referenceWindow)
-      referenceWindow = window;
+
 
 
     let cloneEl = el.cloneNode(true);
@@ -244,8 +243,8 @@ export function ghostEffect(e, el, referenceDocument, referenceWindow) {
       'marginRight',
     ]);
 
-    cloneEl.style.top = referenceWindow.scrollY + e.clientY - (rect.height + marginTop + marginBottom) / 2;
-    cloneEl.style.left = referenceWindow.scrollX + e.clientX - (rect.width + marginLeft + marginRight) / 2;
+    cloneEl.style.top = e.clientY - (rect.height + marginTop + marginBottom) / 2;
+    cloneEl.style.left = e.clientX - (rect.width + marginLeft + marginRight) / 2;
     cloneEl.style.visibility = 'visible';
 
     this.effectCb = (e) => {
@@ -258,8 +257,8 @@ export function ghostEffect(e, el, referenceDocument, referenceWindow) {
         'marginRight',
       ]);
 
-      cloneEl.style.top = referenceWindow.scrollY + e.clientY - (rect.height + marginTop + marginBottom) / 2;
-      cloneEl.style.left = referenceWindow.scrollX + e.clientX - (rect.width + marginLeft + marginRight) / 2;
+      cloneEl.style.top = e.clientY - (rect.height + marginTop + marginBottom) / 2;
+      cloneEl.style.left = e.clientX - (rect.width + marginLeft + marginRight) / 2;
 
 
     }
