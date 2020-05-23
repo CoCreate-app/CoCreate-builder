@@ -1,4 +1,4 @@
-import { dropMarker, boxMarker, boxMarkerTooltip, getCoc } from '../util/common'
+import { dropMarker, boxMarker, boxMarkerTooltip, getCoc, ghostEffect } from '../util/common'
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/virtualDnd';
 import '../util/onClickLeftEvent';
@@ -65,13 +65,17 @@ export default function dnd(window, document, options) {
     tagNameTooltip.draw(data.el)
   })
 
-
+  let ghost;
 
   function start(e) {
 
 
     let el = getCoc(e.target, 'data-CoC-draggable')
     if (!el) return;
+
+    ghost = new ghostEffect(e, el);
+    ghost.draw()
+
     isDraging = true;
     hoverBoxMarker.hide();
     tagNameTooltip.hide();
@@ -79,6 +83,7 @@ export default function dnd(window, document, options) {
   }
 
   function end(e) {
+    ghost.hide()
     dnd.dragEnd(e);
     myDropMarker.hide();
     hoverBoxMarker.hide();

@@ -209,3 +209,65 @@ export function parse(text) {
   else
     return doc.body.children[0];
 }
+
+
+export function ghostEffect(e, el, referenceDocument, referenceWindow) {
+  this.effectCb
+  this.draw = () => {
+    if (!referenceDocument)
+      referenceDocument = document;
+
+    if (!referenceWindow)
+      referenceWindow = window;
+
+
+    let cloneEl = el.cloneNode(true);
+
+    cloneEl.style.visibility = 'hidden';
+    referenceDocument.body.append(cloneEl)
+
+    cloneEl.style.pointerEvents = 'none';
+    cloneEl.style.overflow = 'hidden'
+    cloneEl.style.textOverflow = 'ellipsis'
+    cloneEl.style.whiteSpace = 'nowrap'
+    let rect = cloneEl.getBoundingClientRect();
+    cloneEl.style.opacity = '0.8';
+    cloneEl.style.position = 'fixed';
+    cloneEl.style.Zindex = '2000';
+    cloneEl.id = 'ghost-effect';
+
+    let { marginTop, marginBottom, marginLeft, marginRight } = computeStyles(cloneEl, [
+
+      'marginTop',
+      'marginBottom',
+      'marginLeft',
+      'marginRight',
+    ]);
+
+    cloneEl.style.top = referenceWindow.scrollY + e.clientY - (rect.height + marginTop + marginBottom) / 2;
+    cloneEl.style.left = referenceWindow.scrollX + e.clientX - (rect.width + marginLeft + marginRight) / 2;
+    cloneEl.style.visibility = 'visible';
+
+    this.effectCb = (e) => {
+      let rect = cloneEl.getBoundingClientRect();
+      let { marginTop, marginBottom, marginLeft, marginRight } = computeStyles(cloneEl, [
+
+        'marginTop',
+        'marginBottom',
+        'marginLeft',
+        'marginRight',
+      ]);
+
+      cloneEl.style.top = referenceWindow.scrollY + e.clientY - (rect.height + marginTop + marginBottom) / 2;
+      cloneEl.style.left = referenceWindow.scrollX + e.clientX - (rect.width + marginLeft + marginRight) / 2;
+
+
+    }
+    referenceDocument.addEventListener('mousemove', this.effectCb)
+  }
+
+  this.hide = () => {
+    referenceDocument.getElementById('ghost-effect').remove()
+    referenceDocument.removeEventListener('mousemove', this.effectCb)
+  }
+}
