@@ -1,4 +1,4 @@
-import { dropMarker, boxMarker, boxMarkerTooltip, getCoc, ghostEffect } from '../util/common'
+import { dropMarker, boxMarker, boxMarkerTooltip, getCoc, ghostEffect, getGroupName } from '../util/common'
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/virtualDnd';
 import '../util/onClickLeftEvent';
@@ -66,12 +66,19 @@ export default function dnd(window, document, options) {
   })
 
   let ghost;
+  let startGroup;
 
   function start(e) {
 
 
     let el = getCoc(e.target, 'data-CoC-draggable')
     if (!el) return;
+
+    // get group
+    startGroup = getGroupName(el)
+
+
+
     document.body.style.cursor = 'crosshair !important'
 
     ghost = new ghostEffect(e, el);
@@ -97,7 +104,7 @@ export default function dnd(window, document, options) {
 
   function move({ x, y, target }) {
 
-
+    if (startGroup != getGroupName(target)) return;
     if (!target || !isDraging) return; // it's out of iframe
     let onEl = target; // dev
     if (consolePrintedEl != target) { // dev

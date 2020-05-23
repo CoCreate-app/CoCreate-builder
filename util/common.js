@@ -31,6 +31,17 @@ export function getCoc(el, att) {
 
 
 
+export function getGroupName(el) {
+  if (!el.tagName)
+    el = el.parentElement;
+  do {
+    let groupName = el.getAttribute('data-group_name');
+    if (groupName) return groupName;
+    el = el.parentElement;
+    if (!el) return "";
+  } while (true);
+}
+
 
 export function computeStyles(el, properties) {
   let computed = window.getComputedStyle(el);
