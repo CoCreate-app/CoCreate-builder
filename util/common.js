@@ -113,36 +113,40 @@ export function boxMarker(attributeName, priority, options) {
   };
 }
 
-
-
+let lasttransition = "none";
 export function dropMarker(options) {
 
   options = Object.assign({ borderSize: 2, dropMarkerMargin: 5 }, options)
   let marker = document.createElement("div");
   marker.id = "marker";
   marker.style.backgroundColor = "green";
-  marker.style.transition = "all 0.2s ease-in-out";
   marker.style.position = "absolute";
   marker.style.display = "none";
   marker.style.pointerEvents = 'none';
 
 
-  this.lastOrigntaion = undefined;
 
+  this.lastOrigntaion = undefined;
 
   document.body.append(marker);
   this.obj = marker;
+
   this.draw = function(parent, el, orientation, isInside) {
-
-
     marker.style.display = "block";
 
+
+    console.log(marker.style.transition)
+
+
+
+    marker.style.transition = "none";
     let rect = el.getBoundingClientRect();
     switch (orientation) {
       case 'top':
       case 'bottom':
-        marker.style.width = rect.width + "px";
+        // order is important to fix rectangle bug
         marker.style.height = options.borderSize + "px";
+        marker.style.width = rect.width + "px";
         break;
       case 'left':
       case 'right':
@@ -154,24 +158,7 @@ export function dropMarker(options) {
     }
 
 
-    // switch (orientation) {
-    //   case 'top':
-    //   case 'bottom':
-    //     if (!this.lastOrigntaion || this.lastOrigntaion == 'left' || this.lastOrigntaion == "right")
-    //       marker.style.transition = 'none';
-    //     else
-    //       marker.style.transition = "all 0.2s ease-in-out";
-    //     break;
-    //   case 'left':
-    //   case 'right':
-    //     if (!this.lastOrigntaion || this.lastOrigntaion == 'top' || this.lastOrigntaion == "bottom")
-    //       marker.style.transition = 'none';
-    //     else
-    //       marker.style.transition = "all 0.2s ease-in-out";
-    //     break;
-    //   default:
-    //     throw new Error('one type of orientation must be specified');
-    // }
+    marker.style.transition = "top,left 0.2s ease-in-out"
 
     if (parent != el) {
       let prect = parent.getBoundingClientRect();
@@ -180,6 +167,8 @@ export function dropMarker(options) {
       if (Math.abs(parentSize - childSize) < options.dropMarkerMargin * 2)
         isInside = true;
     }
+
+
 
     switch (orientation) {
       case 'top':
@@ -204,6 +193,7 @@ export function dropMarker(options) {
     }
     // marker.style.transition = "all 0.2s ease-in-out";
     this.lastOrigntaion = orientation;
+
   }
 
   this.hide = function(el) {
