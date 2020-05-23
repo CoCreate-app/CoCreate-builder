@@ -177,7 +177,7 @@ export default function dnd(window, document, options) {
   })
 
 
-  document.addEventListener('mouseover', (e) => {
+  document.addEventListener('mousemove', (e) => {
     console.log('mouse over')
     let el = getCoc(e.target, 'data-CoC-hoverable');
 
