@@ -2,7 +2,7 @@ import { dropMarker, boxMarker, boxMarkerTooltip, getCoc, ghostEffect, getGroupN
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/virtualDnd';
 import '../util/onClickLeftEvent';
-import { droppable, draggable, selectable } from '../util/variables.js'
+import { droppable, draggable, selectable, hoverable } from '../util/variables.js'
 
 
 
@@ -165,7 +165,7 @@ export default function dnd(window, document, options) {
   document.addEventListener('mouseup', (e) => {
     console.log('mouse up', e);
     // todo: why would we check for hoverable and what do we do whith this?
-    // let el = getCoc(e.target, 'data-CoC-hoverable')
+    // let el = getCoc(e.target, hoverable)
     // if (!el) return;
     //
 
@@ -179,7 +179,7 @@ export default function dnd(window, document, options) {
 
   document.addEventListener('mousemove', (e) => {
     console.log('mouse over')
-    let el = getCoc(e.target, 'data-CoC-hoverable');
+    let el = getCoc(e.target, hoverable);
 
     if (!el) {
       tagNameTooltip.hide(el);

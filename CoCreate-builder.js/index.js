@@ -4,7 +4,7 @@ import virtualDom from './util/virtualDom';
 import VirtualDnd from '../CoCreate-dnd.js/dnd';
 import { dropMarker, boxMarker, boxMarkerTooltip, parse, getCoc } from '../util/common'
 let client = document.getElementById('client');
-import { droppable, draggable } from '../util/variables.js'
+import { droppable, draggable, hoverable } from '../util/variables.js'
 
 
 let greenDropMarker, selectBoxMarker;
@@ -78,7 +78,7 @@ client.onload = () => {
 
     tree.addEventListener('mouseup', (e) => {
         console.log('mouse up', e);
-        let el = getCoc(e.target, 'data-CoC-hoverable')
+        let el = getCoc(e.target, hoverable)
         if (e.which != 1)
             return;
         if (!el) return;

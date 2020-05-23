@@ -1,4 +1,4 @@
-import { droppable, draggable, selectable, editable } from '../../util/variables.js'
+import { droppable, draggable, selectable, editable, hoverable } from '../../util/variables.js'
 
 function domEditor({ obj, selector_type, selector, method, index, property, sub_property, value }) {
 
@@ -105,7 +105,7 @@ function element(type, { displayName, selector, classes, attributtes, draggable,
   if (typeof droppable === 'string') dataset[droppable] = droppable;
   if (typeof selectable === 'string') dataset[selectable] = selectable;
   if (typeof editable === 'string') dataset[editable] = editable;
-  if (typeof hoverable === 'string') dataset['data-CoC-hoverable'] = hoverable;
+  if (typeof hoverable === 'string') dataset[hoverable] = hoverable;
 
   domEditor({ selector_type: 'querySelectorAll', selector, method: 'setAttribute', value: dataset });
   // unkown use case and cause exception! I will make them work in a way that corresponds our requirement when needed

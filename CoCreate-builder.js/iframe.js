@@ -4,7 +4,7 @@ import { dropMarker, boxMarker, boxMarkerTooltip, getCoc } from '../util/common'
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/dnd';
 import '../util/onClickLeftEvent';
-import { droppable, draggable, selectable } from '../util/variables.js'
+import { droppable, draggable, selectable, hoverable } from '../util/variables.js'
 let isDraging = false;
 
 document.mydnd = {}
@@ -188,7 +188,7 @@ document.addEventListener('mousedown', (e) => {
 
 document.addEventListener('mouseup', (e) => {
   console.log('mouse up', e);
-  let el = getCoc(e.target, 'data-CoC-hoverable')
+  let el = getCoc(e.target, hoverable)
   if (!el) return;
   isDraging = false;
   if (e.which != 1)
@@ -208,7 +208,7 @@ document.onHostMouseUp = (e) => {
 
 document.addEventListener('mouseover', (e) => {
   console.log('mouse over')
-  let el = getCoc(e.target, 'data-CoC-hoverable');
+  let el = getCoc(e.target, hoverable);
 
   if (!el) {
     tagNameTooltip.hide(el);
