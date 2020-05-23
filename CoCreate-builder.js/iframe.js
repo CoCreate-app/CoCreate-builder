@@ -4,7 +4,7 @@ import { dropMarker, boxMarker, boxMarkerTooltip, getCoc } from '../util/common'
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/dnd';
 import '../util/onClickLeftEvent';
-import { droppable, draggable, selectable, hoverable } from '../util/variables.js'
+import { droppable, draggable, selectable, hoverable, name } from '../util/variables.js'
 let isDraging = false;
 
 document.mydnd = {}
@@ -15,7 +15,7 @@ let tagNameTooltip, greenDropMarker, hoverBoxMarker, selectBoxMarker;
 
 
 tagNameTooltip = new boxMarkerTooltip((el) => {
-  let name = el.getAttribute('data-CoC-name');
+  let name = el.getAttribute(name);
   return name ? name : el.tagName;
 }, window);
 

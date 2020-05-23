@@ -36,7 +36,7 @@ var CoCreateSort = {
       return ;
     }
 
-    let group = el.getAttribute('data-group_name');
+    let group = el.getAttribute(group_name);
     let obj = this.makeObject(el, {
       group: {
         name: group,

@@ -2,7 +2,7 @@ import { dropMarker, boxMarker, boxMarkerTooltip, getCoc, ghostEffect, getGroupN
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/virtualDnd';
 import '../util/onClickLeftEvent';
-import { droppable, draggable, selectable, hoverable } from '../util/variables.js'
+import { droppable, draggable, selectable, hoverable, name } from '../util/variables.js'
 
 
 
@@ -11,7 +11,7 @@ export default function dnd(window, document, options) {
   options = Object.assign({
 
     tagNameTooltip: new boxMarkerTooltip((el) => {
-      let name = el.getAttribute('data-CoC-name');
+      let name = el.getAttribute(name);
       return name ? name : el.tagName;
     }, window),
 

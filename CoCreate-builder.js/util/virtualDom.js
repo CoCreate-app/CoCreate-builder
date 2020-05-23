@@ -3,7 +3,7 @@
  * on hide element, the row get .layer-hidden
  **/
 import collapsible from './collapsible'
-import { droppable, draggable } from '../../util/variables.js'
+import { droppable, draggable, name } from '../../util/variables.js'
 
 
 const exclude = ['SCRIPT'];
@@ -26,7 +26,7 @@ export default function virtualDom({ realDom, virtualDom, document, options }) {
 
 
 
-      let displayName = el.getAttribute('data-CoC-name');
+      let displayName = el.getAttribute(name);
       let virtualEl = this.createVirtualElement({
         name: (displayName ? displayName : el.tagName),
         isParent: el.children.length,

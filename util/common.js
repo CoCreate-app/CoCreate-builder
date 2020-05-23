@@ -1,3 +1,5 @@
+import { group_name } from './variables';
+
 export function createBlockMarker(border = "2px solid blue") {
   let marker = document.createElement("div");
   marker.id = "block-marker";
@@ -35,7 +37,7 @@ export function getGroupName(el) {
   if (!el.tagName)
     el = el.parentElement;
   do {
-    let groupName = el.getAttribute('data-group_name');
+    let groupName = el.getAttribute(group_name);
     if (groupName) return groupName;
     el = el.parentElement;
     if (!el) return "";
