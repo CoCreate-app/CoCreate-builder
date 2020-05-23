@@ -72,6 +72,7 @@ export default function dnd(window, document, options) {
 
     let el = getCoc(e.target, 'data-CoC-draggable')
     if (!el) return;
+    document.body.style.cursor = 'crosshair !important'
 
     ghost = new ghostEffect(e, el);
     ghost.draw()
@@ -83,6 +84,7 @@ export default function dnd(window, document, options) {
   }
 
   function end(e) {
+    document.body.style.cursor = ''
     ghost.hide()
     dnd.dragEnd(e);
     myDropMarker.hide();
