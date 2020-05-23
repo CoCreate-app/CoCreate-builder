@@ -2,7 +2,7 @@ import { dropMarker, boxMarker, boxMarkerTooltip, getCoc, ghostEffect, getGroupN
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/virtualDnd';
 import '../util/onClickLeftEvent';
-import { droppable, draggable } from '../util/variables.js'
+import { droppable, draggable, selectable } from '../util/variables.js'
 
 
 
@@ -201,7 +201,7 @@ export default function dnd(window, document, options) {
   // listen for click
   document.addEventListener('CoCreateClickLeft', (e) => {
     // todo: not working!?
-    let el = getCoc(e.target, 'data-CoC-selectable');
+    let el = getCoc(e.target, selectable);
     if (!el) return;
     selectBoxMarker.draw(el);
 

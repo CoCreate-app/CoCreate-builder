@@ -4,7 +4,7 @@ import { dropMarker, boxMarker, boxMarkerTooltip, getCoc } from '../util/common'
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/dnd';
 import '../util/onClickLeftEvent';
-import { droppable, draggable } from '../util/variables.js'
+import { droppable, draggable, selectable } from '../util/variables.js'
 let isDraging = false;
 
 document.mydnd = {}
@@ -235,7 +235,7 @@ document.addEventListener('mouseover', (e) => {
 document.addEventListener('CoCreateClickLeft', (e) => {
   console.log('dnd: on click', e);
 
-  let el = getCoc(e.target, 'data-CoC-selectable');
+  let el = getCoc(e.target, selectable);
   if (!el) return;
   selectBoxMarker.draw(el, onAdd, onRemove);
 
