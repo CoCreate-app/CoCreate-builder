@@ -4,7 +4,7 @@ import virtualDom from './util/virtualDom';
 import VirtualDnd from '../CoCreate-dnd.js/dnd';
 import { dropMarker, boxMarker, boxMarkerTooltip, parse, getCoc } from '../util/common'
 let client = document.getElementById('client');
-import { droppable } from '../util/variables.js'
+import { droppable, draggable } from '../util/variables.js'
 
 
 let greenDropMarker, selectBoxMarker;
@@ -14,7 +14,7 @@ greenDropMarker = new dropMarker();
 selectBoxMarker = new boxMarker("CoC-selected", 2);
 
 document.addEventListener('selectstart', (e) => {
-    let el = getCoc(e.target, 'data-CoC-draggable')
+    let el = getCoc(e.target, draggable)
     if (el) e.preventDefault();
 })
 
@@ -68,7 +68,7 @@ client.onload = () => {
         if (e.which != 1)
             return;
 
-        let el = getCoc(e.target, 'data-CoC-draggable')
+        let el = getCoc(e.target, draggable)
         if (!el) return;
         isDraging = true;
 
@@ -105,7 +105,7 @@ client.onload = () => {
 
 
     function dragStart(e) {
-        let el = getCoc(e.target, 'data-CoC-draggable');
+        let el = getCoc(e.target, draggable);
         if (!el) return;
         let insertEl
         let html = el.getAttribute('data-insert-html');

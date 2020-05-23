@@ -1,4 +1,4 @@
-import { droppable } from '../../util/variables.js'
+import { droppable, draggable } from '../../util/variables.js'
 
 function domEditor({ obj, selector_type, selector, method, index, property, sub_property, value }) {
 
@@ -101,7 +101,7 @@ function element(type, { displayName, selector, classes, attributtes, draggable,
     "data-CoC-type": type, // type calendar
     "data-CoC-name": displayName ? displayName : ''
   };
-  if (typeof draggable === 'string') dataset['data-CoC-draggable'] = draggable;
+  if (typeof draggable === 'string') dataset[draggable] = draggable;
   if (typeof droppable === 'string') dataset[droppable] = droppable;
   if (typeof selectable === 'string') dataset['data-CoC-selectable'] = selectable;
   if (typeof editable === 'string') dataset['data-CoC-editable'] = editable;

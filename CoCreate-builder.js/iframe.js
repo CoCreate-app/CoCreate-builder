@@ -4,7 +4,7 @@ import { dropMarker, boxMarker, boxMarkerTooltip, getCoc } from '../util/common'
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/dnd';
 import '../util/onClickLeftEvent';
-import { droppable } from '../util/variables.js'
+import { droppable, draggable } from '../util/variables.js'
 let isDraging = false;
 
 document.mydnd = {}
@@ -68,7 +68,7 @@ document.addEventListener('dragstart', () => {
 })
 
 document.addEventListener('selectstart', (e) => {
-  let el = getCoc(e.target, 'data-CoC-draggable')
+  let el = getCoc(e.target, draggable)
   if (el) e.preventDefault();
 })
 // &&disable native drag
@@ -100,7 +100,7 @@ document.mydnd = dnd;
 // touch
 document.addEventListener('touchstart', (e) => {
   console.log('touch start')
-  let el = getCoc(e.target, 'data-CoC-draggable')
+  let el = getCoc(e.target, draggable)
   if (!el) return;
   dnd.dragStart(e, el)
 
@@ -177,7 +177,7 @@ document.addEventListener('mousedown', (e) => {
   if (e.which != 1)
     return;
 
-  let el = getCoc(e.target, 'data-CoC-draggable')
+  let el = getCoc(e.target, draggable)
   if (!el) return;
   isDraging = true;
   hoverBoxMarker.hide();

@@ -3,7 +3,7 @@
  * on hide element, the row get .layer-hidden
  **/
 import collapsible from './collapsible'
-import { droppable } from '../../util/variables.js'
+import { droppable, draggable } from '../../util/variables.js'
 
 
 const exclude = ['SCRIPT'];
@@ -69,7 +69,7 @@ export default function virtualDom({ realDom, virtualDom, document, options }) {
     let treeItem = document.createElement('div');
     treeItem.classList.add('sortable-item');
 
-    treeItem.setAttribute('data-CoC-draggable', true);
+    treeItem.setAttribute(draggable, true);
 
 
 

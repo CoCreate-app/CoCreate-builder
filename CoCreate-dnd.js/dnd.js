@@ -2,7 +2,7 @@ import { dropMarker, boxMarker, boxMarkerTooltip, getCoc, ghostEffect, getGroupN
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/virtualDnd';
 import '../util/onClickLeftEvent';
-import { droppable } from '../util/variables.js'
+import { droppable, draggable } from '../util/variables.js'
 
 
 
@@ -71,7 +71,7 @@ export default function dnd(window, document, options) {
   function start(e) {
 
 
-    let el = getCoc(e.target, 'data-CoC-draggable')
+    let el = getCoc(e.target, draggable)
     if (!el) return;
 
     // get group
@@ -221,7 +221,7 @@ function dndReady(document) {
 
   // disable selection
   document.addEventListener('selectstart', (e) => {
-    let el = getCoc(e.target, 'data-CoC-draggable')
+    let el = getCoc(e.target, draggable)
     if (el) e.preventDefault();
   })
 
