@@ -2,7 +2,7 @@ import { dropMarker, boxMarker, boxMarkerTooltip, getCoc, ghostEffect, getGroupN
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/virtualDnd';
 import '../util/onClickLeftEvent';
-
+import { droppable } from '../util/variables.js'
 
 
 
@@ -113,7 +113,7 @@ export default function dnd(window, document, options) {
       consolePrintedEl = target;
     }
 
-    let el = getCoc(target, 'data-CoC-droppable');
+    let el = getCoc(target, droppable);
     // todo:
     if (!el || !isDraging) return;
     dnd.dragOver({ x, y }, el)

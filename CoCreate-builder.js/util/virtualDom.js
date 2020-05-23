@@ -3,7 +3,7 @@
  * on hide element, the row get .layer-hidden
  **/
 import collapsible from './collapsible'
-
+import { droppable } from '../../util/variables.js'
 
 
 const exclude = ['SCRIPT'];
@@ -48,7 +48,7 @@ export default function virtualDom({ realDom, virtualDom, document, options }) {
       //   tagNameTooltip.hide(el);
       // })
 
-      wrapper.setAttribute('data-CoC-droppable', true);
+      wrapper.setAttribute(droppable, true);
       wrapper.append(virtualEl);
 
 

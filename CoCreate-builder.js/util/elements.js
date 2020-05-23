@@ -1,3 +1,5 @@
+import { droppable } from '../../util/variables.js'
+
 function domEditor({ obj, selector_type, selector, method, index, property, sub_property, value }) {
 
   if (!obj) {
@@ -100,7 +102,7 @@ function element(type, { displayName, selector, classes, attributtes, draggable,
     "data-CoC-name": displayName ? displayName : ''
   };
   if (typeof draggable === 'string') dataset['data-CoC-draggable'] = draggable;
-  if (typeof droppable === 'string') dataset['data-CoC-droppable'] = droppable;
+  if (typeof droppable === 'string') dataset[droppable] = droppable;
   if (typeof selectable === 'string') dataset['data-CoC-selectable'] = selectable;
   if (typeof editable === 'string') dataset['data-CoC-editable'] = editable;
   if (typeof hoverable === 'string') dataset['data-CoC-hoverable'] = hoverable;

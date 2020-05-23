@@ -4,7 +4,7 @@ import { dropMarker, boxMarker, boxMarkerTooltip, getCoc } from '../util/common'
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/dnd';
 import '../util/onClickLeftEvent';
-
+import { droppable } from '../util/variables.js'
 let isDraging = false;
 
 document.mydnd = {}
@@ -136,7 +136,7 @@ document.addEventListener('touchmove', (e) => {
   let el = document.elementFromPoint(x, y);
 
   let onEl = el; // dev
-  el = getCoc(el, 'data-CoC-droppable');
+  el = getCoc(el, droppable);
   if (!el) return;
 
   if (consolePrintedEl != el) {
@@ -154,7 +154,7 @@ document.onHostTouchMove = ({ x, y }) => {
   let el = document.elementFromPoint(x, y);
   if (!el) return; // it's out of iframe
   let onEl = el; // dev
-  el = getCoc(el, 'data-CoC-droppable');
+  el = getCoc(el, droppable);
   if (!el) return;
 
   if (consolePrintedEl != el) { // dev
@@ -220,7 +220,7 @@ document.addEventListener('mouseover', (e) => {
 
   }
 
-  el = getCoc(e.target, 'data-CoC-droppable');
+  el = getCoc(e.target, droppable);
   // todo:
   if (!el || !isDraging) return;
   dnd.dragOver(e, el)
