@@ -146,11 +146,7 @@ export function dropMarker(options) {
     marker.style.display = "block";
 
 
-    console.log(marker.style.transition)
 
-
-
-    marker.style.transition = "none";
     let rect = el.getBoundingClientRect();
     switch (orientation) {
       case 'top':
@@ -169,7 +165,7 @@ export function dropMarker(options) {
     }
 
 
-    marker.style.transition = "top,left 0.2s ease-in-out"
+
 
     if (parent != el) {
       let prect = parent.getBoundingClientRect();
@@ -180,7 +176,7 @@ export function dropMarker(options) {
     }
 
 
-
+    marker.style.transition = "top,left 0.2s ease-in-out"
     switch (orientation) {
       case 'top':
         marker.style.top = rect.top - options.borderSize / 2 + window.scrollY + (isInside ? options.dropMarkerMargin : -options.dropMarkerMargin) + "px";
