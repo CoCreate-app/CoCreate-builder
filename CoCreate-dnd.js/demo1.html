@@ -32,13 +32,15 @@
 
     /* dnd specic */
 
+    [data-CoC-cloneable],
     [data-CoC-draggable] {
       cursor: pointer;
     }
 
-    *[data-CoC-draggable],
-    *[data-CoC-droppable],
-    *[data-CoC-hoverable] {
+    [data-CoC-cloneable],
+    [data-CoC-draggable],
+    [data-CoC-droppable],
+    [data-CoC-hoverable] {
       outline: 1px dashed gray;
     }
 
@@ -80,29 +82,29 @@
 
   <!--draggables -->
   <ul id="dragitemslistcontainer">
-    <li id="header" data-CoC-draggable="true" data-insert-html='<h1 droppable="true" class="CoC-droppable">This is a Header</h1>"><i class="fa fa-header'>
+    <li id="header" data-CoC-cloneable="true" data-insert-html='<h1 droppable="true" class="CoC-droppable">This is a Header</h1>"><i class="fa fa-header'>
       </i>
       <p>Header</p>
     </li>
-    <li id="span" data-CoC-draggable="true" data-insert-html='<span droppable="true" class="CoC-droppable">This is an Span</span>"><i class="fa fa-header'>
+    <li id="span" data-CoC-cloneable="true" data-insert-html='<span droppable="true" class="CoC-droppable">This is an Span</span>"><i class="fa fa-header'>
       </i>
       <p>Span</p>
     </li>
-    <li id="li" data-CoC-draggable="true" data-insert-html='<li droppable="true" class="CoC-droppable">this is a Li</li>"><i class="fa fa-header'>
+    <li id="li" data-CoC-cloneable="true" data-insert-html='<li droppable="true" class="CoC-droppable">this is a Li</li>"><i class="fa fa-header'>
       </i>
       <p>Li</p>
     </li>
-    <li id="chart-image" data-CoC-draggable="true" data-insert-html="<img droppable='true' class='CoC-droppable' src='http://blogs-images.forbes.com/anthonykosner/files/2014/06/us-browser-share-adobe-index-2014.jpg'>">
+    <li id="chart-image" data-CoC-cloneable="true" data-insert-html="<img droppable='true' class='CoC-droppable' src='http://blogs-images.forbes.com/anthonykosner/files/2014/06/us-browser-share-adobe-index-2014.jpg'>">
       <i class="fa fa-bar-chart"></i>
       <p>Chart Image</p>
     </li>
-    <li id="login-from" data-CoC-draggable="true" data-insert-html='<div droppable="true" class="CoC-droppable" class="well login-box"> <form action=""> <legend>Login</legend> <div class="form-group"> <label for="username-email">E-mail or Username</label> <input value="" id="username-email" placeholder="E-mail or Username" type="text" class="form-control"/> </div><div class="form-group"> <label for="password">Password</label> <input id="password" value="" placeholder="Password" type="text" class="form-control"/> </div><div class="form-group text-center"> <button class="btn btn-danger btn-cancel-action">Cancel</button> <input type="submit" class="btn btn-success btn-login-submit" value="Login"/> </div></form> </div>'>
+    <li id="login-from" data-CoC-cloneable="true" data-insert-html='<div droppable="true" class="CoC-droppable" class="well login-box"> <form action=""> <legend>Login</legend> <div class="form-group"> <label for="username-email">E-mail or Username</label> <input value="" id="username-email" placeholder="E-mail or Username" type="text" class="form-control"/> </div><div class="form-group"> <label for="password">Password</label> <input id="password" value="" placeholder="Password" type="text" class="form-control"/> </div><div class="form-group text-center"> <button class="btn btn-danger btn-cancel-action">Cancel</button> <input type="submit" class="btn btn-success btn-login-submit" value="Login"/> </div></form> </div>'>
       <i class="fa fa-sign-in"></i>
       <p>Login Form</p>
     </li>
-    <li id="login-from" data-CoC-draggable="true">
+    <li id="login-from" data-CoC-cloneable="true">
       <i class="fa fa-sign-in"></i>
-      <p>it will be cloned and droped as there is no insert-html</p>
+      <p>it will be cloned and droped as itself because it doesn't have data-insert-html </p>
     </li>
   </ul>
 

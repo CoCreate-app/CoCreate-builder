@@ -1,8 +1,8 @@
-import { dropMarker, boxMarker, boxMarkerTooltip, getCoc, ghostEffect, getGroupName } from '../util/common'
+import { dropMarker, boxMarker, boxMarkerTooltip, getCoc, ghostEffect, getGroupName, parse, getCocs } from '../util/common'
 import selectorUtil from '../util/selectorUtil';
 import VirtualDnd from '../CoCreate-dnd.js/virtualDnd';
 import '../util/onClickLeftEvent';
-import { droppable, draggable, selectable, hoverable, name } from '../util/variables.js'
+import { droppable, draggable, selectable, hoverable, name, cloneable, data_insert_html } from '../util/variables.js'
 
 
 
@@ -71,8 +71,20 @@ export default function dnd(window, document, options) {
   function start(e) {
 
 
-    let el = getCoc(e.target, draggable)
+    let [el, att] = getCocs(e.target, [cloneable, draggable])
+
     if (!el) return;
+
+    if (att == cloneable) {
+      let html = el.getAttribute(data_insert_html);
+      if (html) {
+        el = parse(html);
+        if (!el) return;
+      }
+      else
+        el = el.cloneNode(true);
+    }
+
 
     // get group
     startGroup = getGroupName(el)
@@ -221,7 +233,7 @@ function dndReady(document) {
 
   // disable selection
   document.addEventListener('selectstart', (e) => {
-    let el = getCoc(e.target, draggable)
+    let [el, att] = getCocs(e.target, [draggable, cloneable])
     if (el) e.preventDefault();
   })
 

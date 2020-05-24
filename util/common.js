@@ -32,6 +32,19 @@ export function getCoc(el, att) {
 }
 
 
+export function getCocs(el, attList) {
+  if (!el.tagName)
+    el = el.parentElement;
+  do {
+    for (let att of attList) {
+      if (el.getAttribute(att) == "true") return [el, att];
+    }
+    el = el.parentElement;
+    if (!el) return false;
+  } while (true);
+}
+
+
 
 export function getGroupName(el) {
   if (!el.tagName)
@@ -238,12 +251,14 @@ export function ghostEffect(e, el, referenceDocument) {
     cloneEl.style.overflow = 'hidden'
     cloneEl.style.textOverflow = 'ellipsis'
     cloneEl.style.whiteSpace = 'nowrap'
-    let rect = cloneEl.getBoundingClientRect();
+
     cloneEl.style.opacity = '0.8';
     cloneEl.style.position = 'fixed';
     cloneEl.style.Zindex = '2000';
     cloneEl.id = 'ghost-effect';
 
+
+    let rect = cloneEl.getBoundingClientRect();
     let { marginTop, marginBottom, marginLeft, marginRight } = computeStyles(cloneEl, [
 
       'marginTop',
