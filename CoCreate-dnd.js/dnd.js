@@ -104,7 +104,7 @@ export default function dnd(window, document, options) {
 
   function move({ x, y, target }) {
 
-    if (startGroup != getGroupName(target)) return;
+    if (startGroup && startGroup != getGroupName(target)) return;
     if (!target || !isDraging) return; // it's out of iframe
     let onEl = target; // dev
     if (consolePrintedEl != target) { // dev
