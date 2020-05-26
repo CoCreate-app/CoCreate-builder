@@ -233,11 +233,25 @@ export function parse(text) {
 }
 
 
-export function ghostEffect(e, el, referenceDocument) {
+export function ghostEffect(e, el, ref) {
   this.effectCb
-  this.draw = () => {
-    if (!referenceDocument)
-      referenceDocument = document;
+  if (!ref)
+    ref = { document }
+
+  function setPosition(e, cloneEl, { rx = 0, ry = 0 }) {
+    let rect = cloneEl.getBoundingClientRect();
+    let { marginTop, marginBottom, marginLeft, marginRight } = computeStyles(cloneEl, [
+
+      'marginTop',
+      'marginBottom',
+      'marginLeft',
+      'marginRight',
+    ]);
+
+    cloneEl.style.top = e.clientY - (rect.height + marginTop + marginBottom) / 2 + ry;
+    cloneEl.style.left = e.clientX - (rect.width + marginLeft + marginRight) / 2 + rx;
+  }
+  this.draw = (context = {}) => {
 
 
 
@@ -245,7 +259,7 @@ export function ghostEffect(e, el, referenceDocument) {
     let cloneEl = el.cloneNode(true);
 
     cloneEl.style.visibility = 'hidden';
-    referenceDocument.body.append(cloneEl)
+    ref.document.body.append(cloneEl)
 
     cloneEl.style.pointerEvents = 'none';
     cloneEl.style.overflow = 'hidden'
@@ -258,39 +272,17 @@ export function ghostEffect(e, el, referenceDocument) {
     cloneEl.id = 'ghost-effect';
 
 
-    let rect = cloneEl.getBoundingClientRect();
-    let { marginTop, marginBottom, marginLeft, marginRight } = computeStyles(cloneEl, [
-
-      'marginTop',
-      'marginBottom',
-      'marginLeft',
-      'marginRight',
-    ]);
-
-    cloneEl.style.top = e.clientY - (rect.height + marginTop + marginBottom) / 2;
-    cloneEl.style.left = e.clientX - (rect.width + marginLeft + marginRight) / 2;
+    setPosition(e, cloneEl, context)
     cloneEl.style.visibility = 'visible';
 
     this.effectCb = (e) => {
-      let rect = cloneEl.getBoundingClientRect();
-      let { marginTop, marginBottom, marginLeft, marginRight } = computeStyles(cloneEl, [
-
-        'marginTop',
-        'marginBottom',
-        'marginLeft',
-        'marginRight',
-      ]);
-
-      cloneEl.style.top = e.clientY - (rect.height + marginTop + marginBottom) / 2;
-      cloneEl.style.left = e.clientX - (rect.width + marginLeft + marginRight) / 2;
-
-
+      setPosition(e, cloneEl, context)
     }
-    referenceDocument.addEventListener('mousemove', this.effectCb)
+    ref.document.addEventListener('mousemove', this.effectCb)
   }
 
   this.hide = () => {
-    referenceDocument.getElementById('ghost-effect').remove()
-    referenceDocument.removeEventListener('mousemove', this.effectCb)
+    ref.document.getElementById('ghost-effect').remove()
+    ref.document.removeEventListener('mousemove', this.effectCb)
   }
 }
