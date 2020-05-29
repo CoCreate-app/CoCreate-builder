@@ -1,15 +1,15 @@
 import { group_name } from './variables';
 
-export function createBlockMarker(border = "2px solid blue") {
-  let marker = document.createElement("div");
-  marker.id = "block-marker";
-  marker.style.backgroundColor = "transparent";
-  marker.style.position = "absolute";
-  marker.style.display = "none";
-  marker.style.border = border;
-  marker.style.pointerEvents = 'none';
-  return marker;
-}
+// export function createBlockMarker(border = "2px solid blue") {
+//   let marker = document.createElement("div");
+//   marker.id = "block-marker";
+//   marker.style.backgroundColor = "transparent";
+//   marker.style.position = "absolute";
+//   marker.style.display = "none";
+//   marker.style.border = border;
+//   marker.style.pointerEvents = 'none';
+//   return marker;
+// }
 
 // return droppable-candidate element or false if no candidate found
 export function getDropable(el) {
@@ -159,7 +159,7 @@ export function dropMarker(options) {
   document.body.append(marker);
   this.obj = marker;
 
-  this.draw = function(parent, el, orientation, isInside) {
+  this.draw = function(parent, el, orientation, isInside, context = { x: 0, y: 0 }) {
     marker.style.display = "block";
 
 
@@ -196,20 +196,20 @@ export function dropMarker(options) {
     marker.style.transition = "top,left 0.2s ease-in-out"
     switch (orientation) {
       case 'top':
-        marker.style.top = rect.top - options.borderSize / 2 + window.scrollY + (isInside ? options.dropMarkerMargin : -options.dropMarkerMargin) + "px";
-        marker.style.left = rect.left - options.borderSize / 2 + window.scrollX + "px";
+        marker.style.top = context.y + rect.top - options.borderSize / 2 + window.scrollY + (isInside ? options.dropMarkerMargin : -options.dropMarkerMargin) + "px";
+        marker.style.left = context.x + rect.left - options.borderSize / 2 + window.scrollX + "px";
         break;
       case 'bottom':
-        marker.style.top = rect.bottom - options.borderSize / 2 + window.scrollY + (isInside ? -options.dropMarkerMargin : options.dropMarkerMargin) + "px";
-        marker.style.left = rect.left - options.borderSize / 2 + window.scrollX + "px";
+        marker.style.top = context.y + rect.bottom - options.borderSize / 2 + window.scrollY + (isInside ? -options.dropMarkerMargin : options.dropMarkerMargin) + "px";
+        marker.style.left = context.x + rect.left - options.borderSize / 2 + window.scrollX + "px";
         break;
       case 'left':
-        marker.style.top = rect.top - options.borderSize / 2 + window.scrollY + "px";
-        marker.style.left = rect.left - options.borderSize / 2 + window.scrollX + (isInside ? options.dropMarkerMargin : -options.dropMarkerMargin) + "px";
+        marker.style.top = context.y + rect.top - options.borderSize / 2 + window.scrollY + "px";
+        marker.style.left = context.x + rect.left - options.borderSize / 2 + window.scrollX + (isInside ? options.dropMarkerMargin : -options.dropMarkerMargin) + "px";
         break;
       case 'right':
-        marker.style.top = rect.top - options.borderSize / 2 + window.scrollY + "px";
-        marker.style.left = rect.right - options.borderSize / 2 + window.scrollX + (isInside ? -options.dropMarkerMargin : options.dropMarkerMargin) + "px";
+        marker.style.top = context.y + rect.top - options.borderSize / 2 + window.scrollY + "px";
+        marker.style.left = context.x + rect.right - options.borderSize / 2 + window.scrollX + (isInside ? -options.dropMarkerMargin : options.dropMarkerMargin) + "px";
         break;
       default:
         console.log(orientation)
