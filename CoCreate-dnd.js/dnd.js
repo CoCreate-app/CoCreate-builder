@@ -132,22 +132,17 @@ export default function dnd(window, document, options) {
 
   }
 
-
-  // touch
-  document.addEventListener('touchstart', (e) => {
+  let touchstart = (e) => {
     console.log('touch start')
     start(e)
-  })
-
-  document.addEventListener('touchend', (e) => {
+  };
+  let touchend = (e) => {
 
     console.log('touch end')
     end(e)
 
-  })
-
-
-  document.addEventListener('touchmove', (e) => {
+  };
+  let touchmove = (e) => {
 
     console.log('host touch move')
 
@@ -159,11 +154,8 @@ export default function dnd(window, document, options) {
     move({ x, y, target: el })
 
 
-  })
-  // touch
-
-  // mouse
-  document.addEventListener('mousedown', (e) => {
+  };
+  let mousedown = (e) => {
     console.log('mouse down', e);
 
     if (e.which != 1)
@@ -171,10 +163,8 @@ export default function dnd(window, document, options) {
 
     start(e);
 
-  })
-
-
-  document.addEventListener('mouseup', (e) => {
+  }
+  let mouseup = (e) => {
     console.log('mouse up', e);
     // todo: why would we check for hoverable and what do we do whith this?
     // let el = getCoc(e.target, hoverable)
@@ -186,10 +176,8 @@ export default function dnd(window, document, options) {
     end(e)
 
 
-  })
-
-
-  document.addEventListener('mousemove', (e) => {
+  }
+  let mousemove = (e) => {
     console.log('mouse over')
     let el = getCoc(e.target, hoverable);
 
@@ -206,18 +194,26 @@ export default function dnd(window, document, options) {
     move(e)
 
 
-  })
-  // mouse
-
-
-  // listen for click
-  document.addEventListener('CoCreateClickLeft', (e) => {
+  }
+  let CoCreateClickLeft = (e) => {
     // todo: not working!?
     let el = getCoc(e.target, selectable);
     if (!el) return;
     selectBoxMarker.draw(el);
 
-  })
+  }
+  // touch
+  document.addEventListener('touchstart', touchstart)
+  document.addEventListener('touchend', touchend)
+  document.addEventListener('touchmove', touchmove)
+  // touch
+  // mouse
+  document.addEventListener('mousedown', mousedown)
+  document.addEventListener('mouseup', mouseup)
+  document.addEventListener('mousemove', mousemove)
+  // mouse
+  // listen for click
+  document.addEventListener('CoCreateClickLeft', CoCreateClickLeft)
 
 
 }
