@@ -25,6 +25,7 @@ export function getCoc(el, att) {
   if (!el.tagName)
     el = el.parentElement;
   do {
+    if (el.tagName == 'IFRAME') return false;
     if (el.getAttribute(att) == "true") return el;
     el = el.parentElement;
     if (!el) return false;
@@ -36,6 +37,7 @@ export function getCocs(el, attList) {
   if (!el.tagName)
     el = el.parentElement;
   do {
+    if (el.tagName == 'IFRAME') return false;
     for (let att of attList) {
       if (el.getAttribute(att) == "true") return [el, att];
     }
