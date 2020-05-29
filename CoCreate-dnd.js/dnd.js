@@ -60,7 +60,7 @@ export default function dnd(window, document, options) {
 
   })
   dnd.on('dragOver', (data) => {
-    myDropMarker.draw(data.el, data.closestEl, data.orientation, !data.hasChild);
+    myDropMarker.draw(data.el, data.closestEl, data.orientation, !data.hasChild, data.context);
     hoverBoxMarker.draw(data.el)
     tagNameTooltip.draw(data.el)
   })
@@ -68,7 +68,7 @@ export default function dnd(window, document, options) {
   let ghost;
   let startGroup;
 
-  function start(e) {
+  function start(e, ref = { window, document }) {
 
 
     let [el, att] = getCocs(e.target, [cloneable, draggable])
@@ -91,7 +91,7 @@ export default function dnd(window, document, options) {
 
 
 
-    document.body.style.cursor = 'crosshair !important'
+    ref.document.body.style.cursor = 'crosshair !important'
 
     ghost = new ghostEffect(e, el);
     ghost.draw()
@@ -102,8 +102,8 @@ export default function dnd(window, document, options) {
     dnd.dragStart(e, el);
   }
 
-  function end(e) {
-    document.body.style.cursor = ''
+  function end(e, ref = { window, document }) {
+    ref.document.body.style.cursor = ''
     ghost.hide()
     dnd.dragEnd(e);
     myDropMarker.hide();
@@ -114,7 +114,7 @@ export default function dnd(window, document, options) {
 
   }
 
-  function move({ x, y, target }) {
+  function move({ x, y, target }, context) {
 
     if (startGroup && startGroup != getGroupName(target)) return;
     if (!target || !isDraging) return; // it's out of iframe
@@ -128,7 +128,7 @@ export default function dnd(window, document, options) {
     let el = getCoc(target, droppable);
     // todo:
     if (!el || !isDraging) return;
-    dnd.dragOver({ x, y }, el)
+    dnd.dragOver({ x, y }, el, context)
 
   }
 
@@ -191,7 +191,8 @@ export default function dnd(window, document, options) {
 
     }
 
-    move(e)
+    let context = { x: e.clientX, y: e.clientY };
+    move(e, context)
 
 
   }
@@ -216,6 +217,29 @@ export default function dnd(window, document, options) {
   document.addEventListener('CoCreateClickLeft', CoCreateClickLeft)
 
 
+
+
+
+
+
+
+
+  options.iframes.forEach(frame => {
+    let ref = { window: frame.contentWindow, document: frame.contentDocument, }
+    dndReady(ref.document)
+    ref.document.addEventListener('touchstart', wrapper(touchstart, ref))
+    ref.document.addEventListener('touchend', wrapper(touchend, ref))
+    ref.document.addEventListener('touchmove', wrapper(touchmove, ref))
+    // touch
+    // mouse
+    ref.document.addEventListener('mousedown', wrapper(mousedown, ref))
+    ref.document.addEventListener('mouseup', wrapper(mouseup, ref))
+    ref.document.addEventListener('mousemove', wrapper(mousemove, ref))
+    // mouse
+    // listen for click
+    ref.document.addEventListener('CoCreateClickLeft', wrapper(CoCreateClickLeft, ref))
+  })
+
 }
 
 
@@ -233,5 +257,14 @@ function dndReady(document) {
     if (el) e.preventDefault();
   })
 
+
+}
+
+
+function wrapper(func, ref) {
+
+  return function(e) {
+    func.apply(this, [e, ref])
+  }
 
 }
