@@ -68,7 +68,7 @@ export default function dnd(window, document, options) {
   let ghost;
   let startGroup;
 
-  function start(e, ref = { window, document }) {
+  function start(e, ref) {
 
 
     let [el, att] = getCocs(e.target, [cloneable, draggable])
@@ -102,7 +102,7 @@ export default function dnd(window, document, options) {
     dnd.dragStart(e, el);
   }
 
-  function end(e, ref = { window, document }) {
+  function end(e, ref) {
     ref.document.body.style.cursor = ''
     ghost.hide()
     dnd.dragEnd(e);
@@ -114,7 +114,7 @@ export default function dnd(window, document, options) {
 
   }
 
-  function move({ x, y, target }, context) {
+  function move({ x, y, target }, ref) {
 
     if (startGroup && startGroup != getGroupName(target)) return;
     if (!target || !isDraging) return; // it's out of iframe
@@ -128,7 +128,7 @@ export default function dnd(window, document, options) {
     let el = getCoc(target, droppable);
     // todo:
     if (!el || !isDraging) return;
-    dnd.dragOver({ x, y }, el, context)
+    dnd.dragOver({ x, y }, el, ref)
 
   }
 
@@ -155,16 +155,16 @@ export default function dnd(window, document, options) {
 
 
   };
-  let mousedown = (e) => {
+  let mousedown = (e, ref) => {
     console.log('mouse down', e);
 
     if (e.which != 1)
       return;
 
-    start(e);
+    start(e, ref);
 
   }
-  let mouseup = (e) => {
+  let mouseup = (e, ref) => {
     console.log('mouse up', e);
     // todo: why would we check for hoverable and what do we do whith this?
     // let el = getCoc(e.target, hoverable)
@@ -173,11 +173,11 @@ export default function dnd(window, document, options) {
 
     if (e.which != 1)
       return;
-    end(e)
+    end(e, ref)
 
 
   }
-  let mousemove = (e) => {
+  let mousemove = (e, ref) => {
     console.log('mouse over')
     let el = getCoc(e.target, hoverable);
 
@@ -191,8 +191,8 @@ export default function dnd(window, document, options) {
 
     }
 
-    let context = { x: e.clientX, y: e.clientY };
-    move(e, context)
+
+    move(e, ref)
 
 
   }
@@ -203,15 +203,18 @@ export default function dnd(window, document, options) {
     selectBoxMarker.draw(el);
 
   }
+
+
+  let ref = { x: 0, y: 0, window, document, isIframe: false, }
   // touch
-  document.addEventListener('touchstart', touchstart)
-  document.addEventListener('touchend', touchend)
-  document.addEventListener('touchmove', touchmove)
+  document.addEventListener('touchstart', wrapper(touchstart, ref))
+  document.addEventListener('touchend', wrapper(touchend, ref))
+  document.addEventListener('touchmove', wrapper(touchmove, ref))
   // touch
   // mouse
-  document.addEventListener('mousedown', mousedown)
-  document.addEventListener('mouseup', mouseup)
-  document.addEventListener('mousemove', mousemove)
+  document.addEventListener('mousedown', wrapper(mousedown, ref))
+  document.addEventListener('mouseup', wrapper(mouseup, ref))
+  document.addEventListener('mousemove', wrapper(mousemove, ref))
   // mouse
   // listen for click
   document.addEventListener('CoCreateClickLeft', CoCreateClickLeft)
@@ -225,7 +228,8 @@ export default function dnd(window, document, options) {
 
 
   options.iframes.forEach(frame => {
-    let ref = { window: frame.contentWindow, document: frame.contentDocument, }
+    let rect = frame.getBoundingClientRect();
+    let ref = { x: rect.left, y: rect.top, window: frame.contentWindow, document: frame.contentDocument, isIframe: true }
     dndReady(ref.document)
     ref.document.addEventListener('touchstart', wrapper(touchstart, ref))
     ref.document.addEventListener('touchend', wrapper(touchend, ref))
