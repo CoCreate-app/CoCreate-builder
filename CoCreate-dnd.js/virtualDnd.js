@@ -37,7 +37,7 @@ export default function virtualDnd() {
     evnt.dispatch('dragStart', { e, el, ref })
   }
 
-  this.dragEnd = (e) => {
+  this.dragEnd = (e, ref) => {
     try {
       if (this.position) {
         if (this.dropedEl === this.dragedEl)
@@ -78,7 +78,7 @@ export default function virtualDnd() {
       // greenDropMarker.hide()
       // dfonclk.onInactive(e.target)
       console.log('dnd completed')
-      evnt.dispatch('dragEnd', { e })
+      evnt.dispatch('dragEnd', { e, ref })
     }
   }
 
