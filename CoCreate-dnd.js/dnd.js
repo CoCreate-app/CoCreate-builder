@@ -60,12 +60,11 @@ export default function dnd(window, document, options) {
 
   })
   dnd.on('dragOver', (data) => {
-    myDropMarker.draw(data.el, data.closestEl, data.orientation, !data.hasChild, data.context);
+    myDropMarker.draw(data.el, data.closestEl, data.orientation, !data.hasChild, data.ref);
     hoverBoxMarker.draw(data.el)
     tagNameTooltip.draw(data.el)
   })
-
-  let ghost;
+let ghost;
   let startGroup;
 
   function start(e, ref) {
@@ -99,7 +98,7 @@ export default function dnd(window, document, options) {
     isDraging = true;
     hoverBoxMarker.hide();
     tagNameTooltip.hide();
-    dnd.dragStart(e, el);
+    dnd.dragStart(e, el, null, ref);
   }
 
   function end(e, ref) {
