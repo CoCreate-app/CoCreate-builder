@@ -50,13 +50,17 @@ export default function dnd(window, document, options) {
   dndReady(document)
 
   let dnd = new VirtualDnd();
-
+  let ghost;
   dnd.on('dragStart', (data) => {
     selectBoxMarker.hide()
     myDropMarker.hide();
+    ghost = new ghostEffect(data.e, data.el);
+    ghost.draw()
+
   })
   dnd.on('dragEnd', (data) => {
     myDropMarker.hide()
+    ghost.hide()
 
   })
   dnd.on('dragOver', (data) => {
@@ -64,7 +68,7 @@ export default function dnd(window, document, options) {
     hoverBoxMarker.draw(data.el)
     tagNameTooltip.draw(data.el)
   })
-let ghost;
+
   let startGroup;
 
   function start(e, ref) {
@@ -92,8 +96,6 @@ let ghost;
 
     ref.document.body.style.cursor = 'crosshair !important'
 
-    ghost = new ghostEffect(e, el);
-    ghost.draw()
 
     isDraging = true;
     hoverBoxMarker.hide();
@@ -103,7 +105,7 @@ let ghost;
 
   function end(e, ref) {
     ref.document.body.style.cursor = ''
-    ghost.hide()
+
     dnd.dragEnd(e);
     myDropMarker.hide();
     hoverBoxMarker.hide();
@@ -131,17 +133,17 @@ let ghost;
 
   }
 
-  let touchstart = (e) => {
+  let touchstart = (e, ref) => {
     console.log('touch start')
     start(e)
   };
-  let touchend = (e) => {
+  let touchend = (e, ref) => {
 
     console.log('touch end')
     end(e)
 
   };
-  let touchmove = (e) => {
+  let touchmove = (e, ref) => {
 
     console.log('host touch move')
 
@@ -150,6 +152,8 @@ let ghost;
     let y = touch.clientY;
     let el = document.elementFromPoint(x, y);
     if (!el) return; // it's out of iframe
+
+    // sending object representing an event data
     move({ x, y, target: el })
 
 
@@ -172,6 +176,7 @@ let ghost;
 
     if (e.which != 1)
       return;
+
     end(e, ref)
 
 
@@ -189,7 +194,6 @@ let ghost;
       tagNameTooltip.draw(el);
 
     }
-
 
     move(e, ref)
 
