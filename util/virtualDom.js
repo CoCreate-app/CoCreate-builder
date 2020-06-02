@@ -6,12 +6,12 @@ import collapsible from './collapsible'
 import { droppable, draggable, name } from '../../util/variables.js'
 
 
-const exclude = ['SCRIPT'];
+
 export default function virtualDom({ realDom, virtualDom, document, options }) {
 
   // set options to this.options and set defualts
   this.options = options ? options : {};
-  Object.assign(this.options, { indentBase: 10, indentSum: 15 });
+  Object.assign(this.options, { indentBase: 10, indentSum: 15, exclude: ['SCRIPT'] });
 
 
   this.render = function(elList, level, appendDom) {
@@ -19,7 +19,7 @@ export default function virtualDom({ realDom, virtualDom, document, options }) {
 
     let wrapper = document.createElement('div');
     for (let el of elList) {
-      if (exclude.includes(el.tagName))
+      if (this.options.exclude.includes(el.tagName))
         continue;
 
 
