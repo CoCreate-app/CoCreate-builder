@@ -88,7 +88,7 @@ export default function virtualDnd() {
       if (el.children.length === 0) {
         // place top or bottom inside the element
         let [orientation, closestEl] = closestChild([e.x, e.y], [el]);
-        evnt.dispatch('dragOver', { el, closestEl, orientation, hasChild: el.children.length, ref })
+        evnt.dispatch('dragOver', { e, el, closestEl, orientation, hasChild: el.children.length, ref })
         // greenDropMarker.draw(el, el, orientation, true);
         // hoverBoxMarker.draw(el)
         // tagNameTooltip.draw(el)
@@ -98,7 +98,7 @@ export default function virtualDnd() {
       else {
         // find closest child and put outside the child element on top or bottom relating to that child,
         let [orientation, closestEl] = closestChild([e.x, e.y], el.children);
-        evnt.dispatch('dragOver', { el, closestEl, orientation, hasChild: el.children.length, ref })
+        evnt.dispatch('dragOver', { e, el, closestEl, orientation, hasChild: el.children.length, ref })
         // greenDropMarker.draw(el, closestEl, orientation, false);
         // hoverBoxMarker.draw(el)
         // tagNameTooltip.draw(el)

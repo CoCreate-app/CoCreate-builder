@@ -54,19 +54,22 @@ export default function dnd(window, document, options) {
   dnd.on('dragStart', (data) => {
     selectBoxMarker.hide()
     myDropMarker.hide();
-    ghost = new ghostEffect(data.e, data.el);
-    ghost.draw()
+
+    // data.ref
+    ghost = new ghostEffect(data.el, { document });
+    ghost.start()
 
   })
   dnd.on('dragEnd', (data) => {
     myDropMarker.hide()
-    ghost.hide()
+    ghost.hide(data.ref)
 
   })
   dnd.on('dragOver', (data) => {
     myDropMarker.draw(data.el, data.closestEl, data.orientation, !data.hasChild, data.ref);
     hoverBoxMarker.draw(data.el)
-    tagNameTooltip.draw(data.el)
+    tagNameTooltip.draw(data.el, data.ref)
+    ghost.draw(data.e, data.ref)
   })
 
   let startGroup;
@@ -191,7 +194,7 @@ export default function dnd(window, document, options) {
     }
     else {
       hoverBoxMarker.draw(el);
-      tagNameTooltip.draw(el);
+      tagNameTooltip.draw(el, ref);
 
     }
 
@@ -232,7 +235,7 @@ export default function dnd(window, document, options) {
 
   options.iframes.forEach(frame => {
     let rect = frame.getBoundingClientRect();
-    let ref = { x: rect.left, y: rect.top, window: frame.contentWindow, document: frame.contentDocument, isIframe: true }
+    let ref = { x: rect.left, y: rect.top, frame, window: frame.contentWindow, document: frame.contentDocument, isIframe: true }
     dndReady(ref.document)
     ref.document.addEventListener('touchstart', wrapper(touchstart, ref))
     ref.document.addEventListener('touchend', wrapper(touchend, ref))

@@ -93,7 +93,7 @@ export function boxMarkerTooltip(callback, referenceWindow, options) {
 
   document.body.append(tagBox);
   this.obj = tagBox;
-  this.draw = function(el) {
+  this.draw = function(el, ref) {
     tagBox.style.display = "block";
     tagBox.innerHTML = callback(el);
     let { height, paddingTop, paddingBottom } = computeStyles(tagBox, [
@@ -102,9 +102,16 @@ export function boxMarkerTooltip(callback, referenceWindow, options) {
       "paddingBottom",
     ]);
     let rect = el.getBoundingClientRect();
-    tagBox.style.top =
+
+    let frameRect;
+    if (ref.frame)
+      frameRect = ref.frame.getBoundingClientRect();
+    else
+      frameRect = { top: 0, left: 0 }
+
+    tagBox.style.top = frameRect.top +
       rect.top - options.borderSize + referenceWindow.scrollY - height - paddingTop - paddingBottom + "px";
-    tagBox.style.left = rect.left - options.borderSize + window.scrollX + "px";
+    tagBox.style.left = frameRect.left + rect.left - options.borderSize + window.scrollX + "px";
   };
 
   this.hide = function(el) {
@@ -191,25 +198,29 @@ export function dropMarker(options) {
       if (Math.abs(parentSize - childSize) < options.dropMarkerMargin * 2)
         isInside = true;
     }
-
+    let frameRect;
+    if (ref.frame)
+      frameRect = ref.frame.getBoundingClientRect();
+    else
+      frameRect = { top: 0, left: 0 }
 
     marker.style.transition = "top,left 0.2s ease-in-out"
     switch (orientation) {
       case 'top':
-        marker.style.top = ref.y + rect.top - options.borderSize / 2 + window.scrollY + (isInside ? options.dropMarkerMargin : -options.dropMarkerMargin) + "px";
-        marker.style.left = ref.x + rect.left - options.borderSize / 2 + window.scrollX + "px";
+        marker.style.top = frameRect.top + rect.top - options.borderSize / 2 + window.scrollY + (isInside ? options.dropMarkerMargin : -options.dropMarkerMargin) + "px";
+        marker.style.left = frameRect.left + rect.left - options.borderSize / 2 + window.scrollX + "px";
         break;
       case 'bottom':
-        marker.style.top = ref.y + rect.bottom - options.borderSize / 2 + window.scrollY + (isInside ? -options.dropMarkerMargin : options.dropMarkerMargin) + "px";
-        marker.style.left = ref.x + rect.left - options.borderSize / 2 + window.scrollX + "px";
+        marker.style.top = frameRect.top + rect.bottom - options.borderSize / 2 + window.scrollY + (isInside ? -options.dropMarkerMargin : options.dropMarkerMargin) + "px";
+        marker.style.left = frameRect.left + rect.left - options.borderSize / 2 + window.scrollX + "px";
         break;
       case 'left':
-        marker.style.top = ref.y + rect.top - options.borderSize / 2 + window.scrollY + "px";
-        marker.style.left = ref.x + rect.left - options.borderSize / 2 + window.scrollX + (isInside ? options.dropMarkerMargin : -options.dropMarkerMargin) + "px";
+        marker.style.top = frameRect.top + rect.top - options.borderSize / 2 + window.scrollY + "px";
+        marker.style.left = frameRect.left + rect.left - options.borderSize / 2 + window.scrollX + (isInside ? options.dropMarkerMargin : -options.dropMarkerMargin) + "px";
         break;
       case 'right':
-        marker.style.top = ref.y + rect.top - options.borderSize / 2 + window.scrollY + "px";
-        marker.style.left = ref.x + rect.right - options.borderSize / 2 + window.scrollX + (isInside ? -options.dropMarkerMargin : options.dropMarkerMargin) + "px";
+        marker.style.top = frameRect.top + rect.top - options.borderSize / 2 + window.scrollY + "px";
+        marker.style.left = frameRect.left + rect.right - options.borderSize / 2 + window.scrollX + (isInside ? -options.dropMarkerMargin : options.dropMarkerMargin) + "px";
         break;
       default:
         console.log(orientation)
@@ -235,14 +246,35 @@ export function parse(text) {
 }
 
 
-export function ghostEffect(e, el, ref) {
+export function ghostEffect(el, ref) {
   this.effectCb
-  if (!ref)
-    ref = { document }
 
-  function setPosition(e, cloneEl, { rx = 0, ry = 0 }) {
-    let rect = cloneEl.getBoundingClientRect();
-    let { marginTop, marginBottom, marginLeft, marginRight } = computeStyles(cloneEl, [
+
+  this.start = () => {
+    this.cloneEl = el.cloneNode(true);
+
+    this.cloneEl.style.visibility = 'hidden';
+    ref.document.body.append(this.cloneEl)
+
+    this.cloneEl.style.pointerEvents = 'none';
+    this.cloneEl.style.overflow = 'hidden'
+    this.cloneEl.style.textOverflow = 'ellipsis'
+    this.cloneEl.style.whiteSpace = 'nowrap'
+
+    this.cloneEl.style.opacity = '0.8';
+    this.cloneEl.style.position = 'fixed';
+    this.cloneEl.style.Zindex = '2000';
+    this.cloneEl.id = 'ghost-effect';
+
+
+
+    this.cloneEl.style.visibility = 'visible';
+  }
+
+  this.draw = (e, ref) => {
+
+    let rect = this.cloneEl.getBoundingClientRect();
+    let { marginTop, marginBottom, marginLeft, marginRight } = computeStyles(this.cloneEl, [
 
       'marginTop',
       'marginBottom',
@@ -250,41 +282,20 @@ export function ghostEffect(e, el, ref) {
       'marginRight',
     ]);
 
-    cloneEl.style.top = e.clientY - (rect.height + marginTop + marginBottom) / 2 + ry;
-    cloneEl.style.left = e.clientX - (rect.width + marginLeft + marginRight) / 2 + rx;
-  }
-  this.draw = (context = {}) => {
+    let frameRect;
+    if (ref.frame)
+      frameRect = ref.frame.getBoundingClientRect();
+    else
+      frameRect = { top: 0, left: 0 }
 
 
-
-
-    let cloneEl = el.cloneNode(true);
-
-    cloneEl.style.visibility = 'hidden';
-    ref.document.body.append(cloneEl)
-
-    cloneEl.style.pointerEvents = 'none';
-    cloneEl.style.overflow = 'hidden'
-    cloneEl.style.textOverflow = 'ellipsis'
-    cloneEl.style.whiteSpace = 'nowrap'
-
-    cloneEl.style.opacity = '0.8';
-    cloneEl.style.position = 'fixed';
-    cloneEl.style.Zindex = '2000';
-    cloneEl.id = 'ghost-effect';
-
-
-    setPosition(e, cloneEl, context)
-    cloneEl.style.visibility = 'visible';
-
-    this.effectCb = (e) => {
-      setPosition(e, cloneEl, context)
-    }
-    ref.document.addEventListener('mousemove', this.effectCb)
+    this.cloneEl.style.top = frameRect.top + e.y - (rect.height + marginTop + marginBottom) / 2;
+    this.cloneEl.style.left = frameRect.left + e.x - (rect.width + marginLeft + marginRight) / 2;
   }
 
-  this.hide = () => {
-    ref.document.getElementById('ghost-effect').remove()
-    ref.document.removeEventListener('mousemove', this.effectCb)
+  this.hide = (ref) => {
+    this.cloneEl.style.visibility = 'hidden';
+    // ref.document.getElementById('ghost-effect').remove()
+    // ref.document.removeEventListener('mousemove', this.effectCb)
   }
 }
