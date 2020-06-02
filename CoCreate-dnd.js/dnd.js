@@ -6,6 +6,9 @@ import { droppable, draggable, selectable, hoverable, name, cloneable, data_inse
 
 
 
+
+
+
 export default function dnd(window, document, options) {
 
   options = Object.assign({
@@ -234,47 +237,43 @@ export default function dnd(window, document, options) {
 
 
   options.iframes.forEach(frame => {
-    let rect = frame.getBoundingClientRect();
-    let ref = { x: rect.left, y: rect.top, frame, window: frame.contentWindow, document: frame.contentDocument, isIframe: true }
-    dndReady(ref.document)
-    ref.document.addEventListener('touchstart', wrapper(touchstart, ref))
-    ref.document.addEventListener('touchend', wrapper(touchend, ref))
-    ref.document.addEventListener('touchmove', wrapper(touchmove, ref))
-    // touch
-    // mouse
-    ref.document.addEventListener('mousedown', wrapper(mousedown, ref))
-    ref.document.addEventListener('mouseup', wrapper(mouseup, ref))
-    ref.document.addEventListener('mousemove', wrapper(mousemove, ref))
-    // mouse
-    // listen for click
-    ref.document.addEventListener('CoCreateClickLeft', wrapper(CoCreateClickLeft, ref))
+    frame.addEventListener('load', () => {
+      let rect = frame.getBoundingClientRect();
+      let ref = { x: rect.left, y: rect.top, frame, window: frame.contentWindow, document: frame.contentDocument, isIframe: true }
+      dndReady(ref.document)
+      ref.document.addEventListener('touchstart', wrapper(touchstart, ref))
+      ref.document.addEventListener('touchend', wrapper(touchend, ref))
+      ref.document.addEventListener('touchmove', wrapper(touchmove, ref))
+      // touch
+      // mouse
+      ref.document.addEventListener('mousedown', wrapper(mousedown, ref))
+      ref.document.addEventListener('mouseup', wrapper(mouseup, ref))
+      ref.document.addEventListener('mousemove', wrapper(mousemove, ref))
+      // mouse
+      // listen for click
+      ref.document.addEventListener('CoCreateClickLeft', wrapper(CoCreateClickLeft, ref))
+    })
   })
+
 
 }
 
 
-
 function dndReady(document) {
-
   // disable native drag
   document.addEventListener('dragstart', () => {
     return false;
   })
-
   // disable selection
   document.addEventListener('selectstart', (e) => {
     let [el, att] = getCocs(e.target, [draggable, cloneable])
     if (el) e.preventDefault();
   })
-
-
 }
 
 
 function wrapper(func, ref) {
-
   return function(e) {
     func.apply(this, [e, ref])
   }
-
 }
