@@ -6,9 +6,9 @@
 
     /* wierd padding when used "border"*/
 
-    *[data-CoC-draggable],
-    *[data-CoC-droppable],
-    *[data-CoC-hoverable] {
+    *[data-draggable],
+    *[data-droppable],
+    *[data-hoverable] {
       outline: 1px dashed gray;
     }
 

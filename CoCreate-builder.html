@@ -13,18 +13,18 @@
 
   <!-- CoCreate CSS -->
   <link rel="stylesheet" href="https://server.cocreate.app/css/CoCreate.min.css" type="text/css" />
-  <link rel="stylesheet" href="../../CoCreate-vdom/src/CoCreate-vdom.css" type="text/css" />
-  <link rel="stylesheet" href="../../CoCreate-dnd/src/CoCreate-dnd.css" type="text/css" />
+  <link rel="stylesheet" href="https://server.cocreate.app/CoCreate-components/CoCreate-vdom/src/CoCreate-vdom.css" type="text/css" />
+  <link rel="stylesheet" href="https://server.cocreate.app/CoCreate-components/CoCreate-dnd/src/CoCreate-dnd.css" type="text/css" />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" crossorigin="anonymous" />
 
   <style>
     /* this is already apart of COCreate.min.css but we only remove and add one hidden in an element */
-
-    .hidden.hidden {
+    .vdom-item+div .collapse>.vdom-item {
       display: none;
     }
+    
   </style>
 
 </head>
@@ -58,7 +58,7 @@
 
       <!-- fullscreen toogle and icon transform-->
       <li class="margin-right:15px">
-        <a class="fs-toggle"><i data-transform_to="fas fa-compress" class="fas fa-expand"></i></a>
+        <a data-fullscreen><i data-transform_to="fas fa-compress" class="fas fa-expand"></i></a>
       </li>
 
       <!-- Open code Editor in modal-->
@@ -105,7 +105,7 @@
   </div>
 
   <!-- CoCreate SideNav Left -->
-  <div id="menuL" class="cocreate-sidenav bg:medium-gray" data-main_content="canvas" sidenav_default_desktop="expanded" sidenav_default_tablet="offcanvas" sidenav_default_phone="offcanvas" sidenav_ontoggle_desktop="offcanvas" sidenav_ontoggle_tablet="offcanvas">
+  <div id="menuL" class="cocreate-sidenav bg:medium-gray" data-main_content="canvas" sidenav-default_desktop="expanded" sidenav-default_tablet="offcanvas" sidenav-default_phone="offcanvas" sidenav-ontoggle_desktop="offcanvas" sidenav-ontoggle_tablet="offcanvas">
     <div class="">
       <ul class="overflow:scroll height:100vh margin:5px bg:white padding:0 padding-left:5px">
         <div data-vdom_target="test" data-group_name="test"></div>
@@ -114,7 +114,7 @@
         </div>
 
         <!-- template -->
-        <li data-CoC-draggable="true" class="template menuItem" id="header" data-insert-html='{{html}}'>
+        <li data-draggable="true" class="template menuItem" id="header" data-insert-html='{{html}}'>
           <span data-collection="" data-document_id="" name="icon" data-pass_id="blocks" class="padding-10px"></span>
           <span data-collection="" data-document_id="" name="name" data-pass_id="blocks"></span>
           <div class="float-right">
@@ -133,11 +133,11 @@
   <!-- End CoCreate SideNav Left -->
 
   <!-- CoCreate SideNav Right -->
-  <div id="menuR" class="cocreate-sidenav sidenav-right bg:medium-gray" data-main_content="canvas" sidenav_default_desktop="expanded" sidenav_default_tablet="expanded">
+  <div id="menuR" class="cocreate-sidenav sidenav-right bg:medium-gray" data-main_content="canvas" sidenav-default_desktop="expanded" sidenav-default_tablet="expanded">
     <div class="padding:5px">
       <form>
         <input id="input1" type="text" class="floating-label" placeholder="Text" name="name" data-attribute="class" data-target="element_id">
-        <input type="text" class="floating-label" placeholder="Text" name="name1" data-attribute="data-coc-draggable" data-target="element_id">
+        <input type="text" class="floating-label" placeholder="Text" name="name1" data-attribute="data-draggable" data-target="element_id">
         <input type="color" class="floating-label" placeholder="color" name="color" id="color">
         <input type="search" class="floating-label" placeholder="Search" name="search" id="search" data-get_value="text">
         <input type="date" class="floating-label" placeholder="Date" name="date" id="date">
@@ -199,12 +199,12 @@
   </script>
 
   <script defer src="https://server.cocreate.app/js/CoCreate.min.js"></script>
-  <script defer src="../../CoCreate-domEditor/src/domEditor.js"></script>
-  <script defer src="../../CoCreate-domEditor/src/element-config.js"></script>
-  <script defer src="../../CoCreate-dnd/dist/dnd.js"></script>
-  <script defer src="../../CoCreate-vdom/dist/CoCreate-vdom.js"></script>
-  <script defer src="../../CoCreate-collapsible/src/collapsible.js"></script>
-  <script defer src="../../CoCreate-domEditorPanel/src/domEditorPanel.js"></script>
+  <!--<script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-domEditor/src/domEditor.js"></script>-->
+  <!--<script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-domEditor/src/element-config.js"></script>-->
+  <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-dnd/dist/dnd.js"></script>
+  <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-dnd/src/collaboration.js"></script>
+  <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-vdom/dist/CoCreate-vdom.js"></script>
+  <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-domEditorPanel/src/domEditorPanel.js"></script>
 
 </body>
 

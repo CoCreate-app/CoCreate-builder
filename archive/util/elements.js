@@ -5,8 +5,8 @@ import domEditor from './domEditor';
 function element(type, { displayName, selector, classes, attributtes, draggable, droppable, selectable, editable, hoverable }) {
 
   var dataset = {
-    "data-CoC-type": type, // type calendar
-    "data-CoC-name": displayName ? displayName : ''
+    "data-type": type, // type calendar
+    "data-name": displayName ? displayName : ''
   };
   if (typeof draggable === 'string') dataset[draggable] = draggable;
   if (typeof droppable === 'string') dataset[droppable] = droppable;
