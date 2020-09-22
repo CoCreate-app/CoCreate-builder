@@ -38,13 +38,22 @@ window.elementConfig = elementConfig;
 
 window.addEventListener("load", () => {
   console.log("build-config start");
-  window.parent.addEventListener('load', ()=>{
+  window.parent.addEventListener("load", () => {
+    // init dnd
     window.initDnd({
       target: document,
       drop: "*",
       drag: "*",
     });
-  })
-  // dom.element(elementConfig); 
+
+    // initvdom
+    let vdomTargets = window.parent.document.querySelector(
+      "[data-vdom_target]"
+    );
+    let vdomRealDom = window.parent.document.querySelector("[data-vdom_id]");
+    vdomRealDom = vdomRealDom.contentDocument.body.parentNode;
+    window.vdomInit({ realdom: vdomRealDom, virtualDomContainer: vdomTargets });
+  });
+  // dom.element(elementConfig);
   console.log("build-config end");
 });
