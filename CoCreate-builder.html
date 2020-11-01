@@ -15,8 +15,7 @@
   <link rel="stylesheet" href="https://server.cocreate.app/css/CoCreate.min.css" type="text/css" />
   <link rel="stylesheet" href="https://server.cocreate.app/CoCreate-components/CoCreate-vdom/src/CoCreate-vdom.css" type="text/css" />
   <link rel="stylesheet" href="https://server.cocreate.app/CoCreate-components/CoCreate-dnd/src/CoCreate-dnd.css" type="text/css" />
-
-  <!-- Font Awesome -->
+ Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" crossorigin="anonymous" />
   <script src="https://server.cocreate.app/CoCreate-components/CoCreate-styles/src/CoCreate-styles.js"></script>
   <style>
@@ -280,6 +279,39 @@
               </div>
       			</div>
       		</div>
+      		
+      		<div class="display:flex height:50px">	
+      			<div class="width:50% margin:5px">
+      			  <input id="font-size"  class="floating-label z-index:0" placeholder="Letter-spacing:" value="0" data-style="classStyle" data-style_property="letter-spacing" data-style_unit="px">
+              <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
+      	        <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="#font-size">
+      						<li class="margin:0 padding:0 height:25px min-height:25px align-items:center" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>		        	
+      	
+      						<ul class="selectable--list width:30px">
+      						  <li class="selectable margin:0 padding:0 height:25px min-height:25px align-items:center" value="px"><span class="margin:auto">px</span></li>
+      						  <li class="selectable margin:0 padding:0 height:25px min-height:25px" value="%"><span class="margin:auto">%</span></li>
+      						  <li class="selectable margin:0 padding:0 height:25px min-height:25px" value="em"><span class="margin:auto">em</span></li>
+      						  <li class="selectable margin:0 padding:0 height:25px min-height:25px" value="rem"><span class="margin:auto">rem</span></li>
+      						</ul>
+      	        </cocreate-select>
+              </div>
+      			</div>
+      			<div class="width:50% margin:5px">
+      			  <input id="font-weight"  class="floating-label z-index:0" placeholder="Line-height:" value="0" step="100" data-style="classStyle" data-style_property="font-weight" data-style_unit="px">
+              <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
+      	        <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px">
+      						<li class="margin:0 padding:0 height:25px min-height:25px align-items:center" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>		        	
+      	
+      						<ul class="selectable--list width:30px">
+      						  <li class="selectable margin:0 padding:0 height:25px min-height:25px align-items:center" value="px"><span class="margin:auto">px</span></li>
+      						  <li class="selectable margin:0 padding:0 height:25px min-height:25px" value="%"><span class="margin:auto">%</span></li>
+      						  <li class="selectable margin:0 padding:0 height:25px min-height:25px" value="vh"><span class="margin:auto">vh</span></li>
+      						</ul>
+      	        </cocreate-select>
+              </div>
+      			</div>
+      		</div>
+      		
         </div>
 
       </form>
