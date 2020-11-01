@@ -3,15 +3,14 @@
 let elementConfig = [
   {
     displayname: "default",
-    selector: ["body, body *"],
+    selector: ["*"],
     hoverable: "true",
     selectable: "true",
     editable: "true",
+    draggable: "true",
+    droppable: "true",
+    
     // toolbar: { 'test': 'testing this' },
-  },
-  {
-    displayname: "body",
-    selector: ["body, body"],
   },
   {
     displayname: "form",
@@ -33,27 +32,72 @@ let elementConfig = [
     selector: "select",
     editable: "false",
   },
+  {
+    displayname: "body",
+    selector: ["body"],
+  },
 ];
 window.elementConfig = elementConfig;
 
 window.addEventListener("load", () => {
-  console.log("build-config start");
-  window.parent.addEventListener("load", () => {
-    // init dnd
-    window.initDnd({
-      target: document,
-      drop: "*",
-      drag: "*",
-    });
+  let canvas = document.querySelector("#canvas");
+  if (!canvas)
+    console.error("builder config failed, can not find canvas iframe");
+  let canvasDocument = canvas.contentWindow.document || canvas.contentDocument;
 
-    // initvdom
-    let vdomTargets = window.parent.document.querySelector(
-      "[data-vdom_target]"
-    );
-    let vdomRealDom = window.parent.document.querySelector("[data-vdom_id]");
-    vdomRealDom = vdomRealDom.contentDocument.body.parentNode;
-    window.vdomInit({ realdom: vdomRealDom, virtualDomContainer: vdomTargets });
+  // init dnd
+  window.initElement({
+    target: canvasDocument.body,
+    dropable: "*",
+    draggable: "*",
+    beforeDndSuccess: function({ dragedEl, dropType })
+    {
+      if (dropType === "data-cloneable") {
+      let body = document.createElement("body");
+      body.appendChild(dragedEl.cloneNode(true));
+      dom.element(elementConfig, {
+        context: body,
+        setAttribute: "setHiddenAttribute",
+      });
+      return { dragedEl: body.children[0] }
+    }
+    }
   });
-  // dom.element(elementConfig);
-  console.log("build-config end");
+
+
+try{
+  // init selected
+      window.selected2({
+        elementSelector:'*',
+        targetSelector: 'input[data-style]',
+        source: 'data-element_id',
+        destination: 'data-style_target',
+        wrap: '[data-element_id=$1]',
+        
+      })
+      window.selected2({
+        elementSelector:'*',
+        targetSelector: 'input[data-attribute_sync]',
+        source: 'data-element_id',
+        destination: 'data-attribute_target',
+        wrap: '[data-element_id=$1]',
+        
+      })
+}catch(error){
+    console.log('aaaaaa', error)
+
+}
+
+
+
+  // initvdom
+  let vdomTargets = document.querySelector("[data-vdom_target]");
+  let vdomRealDom = document.querySelector("[data-vdom_id]");
+  vdomRealDom = vdomRealDom.contentDocument.body.parentNode;
+  if (window.CoCreateVdom && vdomRealDom && vdomTargets)
+    window.vdomObject = window.CoCreateVdom.initVdom({
+      realdom: vdomRealDom,
+      virtualDom: vdomTargets,
+    });
+  else console.error("builder config failed to create vdom instance");
 });
