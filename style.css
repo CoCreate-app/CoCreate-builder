@@ -1,0 +1,25 @@
+.vdom-item.collapse>.vdom-item {
+    display: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+.selected {
+    margin: 0;
+    padding: 0;
+    height: 25px;
+    min-height: 25px;
+}
+
+.tab[selected] {
+    background: darkgrey;
+}
+.card:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+.editor-panel.active {
+    display: block
+}
