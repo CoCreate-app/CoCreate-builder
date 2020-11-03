@@ -227,7 +227,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Spacion -->
+                        <!-- Spacing -->
                         <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".spacing" data-hide=".spacing">
                             <span class="spacing hidden"><i class="fas fa-plus"></i></span>
                             <span class="spacing"><i class="fas fa-minus"></i></span>
@@ -451,7 +451,7 @@
                                         </cocreate-select>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                         <!-- Position -->
                         <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".position" data-hide=".position">
@@ -706,147 +706,139 @@
                             <span class="shadow"><i class="fas fa-minus"></i></span>
                             <span>Shadow</span>
                         </div>
-                        <!-- Box Shadow -->
-                        <div class="shadow padding:10px background:darkgrey border-bottom:1px_solid_grey" data-show=".boxshadow" data-hide=".boxshadow">
-                            <span class="boxshadow hidden"><i class="fas fa-plus"></i></span>
-                            <span class="boxshadow"><i class="fas fa-minus"></i></span>
-                            <span>Box Shadow</span>
-                        </div>
-                        <div class="boxshadow padding-bottom:20px background:silver">
-                            <div class="card padding-bottom:20px background:silver">
-                                <!--<div class="display:flex justify-content:flex-end" data-show=".card" data-hide=".card">-->
-                                <!--    <span class="card"><i class="fas fa-minus"></i></span>-->
-                                <!--</div>-->
-                                <div class="display:flex height:50px">
-                                    <div class="width:50% margin:5px">
-                                        <input id="offsetx" class="floating-label z-index:0" placeholder="Offset X:" step="100" data-style="style" data-style_property="offsetx" data-style_unit="px" active/>
-                                        <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
-                                            <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="border-width">
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
+                        <div class="shadow padding-bottom:20px background:silver">
+                            <!-- Box Shadow -->
+                            <div class="boxshadow padding-bottom:20px background:silver">
+                                <div class="card padding-bottom:20px background:silver">
+                                    <!--<div class="display:flex justify-content:flex-end" data-show=".card" data-hide=".card">-->
+                                    <!--    <span class="card"><i class="fas fa-minus"></i></span>-->
+                                    <!--</div>-->
+                                    <div class="display:flex height:50px">
+                                        <div class="width:50% margin:5px">
+                                            <input id="offsetx" class="floating-label z-index:0" placeholder="Offset X:" step="100" data-style="style" data-style_property="offsetx" data-style_unit="px" active/>
+                                            <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
+                                                <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="border-width">
+                                                    <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
 
-                                                <ul class="selectable--list z-index:7 width:30px">
-                                                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                    <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                    <ul class="selectable--list z-index:7 width:30px">
+                                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
+                                                        <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                    </ul>
+                                                </cocreate-select>
+                                            </div>
+                                        </div>
+                                        <div class="width:50% margin:5px">
+                                            <input id="offsetv" class="floating-label z-index:0" placeholder="Offset V:" step="100" data-style="style" data-style_property="offsetv" data-style_unit="px" active/>
+                                            <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
+                                                <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="border-width">
+                                                    <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
+
+                                                    <ul class="selectable--list z-index:7 width:30px">
+                                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
+                                                        <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                    </ul>
+                                                </cocreate-select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="display:flex height:50px">
+                                        <div class="width:50% margin:5px">
+                                            <input id="blur" class="floating-label z-index:0" placeholder="Blur:" step="100" data-style="style" data-style_property="blur" data-style_unit="px" active/>
+                                            <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
+                                                <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="border-width">
+                                                    <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
+
+                                                    <ul class="selectable--list z-index:7 width:30px">
+                                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
+                                                        <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                    </ul>
+                                                </cocreate-select>
+                                            </div>
+                                        </div>
+                                        <div class="width:50% margin:5px">
+                                            <input id="spread" class="floating-label z-index:0" placeholder="Spread:" step="100" data-style="style" data-style_property="spread" data-style_unit="px" active/>
+                                            <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
+                                                <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="border-width">
+                                                    <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
+
+                                                    <ul class="selectable--list z-index:7 width:30px">
+                                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
+                                                        <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                    </ul>
+                                                </cocreate-select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="display:flex height:50px">
+                                        <div class="width:100% margin:5px">
+                                            <input id="font-color" type="color" class="floating-label z-index:0" placeholder="fill-color:" step="100" data-style="style" data-style_property="fill-color" active/>
+                                        </div>
+                                    </div>
+                                    <div class="display:flex height:50px">
+                                        <div class="width:100% margin:5px">
+                                            <cocreate-select class="remove-none floating-label" placeholder="ShadowType:" data-style="style" data-style_property="shadowtype" active>
+                                                <li value="px" selected><span class="margin:auto">none</span></li>
+
+                                                <ul class="selectable--list z-index:7">
+                                                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                                    <li value="outside"><span class="margin:auto">outside</span></li>
+                                                    <li value="inside"><span class="margin:auto">inside</span></li>
                                                 </ul>
                                             </cocreate-select>
                                         </div>
-                                    </div>
-                                    <div class="width:50% margin:5px">
-                                        <input id="offsetv" class="floating-label z-index:0" placeholder="Offset V:" step="100" data-style="style" data-style_property="offsetv" data-style_unit="px" active/>
-                                        <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
-                                            <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="border-width">
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
-
-                                                <ul class="selectable--list z-index:7 width:30px">
-                                                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                    <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                </ul>
-                                            </cocreate-select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="display:flex height:50px">
-                                    <div class="width:50% margin:5px">
-                                        <input id="blur" class="floating-label z-index:0" placeholder="Blur:" step="100" data-style="style" data-style_property="blur" data-style_unit="px" active/>
-                                        <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
-                                            <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="border-width">
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
-
-                                                <ul class="selectable--list z-index:7 width:30px">
-                                                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                    <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                </ul>
-                                            </cocreate-select>
-                                        </div>
-                                    </div>
-                                    <div class="width:50% margin:5px">
-                                        <input id="spread" class="floating-label z-index:0" placeholder="Spread:" step="100" data-style="style" data-style_property="spread" data-style_unit="px" active/>
-                                        <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
-                                            <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="border-width">
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
-
-                                                <ul class="selectable--list z-index:7 width:30px">
-                                                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                    <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                </ul>
-                                            </cocreate-select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="display:flex height:50px">
-                                    <div class="width:100% margin:5px">
-                                        <input id="font-color" type="color" class="floating-label z-index:0" placeholder="fill-color:" step="100" data-style="style" data-style_property="fill-color" active/>
-                                    </div>
-                                </div>
-                                <div class="display:flex height:50px">
-                                    <div class="width:100% margin:5px">
-                                        <cocreate-select class="remove-none floating-label" placeholder="ShadowType:" data-style="style" data-style_property="shadowtype" active>
-                                            <li value="px" selected><span class="margin:auto">none</span><span class="remove">none</span></li>
-
-                                            <ul class="selectable--list z-index:7">
-                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                                <li value="outside"><span class="margin:auto">outside</span></li>
-                                                <li value="inside"><span class="margin:auto">inside</span></li>
-                                            </ul>
-                                        </cocreate-select>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Text Shadow -->
-                        <div class="shadow padding:10px background:darkgrey border-bottom:1px_solid_grey" data-show=".textshadow" data-hide=".textshadow">
-                            <span class="textshadow hidden"><i class="fas fa-plus"></i></span>
-                            <span class="textshadow"><i class="fas fa-minus"></i></span>
-                            <span>Text Shadow</span>
-                        </div>
-                        <div class="textshadow padding-bottom:20px background:silver">
-                            <div class="card">
-                                <div class="display:flex height:50px">
-                                    <div class="width:50% margin:5px">
-                                        <input id="offsetx" class="floating-label z-index:0" placeholder="Offset X:" step="100" data-style="style" data-style_property="offsetx" data-style_unit="px" active/>
-                                        <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
-                                            <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="border-width">
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
-    
-                                                <ul class="selectable--list z-index:7 width:30px">
-                                                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                    <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                </ul>
-                                            </cocreate-select>
+                            <!-- Text Shadow -->
+                            <div class="textshadow padding-bottom:20px background:silver">
+                                <div class="card">
+                                    <div class="display:flex height:50px">
+                                        <div class="width:50% margin:5px">
+                                            <input id="offsetx" class="floating-label z-index:0" placeholder="Offset X:" step="100" data-style="style" data-style_property="offsetx" data-style_unit="px" active/>
+                                            <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
+                                                <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="border-width">
+                                                    <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
+
+                                                    <ul class="selectable--list z-index:7 width:30px">
+                                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
+                                                        <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                    </ul>
+                                                </cocreate-select>
+                                            </div>
+                                        </div>
+                                        <div class="width:50% margin:5px">
+                                            <input id="offsetv" class="floating-label z-index:0" placeholder="Offset V:" step="100" data-style="style" data-style_property="offsetv" data-style_unit="px" active/>
+                                            <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
+                                                <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="border-width">
+                                                    <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
+
+                                                    <ul class="selectable--list z-index:7 width:30px">
+                                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
+                                                        <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                    </ul>
+                                                </cocreate-select>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="width:50% margin:5px">
-                                        <input id="offsetv" class="floating-label z-index:0" placeholder="Offset V:" step="100" data-style="style" data-style_property="offsetv" data-style_unit="px" active/>
-                                        <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
-                                            <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="border-width">
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
-    
-                                                <ul class="selectable--list z-index:7 width:30px">
-                                                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                    <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                </ul>
-                                            </cocreate-select>
+                                    <div class="display:flex height:50px">
+                                        <div class="width:100% margin:5px">
+                                            <input id="blur" class="floating-label z-index:0" placeholder="Blur:" step="100" data-style="style" data-style_property="blur" data-style_unit="px" active/>
+                                            <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
+                                                <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="border-width">
+                                                    <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
+
+                                                    <ul class="selectable--list z-index:7 width:30px">
+                                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
+                                                        <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                    </ul>
+                                                </cocreate-select>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="display:flex height:50px">
-                                    <div class="width:100% margin:5px">
-                                        <input id="blur" class="floating-label z-index:0" placeholder="Blur:" step="100" data-style="style" data-style_property="blur" data-style_unit="px" active/>
-                                        <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
-                                            <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="border-width">
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
-    
-                                                <ul class="selectable--list z-index:7 width:30px">
-                                                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                    <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                </ul>
-                                            </cocreate-select>
+                                    <div class="display:flex height:50px">
+                                        <div class="width:100% margin:5px">
+                                            <input id="font-color" type="color" class="floating-label z-index:0" placeholder="fill-color:" step="100" data-style="style" data-style_property="fill-color" active/>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="display:flex height:50px">
-                                    <div class="width:100% margin:5px">
-                                        <input id="font-color" type="color" class="floating-label z-index:0" placeholder="fill-color:" step="100" data-style="style" data-style_property="fill-color" active/>
                                     </div>
                                 </div>
                             </div>
@@ -871,7 +863,7 @@
                             <div class="display:flex height:50px">
                                 <div class="width:50% margin:5px">
                                     <cocreate-select class="remove-none floating-label" id="background-repeat" placeholder="background-repeat:" data-style="style" data-style_property="background-repeat" active>
-                                        <li value="none" selected><span class="margin:auto">none</span><span class="remove">none</span></li>
+                                        <li value="none" selected><span class="margin:auto">none</span></li>
 
                                         <ul class="selectable--list z-index:7">
                                             <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
@@ -884,7 +876,7 @@
                                 </div>
                                 <div class="width:50% margin:5px">
                                     <cocreate-select class="remove-none floating-label" id="background-position" placeholder="background-position" data-style="style" data-style_property="background-position" active>
-                                        <li value="none" selected><span class="margin:auto">none</span><span class="remove">none</span></li>
+                                        <li value="none" selected><span class="margin:auto">none</span></li>
 
                                         <ul class="selectable--list z-index:7">
                                             <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
@@ -904,7 +896,7 @@
                             <div class="display:flex height:50px">
                                 <div class="width:50% margin:5px">
                                     <cocreate-select class="remove-none floating-label" id="background-attachment" placeholder="background-attachment:" data-style="style" data-style_property="background-attachment" active>
-                                        <li value="none" selected><span class="margin:auto">none</span><span class="remove">none</span></li>
+                                        <li value="none" selected><span class="margin:auto">none</span></li>
 
                                         <ul class="selectable--list z-index:7">
                                             <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
@@ -916,7 +908,7 @@
                                 </div>
                                 <div class="width:50% margin:5px">
                                     <cocreate-select class="remove-none floating-label" id="background-size" placeholder="background-size:" data-style="style" data-style_property="background-size" active>
-                                        <li value="none" selected><span class="margin:auto">none</span><span class="remove">none</span></li>
+                                        <li value="none" selected><span class="margin:auto">none</span></li>
 
                                         <ul class="selectable--list z-index:7">
                                             <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
@@ -951,22 +943,155 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="width:50% margin:5px">
-                                    <cocreate-select class="remove-none floating-label" id="cursor" placeholder="Cursor:" data-style="style" data-style_property="cursor" active>
-                                        <li value="none" selected><span class="margin:auto">none</span><span class="remove">none</span></li>
+                            <div class="width:100% margin:5px">
+                                <cocreate-select class="remove-none floating-label" id="cursor" placeholder="Cursor:" data-style="style" data-style_property="cursor" active>
+                                    <li value="none" selected><span class="margin:auto">none</span></li>
 
-                                        <ul class="selectable--list z-index:7">
-                                            <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                            <li value="auto"><span class="margin:auto">auto</span></li>
-                                            <li value="cover"><span class="margin:auto">cover</span></li>
-                                            <li value="contain"><span class="margin:auto">contain</span></li>
-                                        </ul>
-                                    </cocreate-select>
+                                    <ul class="selectable--list z-index:7">
+                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                        <li value="auto"><span class="margin:auto">Auto</span></li>
+                                        <li value="default"><span class="margin:auto"></span>Default</li>
+                                        <li value="none"><span class="margin:auto"></span>None</li>
+                                        <li value="alias"><span class="margin:auto"></span>Alias</li>
+                                        <li value="col-resize"><span class="margin:auto">Column resize</span></li>
+                                        <li value="row-resize"><span class="margin:auto">Row resize</span></li>
+                                        <li value="context-menu"><span class="margin:auto">Context menu</span></li>
+                                        <li value="copy"><span class="margin:auto">Copy</span></li>
+                                        <li value="crosshair"><span class="margin:auto"></span>Crosshair</li>
+                                        <li value="n-resize"><span class="margin:auto">Resize N</span></li>
+                                        <li value="ne-resize"><span class="margin:auto">Resize NE</span></li>
+                                        <li value="e-resize"><span class="margin:auto">Resize E</span></li>
+                                        <li value="se-resize"><span class="margin:auto">Resize SE</span></li>
+                                        <li value="s-resize"><span class="margin:auto">Resize S</span></li>
+                                        <li value="sw-resize"><span class="margin:auto">Resize SW</span></li>
+                                        <li value="w-resize"><span class="margin:auto">Resize W</span></li>
+                                        <li value="nw-resize"><span class="margin:auto">Resize NW</span></li>
+                                        <li value="ns-resize"><span class="margin:auto">Resize NS</span></li>
+                                        <li value="nesw-resize"><span class="margin:auto">Resize NESW</span></li>
+                                        <li value="ew-resize"><span class="margin:auto">Resize EW</span></li>
+                                        <li value="nwse-resize"><span class="margin:auto">Resize NWSE</span></li>
+                                        <li value="grab"><span class="margin:auto">Grab</span></li>
+                                        <li value="grabbing"><span class="margin:auto">Grabbing</span></li>
+                                        <li value="help"><span class="margin:auto">Help</span></li>
+                                        <li value="move"><span class="margin:auto">Move</span></li>
+                                        <li value="not-allowed"><span class="margin:auto">Not allowed</span></li>
+                                        <li value="pointer"><span class="margin:auto">Pointer</span></li>
+                                        <li value="progress"><span class="margin:auto">Progress</span></li>
+                                        <li value="text"><span class="margin:auto">Text</span></li>
+                                        <li value="vertical-text"><span class="margin:auto">Vertical text</span></li>
+                                        <li value="zoom-in"><span class="margin:auto">Zoom in</span></li>
+                                        <li value="zoom-out"><span class="margin:auto">Zoom out</span></li>
+                                    </ul>
+                                </cocreate-select>
+                            </div>
+                            <div class="filter padding:5px padding-bottom:20px background:silver">
+                                <div class="card height:110px">
+                                    <div class="display:flex height:50px">
+                                        <div class="width:100% margin:5px">
+                                            <cocreate-select class="remove-none floating-label" id="filter-type" placeholder="FilterType:" data-style="style" data-style_property="filter-type" active>
+                                                <li value="none" selected><span class="margin:auto">none</span></li>
+
+                                                <ul class="selectable--list z-index:7">
+                                                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                                    <li value="blur"><span class="margin:auto">blur</span></li>
+                                                    <li value="brightness"><span class="margin:auto">brightness</span></li>
+                                                    <li value="contrast"><span class="margin:auto">contrast</span></li>
+                                                    <li value="grayscale"><span class="margin:auto">grayscale</span></li>
+                                                    <li value="hue-rotate"><span class="margin:auto">hue-rotate</span></li>
+                                                    <li value="invert"><span class="margin:auto">invert</span></li>
+                                                    <li value="opacity"><span class="margin:auto">opacity</span></li>
+                                                    <li value="saturate"><span class="margin:auto">saturate</span></li>
+                                                    <li value="sepia"><span class="margin:auto">sepia</span></li>
+                                                </ul>
+                                            </cocreate-select>
+                                        </div>
+                                    </div>
+                                    <div class="display:flex height:50px">
+                                        <div class="width:100% margin:5px">
+                                            <input id="strenth" class="floating-label z-index:0" placeholder="strenth:" step="100" data-style="style" data-style_property="strenth" data-style_unit="%" active/>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="transform padding:5px padding-bottom:20px background:silver">
+                                <div class="card height:110px">
+                                    <div class="display:flex height:50px">
+                                        <div class="width:100% margin:5px">
+                                            <cocreate-select class="remove-none floating-label" id="transform-type" placeholder="TransformType:" data-style="style" data-style_property="transform-type" active>
+                                                <li value="none" selected><span class="margin:auto">none</span></li>
+
+                                                <ul class="selectable--list z-index:7">
+                                                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                                    <li value="translateX"><span class="margin:auto">Move X</span></li>
+                                                    <li value="translateY"><span class="margin:auto">Move Y</span></li>
+                                                    <li value="translateZ"><span class="margin:auto">Move Z</span></li>
+                                                    <li value="scale"><span class="margin:auto">Scale</span></li>
+                                                    <li value="scaleX"><span class="margin:auto">Scale X</span></li>
+                                                    <li value="scaleY"><span class="margin:auto">Scale Y</span></li>
+                                                    <li value="scaleZ"><span class="margin:auto">Scale Z</span></li>
+                                                    <li value="rotateX"><span class="margin:auto">Rotate X</span></li>
+                                                    <li value="rotateY"><span class="margin:auto">Rotate Y</span></li>
+                                                    <li value="rotateZ"><span class="margin:auto">Rotate Z</span></li>
+                                                    <li value="skewX"><span class="margin:auto">Skew X</span></li>
+                                                    <li value="skewY"><span class="margin:auto">Skew Y</span></li>
+                                                </ul>
+                                            </cocreate-select>
+                                        </div>
+                                    </div>
+                                    <div class="display:flex height:50px">
+                                        <div class="width:100% margin:5px">
+                                            <input id="tran-value" class="floating-label z-index:0" placeholder="Value:" step="100" data-style="style" data-style_property="tran-value" data-style_unit="px" active/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="padding:5px padding-bottom:20px background:silver">
+                                <div class="card height:110px background:whitesmoke">
+                                    <div class="display:flex height:50px">
+                                        <div class="width:100% margin:5px">
+                                            <cocreate-select class="remove-none floating-label" id="transition-property" placeholder="TransitionProperty:" data-style="style" data-style_property="transition-property" active>
+                                                <li value="none" selected><span class="margin:auto">none</span></li>
+
+                                                <ul class="selectable--list z-index:7">
+                                                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                                    <li value="all"><span class="margin:auto">All</span></li>
+                                                    <li value="width"><span class="margin:auto">Width</span></li>
+                                                    <li value="height"><span class="margin:auto">Height</span></li>
+                                                    <li value="background-color"><span class="margin:auto">Background color</span></li>
+                                                    <li value="transform"><span class="margin:auto">Transform</span></li>
+                                                    <li value="border"><span class="margin:auto">Border</span></li>
+                                                    <li value="box-shadow"><span class="margin:auto">Box shadow</span></li>
+                                                    <li value="text-shadow"><span class="margin:auto">Text shadow</span></li>
+                                                    <li value="opacity"><span class="margin:auto">Opacity</span></li>
+                                                    <li value="color"><span class="margin:auto">Color</span></li>
+                                                </ul>
+                                            </cocreate-select>
+                                        </div>
+                                    </div>
+                                    <div class="display:flex height:50px">
+                                        <div class="width:50% margin:5px">
+                                            <input id="duration" class="floating-label z-index:0" placeholder="duration:" step="100" data-style="style" data-style_property="duration" data-style_unit="s" active/>
+                                        </div>
+                                        <div class="width:50% margin:5px">
+                                            <cocreate-select class="remove-none floating-label" id="easing" placeholder="Easing:" data-style="style" data-style_property="easing" active>
+                                                <li value="none" selected><span class="margin:auto">none</span></li>
+
+                                                <ul class="selectable--list z-index:7">
+                                                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                                    <li value="linear"><span class="margin:auto">linear<span></li>
+                                                    <li value="ease"><span class="margin:auto">ease<span></li>
+                                                    <li value="ease-in"><span class="margin:auto">ease-in<span></li>
+                                                    <li value="ease-out"><span class="margin:auto">ease-out<span></li>
+                                                    <li value="ease-in-out"><span class="margin:auto">ease-in-out<span></li>
+                                                </ul>
+                                            </cocreate-select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Attribttes -->
+                <!--  Data Base  -->
                 <div id="database" class="editor-panel display:none" data-collection="" data-document_id name="">
                     <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".database" data-hide=".database">
                         <span class="sizing hidden"><i class="fas fa-plus"></i></span>
@@ -974,9 +1099,123 @@
                         <span>Database</span>
                     </div>
                     <div class="database padding:5px padding-bottom:20px background:silver">
-                        <input data-attribute_sync="data-collection" type="text" class="floating-label" placeholder="Collection">
-                        <input data-attribute_sync="data-document_id" type="text" class="floating-label" placeholder="Document">
-                        <input data-attribute_sync="name" type="text" class="floating-label" placeholder="Name">
+                        <div class="display:flex height:50px">
+                            <div class="width:100% margin:5px">
+                                 <cocreate-select class="remove-none floating-label" id="data-realtime" placeholder="data-realtime:" data-attribute_sync="data-realtime" active>
+                                    <input class="search-options" placeholder="Search" data-search_id="search_01" data-item_selector=".selectable">
+
+                                    <ul class="selectable--list z-index:7" data-search_id="search_01">
+                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value=""><span class="margin:auto">none</span></li>
+                                        <li value="true"><span class="margin:auto">true<span></li>
+                                        <li value="false"><span class="margin:auto">false<span></li>
+                                    </ul>
+                                </cocreate-select>
+                            </div>
+                        </div>
+                        <div class="display:flex height:50px">
+                            <div class="width:100% margin:5px">
+                                 <cocreate-select class="remove-none floating-label" id="data-save" placeholder="data-save:" data-attribute_sync="data-save" active>
+                                    <ul class="selectable--list z-index:7">
+                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                        <li value="true"><span class="margin:auto">true<span></li>
+                                        <li value="false"><span class="margin:auto">false<span></li>
+                                    </ul>
+                                </cocreate-select>
+                            </div>
+                        </div>
+                        <div class="display:flex height:50px">
+                            <div class="width:100% margin:5px">
+                                 <cocreate-select class="remove-none floating-label" id="data-collection" placeholder="data-collection:" data-attribute_sync="data-collection" active>
+                                    <ul class="selectable--list z-index:7">
+                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                        <li value="true"><span class="margin:auto"><span></li>
+                                    </ul>
+                                </cocreate-select>
+                            </div>
+                        </div>
+                        <div class="display:flex height:50px">
+                            <div class="width:100% margin:5px">
+                                 <cocreate-select class="remove-none floating-label" id="data-docuemnt_id" placeholder="data-docuemnt_id:" data-attribute_sync="data-docuemnt_id" active>
+                                    <ul class="selectable--list z-index:7">
+                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                        <li value="true"><span class="margin:auto"><span></li>
+                                    </ul>
+                                </cocreate-select>
+                            </div>
+                        </div>
+                        <div class="display:flex height:50px">
+                            <div class="width:100% margin:5px">
+                                <input data-attribute_sync="name" type="text" class="floating-label" placeholder="Name" active>
+                            </div>
+                        </div>
+                        <div class="display:flex height:50px">
+                            <div class="width:100% margin:5px">
+                                <input data-attribute_sync="data-prefix" type="text" class="floating-label" placeholder="data-prefix" active>
+                            </div>
+                        </div>
+                        <div class="display:flex height:50px">
+                            <div class="width:100% margin:5px">
+                                 <cocreate-select class="remove-none floating-label" id="Data-cursors" placeholder="Data-cursors:" data-attribute_sync="Data-cursors" active>
+                                    <ul class="selectable--list z-index:7">
+                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                        <li value="true"><span class="margin:auto">true<span></li>
+                                        <li value="false"><span class="margin:auto">false<span></li>
+                                    </ul>
+                                </cocreate-select>
+                            </div>
+                        </div>
+                        <div class="display:flex height:50px">
+                            <div class="width:100% margin:5px">
+                                <cocreate-select class="remove-none floating-label" id="Data-fetch" placeholder="Data-fetch:" data-attribute_sync="Data-fetch" active>
+                                    <ul class="selectable--list z-index:7">
+                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                        <li value="true"><span class="margin:auto">true<span></li>
+                                        <li value="false"><span class="margin:auto">false<span></li>
+                                    </ul>
+                                </cocreate-select>
+                            </div>
+                        </div>
+                        <div class="display:flex height:50px">
+                            <div class="width:100% margin:5px">
+                                 <cocreate-select class="remove-none floating-label" id="Data-action" placeholder="Data-action:" data-attribute_sync="Data-action" active>
+                                    <ul class="selectable--list z-index:7">
+                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                        <li value="true"><span class="margin:auto"><span></li>
+                                    </ul>
+                                </cocreate-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".fetchlist" data-hide=".fetchlist">
+                        <span class="fetchlist hidden"><i class="fas fa-plus"></i></span>
+                        <span class="fetchlist"><i class="fas fa-minus"></i></span>
+                        <span>Fetch List</span>
+                    </div>
+                    <div class="fetchlist padding:5px padding-bottom:20px background:silver">
+                        <div class="display:flex height:50px">
+                            <div class="width:100% margin:5px">
+                                 <cocreate-select class="remove-none floating-label" id="data-fetch_collection" placeholder="data-fetch_collection:" data-attribute_sync="data-fetch_collection" active>
+                                    <ul class="selectable--list z-index:7">
+                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                        <li value="true"><span class="margin:auto"><span></li>
+                                    </ul>
+                                </cocreate-select>
+                            </div>
+                        </div>
+                        <div class="display:flex height:50px">
+                            <div class="width:100% margin:5px">
+                                 <cocreate-select class="remove-none floating-label" id="data-fetch_docuemnt_id" placeholder="data-fetch_docuemnt_id:" data-attribute_sync="data-fetch_docuemnt_id" active>
+                                    <ul class="selectable--list z-index:7">
+                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                        <li value="true"><span class="margin:auto"><span></li>
+                                    </ul>
+                                </cocreate-select>
+                            </div>
+                        </div>
+                         <input data-attribute_sync="data-fetch_name" type="text" class="floating-label" placeholder="data-fetch_name" active>
+                        <input data-attribute_sync="data-filter_name" type="text" class="floating-label" placeholder="data-filter_name" active>
+                        <input data-attribute_sync="data-filter_value" type="text" class="floating-label" placeholder="data-filter_value" active>
+                        <input data-attribute_sync="data-template_id" type="text" class="floating-label" placeholder="data-template_id" active>    
                     </div>
                 </div>
                 <!-- Logic -->
@@ -987,40 +1226,94 @@
                         <span>Logic</span>
                     </div>
                     <div class="logic padding:5px padding-bottom:20px background:silver">
-                        <input data-attribute_sync="data-pass_to" type="text" class="floating-label" placeholder="data-pass_to">
-                        <input data-attribute_sync="data-pass_id" type="text" class="floating-label" placeholder="data-pass_id">
-                        <input data-attribute_sync="data-pass_collection" type="text" class="floating-label" placeholder="data-pass_collection">
+                        <input data-attribute_sync="data-pass_to" type="text" class="floating-label" placeholder="data-pass_to" active>
+                        <input data-attribute_sync="data-pass_id" type="text" class="floating-label" placeholder="data-pass_id" active>
+                        <cocreate-select class="remove-none floating-label" id="data-pass_collection" placeholder="data-pass_collection:" data-attribute_sync="data-pass_collection" active>
+                            <li value="none" selected><span class="margin:auto">none</span></li>
+                            <ul class="selectable--list z-index:7">
+                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                <li value="true"><span class="margin:auto"><span></li>
+                            </ul>
+                        </cocreate-select>
+                        <cocreate-select class="remove-none floating-label" id="data-pass_document_id" placeholder="data-pass_document_id:" data-attribute_sync="data-pass_document_id" active>
+                            <li value="none" selected><span class="margin:auto">none</span></li>
+                            <ul class="selectable--list z-index:7">
+                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                <li value="true"><span class="margin:auto"><span></li>
+                            </ul>
+                        </cocreate-select>
+                        <input data-attribute_sync="data-pass_name" type="text" class="floating-label" placeholder="data-pass_name">
+                        <input data-attribute_sync="data-pass_prefix" type="text" class="floating-label" placeholder="data-pass_prefix">
+                        <input data-attribute_sync="Data-pass_value " type="text" class="floating-label" placeholder="Data-pass_value">
+                        <cocreate-select class="remove-none floating-label" id="data-pass_fetch_collection" placeholder="data-pass_fetch_collection:" data-attribute_sync="data-pass_fetch_collection" active>
+                            <li value="none" selected><span class="margin:auto">none</span></li>
+                            <ul class="selectable--list z-index:7">
+                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                <li value="true"><span class="margin:auto"><span></li>
+                            </ul>
+                        </cocreate-select>
+                        <cocreate-select class="remove-none floating-label" id="data-pass_fetch_document_id" placeholder="data-pass_fetch_document_id:" data-attribute_sync="data-pass_fetch_document_id" active>
+                            <li value="none" selected><span class="margin:auto">none</span></li>
+                            <ul class="selectable--list z-index:7">
+                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                <li value="true"><span class="margin:auto"><span></li>
+                            </ul>
+                        </cocreate-select>
+                        <input data-attribute_sync="data-pass_fetch_name" type="text" class="floating-label" placeholder="data-pass_fetch_name">
+                        <input data-attribute_sync="data-pass_filter_name" type="text" class="floating-label" placeholder="data-pass_filter_name">
+                        <input data-attribute_sync="data-pass_filter_value" type="text" class="floating-label" placeholder="data-pass_filter_value">
+                        <cocreate-select class="remove-none floating-label" id="Data-pass_refresh" placeholder="Data-pass_refresh :" data-attribute_sync="Data-pass_refresh" active>
+                            <li value="none" selected><span class="margin:auto">none</span></li>
+                            <ul class="selectable--list z-index:7">
+                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
+                                <li value="true"><span class="margin:auto">true<span></li>
+                                <li value="false"><span class="margin:auto">false<span></li>
+                            </ul>
+                        </cocreate-select>
+                        <input data-attribute_sync="Data-pass_value_to" type="text" class="floating-label" placeholder="Data-pass_value_to" active>
+                        <input data-attribute_sync="Data-pass_value_id" type="text" class="floating-label" placeholder="Data-pass_value_id" active>
+                        <input data-attribute_sync="Data-get_value" type="text" class="floating-label" placeholder="Data-get_value" active>
+                        <input data-attribute_sync="Data-show" type="text" class="floating-label" placeholder="Data-show" active>
+                        <input data-attribute_sync="Data-hide" type="text" class="floating-label" placeholder="Data-hide" active>
+                        <input data-attribute_sync="Data-selected" type="text" class="floating-label" placeholder="Data-selected" active>
+                        <input data-attribute_sync="Data-toggle" type="text" class="floating-label" placeholder="Data-toggle" active>
+                        <input data-attribute_sync="Data-hover" type="text" class="floating-label" placeholder="Data-hover" active>
+                        <input data-attribute_sync="Data-room" type="text" class="floating-label" placeholder="Data-room" active>
+                        <input data-attribute_sync="data-namespace" type="text" class="floating-label" placeholder="data-namespace" active>
+                        <input data-attribute_sync="data-clone_id" type="text" class="floating-label" placeholder="data-clone_id" active>
+                        <input data-attribute_sync="data-template_id" type="text" class="floating-label" placeholder="data-template_id" active>
+                        <input data-attribute_sync="data-calculation" type="text" class="floating-label" placeholder="data-calculation" active>
                     </div>
                 </div>
             </div>
         </form>
         <div class="resizeHandler"></div>
-    </div>
+        </div>
 
-    <!-- End CoCreate SideNav Right -->
+        <!-- End CoCreate SideNav Right -->
 
-    <!-- floating btn -->
-    <!--<a class="position:fixed bottom:15px right:15px padding:15px bg:blue grow-hover round z-index:12" target="modal" href="block-form.html" data-pass_collection="blocks" data-modal_width="320px" data-modal_height="100%" data-modal_color="#229954" data-pass_to="render">-->
-    <!--  <i class="fa fa-plus"></i>-->
-    <!--</a>-->
-    <!-- end floating btn -->
+        <!-- floating btn -->
+        <!--<a class="position:fixed bottom:15px right:15px padding:15px bg:blue grow-hover round z-index:12" target="modal" href="block-form.html" data-pass_collection="blocks" data-modal_width="320px" data-modal_height="100%" data-modal_color="#229954" data-pass_to="render">-->
+        <!--  <i class="fa fa-plus"></i>-->
+        <!--</a>-->
+        <!-- end floating btn -->
 
-    <script>
-        var config = {
-            apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
-            securityKey: 'f26baf68-e3a9-45fc-effe-502e47116265',
-            organization_Id: '5de0387b12e200ea63204d6c'
-        }
-    </script>
+        <script>
+            var config = {
+                apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
+                securityKey: 'f26baf68-e3a9-45fc-effe-502e47116265',
+                organization_Id: '5de0387b12e200ea63204d6c'
+            }
+        </script>
 
-    <script defer src="https://server.cocreate.app/js/CoCreate.min.js"></script>
-  
+        <script defer src="https://server.cocreate.app/js/CoCreate.min.js"></script>
 
-    <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-selected2/src/index.js"></script>
-    <script defer src="https://server.cocreate.app/CoCreate-modules/CoCreate-builder/builder-config.js"></script>
-    
-    <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-select/src/CoCreate-select.js"></script>
-    <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-select/src/CoCreate-adapter.js"></script>
+
+        <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-selected2/src/index.js"></script>
+        <script defer src="https://server.cocreate.app/CoCreate-modules/CoCreate-builder/builder-config.js"></script>
+
+        <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-select/src/CoCreate-select.js"></script>
+        <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-select/src/CoCreate-adapter.js"></script>
 
 </body>
 
