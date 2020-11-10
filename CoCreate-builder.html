@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="style.css" type="text/css" />
 
 </head>
+<style>
+    
+</style>
 
 <body>
     <!-- Navbar  -->
@@ -32,7 +35,7 @@
             <span></span>
         </a>
         <!-- Horizontal Scroll Nav/Tabs -->
-        <ul class="cocreate-scroll display:inline-flex direction:rtl font-size:22px align-items:center list-style-type:none width:100% height:50px">
+        <ul class="cocreate-scroll display:inline-flex direction:rtl font-size:20px align-items:center list-style-type:none width:100% height:50px">
 
             <!-- Modal Controls -->
             <li class="margin-right:15px">
@@ -52,8 +55,14 @@
 
             <!-- Open code Editor in modal-->
             <li class="margin-right:15px">
-                <a target="modal" data-modal_header="true" data-pass_collection="modules" data-pass_document_id="5f91f3db9375db689f94a457" data-pass_name="html" data-pass_to="render" data-modal_width="100%" data-modal_height="100%" data-modal_color="#229954" data-modal_header="false">
+                <a target="modal" data-modal_header="false" data-pass_collection="module-views" data-pass_document_id="" data-pass_name="html" data-pass_to="render" data-modal_width="100%" data-modal_height="100%" data-modal_color="#229954" data-modal_header="false">
                     <i class="fa fa-code"></i>
+                    <div data-pass_collection="module-views"
+    					 data-pass_document_id="5fa85f874b4c3e4dea76abeb"
+    					 data-pass_name="html"
+    					 data-pass_to="code-editor"
+    					 data-pass_id="builder">
+    				 </div>
                 </a>
             </li>
 
@@ -97,13 +106,25 @@
 
     <!-- Main Container -->
     <div data-main_content_id="canvas" class="height:100vh">
-        <iframe data-vdom_id="test" id="canvas" data-document_id="5eefe30952c6e94c75fb5e3f" src="./iframe.html" frameborder="0" width="100%" height="100%"></iframe>
+    
+    <iframe data-vdom_id="test" id="canvas" src="./iframe.html" frameborder="0" width="100%" height="100%"></iframe>
+    <!--<iframe data-vdom_id="test" id="canvas" data-collection="module_activities" data-document_id="5edda7608d5c7a7d656edecd" name='html' frameborder="0" width="100%" height="100%"></iframe>-->
     </div>
 
     <!-- CoCreate SideNav Left -->
 
-    <div id="menuL" class="cocreate-sidenav background:gainsboro height:100vh" data-main_content="canvas,content" sidenav-default_desktop="expanded" sidenav-default_tablet="offcanvas" sidenav-default_phone="offcanvas" sidenav-ontoggle_desktop="offcanvas"
-        sidenav-ontoggle_tablet="offcanvas">
+    <div id="menuL" class="cocreate-sidenav background:gainsboro height:100vh" data-main_content="canvas,content" sidenav-default_desktop="expanded" sidenav-default_tablet="offcanvas" sidenav-default_phone="offcanvas" sidenav-ontoggle_desktop="offcanvas" sidenav-ontoggle_tablet="offcanvas">
+            <!--<div class="padding:5px">-->
+            <!--    <div class="display:flex tabs">-->
+            <!--        <div class="padding:10px_18px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_element="#styles" data-selected_group="builder-panels" selected><i class="fas fa-paint-brush"></i></div>-->
+            <!--        <div class="padding:10px_20px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_element="#database" data-selected_group="builder-panels"><i class="fas fa-database"></i></div>-->
+            <!--        <div class="padding:10px_20px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_element="#logic" data-selected_group="builder-panels"><i class="fas fa-brain"></i></div>-->
+            <!--        <div class="padding:10px_20px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_element="#broadcast" data-selected_group="builder-panels"><i class="fas fa-broadcast-tower"></i></div>-->
+            <!--        <div class="padding:10px_20px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_element="#settings" data-selected_group="builder-panels"><i class="fas fa-cog"></i></div>-->
+            <!--    </div>-->
+            <!--    <div class="cocreate-scroll height:90vh">-->
+            <!--    </div>-->
+            <!--</div>-->
 
         <!-- Cloneable test -->
         <div id="cloneables" data-collection="" data-document_id name="">
@@ -112,7 +133,7 @@
             <h5 data-cloneable="true" data-insert-html='<h5>cloneable div</h5>'>cloneable h5</h5>
         </div>
         <!-- vdom -->
-        <div class="">
+        <div class="cocreate-scroll height:90vh">
             <div data-vdom_target="test" data-group_name="test"></div>
         </div>
 
@@ -144,6 +165,7 @@
     <!-- CoCreate SideNav Right -->
     <div id="menuR" class="cocreate-sidenav sidenav-right background:gainsboro height:100vh" data-main_content="canvas,content" sidenav-default_desktop="expanded" sidenav-default_tablet="expanded" sidenav-expanded_width="290px" sidenav-collapsed_width="0px">
         <form id="domEditorPanel">
+        <!--<form id="domEditorPanel" data-collection="domeditorpanel" data-document_id="5fa5858058d4f03d7d60f723">-->
             <div class="padding:5px">
                 <div class="display:flex tabs">
                     <div class="padding:10px_18px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_element="#styles" data-selected_group="editor-panels" selected><i class="fas fa-paint-brush"></i></div>
@@ -154,7 +176,7 @@
                 </div>
                 <div class="cocreate-scroll height:90vh">
                     <!-- Styles -->
-                    <div id="styles" class="editor-panel display:none active" data-collection="" data-document_id name="">
+                    <div id="styles" class="editor-panel display:none active" >
                         <!-- Layout -->
                         <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".sizing" data-hide=".sizing">
                             <span class="sizing hidden"><i class="fas fa-plus"></i></span>
@@ -236,15 +258,15 @@
                         <div class="spacing padding-bottom:20px background:silver">
                             <div class="display:flex height:50px">
                                 <div class="width:50% margin:5px">
-                                    <input id="margin-left" class="floating-label z-index:0" placeholder="margin-left:" data-style="style" data-style_property="margin-left" data-style_unit="px" name="margin-left" active/>
+                                    <input id="margin-left" class="floating-label z-index:0" placeholder="margin-left:" data-style="classstyle" data-style_property="margin-left" data-style_unit="px" name="margin-left" active/>
                                     <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
                                         <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px min-height:auto!important" data-attribute="data-style_unit" data-attribute_target="#width">
                                             <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -257,8 +279,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -273,8 +295,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -287,8 +309,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -303,8 +325,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -317,8 +339,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -333,8 +355,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -347,8 +369,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -371,8 +393,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -385,8 +407,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vh"><span class="margin:auto">vh</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vh"><span class="margin:auto">vh</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -401,8 +423,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -415,8 +437,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vh"><span class="margin:auto">vh</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vh"><span class="margin:auto">vh</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -431,8 +453,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -445,8 +467,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vh"><span class="margin:auto">vh</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vh"><span class="margin:auto">vh</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -462,15 +484,15 @@
                         <div class="position padding-bottom:20px background:silver">
                             <div class="display:flex height:50px">
                                 <div class="width:50% margin:5px">
-                                    <input id="top" class="floating-label z-index:0" placeholder="top:" data-style="style" data-style_property="top" data-style_unit="px" active/>
+                                    <input id="top" class="floating-label z-index:0" placeholder="top:" data-style="style" data-style_property="top" data-style_unit="px" name="top" active/>
                                     <div class="position:relative width:27px top:-32px right:8px float:right border-radius:2px cursor:pointer">
                                         <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px" data-attribute="data-style_unit" data-attribute_target="#max-width">
                                             <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -483,8 +505,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -499,8 +521,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -513,8 +535,8 @@
 
                                             <ul class="selectable--list z-index:7 width:30px">
                                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
-                                                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
                                             </ul>
                                         </cocreate-select>
                                     </div>
@@ -534,18 +556,18 @@
 
                                         <ul class="selectable--list z-index:7">
                                             <li class="selectable" value="none"><span class="margin:auto">none</span></li>
-                                            <li value="arial"><span class="margin:auto">Arial</span></li>
-                                            <li value="arialblack"><span class="margin:auto">Arial Black</span></li>
-                                            <li value="brushscriptmt"><span class="margin:auto">Brush Script MT</span></li>
-                                            <li value="comicsansms"><span class="margin:auto">Comic Sans MS</span></li>
-                                            <li value="couriernew"><span class="margin:auto">Courier New</span></li>
-                                            <li value="georgia"><span class="margin:auto">Georgia</span></li>
-                                            <li value="helvetica"><span class="margin:auto">Helvetica</span></li>
-                                            <li value="lucidasansunicode"><span class="margin:auto">Lucida Sans Unicode</span></li>
-                                            <li value="tahoma"><span class="margin:auto">Tahoma</span></li>
-                                            <li value="trebuchetms"><span class="margin:auto">Trebuchet MS</span></li>
-                                            <li value="impact"><span class="margin:auto">Impact</span></li>
-                                            <li value="verdana"><span class="margin:auto">Verdana</span></li>
+                                            <li class="selectable" value="arial"><span class="margin:auto">Arial</span></li>
+                                            <li class="selectable" value="arialblack"><span class="margin:auto">Arial Black</span></li>
+                                            <li class="selectable" value="brushscriptmt"><span class="margin:auto">Brush Script MT</span></li>
+                                            <li class="selectable" value="comicsansms"><span class="margin:auto">Comic Sans MS</span></li>
+                                            <li class="selectable" value="couriernew"><span class="margin:auto">Courier New</span></li>
+                                            <li class="selectable" value="georgia"><span class="margin:auto">Georgia</span></li>
+                                            <li class="selectable" value="helvetica"><span class="margin:auto">Helvetica</span></li>
+                                            <li class="selectable" value="lucidasansunicode"><span class="margin:auto">Lucida Sans Unicode</span></li>
+                                            <li class="selectable" value="tahoma"><span class="margin:auto">Tahoma</span></li>
+                                            <li class="selectable" value="trebuchetms"><span class="margin:auto">Trebuchet MS</span></li>
+                                            <li class="selectable" value="impact"><span class="margin:auto">Impact</span></li>
+                                            <li class="selectable" value="verdana"><span class="margin:auto">Verdana</span></li>
                                         </ul>
                                     </cocreate-select>
                                 </div>
@@ -590,16 +612,16 @@
                                 <div class="width:50% margin:5px">
                                     <cocreate-select class="remove-none floating-label" id="font-align" placeholder="font-align:" data-style="style" data-style_property="font-align" active>
                                         <ul class="selectable--list z-index:7">
-                                            <li value="left">
+                                            <li class="selectable" value="left">
                                                 <label class="fa fa-align-left"></label>
                                             </li>
-                                            <li value="center">
+                                            <li class="selectable" value="center">
                                                 <label class="fa fa-align-center"></label>
                                             </li>
-                                            <li value="right">
+                                            <li class="selectable" value="right">
                                                 <label class="fa fa-align-right"></label>
                                             </li>
-                                            <li value="justify">
+                                            <li class="selectable" value="justify">
                                                 <label class="fa fa-align-justify"></label>
                                             </li>
                                         </ul>
@@ -608,13 +630,13 @@
                                 <div class="width:50% margin:5px">
                                     <cocreate-select class="remove-none floating-label" placeholder="text-decoration:" data-style="style" data-style_property="text-decoration" active>
                                         <ul class="selectable--list z-index:7">
-                                            <li value="x">
+                                            <li class="selectable" value="x">
                                                 <span class="fa fa-times"></span>
                                             </li>
-                                            <li value="u">
+                                            <li class="selectable" value="u">
                                                 <span class="fa fa-underline"></span>
                                             </li>
-                                            <li value="s">
+                                            <li class="selectable" value="s">
                                                 <span class="fa fa-strikethrough"></span>
                                             </li>
                                         </ul>
@@ -625,10 +647,10 @@
                                 <div class="width:100% margin:5px">
                                     <cocreate-select class="remove-none floating-label" placeholder="font-style:" data-style="style" data-style_property="font-style" active>
                                         <ul class="selectable--list z-index:7">
-                                            <li value="a">
+                                            <li class="selectable" value="a">
                                                 <label class="fa fa-font gjs-sm-icon gjs-radio-item-label" for="text-align-left-c705"></label>
                                             </li>
-                                            <li value="i">
+                                            <li class="selectable" value="i">
                                                 <label class="fa fa-italic gjs-sm-icon gjs-radio-item-label" for="text-align-left-c705"></label>
                                             </li>
                                         </ul>
@@ -661,14 +683,14 @@
 
                                         <ul class="selectable--list z-index:7">
                                             <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                            <li value="solid"><span class="margin:auto">solid</span></li>
-                                            <li value="dotted"><span class="margin:auto">dotted</span></li>
-                                            <li value="dashed"><span class="margin:auto">dashed</span></li>
-                                            <li value="double"><span class="margin:auto">double</span></li>
-                                            <li value="groove"><span class="margin:auto">groove</span></li>
-                                            <li value="ridge"><span class="margin:auto">ridge</span></li>
-                                            <li value="inset"><span class="margin:auto">inset</span></li>
-                                            <li value="outset"><span class="margin:auto">outset</span></li>
+                                            <li class="selectable" value="solid"><span class="margin:auto">solid</span></li>
+                                            <li class="selectable" value="dotted"><span class="margin:auto">dotted</span></li>
+                                            <li class="selectable" value="dashed"><span class="margin:auto">dashed</span></li>
+                                            <li class="selectable" value="double"><span class="margin:auto">double</span></li>
+                                            <li class="selectable" value="groove"><span class="margin:auto">groove</span></li>
+                                            <li class="selectable" value="ridge"><span class="margin:auto">ridge</span></li>
+                                            <li class="selectable" value="inset"><span class="margin:auto">inset</span></li>
+                                            <li class="selectable" value="outset"><span class="margin:auto">outset</span></li>
                                         </ul>
                                     </cocreate-select>
                                 </div>
@@ -772,12 +794,12 @@
                                     <div class="display:flex height:50px">
                                         <div class="width:100% margin:5px">
                                             <cocreate-select class="remove-none floating-label" placeholder="ShadowType:" data-style="style" data-style_property="shadowtype" active>
-                                                <li value="px" selected><span class="margin:auto">none</span></li>
+                                                <li class="selectable" value="px" selected><span class="margin:auto">none</span></li>
 
                                                 <ul class="selectable--list z-index:7">
                                                     <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                                    <li value="outside"><span class="margin:auto">outside</span></li>
-                                                    <li value="inside"><span class="margin:auto">inside</span></li>
+                                                    <li class="selectable" value="outside"><span class="margin:auto">outside</span></li>
+                                                    <li class="selectable" value="inside"><span class="margin:auto">inside</span></li>
                                                 </ul>
                                             </cocreate-select>
                                         </div>
@@ -796,7 +818,7 @@
 
                                                     <ul class="selectable--list z-index:7 width:30px">
                                                         <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                        <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
                                                     </ul>
                                                 </cocreate-select>
                                             </div>
@@ -809,7 +831,7 @@
 
                                                     <ul class="selectable--list z-index:7 width:30px">
                                                         <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                        <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
                                                     </ul>
                                                 </cocreate-select>
                                             </div>
@@ -824,7 +846,7 @@
 
                                                     <ul class="selectable--list z-index:7 width:30px">
                                                         <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
-                                                        <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                                                        <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
                                                     </ul>
                                                 </cocreate-select>
                                             </div>
@@ -861,10 +883,10 @@
             
                                         <ul class="selectable--list z-index:7">
                                             <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                            <li value="repeat"><span class="margin:auto">repeat</span></li>
-                                            <li value="repeat-x"><span class="margin:auto">repeat-x</span></li>
-                                            <li value="repeat-y"><span class="margin:auto">repeat-y</span></li>
-                                            <li value="norepeat"><span class="margin:auto">no repeat</span></li>
+                                            <li class="selectable" value="repeat"><span class="margin:auto">repeat</span></li>
+                                            <li class="selectable" value="repeat-x"><span class="margin:auto">repeat-x</span></li>
+                                            <li class="selectable" value="repeat-y"><span class="margin:auto">repeat-y</span></li>
+                                            <li class="selectable" value="norepeat"><span class="margin:auto">no repeat</span></li>
                                         </ul>
                                     </cocreate-select>
                                 </div>
@@ -873,15 +895,15 @@
             
                                         <ul class="selectable--list z-index:7">
                                             <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                            <li value="lt"><span class="margin:auto">left top</span></li>
-                                            <li value="lc"><span class="margin:auto">left center</span></li>
-                                            <li value="lb"><span class="margin:auto">left bottom</span></li>
-                                            <li value="rt"><span class="margin:auto">right top</span></li>
-                                            <li value="rc"><span class="margin:auto">right center</span></li>
-                                            <li value="rb"><span class="margin:auto">right bottom</span></li>
-                                            <li value="ct"><span class="margin:auto">center top</span></li>
-                                            <li value="cc"><span class="margin:auto">center center</span></li>
-                                            <li value="cb"><span class="margin:auto">center bottom</span></li>
+                                            <li class="selectable" value="lt"><span class="margin:auto">left top</span></li>
+                                            <li class="selectable" value="lc"><span class="margin:auto">left center</span></li>
+                                            <li class="selectable" value="lb"><span class="margin:auto">left bottom</span></li>
+                                            <li class="selectable" value="rt"><span class="margin:auto">right top</span></li>
+                                            <li class="selectable" value="rc"><span class="margin:auto">right center</span></li>
+                                            <li class="selectable" value="rb"><span class="margin:auto">right bottom</span></li>
+                                            <li class="selectable" value="ct"><span class="margin:auto">center top</span></li>
+                                            <li class="selectable" value="cc"><span class="margin:auto">center center</span></li>
+                                            <li class="selectable" value="cb"><span class="margin:auto">center bottom</span></li>
                                         </ul>
                                     </cocreate-select>
                                 </div>
@@ -892,9 +914,9 @@
             
                                         <ul class="selectable--list z-index:7">
                                             <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                            <li value="scroll"><span class="margin:auto">scroll</span></li>
-                                            <li value="fixed"><span class="margin:auto">fixed</span></li>
-                                            <li value="local"><span class="margin:auto">local</span></li>
+                                            <li class="selectable" value="scroll"><span class="margin:auto">scroll</span></li>
+                                            <li class="selectable" value="fixed"><span class="margin:auto">fixed</span></li>
+                                            <li class="selectable" value="local"><span class="margin:auto">local</span></li>
                                         </ul>
                                     </cocreate-select>
                                 </div>
@@ -903,9 +925,9 @@
             
                                         <ul class="selectable--list z-index:7">
                                             <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                            <li value="auto"><span class="margin:auto">auto</span></li>
-                                            <li value="cover"><span class="margin:auto">cover</span></li>
-                                            <li value="contain"><span class="margin:auto">contain</span></li>
+                                            <li class="selectable" value="auto"><span class="margin:auto">auto</span></li>
+                                            <li class="selectable" value="cover"><span class="margin:auto">cover</span></li>
+                                            <li class="selectable" value="contain"><span class="margin:auto">contain</span></li>
                                         </ul>
                                     </cocreate-select>
                                 </div>
@@ -939,38 +961,38 @@
         
                                     <ul class="selectable--list z-index:7">
                                         <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                        <li value="auto"><span class="margin:auto">Auto</span></li>
-                                        <li value="default"><span class="margin:auto"></span>Default</li>
-                                        <li value="none"><span class="margin:auto"></span>None</li>
-                                        <li value="alias"><span class="margin:auto"></span>Alias</li>
-                                        <li value="col-resize"><span class="margin:auto">Column resize</span></li>
-                                        <li value="row-resize"><span class="margin:auto">Row resize</span></li>
-                                        <li value="context-menu"><span class="margin:auto">Context menu</span></li>
-                                        <li value="copy"><span class="margin:auto">Copy</span></li>
-                                        <li value="crosshair"><span class="margin:auto"></span>Crosshair</li>
-                                        <li value="n-resize"><span class="margin:auto">Resize N</span></li>
-                                        <li value="ne-resize"><span class="margin:auto">Resize NE</span></li>
-                                        <li value="e-resize"><span class="margin:auto">Resize E</span></li>
-                                        <li value="se-resize"><span class="margin:auto">Resize SE</span></li>
-                                        <li value="s-resize"><span class="margin:auto">Resize S</span></li>
-                                        <li value="sw-resize"><span class="margin:auto">Resize SW</span></li>
-                                        <li value="w-resize"><span class="margin:auto">Resize W</span></li>
-                                        <li value="nw-resize"><span class="margin:auto">Resize NW</span></li>
-                                        <li value="ns-resize"><span class="margin:auto">Resize NS</span></li>
-                                        <li value="nesw-resize"><span class="margin:auto">Resize NESW</span></li>
-                                        <li value="ew-resize"><span class="margin:auto">Resize EW</span></li>
-                                        <li value="nwse-resize"><span class="margin:auto">Resize NWSE</span></li>
-                                        <li value="grab"><span class="margin:auto">Grab</span></li>
-                                        <li value="grabbing"><span class="margin:auto">Grabbing</span></li>
-                                        <li value="help"><span class="margin:auto">Help</span></li>
-                                        <li value="move"><span class="margin:auto">Move</span></li>
-                                        <li value="not-allowed"><span class="margin:auto">Not allowed</span></li>
-                                        <li value="pointer"><span class="margin:auto">Pointer</span></li>
-                                        <li value="progress"><span class="margin:auto">Progress</span></li>
-                                        <li value="text"><span class="margin:auto">Text</span></li>
-                                        <li value="vertical-text"><span class="margin:auto">Vertical text</span></li>
-                                        <li value="zoom-in"><span class="margin:auto">Zoom in</span></li>
-                                        <li value="zoom-out"><span class="margin:auto">Zoom out</span></li>
+                                        <li class="selectable" value="auto"><span class="margin:auto">Auto</span></li>
+                                        <li class="selectable" value="default"><span class="margin:auto"></span>Default</li>
+                                        <li class="selectable" value="none"><span class="margin:auto"></span>None</li>
+                                        <li class="selectable" value="alias"><span class="margin:auto"></span>Alias</li>
+                                        <li class="selectable" value="col-resize"><span class="margin:auto">Column resize</span></li>
+                                        <li class="selectable" value="row-resize"><span class="margin:auto">Row resize</span></li>
+                                        <li class="selectable" value="context-menu"><span class="margin:auto">Context menu</span></li>
+                                        <li class="selectable" value="copy"><span class="margin:auto">Copy</span></li>
+                                        <li class="selectable" value="crosshair"><span class="margin:auto"></span>Crosshair</li>
+                                        <li class="selectable" value="n-resize"><span class="margin:auto">Resize N</span></li>
+                                        <li class="selectable" value="ne-resize"><span class="margin:auto">Resize NE</span></li>
+                                        <li class="selectable" value="e-resize"><span class="margin:auto">Resize E</span></li>
+                                        <li class="selectable" value="se-resize"><span class="margin:auto">Resize SE</span></li>
+                                        <li class="selectable" value="s-resize"><span class="margin:auto">Resize S</span></li>
+                                        <li class="selectable" value="sw-resize"><span class="margin:auto">Resize SW</span></li>
+                                        <li class="selectable" value="w-resize"><span class="margin:auto">Resize W</span></li>
+                                        <li class="selectable" value="nw-resize"><span class="margin:auto">Resize NW</span></li>
+                                        <li class="selectable" value="ns-resize"><span class="margin:auto">Resize NS</span></li>
+                                        <li class="selectable" value="nesw-resize"><span class="margin:auto">Resize NESW</span></li>
+                                        <li class="selectable" value="ew-resize"><span class="margin:auto">Resize EW</span></li>
+                                        <li class="selectable" value="nwse-resize"><span class="margin:auto">Resize NWSE</span></li>
+                                        <li class="selectable" value="grab"><span class="margin:auto">Grab</span></li>
+                                        <li class="selectable" value="grabbing"><span class="margin:auto">Grabbing</span></li>
+                                        <li class="selectable" value="help"><span class="margin:auto">Help</span></li>
+                                        <li class="selectable" value="move"><span class="margin:auto">Move</span></li>
+                                        <li class="selectable" value="not-allowed"><span class="margin:auto">Not allowed</span></li>
+                                        <li class="selectable" value="pointer"><span class="margin:auto">Pointer</span></li>
+                                        <li class="selectable" value="progress"><span class="margin:auto">Progress</span></li>
+                                        <li class="selectable" value="text"><span class="margin:auto">Text</span></li>
+                                        <li class="selectable" value="vertical-text"><span class="margin:auto">Vertical text</span></li>
+                                        <li class="selectable" value="zoom-in"><span class="margin:auto">Zoom in</span></li>
+                                        <li class="selectable" value="zoom-out"><span class="margin:auto">Zoom out</span></li>
                                     </ul>
                                 </cocreate-select>
                             </div>
@@ -982,15 +1004,15 @@
                     
                                                 <ul class="selectable--list z-index:7">
                                                     <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                                    <li value="blur"><span class="margin:auto">blur</span></li>
-                                                    <li value="brightness"><span class="margin:auto">brightness</span></li>
-                                                    <li value="contrast"><span class="margin:auto">contrast</span></li>
-                                                    <li value="grayscale"><span class="margin:auto">grayscale</span></li>
-                                                    <li value="hue-rotate"><span class="margin:auto">hue-rotate</span></li>
-                                                    <li value="invert"><span class="margin:auto">invert</span></li>
-                                                    <li value="opacity"><span class="margin:auto">opacity</span></li>
-                                                    <li value="saturate"><span class="margin:auto">saturate</span></li>
-                                                    <li value="sepia"><span class="margin:auto">sepia</span></li>
+                                                    <li class="selectable" value="blur"><span class="margin:auto">blur</span></li>
+                                                    <li class="selectable" value="brightness"><span class="margin:auto">brightness</span></li>
+                                                    <li class="selectable" value="contrast"><span class="margin:auto">contrast</span></li>
+                                                    <li class="selectable" value="grayscale"><span class="margin:auto">grayscale</span></li>
+                                                    <li class="selectable" value="hue-rotate"><span class="margin:auto">hue-rotate</span></li>
+                                                    <li class="selectable" value="invert"><span class="margin:auto">invert</span></li>
+                                                    <li class="selectable" value="opacity"><span class="margin:auto">opacity</span></li>
+                                                    <li class="selectable" value="saturate"><span class="margin:auto">saturate</span></li>
+                                                    <li class="selectable" value="sepia"><span class="margin:auto">sepia</span></li>
                                                 </ul>
                                             </cocreate-select>
                                         </div>
@@ -1010,18 +1032,18 @@
                     
                                                 <ul class="selectable--list z-index:7">
                                                     <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                                    <li value="translateX"><span class="margin:auto">Move X</span></li>
-                                                    <li value="translateY"><span class="margin:auto">Move Y</span></li>
-                                                    <li value="translateZ"><span class="margin:auto">Move Z</span></li>
-                                                    <li value="scale"><span class="margin:auto">Scale</span></li>
-                                                    <li value="scaleX"><span class="margin:auto">Scale X</span></li>
-                                                    <li value="scaleY"><span class="margin:auto">Scale Y</span></li>
-                                                    <li value="scaleZ"><span class="margin:auto">Scale Z</span></li>
-                                                    <li value="rotateX"><span class="margin:auto">Rotate X</span></li>
-                                                    <li value="rotateY"><span class="margin:auto">Rotate Y</span></li>
-                                                    <li value="rotateZ"><span class="margin:auto">Rotate Z</span></li>
-                                                    <li value="skewX"><span class="margin:auto">Skew X</span></li>
-                                                    <li value="skewY"><span class="margin:auto">Skew Y</span></li>
+                                                    <li class="selectable" value="translateX"><span class="margin:auto">Move X</span></li>
+                                                    <li class="selectable" value="translateY"><span class="margin:auto">Move Y</span></li>
+                                                    <li class="selectable" value="translateZ"><span class="margin:auto">Move Z</span></li>
+                                                    <li class="selectable" value="scale"><span class="margin:auto">Scale</span></li>
+                                                    <li class="selectable" value="scaleX"><span class="margin:auto">Scale X</span></li>
+                                                    <li class="selectable" value="scaleY"><span class="margin:auto">Scale Y</span></li>
+                                                    <li class="selectable" value="scaleZ"><span class="margin:auto">Scale Z</span></li>
+                                                    <li class="selectable" value="rotateX"><span class="margin:auto">Rotate X</span></li>
+                                                    <li class="selectable" value="rotateY"><span class="margin:auto">Rotate Y</span></li>
+                                                    <li class="selectable" value="rotateZ"><span class="margin:auto">Rotate Z</span></li>
+                                                    <li class="selectable" value="skewX"><span class="margin:auto">Skew X</span></li>
+                                                    <li class="selectable" value="skewY"><span class="margin:auto">Skew Y</span></li>
                                                 </ul>
                                             </cocreate-select>
                                         </div>
@@ -1041,16 +1063,16 @@
                     
                                                 <ul class="selectable--list z-index:7">
                                                     <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                                    <li value="all"><span class="margin:auto">All</span></li>
-                                                    <li value="width"><span class="margin:auto">Width</span></li>
-                                                    <li value="height"><span class="margin:auto">Height</span></li>
-                                                    <li value="background-color"><span class="margin:auto">Background color</span></li>
-                                                    <li value="transform"><span class="margin:auto">Transform</span></li>
-                                                    <li value="border"><span class="margin:auto">Border</span></li>
-                                                    <li value="box-shadow"><span class="margin:auto">Box shadow</span></li>
-                                                    <li value="text-shadow"><span class="margin:auto">Text shadow</span></li>
-                                                    <li value="opacity"><span class="margin:auto">Opacity</span></li>
-                                                    <li value="color"><span class="margin:auto">Color</span></li>
+                                                    <li class="selectable" value="all"><span class="margin:auto">All</span></li>
+                                                    <li class="selectable" value="width"><span class="margin:auto">Width</span></li>
+                                                    <li class="selectable" value="height"><span class="margin:auto">Height</span></li>
+                                                    <li class="selectable" value="background-color"><span class="margin:auto">Background color</span></li>
+                                                    <li class="selectable" value="transform"><span class="margin:auto">Transform</span></li>
+                                                    <li class="selectable" value="border"><span class="margin:auto">Border</span></li>
+                                                    <li class="selectable" value="box-shadow"><span class="margin:auto">Box shadow</span></li>
+                                                    <li class="selectable" value="text-shadow"><span class="margin:auto">Text shadow</span></li>
+                                                    <li class="selectable" value="opacity"><span class="margin:auto">Opacity</span></li>
+                                                    <li class="selectable" value="color"><span class="margin:auto">Color</span></li>
                                                 </ul>
                                             </cocreate-select>
                                         </div>
@@ -1064,11 +1086,11 @@
                     
                                                 <ul class="selectable--list z-index:7">
                                                     <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                                    <li value="linear"><span class="margin:auto">linear<span></li>
-                                                    <li value="ease"><span class="margin:auto">ease<span></li>
-                                                    <li value="ease-in"><span class="margin:auto">ease-in<span></li>
-                                                    <li value="ease-out"><span class="margin:auto">ease-out<span></li>
-                                                    <li value="ease-in-out"><span class="margin:auto">ease-in-out<span></li>
+                                                    <li class="selectable" value="linear"><span class="margin:auto">linear<span></li>
+                                                    <li class="selectable" value="ease"><span class="margin:auto">ease<span></li>
+                                                    <li class="selectable" value="ease-in"><span class="margin:auto">ease-in<span></li>
+                                                    <li class="selectable" value="ease-out"><span class="margin:auto">ease-out<span></li>
+                                                    <li class="selectable" value="ease-in-out"><span class="margin:auto">ease-in-out<span></li>
                                                 </ul>
                                             </cocreate-select>
                                         </div>
@@ -1092,8 +1114,8 @@
 
                                     <ul class="selectable--list z-index:7" data-search_id="search_01">
                                         <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value=""><span class="margin:auto">none</span></li>
-                                        <li value="true"><span class="margin:auto">true<span></li>
-                                        <li value="false"><span class="margin:auto">false<span></li>
+                                        <li class="selectable" value="true"><span class="margin:auto">true<span></li>
+                                        <li class="selectable" value="false"><span class="margin:auto">false<span></li>
                                     </ul>
                                 </cocreate-select>
                             </div>
@@ -1102,8 +1124,8 @@
                                     <input class="search-options" placeholder="Search" data-item_selector=".selectable">
                                     <ul class="selectable--list z-index:7">
                                         <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                        <li value="true"><span class="margin:auto">true<span></li>
-                                        <li value="false"><span class="margin:auto">false<span></li>
+                                        <li class="selectable" value="true"><span class="margin:auto">true<span></li>
+                                        <li class="selectable" value="false"><span class="margin:auto">false<span></li>
                                     </ul>
                                 </cocreate-select>
                             </div>
@@ -1114,7 +1136,7 @@
                                     <input class="search-options" placeholder="Search" data-item_selector=".selectable">
                                     <ul class="selectable--list z-index:7">
                                         <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                        <li value="true"><span class="margin:auto"><span></li>
+                                        <li class="selectable" value="true"><span class="margin:auto"><span></li>
                                     </ul>
                                 </cocreate-select>
                             </div>
@@ -1125,7 +1147,7 @@
                                     <input class="search-options" placeholder="Search" data-item_selector=".selectable">
                                     <ul class="selectable--list z-index:7">
                                         <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                        <li value="true"><span class="margin:auto"><span></li>
+                                        <li class="selectable" value="true"><span class="margin:auto"><span></li>
                                     </ul>
                                 </cocreate-select>
                             </div>
@@ -1146,8 +1168,8 @@
                                     <input class="search-options" placeholder="Search" data-item_selector=".selectable">
                                     <ul class="selectable--list z-index:7">
                                         <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                        <li value="true"><span class="margin:auto">true<span></li>
-                                        <li value="false"><span class="margin:auto">false<span></li>
+                                        <li class="selectable" value="true"><span class="margin:auto">true<span></li>
+                                        <li class="selectable" value="false"><span class="margin:auto">false<span></li>
                                     </ul>
                                 </cocreate-select>
                             </div>
@@ -1156,8 +1178,8 @@
                                     <input class="search-options" placeholder="Search" data-item_selector=".selectable">
                                     <ul class="selectable--list z-index:7">
                                         <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                        <li value="true"><span class="margin:auto">true<span></li>
-                                        <li value="false"><span class="margin:auto">false<span></li>
+                                        <li class="selectable" value="true"><span class="margin:auto">true<span></li>
+                                        <li class="selectable" value="false"><span class="margin:auto">false<span></li>
                                     </ul>
                                 </cocreate-select>
                             </div>
@@ -1168,7 +1190,7 @@
                                     <input class="search-options" placeholder="Search" data-item_selector=".selectable">
                                     <ul class="selectable--list z-index:7">
                                         <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                        <li value="true"><span class="margin:auto"><span></li>
+                                        <li class="selectable" value="true"><span class="margin:auto"><span></li>
                                     </ul>
                                 </cocreate-select>
                             </div>
@@ -1186,7 +1208,7 @@
                                     <input class="search-options" placeholder="Search" data-item_selector=".selectable">
                                     <ul class="selectable--list z-index:7">
                                         <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                        <li value="true"><span class="margin:auto"><span></li>
+                                        <li class="selectable" value="true"><span class="margin:auto"><span></li>
                                     </ul>
                                 </cocreate-select>
                             </div>
@@ -1197,7 +1219,7 @@
                                     <input class="search-options" placeholder="Search" data-item_selector=".selectable">
                                     <ul class="selectable--list z-index:7">
                                         <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                        <li value="true"><span class="margin:auto"><span></li>
+                                        <li class="selectable" value="true"><span class="margin:auto"><span></li>
                                     </ul>
                                 </cocreate-select>
                             </div>
@@ -1222,14 +1244,14 @@
                                     <input class="search-options" placeholder="Search" data-item_selector=".selectable">
                             <ul class="selectable--list z-index:7">
                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                <li value="true"><span class="margin:auto"><span></li>
+                                <li class="selectable" value="true"><span class="margin:auto"><span></li>
                             </ul>
                         </cocreate-select>
                         <cocreate-select class="remove-none floating-label" id="data-pass_document_id" placeholder="data-pass_document_id:" data-attribute_sync="data-pass_document_id" active>
                                     <input class="search-options" placeholder="Search" data-item_selector=".selectable">
                             <ul class="selectable--list z-index:7">
                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                <li value="true"><span class="margin:auto"><span></li>
+                                <li class="selectable" value="true"><span class="margin:auto"><span></li>
                             </ul>
                         </cocreate-select>
                         <input data-attribute_sync="data-pass_name" type="text" class="floating-label" placeholder="data-pass_name">
@@ -1239,14 +1261,14 @@
                                     <input class="search-options" placeholder="Search" data-item_selector=".selectable">
                             <ul class="selectable--list z-index:7">
                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                <li value="true"><span class="margin:auto"><span></li>
+                                <li class="selectable" value="true"><span class="margin:auto"><span></li>
                             </ul>
                         </cocreate-select>
                         <cocreate-select class="remove-none floating-label" id="data-pass_fetch_document_id" placeholder="data-pass_fetch_document_id:" data-attribute_sync="data-pass_fetch_document_id" active>
                                     <input class="search-options" placeholder="Search" data-item_selector=".selectable">
                             <ul class="selectable--list z-index:7">
                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                <li value="true"><span class="margin:auto"><span></li>
+                                <li class="selectable" value="true"><span class="margin:auto"><span></li>
                             </ul>
                         </cocreate-select>
                         <input data-attribute_sync="data-pass_fetch_name" type="text" class="floating-label" placeholder="data-pass_fetch_name">
@@ -1256,8 +1278,8 @@
                             <input class="search-options" placeholder="Search" data-item_selector=".selectable">
                             <ul class="selectable--list z-index:7">
                                 <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="none"><span class="margin:auto">none</span></li>
-                                <li value="true"><span class="margin:auto">true<span></li>
-                                <li value="false"><span class="margin:auto">false<span></li>
+                                <li class="selectable" value="true"><span class="margin:auto">true<span></li>
+                                <li class="selectable" value="false"><span class="margin:auto">false<span></li>
                             </ul>
                         </cocreate-select>
                         <input data-attribute_sync="data-pass_value_to" type="text" class="floating-label" placeholder="data-pass_value_to" active>
@@ -1418,10 +1440,14 @@
 
 
         <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-selected2/src/index.js"></script>
+        <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-dnd/dist/CoCreate-dnd.js"></script>
         <script defer src="https://server.cocreate.app/CoCreate-modules/CoCreate-builder/builder-config.js"></script>
 
         <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-select/src/CoCreate-select.js"></script>
+        <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-styles/src/index.js"></script>
+        <!--<script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-attributes/src/index.js"></script>-->
         <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-select/src/CoCreate-adapter.js"></script>
+          <script src="https://server.cocreate.app/CoCreate-components/CoCreate-observer/src/index.js"></script>
 
 </body>
 

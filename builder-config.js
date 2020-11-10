@@ -7,8 +7,8 @@ let elementConfig = [
     hoverable: "true",
     selectable: "true",
     editable: "true",
-    draggable: "true",
-    droppable: "true",
+    // draggable: "true",
+    // droppable: "true",
     
     // toolbar: { 'test': 'testing this' },
   },
@@ -46,23 +46,43 @@ window.addEventListener("load", () => {
   let canvasDocument = canvas.contentWindow.document || canvas.contentDocument;
 
   // init dnd
-  window.initElement({
-    target: canvasDocument.body,
-    dropable: "*",
-    draggable: "*",
-    beforeDndSuccess: function({ dragedEl, dropType })
-    {
-      if (dropType === "data-cloneable") {
-      let body = document.createElement("body");
-      body.appendChild(dragedEl.cloneNode(true));
-      dom.element(elementConfig, {
-        context: body,
-        setAttribute: "setHiddenAttribute",
-      });
-      return { dragedEl: body.children[0] }
-    }
-    }
-  });
+  // window.initElement({
+  //   target: canvasDocument.body,
+  //   dropable: "*",
+  //   draggable: "*",
+  //   beforeDndSuccess: function({ dragedEl, dropType })
+  //   {
+  //     //add
+  //     if (dropType === "data-cloneable") {
+  //     let body = document.createElement("body");
+  //     body.appendChild(dragedEl.cloneNode(true));
+  //     dom.element(elementConfig, {
+  //       context: body,
+  //       setAttribute: "setHiddenAttribute",
+  //     });
+  //     return { dragedEl: body.children[0] }
+  //   }
+  //   }
+  // });
+  // window.initElement({
+  //   target: canvasDocument.body,
+  //   shallDnd: function (element){
+  //     return [element, 'data-draggable']
+  //   },
+  //   beforeDndSuccess: function({ dragedEl, dropType })
+  //   {
+  //     //add
+  //     if (dropType === "data-cloneable") {
+  //     let body = document.createElement("body");
+  //     body.appendChild(dragedEl.cloneNode(true));
+  //     dom.element(elementConfig, {
+  //       context: body,
+  //       setAttribute: "setHiddenAttribute",
+  //     });
+  //     return { dragedEl: body.children[0] }
+  //   }
+  //   }
+  // });
 
 
 try{
@@ -73,8 +93,8 @@ try{
         source: 'data-element_id',
         destination: 'data-style_target',
         wrap: '[data-element_id=$1]',
-        
       })
+      
       window.selected2({
         elementSelector:'*',
         targetSelector: 'input[data-attribute_sync]',
