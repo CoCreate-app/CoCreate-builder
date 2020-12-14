@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
     <link rel="icon" href="https://cdn.cocreate.app/favicon.ico" type="image/ico" sizes="16x16">
     <title>CoCreate-builder | CoCreate</title>
     <meta name="description" content="Website and web app Builder framework using Cocreate Componets" />
@@ -19,7 +18,7 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://server.cocreate.app/CoCreate-modules/CoCreate-builder/style.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
 
     <link rel="stylesheet" href="https://server.cocreate.app//CoCreate-plugins/CoCreate-codemirror/src/css/CoCreate-codemirror.css" type="text/css" />
 
@@ -112,9 +111,9 @@
 
     <!-- Main Container -->
     <div data-main_content_id="canvas" class="height:100vh">
-        <div id="html" data-collection="module_activities" data-document_id="5edee53c3e956152355a3442" name='html' class="codemirror"></div>
+        <div id="html" data-collection="module_activities" data-document_id="5edda7608d5c7a7d656edecd" name='html' class="codemirror"></div>
         <!--<iframe data-vdom_id="test" id="canvas"  frameborder="0" width="100%" height="100%" src="https://server.cocreate.app/CoCreate-website/index.html"></iframe>-->
-        <iframe data-vdom_id="test" id="canvas" data-collection="module_activities" data-document_id="5edee53c3e956152355a3442" name='html' frameborder="0" width="100%" height="100%"></iframe>
+        <iframe data-vdom_id="test" id="canvas" data-collection="module_activities" data-document_id="5edda7608d5c7a7d656edecd" name='html' frameborder="0" width="100%" height="100%"></iframe>
     </div>
 
     <!-- SideNav Left -->
@@ -197,6 +196,7 @@
     </div>
     <!-- End Hover Toolbar -->
 
+
     <script>
         var config = {
             apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
@@ -206,24 +206,26 @@
     </script>
     
     <script defer src="https://server.cocreate.app/js/CoCreate.min.js"></script>
-    <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-select/src/CoCreate-select.js"></script>
-    <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-select/src/CoCreate-adapter.js"></script>
-    <script type="text/javascript" src="https://server.cocreate.app/CoCreate-plugins/CoCreate-codemirror/dist/CoCreate-codemirror.js" async></script>
-  <!-- in CoCreateJS -->
-    <!--<script src="https://server.cocreate.app/CoCreate-components/CoCreate-observer/src/index.js"></script>-->
-    <!--<script defer src="https://server.cocreate.app/CoCreateCSS/css_parse/parsing.js"></script>-->
-    
-    <script defer src="https://server.cocreate.app/CoCreate-modules/CoCreate-builder/src/findPosition.js"></script>
+    <!--<script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-htmltags/src/CoCreate-htmltags.js"></script>-->
     <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-vdom/dist/CoCreate-vdom.js"></script>
+    
+    
     <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-selected2/src/index.js"></script>
     <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-dnd/dist/CoCreate-dnd.js"></script>
     <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-attributes/src/index.js"></script>
-    <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-styles/src/index.js"></script>
-    <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-toolbar/src/CoCreate-toolbar.js"></script>
-    <script defer src="./src/QuillEditorAdder.js"></script>
-   
     <script defer src="https://server.cocreate.app/CoCreate-modules/CoCreate-builder/builder-config.js"></script>
-   
+    
+    <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-select/src/CoCreate-select.js"></script>
+    <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-select/src/CoCreate-adapter.js"></script>
+    <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-styles/src/index.js"></script>
+
+    <!--<script src="https://server.cocreate.app/CoCreate-components/CoCreate-observer/src/index.js"></script>-->
+    <script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-toolbar/src/CoCreate-toolbar.js"></script>
+    <!--<script defer src="https://server.cocreate.app/CoCreateCSS/css_parse/parsing.js"></script>-->
+    <script defer src="./src/QuillEditorAdder.js"></script>
+        <script type="text/javascript" src="https://server.cocreate.app/CoCreate-plugins/CoCreate-codemirror/dist/CoCreate-codemirror.js" async></script>  </body>
+
+
 </body>
 
 </html>
