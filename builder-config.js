@@ -105,9 +105,10 @@ window.addEventListener("load", () => {
 
 window.addEventListener("CoCreateHtmlTags-rendered", (e) => {
   initBuilder();
-  document
-    .querySelector('iframe[data-document_id="5edee53c3e956152355a3442"]')
-    .removeAttribute("data-document_id");
+
+  // document
+  //   .querySelector('iframe#canvas')
+  //   .removeAttribute("data-document_id");
 });
 
 
@@ -156,6 +157,7 @@ function initBuilder() {
     if (!isDndFindDef) {
       isDndFindDef = true;
       window.addEventListener("dndsuccess", (e) => {
+      
         let {
           position,
           dragedEl,
@@ -164,7 +166,9 @@ function initBuilder() {
           dragNextSib,
           dropNextSib,
         } = e.detail;
-
+        
+        // check if it's out side of dnd
+        if(!canvasDocument.contains(dropedEl)) return;
         switch (dropType) {
           case "data-draggable":
             sendCrdtPayload({
@@ -363,6 +367,6 @@ function initBuilder() {
   catch (error) {
     console.error("selected2 init error", error);    throw error;
   }
-
+  let e = 6;
   // });
 }
