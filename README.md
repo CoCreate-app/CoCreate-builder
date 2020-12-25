@@ -1,7 +1,7 @@
-![GitHub file size in bytes](https://img.shields.io/github/size/CoCreate-app/CoCreate-builder/dist/CoCreate-builder.min.js?label=minified%20size) 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/CoCreate-app/CoCreate-builder)
-![GitHub](https://img.shields.io/github/license/CoCreate-app/CoCreate-builder) 
-![GitHub labels](https://img.shields.io/github/labels/CoCreate-app/CoCreate-builder/help%20wanted)
+![GitHub file size in bytes](https://img.shields.io/github/size/CoCreate-app/CoCreate-builder/dist/CoCreate-builder.min.js?label=minified%20size&style=for-the-badge) 
+![GitHub package.json version](https://img.shields.io/github/package-json/v/CoCreate-app/CoCreate-builder?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/CoCreate-app/CoCreate-builder?style=for-the-badge) 
+![GitHub labels](https://img.shields.io/github/labels/CoCreate-app/CoCreate-builder/help%20wanted?style=for-the-badge)
 
 # CoCreate-builder
 A simple HTML5 and pure javascript component. Easy configuration using data-attributes and highly styleable.
