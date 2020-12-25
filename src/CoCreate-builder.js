@@ -317,15 +317,15 @@
 
 
     try {
-      // window.selected2({
-      //   sourceDocument: canvasDocument,
-      //   destDocument: document,
-      //   elementSelector: "*",
-      //   targetSelector: "[data-attribute_sync]:not(.styleunit), [data-style]:not(.styleunit)",
-      //   source: "data-element_id",
-      //   destination: "name",
-      //   newValueCB: (src, dest, srcValue) => dest.id + '-' + srcValue
-      // });
+      window.selected2({
+        sourceDocument: canvasDocument,
+        destDocument: document,
+        elementSelector: "*",
+        targetSelector: "[data-attribute_sync]:not(.styleunit), [data-style]:not(.styleunit)",
+        source: "data-element_id",
+        destination: "name",
+        newValueCB: (src, dest, srcValue) => dest.id + '-' + srcValue
+      });
 
       // init selected
       // make ccStyle work
