@@ -13,6 +13,16 @@ module.exports = {
   // Path to your entry point. From this file Webpack will begin his work
   entry: {
     'CoCreate-builder': './src/CoCreate-builder.js',
+    // 'CoCreate-domReader': '../CoCcreate-components/CoCreate-domReader/src/CoCreate-domReader.js',
+    // 'CoCreate-dnd': '../CoCcreate-components/CoCreate-dnd/src/index.js',
+    // 'CoCreate-vdom': '../CoCcreate-components/CoCreate-vdom/src/CoCreate-vdom.js',
+    // 'CoCreate-toolbar': '../CoCcreate-components/CoCreate-toolbar/src/CoCreate-toolbar.js',
+    // 'CoCreate-styles': '../CoCcreate-components/CoCreate-styles/src/CoCreate-styles.js',
+    // 'CoCreate-attributes': '../CoCcreate-components/CoCreate-attributes/src/CoCreate-attributes.js',
+    // 'CoCreate-selected2': '../CoCcreate-components/CoCreate-selected2/src/CoCreate-selected2.js',
+    // 'CoCreate-findPosition': '../CoCcreate-components/CoCreate-findPosition/src/CoCreate-findPosition.js',
+    // 'CoCreate-pickr': '../CoCcreate-plugins/CoCreate-pickr/src/CoCreate-pickr.js',
+
   },
 
   // Path and filename of your result bundle.
