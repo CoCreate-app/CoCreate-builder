@@ -1,87 +1,4 @@
-(() => {
-  let elementConfig = [{
-      selector: "*",
-      editable: false,
-      draggable: true,
-      droppable: true,
-      selectable: true,
-      hoverable: true,
-    },
-    {
-      selector: "h1, h2, h3, h4, h5, h6, p, span, blockquote",
-      editable: true,
-      draggable: true,
-      droppable: false,
-      selectable: true,
-      hoverable: true,
-    },
-    {
-      selector: "input",
-      editable: false,
-      draggable: false,
-      droppable: false,
-    },
-    {
-      selector: "textarea",
-      editable: false,
-    },
-    {
-      selector: "select",
-      editable: false,
-    },
-    {
-      selector: "div.quill",
-      draggable: true,
-      droppable: false,
-      selectable: true,
-      hoverable: false,
-    },
-    {
-      selector: "div.nav",
-      tagName: "navbar",
-      draggable: true,
-      droppable: true,
-      selectable: true,
-      hoverable: true,
-    },
-    {
-      selector: "div.floating-label_field",
-      draggable: true,
-      droppable: false,
-      selectable: false,
-      hoverable: false,
-    },
-    {
-      selector: "div.ql-editor *",
-      draggable: false,
-      droppable: false,
-      // selectable: false,
-      // hoverable: false,
-    },
-    {
-      tagName: "icon",
-      selector: "a.menu_icon",
-      editable: false,
-      draggable: false,
-      droppable: false,
-      selectable: true,
-      hoverable: true,
-    },
-    {
-      selector: "a.menu_icon span",
-      selectable: false,
-      hoverable: false,
-    },
-    {
-      selector: "menu_icon.span",
-      editable: false,
-      draggable: false,
-      droppable: false,
-      selectable: false,
-      hoverable: false,
-      selectable2: true,
-    },
-  ].reverse();
+import elementConfig from './elementConfig';
 
   function addScript(document, url) {
     let script = document.createElement("script");
@@ -124,8 +41,12 @@
   let isDndFindDef = false;
   let canvas, canvasDocument, canvasWindow;
 
-  function initBuilder() {
 
+  window.ss = {};
+  let i = 1;
+  
+  function initBuilder() {
+// window.ss[i++] = window.CoCreateSelected.config ? true : false;
     try {
       canvas = document.querySelector("#canvas");
       if (!canvas)
@@ -136,23 +57,25 @@
         name: canvas.getAttribute('name'),
       };
 
-      CoCreate.initDataCrdt(crdtCon);
+      CoCreate.crdt.init(crdtCon);
 
       canvasWindow = canvas.contentWindow;
       canvasDocument = canvasWindow.document || canvas.contentDocument;
 
-      window.domReader.register(window.domReader.domContext, canvasWindow)
+      CoCreate.domReader.register(CoCreate.domReader.domContext, canvasWindow)
 
       canvasWindow.addEventListener("load", (e) => initBuilder("iframe", e));
-      domEditor({
-        context: canvasDocument,
-        selector_type: "querySelectorAll",
-        selector: "*",
-        idGenerator: CoCreateUtils.UUID,
-      });
+      canvasDocument.body.querySelectorAll('*')
+      .forEach(el => el.getAttribute('data-element_id') || el.setAttribute('data-element_id', CoCreate.utils.UUID()))
+      // domEditor({
+      //   context: canvasDocument,
+      //   selector_type: "querySelectorAll",
+      //   selector: "*",
+      //   idGenerator: CoCreate.utils.UUID,
+      // });
     }
     catch (error) {
-      console.error("canvas not found init error", error);
+      console.error("canvas not found init error", error , document.URL);
     }
 
     try {
@@ -170,10 +93,19 @@
           } = e.detail;
 
           // check if it's out side of dnd
-          if (!canvasDocument.contains(dropedEl)) return;
+          if (dropedEl.classList.contains('vdom-item')) {
+            let id = dropedEl.getAttribute("data-element_id");
+            dropedEl = canvasDocument.querySelector(`[data-element_id="${id}"]`)
+            id = dragedEl.getAttribute("data-element_id");
+            dragedEl = canvasDocument.querySelector(`[data-element_id="${id}"]`)
+            
+          dragNextSib = window.getNextSibling(dragedEl);
+          dropNextSib = window.getNextSibling(dropedEl);
+          }
+          else if (!canvasDocument.contains(dropedEl)) return;
           switch (dropType) {
             case "data-draggable":
-              sendCrdtPayload({
+              CoCreate.findPosition.sendCrdtPayload({
                 method: "insertAdjacentElement",
                 property: position,
                 target: {
@@ -192,7 +124,7 @@
 
               break;
             case "data-cloneable":
-              sendCrdtPayload({
+              CoCreate.findPosition.sendCrdtPayload({
                 method: "insertAdjacentElement",
                 property: position,
                 target: {
@@ -210,23 +142,23 @@
         });
       }
 
-      window.CoCreateDnd.initIframe({ isIframe: true, frame: canvas });
-      window.CoCreateDnd.initFunction({
+    CoCreate.dnd.initIframe({ isIframe: true, frame: canvas });
+    CoCreate.dnd.initFunction({
         target: canvasDocument.body,
         onDnd: (element, request) => {
           //disable touch for dnd
           // element.style.touchAction = "none";
 
-          for (let config of CoCreateUtils.configMatch(elementConfig, element))
+          for (let config of CoCreate.utils.configMatch(elementConfig, element))
             for (let r of request)
               if (config[r.substr(5)] === true) return [element, r];
               else return;
         },
         beforeDndSuccess: (detail) => {
-          detail.dragNextSib = getNextSibling(detail.dragedEl);
-          detail.dropNextSib = getNextSibling(detail.dropedEl);
+          detail.dragNextSib = CoCreate.findPosition.getNextSibling(detail.dragedEl);
+          detail.dropNextSib = CoCreate.findPosition.getNextSibling(detail.dropedEl);
           if (!detail.dragedEl.getAttribute("data-element_id"))
-            detail.dragedEl.setAttribute("data-element_id", CoCreateUtils.UUID());
+            detail.dragedEl.setAttribute("data-element_id", CoCreate.utils.UUID());
         },
       });
     }
@@ -236,9 +168,9 @@
     }
 
     try {
-      window.ccStyle.addFilter(".vdom-item");
-      window.ccStyle.addFilter("#ghostEffect");
-      window.ccStyle.init({
+      CoCreate.style.addFilter(".vdom-item");
+      CoCreate.style.addFilter("#ghostEffect");
+      CoCreate.style.init({
         isIframe: true,
         frame: canvas,
         onCollaboration: ({
@@ -249,7 +181,7 @@
           element,
         }) => {
           dataAttribute === "classstyle" ?
-            sendCrdtPayload({
+            CoCreate.findPosition.sendCrdtPayload({
               method: "classstyle",
               property: dataProperty,
               target: element.getAttribute("data-element_id"),
@@ -257,7 +189,7 @@
               value,
               unit,
             }, crdtCon) :
-            sendCrdtPayload({
+            CoCreate.findPosition.sendCrdtPayload({
               method: "style",
               property: dataProperty,
               target: element.getAttribute("data-element_id"),
@@ -269,18 +201,18 @@
       });
     }
     catch (error) {
-      console.log("ccAttribute init error", error);
+      console.log("ccAttribute init error", error, document.URL);
     }
 
 
     try {
-      window.ccAttribute.addFilter(".vdom-item");
-      window.ccAttribute.addFilter("#ghostEffect");
-      window.ccAttribute.init({
+      CoCreate.attributes.addFilter(".vdom-item");
+      CoCreate.attributes.addFilter("#ghostEffect");
+      CoCreate.attributes.init({
         isIframe: true,
         frame: canvas,
         onCollaboration: ({ read, value, element }) => {
-          sendCrdtPayload({
+          CoCreate.findPosition.sendCrdtPayload({
             method: "setAttribute",
             property: read,
             target: element.getAttribute("data-element_id"),
@@ -291,11 +223,11 @@
       });
     }
     catch (error) {
-      console.error("ccAttribute init error", error);
+      console.error("ccAttribute init error", error, document.URL);
     }
 
     try {
-      window.CoCreateToolbar.init({
+      CoCreateToolbar.init({
         selector: "#selectedElementcoc",
         event: "click",
         config: elementConfig,
@@ -303,7 +235,7 @@
         frame: canvas,
       });
 
-      window.CoCreateToolbar.init({
+      CoCreateToolbar.init({
         selector: "#hoveredElementcoc",
         event: "mouseover",
         config: elementConfig,
@@ -312,12 +244,11 @@
       });
     }
     catch (error) {
-      console.error("toolbar init error", error);
+      console.error("toolbar init error", error, document.URL);
     }
 
-
     try {
-      window.selected2({
+      CoCreateSelected.config({
         sourceDocument: canvasDocument,
         destDocument: document,
         elementSelector: "*",
@@ -328,8 +259,8 @@
       });
 
       // init selected
-      // make ccStyle work
-      window.selected2({
+      // make CoCreateStyle work
+      CoCreateSelected.config({
         sourceDocument: canvasDocument,
         destDocument: document,
         elementSelector: "*",
@@ -340,7 +271,7 @@
       });
 
       // make ccAttribute work
-      window.selected2({
+      CoCreateSelected.config({
         sourceDocument: canvasDocument,
         destDocument: document,
         elementSelector: "*",
@@ -351,7 +282,7 @@
       });
     }
     catch (error) {
-      console.error("selected2 init error", error);
+      console.error("selected2 init error", error, document.URL);
     }
 
     // initvdom
@@ -360,18 +291,18 @@
       let vdomRealDom = document.querySelector("[data-vdom_id]");
       vdomRealDom = vdomRealDom.contentDocument.body.parentNode;
       vdomTargets.innerText = "";
-      if (window.CoCreateVdom && vdomRealDom && vdomTargets)
-        window.vdomObject = window.CoCreateVdom.initVdom({
+      if (vdomRealDom && vdomTargets)
+        window.vdomObject = CoCreate.vdom.initVdom({
           realdom: vdomRealDom,
           virtualDom: vdomTargets,
         });
 
     }
     catch (error) {
-      console.error("selected2 init error", error);
+      console.error("vdom init error", error, document.URL);
     }
 
   }
 
 
-})()
+
