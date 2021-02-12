@@ -1,37 +1,19 @@
-// Webpack uses this to work with directories
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
 let isProduction = process.env.NODE_ENV === 'production';
 
-// This is main configuration object.
-// Here you write different options and tell Webpack what to do
 module.exports = {
-
-  // Path to your entry point. From this file Webpack will begin his work
   entry: {
-    'CoCreate-builder': './src/CoCreate-builder.js',
-    // 'CoCreate-domReader': '../CoCcreate-components/CoCreate-domReader/src/CoCreate-domReader.js',
-    // 'CoCreate-dnd': '../CoCcreate-components/CoCreate-dnd/src/index.js',
-    // 'CoCreate-vdom': '../CoCcreate-components/CoCreate-vdom/src/CoCreate-vdom.js',
-    // 'CoCreate-toolbar': '../CoCcreate-components/CoCreate-toolbar/src/CoCreate-toolbar.js',
-    // 'CoCreate-styles': '../CoCcreate-components/CoCreate-styles/src/CoCreate-styles.js',
-    // 'CoCreate-attributes': '../CoCcreate-components/CoCreate-attributes/src/CoCreate-attributes.js',
-    // 'CoCreate-selected2': '../CoCcreate-components/CoCreate-selected2/src/CoCreate-selected2.js',
-    // 'CoCreate-findPosition': '../CoCcreate-components/CoCreate-findPosition/src/CoCreate-findPosition.js',
-    // 'CoCreate-pickr': '../CoCcreate-plugins/CoCreate-pickr/src/CoCreate-pickr.js',
-
+    'CoCreate-builder': './src/CoCreate-builder.js'
   },
-
-  // Path and filename of your result bundle.
-  // Webpack will bundle all JavaScript into this file
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: isProduction ? '[name].min.js' : '[name].js', 
+    filename: isProduction ? '[name].min.js' : '[name].js',
+    libraryTarget: 'umd',
+    libraryExport: 'default',
+    library: ['CoCreate', 'builder'],
+    globalObject: "this"
   },
-
   // Default mode for Webpack is production.
   // Depending on mode Webpack will apply different things
   // on final bundle. For now we don't need production's JavaScript
@@ -44,10 +26,12 @@ module.exports = {
       use: {
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env']
+           presets: ['@babel/preset-env'],
+           plugins: ["@babel/plugin-transform-runtime", "@babel/plugin-transform-regenerator"]
+
         }
       }
-    }]
+    }, ]
   },
 
   // add source map
@@ -62,12 +46,4 @@ module.exports = {
       },
     })],
   },
-  // plugins: [
-  //   new CleanWebpackPlugin(),
-  //   new HtmlWebpackPlugin({
-  //     title: 'My Builder',
-  //     template: './CoCreate-builder/demo/CoCreate-builder.html',
-  //     filename: 'builder.html'
-  //   })
-  // ]
-};
+}

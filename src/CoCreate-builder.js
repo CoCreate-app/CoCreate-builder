@@ -18,20 +18,20 @@ import elementConfig from './elementConfig';
   window.addEventListener("CoCreateHtmlTags-rendered", (e) => {
     initBuilder();
 
-    let canvas = document
-      .querySelector('iframe#canvas')
-    canvas && canvas.removeAttribute("data-document_id");
+    // let canvas = document
+    //   .querySelector('iframe#canvas')
+    // canvas && canvas.removeAttribute("data-document_id");
   });
 
 
 
   function initCanvas() {
 
-    window.CoCreateObserver.add({
+    CoCreate.observer.add({
       name: "quill",
       observe: ["childlist"],
       include: ".quill",
-      task: (mutationsList) => {
+      callback: (mutationsList) => {
         console.log(mutationsList);
       },
     });
@@ -55,6 +55,7 @@ import elementConfig from './elementConfig';
         collection: canvas.getAttribute('data-collection'),
         document_id: canvas.getAttribute('data-document_id'),
         name: canvas.getAttribute('name'),
+        element: canvas
       };
 
       CoCreate.crdt.init(crdtCon);
@@ -88,10 +89,8 @@ import elementConfig from './elementConfig';
             dragedEl,
             dropedEl,
             dropType,
-            dragNextSib,
-            dropNextSib,
           } = e.detail;
-
+          let dragNextSib, dropNextSib;
           // check if it's out side of dnd
           if (dropedEl.classList.contains('vdom-item')) {
             let id = dropedEl.getAttribute("data-element_id");
@@ -99,8 +98,8 @@ import elementConfig from './elementConfig';
             id = dragedEl.getAttribute("data-element_id");
             dragedEl = canvasDocument.querySelector(`[data-element_id="${id}"]`)
             
-          dragNextSib = window.getNextSibling(dragedEl);
-          dropNextSib = window.getNextSibling(dropedEl);
+          dragNextSib = CoCreate.findPosition.getNextSibling(dragedEl);
+          dropNextSib = CoCreate.findPosition.getNextSibling(dropedEl);
           }
           else if (!canvasDocument.contains(dropedEl)) return;
           switch (dropType) {
@@ -149,7 +148,7 @@ import elementConfig from './elementConfig';
           //disable touch for dnd
           // element.style.touchAction = "none";
 
-          for (let config of CoCreate.utils.configMatch(elementConfig, element))
+          for (let config of CoCreate.utils.configMatch2(elementConfig, element))
             for (let r of request)
               if (config[r.substr(5)] === true) return [element, r];
               else return;
@@ -168,9 +167,9 @@ import elementConfig from './elementConfig';
     }
 
     try {
-      CoCreate.style.addFilter(".vdom-item");
-      CoCreate.style.addFilter("#ghostEffect");
-      CoCreate.style.init({
+      CoCreate.styles.addFilter(".vdom-item");
+      CoCreate.styles.addFilter("#ghostEffect");
+      CoCreate.styles.init({
         isIframe: true,
         frame: canvas,
         onCollaboration: ({
@@ -182,20 +181,18 @@ import elementConfig from './elementConfig';
         }) => {
           dataAttribute === "classstyle" ?
             CoCreate.findPosition.sendCrdtPayload({
-              method: "classstyle",
+              method: "classstyle", // todo: classstyle or class?
               property: dataProperty,
               target: element.getAttribute("data-element_id"),
               tagName: element.tagName,
-              value,
-              unit,
+              value: value + unit,
             }, crdtCon) :
             CoCreate.findPosition.sendCrdtPayload({
               method: "style",
               property: dataProperty,
               target: element.getAttribute("data-element_id"),
               tagName: element.tagName,
-              value,
-              unit,
+              value:value + unit,
             }, crdtCon);
         },
       });
@@ -227,7 +224,7 @@ import elementConfig from './elementConfig';
     }
 
     try {
-      CoCreateToolbar.init({
+      CoCreate.toolbar.init({
         selector: "#selectedElementcoc",
         event: "click",
         config: elementConfig,
@@ -235,7 +232,7 @@ import elementConfig from './elementConfig';
         frame: canvas,
       });
 
-      CoCreateToolbar.init({
+      CoCreate.toolbar.init({
         selector: "#hoveredElementcoc",
         event: "mouseover",
         config: elementConfig,
@@ -248,7 +245,7 @@ import elementConfig from './elementConfig';
     }
 
     try {
-      CoCreateSelected.config({
+      CoCreate.selected.config({
         sourceDocument: canvasDocument,
         destDocument: document,
         elementSelector: "*",
@@ -257,10 +254,19 @@ import elementConfig from './elementConfig';
         destination: "name",
         newValueCB: (src, dest, srcValue) => dest.id + '-' + srcValue
       });
+      
+      
+      // CoCreate.selected.config({
+      //   sourceDocument: canvasDocument,
+      //   destDocument: document,
+      //   elementSelector: "*",
+      //   targetSelector: "[data-attribute_sync]:not(.styleunit), [data-style]:not(.styleunit)",
+      //   newValueCB: (src, dest, srcValue) => dest.id + '-' + src['data-element_id']
+      // });
 
       // init selected
       // make CoCreateStyle work
-      CoCreateSelected.config({
+      CoCreate.selected.config({
         sourceDocument: canvasDocument,
         destDocument: document,
         elementSelector: "*",
@@ -271,7 +277,7 @@ import elementConfig from './elementConfig';
       });
 
       // make ccAttribute work
-      CoCreateSelected.config({
+      CoCreate.selected.config({
         sourceDocument: canvasDocument,
         destDocument: document,
         elementSelector: "*",
