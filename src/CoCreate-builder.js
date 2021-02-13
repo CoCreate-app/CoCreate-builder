@@ -27,7 +27,7 @@ import elementConfig from './elementConfig';
 
   function initCanvas() {
 
-    CoCreate.observer.add({
+    CoCreate.observer.init({
       name: "quill",
       observe: ["childlist"],
       include: ".quill",
