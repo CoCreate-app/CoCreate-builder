@@ -1,4 +1,30 @@
-import elementConfig from './elementConfig';
+      callback: ({
+        value,
+        unit,
+        dataProperty,
+        dataAttribute,
+        element,
+      }) => {
+        dataAttribute === "classstyle" ?
+          CoCreate.domToText.domToText({
+            method: "classstyle", // todo: classstyle or class?
+            property: dataProperty,
+            target: element.getAttribute("data-element_id"),
+            tagName: element.tagName,
+            value: value + unit,
+            ...crdtCon
+          }) :
+          CoCreate.domToText.domToText({
+            method: "style",
+            property: dataProperty,
+            target: element.getAttribute("data-element_id"),
+            tagName: element.tagName,
+            value: value + unit,
+            name: crdtCon.name,
+            collection: crdtCon.collection,
+            document_id: crdtCon.document_id
+          },);
+      },
 
 function addScript(document, url) {
   let script = document.createElement("script");
@@ -7,39 +33,15 @@ function addScript(document, url) {
 }
 window.elementConfig = elementConfig;
 
-let ccAttributes, canvasHtmlTagEvnt = false;
+let canvasHtmlTagEvnt = false;
 window.testMap = new Map();
-
 window.addEventListener("load", () => {
-
-
-  ccAttributes = CoCreate.attributes.init({ document,
-    exclude: '#ghostEffect,.vdom-item ',
-    callback: ({
-      value,
-      type,
-      property,
-      element,
-    }) => {
-      if (canvasDocument.contains(element))
-        CoCreate.domToText.domToText({
-          method: type == 'attribute' ? 'setAttribute' : type, // todo: classstyle or class?
-          property: property,
-          target: element.getAttribute("data-element_id"),
-          tagName: element.tagName,
-          value,
-          ...crdtCon
-        })
-
-    },});
 
   initBuilder();
 });
 
 
 window.addEventListener("CoCreateHtmlTags-rendered", (e) => {
-  if(ccAttributes)
-  ccAttributes.scanNewElement()
   initBuilder();
 
   // let canvas = document
@@ -190,44 +192,43 @@ function initBuilder() {
 
   }
 
-  // try {
+  try {
 
-  //   CoCreate.styles.init({
-  //     exclude : "#ghostEffect,.vdom-item ",
-  //     document: canvasDocument,
-  //     callback: ({
-  //       value,
-  //       unit,
-  //       dataProperty,
-  //       dataAttribute,
-  //       element,
-  //     }) => {
-  //       dataAttribute === "classstyle" ?
-  //         CoCreate.domToText.domToText({
-  //           method: "classstyle", // todo: classstyle or class?
-  //           property: dataProperty,
-  //           target: element.getAttribute("data-element_id"),
-  //           tagName: element.tagName,
-  //           value: value + unit,
-  //           ...crdtCon
-  //         }) :
-  //         CoCreate.domToText.domToText({
-  //           method: "style",
-  //           property: dataProperty,
-  //           target: element.getAttribute("data-element_id"),
-  //           tagName: element.tagName,
-  //           value: value + unit,
-  //           name: crdtCon.name,
-  //           collection: crdtCon.collection,
-  //           document_id: crdtCon.document_id
-  //         },);
-  //     },
-  //   });
-  // }
-  // catch (error) {
-  //   console.log("ccAttribute init error", error, document.URL);
-  // }
-
+    CoCreate.styles.init({
+      exclude : "#ghostEffect,.vdom-item ",
+      document: canvasDocument,
+      callback: ({
+        value,
+        unit,
+        dataProperty,
+        dataAttribute,
+        element,
+      }) => {
+        dataAttribute === "classstyle" ?
+          CoCreate.domToText.domToText({
+            method: "classstyle", // todo: classstyle or class?
+            property: dataProperty,
+            target: element.getAttribute("data-element_id"),
+            tagName: element.tagName,
+            value: value + unit,
+            ...crdtCon
+          }) :
+          CoCreate.domToText.domToText({
+            method: "style",
+            property: dataProperty,
+            target: element.getAttribute("data-element_id"),
+            tagName: element.tagName,
+            value: value + unit,
+            name: crdtCon.name,
+            collection: crdtCon.collection,
+            document_id: crdtCon.document_id
+          },);
+      },
+    });
+  }
+  catch (error) {
+    console.log("ccAttribute init error", error, document.URL);
+  }
 
 
   // try {
@@ -253,7 +254,7 @@ function initBuilder() {
   // }
 
   try {
-
+    
     CoCreate.toolbar.init({
       selector: "#selectedElementcoc",
       eventType: "click",
@@ -279,7 +280,7 @@ function initBuilder() {
       srcDocument: canvasDocument,
       destDocument: document,
       selector: "*",
-      target: "[data-attributes]:not(.styleunit)",
+      target: "[data-attribute_sync]:not(.styleunit), [data-style]:not(.styleunit)",
       callback: (element, target) =>
         target.setAttribute('name', target.id + '-' + element.getAttribute('data-element_id'))
     });
@@ -292,7 +293,7 @@ function initBuilder() {
     //   callback: (element, target) =>
     //     target.setAttribute('data-style_target', `[data-element_id=${element.getAttribute('data-element_id')}]`)
     // });
-
+    
     // make ccAttribute work
     // CoCreate.selected.config({
     //   srcDocument: canvasDocument,

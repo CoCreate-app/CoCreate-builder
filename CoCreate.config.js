@@ -15,6 +15,15 @@ module.exports = {
                 name: "Builder Doc",
             }
         },
+        {
+            path: "./components/editor-panel.html",
+            collection: "module-views",
+            document_id: "5fb16c742fc8e61e01b43c15",
+            key: "html",
+            data:{
+                name: "Editor Panel",
+            }
+        },
     ],
    
     crud: [{

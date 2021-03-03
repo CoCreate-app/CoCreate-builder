@@ -2,13 +2,31 @@
   "name": "@cocreate/builder",
   "version": "1.0.0",
   "description": "A simple builder component in vanilla javascript. Easily configured using HTML5 data-attributes and/or JavaScript API.",
-  "keywords": ["builder","cocreate","low-code-framework","no-code-framework","cocreatejs","cocreatejs-component","cocreate-framework","no-code","low-code","collaborative-framework","realtime","realtime-framework","collaboration","shared-editing","html5-framework","javascript-framework"],
+  "keywords": [
+    "builder",
+    "cocreate",
+    "low-code-framework",
+    "no-code-framework",
+    "cocreatejs",
+    "cocreatejs-component",
+    "cocreate-framework",
+    "no-code",
+    "low-code",
+    "collaborative-framework",
+    "realtime",
+    "realtime-framework",
+    "collaboration",
+    "shared-editing",
+    "html5-framework",
+    "javascript-framework"
+  ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "start": "npx webpack --config webpack.config.js --watch",
+    "start": "npx webpack --config webpack.config.js",
     "build": "NODE_ENV=production npx webpack --config webpack.config.js",
+    "dev": "npx webpack --config webpack.config.js --watch",
     "docs": "node ./node_modules/@cocreate/docs/src/index.js"
   },
   "repository": {
@@ -32,8 +50,7 @@
     "webpack-cli": "^4.3.1",
     "webpack-log": "^3.0.1"
   },
-
   "dependencies": {
-    "@cocreate/docs": "^1.0.3"
+    "@cocreate/docs": "^1.1.1"
   }
 }

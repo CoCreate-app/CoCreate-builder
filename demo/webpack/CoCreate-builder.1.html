@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="icon" href="https://cdn.cocreate.app/favicon.ico" type="image/ico" sizes="16x16">
+    <title>CoCreate-builder | CoCreate</title>
+    <meta name="description" content="Website and web app Builder framework using Cocreate Componets" />
+    <meta name="keywords" content="helper classes, utility classes, css framework, css library, inline style classes" />
+    <meta name="robots" content="index,follow" />
+
+    <!-- CoCreate CSS -->
+    <link rel="stylesheet" href="https://server.cocreate.app/css/CoCreate.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://server.cocreate.app/CoCreate-components/CoCreate-vdom/src/CoCreate-vdom.css" type="text/css" />
+    <link rel="stylesheet" href="https://server.cocreate.app/CoCreate-components/CoCreate-dnd/src/CoCreate-dnd.css" type="text/css" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://server.cocreate.app/CoCreate-modules/CoCreate-builder/demo/style.css" type="text/css" />
+
+    <link rel="stylesheet" href="https://server.cocreate.app//CoCreate-plugins/CoCreate-codemirror/src/css/CoCreate-codemirror.css" type="text/css" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css"/>
+
+</head>
+
+<body>
+    <!-- Navbar  -->
+    <div class="nav display:flex align-items:center background:whitesmoke" data-main_content_id="content" data-scroll=", hide-nav" data-scroll_up="5" data-scroll_down="5">
+
+        <!-- Menu Icon Arrow Left Animations -->
+        <a aria-label="mobile menu" class="menu_icon arrow-left active" data-toggle="active" data-toggle_sidenav="menuL">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    
+        <!-- Horizontal Scroll Nav/Tabs -->
+        <ul class="direction:rtl display:inline-flex align-items:center overflow:auto font-size:20px list-style-type:none width:100% height:50px">
+
+            <!-- Modal Controls -->
+            <li class="margin-right:15px"><a class="btn-modal-close"><i class="fas fa-times"></i></a></li>
+            <li class="margin-right:15px"><a class="btn-modal-maximize"><i data-transform_to="far fa-window-restore" class="far fa-window-maximize"></i></a></li>
+            <li class="margin-right:15px"><a class="btn-modal-minimize"><i class="far fa-window-minimize"></i></a></li>
+
+            <!-- fullscreen toogle and icon transform-->
+            <li class="margin-right:15px"><a data-fullscreen><i data-transform_to="fas fa-compress" class="fas fa-expand"></i></a></li>
+
+        	<!-- Render Code Editor -->
+            <li class="margin-right:15px">
+                <a target="modal" href="https://server.cocreate.app/CoCreate-modules/CoCreate-builder/components/code-editor.html" data-modal_header="false" data-pass_collection="module-views" data-pass_document_id="" data-pass_name="html" data-pass_to="render" data-modal_width="100%" data-modal_height="100%" data-modal_color="#229954" data-modal_header="false">
+                    <i class="fa fa-code"></i>
+                    <div data-pass-collection="apples" data-pass-document_id="60259656df543a420a0a5e13" name='html' data-pass_to="code-editor"></div>
+                </a>
+            </li>            
+            <!--<li class="margin-right:15px">-->
+            <!--  <a target="modal" -->
+            <!--     data-pass_collection="module-views"-->
+            <!--     data-pass_document_id="5fa899804b4c3e4dea76abf0" -->
+            <!--     data-pass_name="html" -->
+            <!--     data-pass_to="render" -->
+            <!--     data-modal_width="100%"-->
+            <!--     data-modal_header="false">-->
+            <!--    <i class="fas fa-code"></i>-->
+            <!--    <div data-pass_id="render" data-collection="module_activities" data-document_id="5edee53c3e956152355a3442" name='html' data-pass_to="code-editor"></div>-->
+            <!--  </a>-->
+            <!--</li>-->
+
+            <!-- Builder Controls -->
+            <li class="margin-right:15px"><a id="clean-canvas"><i class="far fa-trash-alt"></i></a></li>
+            <li class="margin-right:15px"><a id='element-borders' class=""><i class="far fa-square"></i></a></li>
+            <li class="margin-right:15px"><a id="redo-canvas" class=""><i class="fas fa-redo-alt"></i></a></li>
+            <li class="margin-right:15px"><a id='undo-canvas' class=""><i class="fas fa-undo-alt"></i></a></li>
+            <li class="margin-right:15px"><a id="desktop-view" class=""><i class="fas fa-desktop"></i></a></li>
+            <li class="margin-right:15px"><a id="tablet-view" class=""><i class="fas fa-tablet-alt"></i></a></li>
+            <li class="margin-right:15px"><a id="mobile-view" class=""><i class="fas fa-mobile-alt"></i></a></li>
+        </ul>
+       
+        <!-- Menu Icon Arrow Right Animations -->
+        <a aria-label="mobile menu" class="menu_icon arrow-right active" data-toggle="active" data-toggle_sidenav="menuR">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+
+    </div>
+
+    <!-- Modal viewport -->
+    <div class="position:fixed z-index:12!important" data-main_content_id="" id="modal-viewport"></div>
+
+    <!-- Main Container -->
+    <div data-main_content_id="canvas" class="height:100vh">
+        <div id="html" data-collection="module_activities" data-document_id="5edee53c3e956152355a3442" name='html' class="codemirror"></div>
+        <!--<iframe data-vdom_id="test" id="canvas"  frameborder="0" width="100%" height="100%" src="https://server.cocreate.app/CoCreate-website/index.html"></iframe>-->
+        <iframe data-vdom_id="test" id="canvas" data-collection="apples" data-document_id="60259656df543a420a0a5e13" name='html' data-update_value="false" frameborder="0" width="100%" height="100%" style="margin-top:20px;"></iframe>
+    </div>
+
+    <!-- SideNav Left -->
+    <div id="menuL" class="cocreate-sidenav background:gainsboro height:100vh" data-main_content="canvas,content" sidenav-default_desktop="expanded" sidenav-default_tablet="offcanvas" sidenav-default_phone="offcanvas" sidenav-ontoggle_desktop="offcanvas" sidenav-ontoggle_tablet="offcanvas">
+        <div class="padding:5px">
+            <div class="display:flex tabs">
+                <div class="padding:10px_18px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_target="#blocks" data-selected_group="left-panels"><i class="fas fa-th-large"></i></div>
+                <div class="padding:10px_20px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_target="#vdom" data-selected_group="left-panels" selected><i class="fas fa-stream"></i></div>
+                <div class="padding:10px_20px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_target="#files" data-selected_group="left-panels"><i class="fas fa-folder"></i></div>
+            </div>
+            <div class="cocreate-scroll height:90vh">
+                <!-- Blocks -->
+                <div id="blocks" data-template_id="template1" data-fetch_collection="blocks" data-filter_name="menu-position" data-filter_value="0" data-filter_value_type="number" data-filter_operator="$ne" data-order_by="menu-position" data-order_type="asc" class="left-panel display:none">
+                    <!-- template -->
+                    <li data-draggable="true" class="template menuItem" id="header" data-insert-html='{{data.html}}'>
+                        <span data-collection="" data-document_id="{{data._id}}" name="icon" class="padding-10px"></span>
+                        <span data-collection="" data-document_id="{{data._id}}" name="name"></span>
+                        <div class="float-right">
+                            <a target="modal" href="block-form.html" data-pass_collection="blocks" data-pass_document_id="" data-pass_to="form-fields" data-modal_width="320px" data-modal_height="100%" data-modal_color="#229954">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>left-panel display:none
+                        </div>
+                    </li>
+                    <div data-cloneable="true" data-insert-html='<div>cloneable div</div>'>cloneable div</div>
+                    <h1 data-cloneable="true" data-insert-html='<h1>cloneable h1</h1>'>cloneable h1</h1>
+                    <h5 data-cloneable="true" data-insert-html='<h5>cloneable div</h5>'>cloneable h5</h5>
+
+                </div>
+
+                <!-- Vdom -->
+                <div id="vdom" data-vdom_target="test" data-group_name="test" class="left-panel display:none active">vdom</div>
+
+                <!-- Files -->
+                <div id="files" class="left-panel display:none">files</div>
+
+            </div>
+        </div>
+
+        <div class="resizeHandler"></div>
+    </div>
+
+    <!-- SideNav Right -->
+    <div data-main_content="canvas,content" sidenav-default_desktop="expanded" sidenav-expanded_width="300px" sidenav-collapsed_width="0px" id="menuR" class="cocreate-sidenav sidenav-right background:gainsboro height:100vh">
+        <div class="floating-label height:40px" placeholder="Text" active>
+            <input type="text" data-collection="module_activitie" data-document_id="" name="text" placeholder="test">
+            <cocreate-select class="remove-none border:none border-radius:4px padding:0 width:27px min-height:auto!important cursor:pointer" data-attribute="data-style_unit" data-attribute_target="#width">
+                <li class="margin:0!important padding:0!important height:25px min-height:25px!important" value="px" selected><span class="margin:auto">px</span><span class="remove">x</span></li>
+                <ul class="selectable--list z-index:7 width:30px" data-collection="module_activitie" data-document_id="" name="size-unit">
+                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="px"><span class="margin:auto">px</span></li>
+                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="%"><span class="margin:auto">%</span></li>
+                    <li class="selectable margin:0!important padding:0!important height:25px min-height:25px!important" value="vw"><span class="margin:auto">vw</span></li>
+                </ul>
+            </cocreate-select>
+      </div>
+
+        <div class="domEditor" data-collection="module-views" data-document_id="5fb16c742fc8e61e01b43c15" name="html"></div>
+        <div class="resizeHandler"></div>
+    </div>
+    <!-- End SideNav Right -->
+
+    <!-- Selected Toolbar -->
+    <div1 id="selectedElementcoc" data-toolbar_placent="top" data-toolbar_target="" class="position:absolute pointer-events:none display:none">
+        <div class="toolbar display:flex flex-direction:row-reverse width:100% fontsize:12px color:white">
+            <span class="background:red pointer-events:auto outline:2px_red_solid"><i class="fas fa-arrows-alt"></i></span>
+        </div>
+        <div class="height:100% width:100% outline:1px_red_solid"></div>
+    </div1>
+    <!-- End Selected Toolbar -->
+    
+    <!-- Hover Toolbar -->
+    <div id="hoveredElementcoc" data-toolbar_placent="top" data-toolbar_target="" class="position:absolute pointer-events:none display:none">
+        <div class="toolbar width:100% ">
+            <span class="padding:0_5px_0_5px background:dodgerblue pointer-events:auto font-size:12px color:white border:2px_dodgerblue_solid" tagName>tagname</span>
+        </div>
+        <div class="height:100% width:100% border:2px_dodgerblue_solid"></div>
+    </div>
+    <!-- End Hover Toolbar -->
+
+    <script>
+        var config = {
+            apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
+            securityKey: 'f26baf68-e3a9-45fc-effe-502e47116265',
+            organization_Id: '5de0387b12e200ea63204d6c',
+        }
+    </script>
+    
+    <!--<script src="https://server.cocreate.app/js/CoCreate.min.js"></script>-->
+     <!--<script  src="https://server.cocreate.app/CoCreateJS/dist/CoCreate.js"></script>-->
+     <!--<script  src="https://server.cocreate.app/CoCreate-components/CoCreate-observer/dist/CoCreate-observer.js"></script>-->
+     <!--<script  src="https://server.cocreate.app/CoCreate-components/CoCreate-logic/dist/CoCreate-logic.js"></script>-->
+    
+    <!--<script  src="https://server.cocreate.app/dist/CoCreate.js"></script>-->
+    <!--<script type="text/javascript" src="https://server.cocreate.app/CoCreate-plugins/CoCreate-codemirror/dist/CoCreate-codemirror.js" async></script>-->
+
+   
+    <!--<script  src="https://server.cocreate.app/dist/test.js"></script>-->
+    <!--<script  src="https://server.cocreate.app/dist/CoCreate.js"></script>-->
+   
+    <!--<script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-domReader/dist/CoCreate-domReader.js"></script>-->
+    <!--<script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-vdom/dist/CoCreate-vdom.js"></script>-->
+    <!--<script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-selected2/dist/CoCreate-selected2.js"></script>-->
+    <!--<script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-dnd/dist/CoCreate-dnd.js"></script>-->
+    <!--<script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-attributes/dist/CoCreate-attributes.js"></script>-->
+    <!--<script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-styles/dist/CoCreate-styles.js"></script>-->
+    <!--<script defer src="https://server.cocreate.app/CoCreate-components/CoCreate-toolbar/dist/CoCreate-toolbar.js"></script>-->
+    <!--<script src="https://server.cocreate.app/CoCreate-plugins/CoCreate-pickr/dist/CoCreate-pickr.js"></script>-->
+    
+    
+    
+    <!--<script src="https://server.cocreate.app/CoCreate-components/CoCreate-quill-adder/src/CoCreate-quill-adder.js"></script>-->
+    <!--<script src="https://server.cocreate.app/CoCreate-components/CoCreate-selected/dist/CoCreate-selected.js"></script>-->
+
+    <!--<script  src="https://server.cocreate.app/CoCreate-modules/CoCreate-builder/dist/CoCreate-builder.js"></script>-->
+   <script src="../../../../CoCreateJS/src/../dist/CoCreate.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-observer/src/../dist/CoCreate-observer.js"></script>
+<script src="../../../../CoCreateCSS/src/../dist/CoCreateCSS.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-crdt/src/../dist/CoCreate-crdt.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-action/src/../dist/CoCreate-action.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-logic/src/../dist/CoCreate-logic.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-room/src/../dist/CoCreate-room.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-document_id/src/../dist/CoCreate-document_id.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-form/src/../dist/CoCreate-form.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-array/src/../dist/CoCreate-array.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-htmltags/src/../dist/CoCreate-htmltags.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-filter/src/../dist/CoCreate-filter.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-render/src/../dist/CoCreate-render.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-fetch/src/../dist/CoCreate-fetch.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-clone/src/../dist/CoCreate-clone.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-domReader/src/../dist/CoCreate-domReader.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-vdom/src/../dist/CoCreate-vdom.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-dnd/src/../dist/CoCreate-dnd.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-users/src/../dist/CoCreate-users.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-conditional-logic/src/../dist/CoCreate-conditional-logic.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-calculation/src/../dist/CoCreate-calculation.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-toggle/src/../dist/CoCreate-toggle.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-selected/src/../dist/CoCreate-selected.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-scroll/src/../dist/CoCreate-scroll.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-styles/src/../dist/CoCreate-styles.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-attributes/src/../dist/CoCreate-attributes.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-input/src/../dist/CoCreate-input.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-cursors/src/../dist/CoCreate-cursors.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-text/src/../dist/CoCreate-text.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-contenteditable/src/../dist/CoCreate-contenteditable.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-domToText/src/../dist/CoCreate-domToText.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-sidenav/src/../dist/CoCreate-sidenav.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-floating-label/src/../dist/CoCreate-floating-label.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-icon-transform/src/../dist/CoCreate-icon-transform.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-fullscreen/src/../dist/CoCreate-fullscreen.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-select/src/../dist/CoCreate-select.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-modal/src/../dist/CoCreate-modal.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-parallax/src/../dist/CoCreate-parallax.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-progress/src/../dist/CoCreate-progress.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-social-share/src/../dist/CoCreate-social-share.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-splitview/src/../dist/CoCreate-splitview.js"></script>
+<script src="../../../../CoCreate-components/CoCreate-toolbar/src/../dist/CoCreate-toolbar.js"></script>
+<script src="../../../../CoCreate-plugins/CoCreate-pickr/src/../dist/CoCreate-pickr.js"></script>
+<script src="../../../../CoCreate-modules/CoCreate-builder/src/../dist/CoCreate-builder.js"></script>
+</body>
+
+</html>

@@ -23,6 +23,9 @@ input[type=number]::-webkit-outer-spin-button {
 .editor-panel.active {
     display: block
 }
+.block-panel.active {
+    display: block
+}
 .left-panel.active {
     display: block
 }
