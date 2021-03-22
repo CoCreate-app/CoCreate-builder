@@ -12,3 +12,10 @@
         return i > -1;
       };
   }
+  
+  export function a1(){
+    return a2() + 5;
+  }
+  export function a2(){
+    return 6;
+  }
