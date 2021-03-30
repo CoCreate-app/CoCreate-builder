@@ -1,4 +1,11 @@
-const elementConfig = [{
+const elementConfig = [
+  
+  // {
+  //   selector:  'div [data-resize_handle]',
+  //   resizeLeft: '[data-resize_handle="left"]'
+  // },
+  
+  {
       selector: "*",
       editable: false,
       draggable: true,

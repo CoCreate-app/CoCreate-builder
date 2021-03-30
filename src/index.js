@@ -1,23 +1,33 @@
-// import '../../../CoCreate-components/CoCreate-render/src'
+// import '@cocreate/render/src'
 (async() => {
-  import ('../../../CoCreateCSS/src')
-  import ('../../../CoCreateJS/src')
-  import ('../../../CoCreate-components/CoCreate-sidenav/src')
-  import ('../../../CoCreate-components/CoCreate-modal/src')
-  import ('../../../CoCreate-components/CoCreate-fetch/src')
-  import ('../../../CoCreate-components/CoCreate-floating-label/src')
-  import ('../../../CoCreate-components/CoCreate-htmltags/src')
+  import ('@cocreate/cocreatecss')
+  import ('@cocreate/sidenav')
+  import ('@cocreate/modal')
+  import ('@cocreate/fetch')
+  import ('@cocreate/floating-label')
+  import ('@cocreate/htmltags')
+  import ('@cocreate/input')
+  import ('@cocreate/text')
+  import ('@cocreate/cursors')
+  
 })()
-import domReader from '../../../CoCreate-components/CoCreate-domReader/src'
-import attributes from '../../../CoCreate-components/CoCreate-attributes/src'
-import observer from '../../../CoCreate-components/CoCreate-observer/src'
-import vdom from '../../../CoCreate-components/CoCreate-vdom/src'
-import selected from '../../../CoCreate-components/CoCreate-selected/src'
-import toolbar from '../../../CoCreate-components/CoCreate-toolbar/src'
-import crdt from '../../../CoCreate-components/CoCreate-crdt/src'
-import dnd from '../../../CoCreate-components/CoCreate-dnd/src'
-import domToText from '../../../CoCreate-components/CoCreate-domToText/src'
-import { UUID, configMatch2 } from '../../../CoCreateJS/src/utils'
+
+import './style.css'
+
+import attributes from '@cocreate/attributes'
+import observer from '@cocreate/observer'
+import vdom from '@cocreate/vdom'
+import selected from '@cocreate/selected'
+import toolbar from '@cocreate/toolbar'
+import crdt from '@cocreate/crdt'
+import input from '@cocreate/input'
+import text from '@cocreate/text'
+import cursors from '@cocreate/cursors'
+import dnd from '@cocreate/dnd'
+// import domReader from '@cocreate/dnd/util/domReader'
+import domToText from '@cocreate/domToText'
+import select from '@cocreate/select'
+import { UUID, configMatch } from '@cocreate/utils'
 
 import elementConfig from './elementConfig';
 
@@ -52,11 +62,14 @@ function resolveCanvas() {
     canvasDocument = canvasWindow.document || canvas.contentDocument;
     canvasDocument.ccdefaultView = canvasWindow;
 
-    domReader.register(canvasWindow)
+    // domReader.register(canvasWindow)
 
-    canvasWindow.addEventListener("load", (e) => initBuilder("iframe", e));
-    canvasDocument.body.querySelectorAll('*')
-      .forEach(el => el.getAttribute('data-element_id') || el.setAttribute('data-element_id', UUID()))
+    // canvas get load event sooner then parent so it will not get change to execute
+    // canvasWindow.addEventListener("load", (e) => initBuilder("iframe", e));
+
+    // uuid should be changed in server before loading    
+    // canvasDocument.body.querySelectorAll('*')
+    //   .forEach(el => el.getAttribute('data-element_id') || el.setAttribute('data-element_id', UUID()))
   }
   catch (error) {
     console.error("canvas not found init error", error, document.URL);
@@ -68,20 +81,22 @@ function initAttributes() {
   // load cc attributes
   ccAttributes = attributes.init({
     document,
-    exclude: '#ghostEffect,.vdom-item ',
+    exclude: '#ghostEffect, .vdom-item, #selectedElementcoc, #hoveredElementcoc',
     callback: ({
       value,
       type,
       property,
       element,
+      unit
     }) => {
       if (canvasDocument.contains(element))
         domToText.domToText({
-          method: type == 'attribute' ? 'setAttribute' : type, // todo: classstyle or class?
+          method: type == 'attribute' ? 'setAttribute' : type, 
           property: property,
           target: element.getAttribute("data-element_id"),
           tagName: element.tagName,
-          value,
+          value: value,
+          unit,
           ...crdtCon
         })
 
@@ -240,7 +255,7 @@ function initAgain() {
         // disable touch for dnd
         // element.style.touchAction = "none";
 
-        for (let config of configMatch2(elementConfig, element))
+        for (let config of configMatch(elementConfig, element))
           for (let r of request)
             if (config[r.substr(5)] === true) return [element, r];
             else return;
@@ -267,7 +282,6 @@ function initAgain() {
     config: elementConfig,
     configKey: "selectable",
     document: canvasDocument,
-    window: canvasWindow
   });
 
   toolbar.init({
@@ -276,7 +290,6 @@ function initAgain() {
     config: elementConfig,
     configKey: "hoverable",
     document: canvasDocument,
-    window: canvasWindow
   });
   // }
   // catch (error) {
@@ -324,4 +337,4 @@ function initAgain() {
 }
 
 
-export default { crdt }
+export default { crdt, select}
