@@ -1,5 +1,4 @@
 import '@cocreate/cocreatecss'
-import '@cocreate/cocreatejs'
 import '@cocreate/sidenav'
 import '@cocreate/modal'
 import '@cocreate/fetch'
