@@ -107,12 +107,12 @@ let html = `
     <section class="padding-top:80px padding-bottom:40px   " data-element_id="xKwpkpcpBj143820">
       <div class=" max-width:90% margin:0px_auto" data-element_id="CIIoSpdoPK143820">
         <div class="display:flex flex-wrap:wrap align-items:center flex-direction:row-reverse" data-element_id="txFWdGJlWA143820">
-          <div class="flex-grow:1 min-width:300px width:50%" data-element_id="EvACHcSNwX143820">
+          <div class="flex-grow:1 width:300px" data-element_id="EvACHcSNwX143820">
             <video loop="" autoplay="" muted="" class="width:100%" data-element_id="bbGpTDTDEB143820">
               <source src="images/dashboard-video.mp4" type="video/mp4" data-element_id="yFnHFbjZzU143820">
             </video>
           </div>
-          <div class="flex-grow:1 min-width:300px width:50% padding:0px_15px font-size:16px " data-element_id="RPFEiVoIUD143820">
+          <div class="flex-grow:1 width:300px padding:0px_15px font-size:16px " data-element_id="RPFEiVoIUD143820">
             <h1 class="font-size:2rem" data-element_id="gZbOaEobKu143820">Build your buisness in <span class="color:dodgerblue" data-element_id="oxSPyeHHGJ143820">minutes</span></h1>
             <p class="margin-top:10px" data-element_id="ArhjJmToJm143820">Collaborate. Track. Sell. Manage with ease.</p>
             <button class="display:inline-block background-color:dodgerblue color:white border-radius-50px margin-top:20px padding:10px_0px padding:0px_30px" data-element_id="PmhlBVHsFj143820">Get Started</button>
@@ -156,12 +156,12 @@ let html = `
     <section class="padding-top:80px padding-bottom:40px" data-element_id="bQTQWUrbkF143820">
       <div class="max-width:90% margin:0px_auto" data-element_id="RhlJOIObCX143820">
         <div class="display:flex flex-wrap:wrap align-items:center" data-element_id="KRCmXfkiWE143820">
-          <div class="flex-grow:1 min-width:300px width:50%" data-element_id="PEoSJCgkfp143820">
+          <div class="flex-grow:1 width:300px" data-element_id="PEoSJCgkfp143820">
             <video loop="" autoplay="" muted="" class="width:100%" data-element_id="vrUwLGGsYM143820">
               <source type="video/mp4" src="images/on-board-video.webm" data-element_id="OZnvcYRSmP143820">
             </video>
           </div>
-          <div class="flex-grow:1 min-width:300px width:50% padding-left:15px padding-right:15px" data-element_id="fEOMLcayBy143820">
+          <div class="flex-grow:1 width:300px padding-left:15px padding-right:15px" data-element_id="fEOMLcayBy143820">
             <h1 class="font-size:1.5rem text-transform:uppercase" data-element_id="tTkurPpuJn143820">Sign up &amp; choose your industry</h1>
             <p class="margin-top:10px" data-element_id="ZSVhfkZodl143820">We will CoCreate a website to your specific industry and needs.
 </p>
@@ -175,12 +175,12 @@ let html = `
     <section class="background:whitesmoke padding-top:80px padding-bottom:40px" data-element_id="ubUIINqYsz143820">
       <div class="max-width:90% margin:0px_auto" data-element_id="wdqMjxREom143820">
         <div class="display:flex flex-wrap:wrap align-items:center flex-direction:row-reverse" data-element_id="FRAIHllPjK143820">
-          <div class="flex-grow:1 min-width:300px width:50%" data-element_id="TJqbhExcIO143820">
+          <div class="flex-grow:1 width:300px" data-element_id="TJqbhExcIO143820">
             <video loop="" autoplay="" muted="" class="width:100%" data-element_id="qQJhePpHrR143820">
               <source type="video/mp4" src="images/cards.webm" data-element_id="IbuIILwWqz143820">
             </video>
           </div>
-          <div class="flex-grow:1 min-width:300px width:50% padding-left:15px padding-right:15px" data-element_id="cPJfgECefd143820">
+          <div class="flex-grow:1 width:300px padding-left:15px padding-right:15px" data-element_id="cPJfgECefd143820">
             <h1 class="font-size:1.5rem text-transform:uppercase" data-element_id="AAJqjNboLE143820">Follow the business development checklist</h1>
             <p class="margin-top:10px" data-element_id="UpWhkmMdJw143820">We will walk you through the process, improve the image of your business. A professional look can bring organic traffic</p>
             <a class="text-decoration-underline padding:10px_30px background:#3690FF background:#3790FF:hover min-width:30% text-align:center color:#fff color:#ddd:hover transition:0.4s margin-top:30px display:inline-block" data-element_id="TqBNZSBcMl143820">See more features</a>
@@ -192,12 +192,12 @@ let html = `
     <section class="padding-top:80px padding-bottom:40px" data-element_id="EPbDoLRtuV143820">
       <div class="max-width:90% margin:0px_auto" data-element_id="isaBIqBtxt143820">
         <div class="display:flex flex-wrap:wrap align-items:center" data-element_id="nXbwNjMHiw143820">
-          <div class="flex-grow:1 min-width:300px width:50%" data-element_id="TvZqfdnwDl143820">
+          <div class="flex-grow:1 width:300px" data-element_id="TvZqfdnwDl143820">
             <video loop="" autoplay="" muted="" class="width:100%" data-element_id="loGIWJdxKN143820">
               <source type="video/mp4" src="images/on-board-video.webm" data-element_id="PtvHqVPqjO143820">
             </video>
           </div>
-          <div class="flex-grow:1 min-width:300px width:50% padding-left:15px padding-right:15px" data-element_id="hxcmAQXukc143820">
+          <div class="flex-grow:1 width:300px padding-left:15px padding-right:15px" data-element_id="hxcmAQXukc143820">
             <h1 class="font-size:1.5rem text-transform:uppercase" data-element_id="QZSdmKcXFQ143820">Find the perfect domain for your new website</h1>
             <p class="margin-top:10px" data-element_id="PgGhoDtVIw143820">Domain represent your brand. Our sole purpose is to improve your domains visibility on search engines and get visitors.</p>
             <p data-element_id="bpbjklXVHe143820"></p>
@@ -210,12 +210,12 @@ let html = `
     <section class="background:whitesmoke padding-top:80px padding-bottom:40px" data-element_id="IlStyNXzSA143820">
       <div class="max-width:90% margin:0px_auto" data-element_id="FoJQMApxSj143820">
         <div class="display:flex flex-wrap:wrap align-items:center flex-direction:row-reverse" data-element_id="yaKBWGbVaf143820">
-          <div class="flex-grow:1 min-width:300px width:50%" data-element_id="tiCKpVQNTO143820">
+          <div class="flex-grow:1 width:300px" data-element_id="tiCKpVQNTO143820">
             <video loop="" autoplay="" muted="" class="width:100%" data-element_id="jKpZYVDcqk143820">
               <source type="video/mp4" src="images/cards.webm" data-element_id="hkhiRSSAKt143820">
             </video>
           </div>
-          <div class="flex-grow:1 min-width:300px width:50% padding-left:15px padding-right:15px" data-element_id="mPoWgIVjuv143820">
+          <div class="flex-grow:1 width:300px padding-left:15px padding-right:15px" data-element_id="mPoWgIVjuv143820">
             <h1 class="font-size:1.5rem text-transform:uppercase" data-element_id="WoYbmCClIO143820">Get a dedicated phone number</h1>
             <p class="margin-top:10px" data-element_id="kdfFnAwCgP143820">Includes ivr menu so you can route your customers and provide some marketing of your services.</p>
             <a class="text-decoration-underline padding:10px_30px background:#3690FF background:#3790FF:hover min-width:30% text-align:center color:#fff color:#ddd:hover transition:0.4s margin-top:30px display:inline-block" data-element_id="aZTfpZbOHs143820">See more features</a>
@@ -227,12 +227,12 @@ let html = `
     <section class="padding-top:80px padding-bottom:40px" data-element_id="SCJesKwhIP143820">
       <div class="max-width:90% margin:0px_auto" data-element_id="fYpdYXBBiz143820">
         <div class="display:flex flex-wrap:wrap align-items:center" data-element_id="JjUkglOCQx143820">
-          <div class="flex-grow:1 min-width:300px width:50%" data-element_id="TntSYzSqqa143820">
+          <div class="flex-grow:1 width:300px" data-element_id="TntSYzSqqa143820">
             <video loop="" autoplay="" muted="" class="width:100%" data-element_id="PCLjNhIjsC143820">
               <source type="video/mp4" src="images/on-board-video.webm" data-element_id="sRTATXKHqN143820">
             </video>
           </div>
-          <div class="flex-grow:1 min-width:300px width:50% padding-left:15px padding-right:15px" data-element_id="YDhyRgxuUQ143820">
+          <div class="flex-grow:1 width:300px padding-left:15px padding-right:15px" data-element_id="YDhyRgxuUQ143820">
             <h1 class="font-size:1.5rem text-transform:uppercase" data-element_id="CipLJzLPnP143820">Improve your website content</h1>
             <p class="margin-top:10px" data-element_id="agMQPgcgnY143820">Provide a personal touch to your website. Everything is 100% customizable. We already provided SEO friendly content as inspiration. Search engine's love fresh and unique content. Adding your own personal touch will achieve that goal.</p>
             <p data-element_id="qAeGjEjGME143820"></p>
@@ -245,12 +245,12 @@ let html = `
     <section class="background:whitesmoke padding-top:80px padding-bottom:40px" data-element_id="LzkhYjrxST143820">
       <div class="max-width:90% margin:0px_auto" data-element_id="vcDhXhAYED143820">
         <div class="display:flex flex-wrap:wrap align-items:center flex-direction:row-reverse" data-element_id="rgyXPNiFUj143820">
-          <div class="flex-grow:1 min-width:300px width:50%" data-element_id="hYdlEDbKfe143820">
+          <div class="flex-grow:1 width:300px" data-element_id="hYdlEDbKfe143820">
             <video loop="" autoplay="" muted="" class="width:100%" data-element_id="JfSAXUXlPi143820">
               <source type="video/mp4" src="images/cards.webm" data-element_id="VVyFSglkyu143820">
             </video>
           </div>
-          <div class="flex-grow:1 min-width:300px width:50% padding-left:15px padding-right:15px" data-element_id="rfALqETRlY143820">
+          <div class="flex-grow:1 width:300px padding-left:15px padding-right:15px" data-element_id="rfALqETRlY143820">
             <h1 class="font-size:1.5rem text-transform:uppercase" data-element_id="ImzmsPmcwf143820">Start marketing your business</h1>
             <p class="margin-top:10px" data-element_id="NhLsXIJjlY143820">
               We will guide you through :
@@ -269,12 +269,12 @@ let html = `
     <section class="padding-top:80px padding-bottom:40px" data-element_id="BUzFFemoqr143820">
       <div class="max-width:90% margin:0px_auto" data-element_id="gBVspNCRTY143820">
         <div class="display:flex flex-wrap:wrap align-items:center" data-element_id="udijuMITmE143820">
-          <div class="flex-grow:1 min-width:300px width:50%" data-element_id="ZVSQpgbWhN143820">
+          <div class="flex-grow:1 width:300px" data-element_id="ZVSQpgbWhN143820">
             <video loop="" autoplay="" muted="" class="width:100%" data-element_id="DfkFFpFimu143820">
               <source type="video/mp4" src="images/on-board-video.webm" data-element_id="XIYRTaAAAl143820">
             </video>
           </div>
-          <div class="flex-grow:1 min-width:300px width:50% padding-left:15px padding-right:15px" data-element_id="dOHUCfIYVh143820">
+          <div class="flex-grow:1 width:300px padding-left:15px padding-right:15px" data-element_id="dOHUCfIYVh143820">
             <h1 class="font-size:1.5rem text-transform:uppercase" data-element_id="QrBbhWIfJw143820">Introducing milestones</h1>
             <p class="margin-top:10px" data-element_id="JvYwErhBIT143820">We add new milestones so you can continue to improve and grow. Business is a long game and requires patience. You need to nurture it to maturity. It can take months to start receiving organic traffic. But it will feel great when you recieving traffic, Similaly when people walking in to your shop and requesting your service or product.</p>
             <p data-element_id="ZarEnonKwF143820"></p>

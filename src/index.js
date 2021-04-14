@@ -1,6 +1,7 @@
 // import '@cocreate/render/src'
 (async() => {
-  import ('@cocreate/cocreatecss')
+  // lazy loading because of webpack warning for large bundle size
+
   import ('@cocreate/sidenav')
   import ('@cocreate/modal')
   import ('@cocreate/fetch')
@@ -9,9 +10,9 @@
   import ('@cocreate/input')
   import ('@cocreate/text')
   import ('@cocreate/cursors')
-  
-})()
 
+})()
+import '@cocreate/cocreatecss';
 import './style.css'
 
 import attributes from '@cocreate/attributes'
@@ -25,7 +26,7 @@ import text from '@cocreate/text'
 import cursors from '@cocreate/cursors'
 import dnd from '@cocreate/dnd'
 // import domReader from '@cocreate/dnd/util/domReader'
-import domToText from '@cocreate/domToText'
+import domToText from '@cocreate/dom-to-text'
 import select from '@cocreate/select'
 import { UUID, configMatch } from '@cocreate/utils'
 
@@ -91,7 +92,7 @@ function initAttributes() {
     }) => {
       if (canvasDocument.contains(element))
         domToText.domToText({
-          method: type == 'attribute' ? 'setAttribute' : type, 
+          method: type == 'attribute' ? 'setAttribute' : type,
           property: property,
           target: element.getAttribute("data-element_id"),
           tagName: element.tagName,
@@ -104,10 +105,11 @@ function initAttributes() {
   });
 }
 
-
+console.log('dnd loaded start')
 let hasInit = false;
 
 function init() {
+  console.log('dnd loaded init')
   console.log('document init')
   resolveCanvas();
   hasInit = true;
@@ -159,27 +161,47 @@ if (document.readyState === 'loading')
   window.addEventListener("load", (e) => {
     if (!hasInit) init()
   })
-else if (!hasInit) 
+else if (!hasInit)
   init()
 
 window.addEventListener("CoCreateHtmlTags-rendered", async(e) => {
-  console.log('init rendered')
+  let { window } = e.detail;
+  console.log('dnd loaded CoCreateHtmlTags-rendered', window.document);
+  console.log('dnd loaded ',window.document.readyState)
+
+ renderIframe(window);
+  // setTimeout(()=> {
+  //     if (window.document.readyState != 'complete')
+  //   window.addEventListener("load", () => {
+  //       setTimeout(()=> {renderIframe(window);}, 1)
+      
+  //   });
+  // else
+  //   renderIframe(window);
+    
+  // }, 1)
+
+});
+
+function renderIframe(window) {
+ 
+    console.log('dnd loaded CoCreateHtmlTags-rendered', window)
   init()
   if (ccAttributes)
     ccAttributes.scanNewElement()
-    else
+  else
     initAttributes();
   initAgain();
-});
-
-
+}
 
 function initAgain() {
+     resolveCanvas()
+  console.log('dnd loaded initAgain')
   // window.ss[i++] = window.CoCreateSelected.config ? true : false;
   console.log('init again')
 
   try {
-    domReader.register(canvasWindow)
+    // domReader.register(canvasWindow)
 
     if (!isDndFindDef) {
       isDndFindDef = true;
@@ -337,4 +359,4 @@ function initAgain() {
 }
 
 
-export default { crdt, select}
+export default { crdt }
