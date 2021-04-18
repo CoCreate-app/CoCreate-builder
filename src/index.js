@@ -12,7 +12,7 @@
   import ('@cocreate/cursors')
 
 })()
-import '@cocreate/cocreatecss';
+import ccCss from '@cocreate/cocreatecss';
 import './style.css'
 
 import attributes from '@cocreate/attributes'
@@ -44,6 +44,13 @@ window.elementConfig = elementConfig;
 let isDndFindDef = false;
 let canvas, canvasDocument, canvasWindow, crdtCon;
 let ccAttributes;
+
+
+
+
+
+
+
 
 function resolveCanvas() {
   try {
@@ -167,35 +174,52 @@ else if (!hasInit)
 window.addEventListener("CoCreateHtmlTags-rendered", async(e) => {
   let { window } = e.detail;
   console.log('dnd loaded CoCreateHtmlTags-rendered', window.document);
-  console.log('dnd loaded ',window.document.readyState)
+  console.log('dnd loaded ', window.document.readyState)
 
- renderIframe(window);
+  renderIframe(window);
   // setTimeout(()=> {
   //     if (window.document.readyState != 'complete')
   //   window.addEventListener("load", () => {
   //       setTimeout(()=> {renderIframe(window);}, 1)
-      
+
   //   });
   // else
   //   renderIframe(window);
-    
+
   // }, 1)
 
 });
 
 function renderIframe(window) {
- 
-    console.log('dnd loaded CoCreateHtmlTags-rendered', window)
+
+
+
+  console.log('dnd loaded CoCreateHtmlTags-rendered', window)
+
+
+  // init iframe
   init()
+
+  // init ccCss
+  ccCss.setOnStyleChange(function(isFirst, styleList) {
+    crdt.replaceText({ ...crdtCon, name: 'css', value: styleList.join('\r\n') })
+  })
+
+
+
+  // init ccAttribute
   if (ccAttributes)
     ccAttributes.scanNewElement()
   else
     initAttributes();
+
+
+  // init other components
   initAgain();
 }
 
 function initAgain() {
-     resolveCanvas()
+  resolveCanvas()
   console.log('dnd loaded initAgain')
   // window.ss[i++] = window.CoCreateSelected.config ? true : false;
   console.log('init again')
