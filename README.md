@@ -9,7 +9,7 @@ A simple builder component in vanilla javascript. Easily configured using HTML5 
 
 ![CoCreate-builder](https://cdn.cocreate.app/docs/CoCreate-builder.gif)
 
-## [Docs & Demo](https://cocreate.app/docs/clone)
+## [Docs & Demo](https://cocreate.app/docs/builder)
 
 For a complete guide and working demo refer to the [doumentation](https://cocreate.app/docs/builder)
 
