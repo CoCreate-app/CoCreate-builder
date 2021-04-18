@@ -21,8 +21,8 @@ let html = `
     <title data-element_id="NehkXvrmLn143820">CoCreate - Build your business in minutes.</title>
     
     <!-- CoCreate UI -->
-    <!--<link rel="stylesheet" href="https://cdn.cocreate.app/CoCreate.min.css" type="text/css" />-->
-    <link rel="stylesheet" href="https://server.cocreate.app/css/CoCreate.min.css" type="text/css" data-element_id="dglweFaWdH143820">
+    
+    <link rel="stylesheet" href="https://cdn.cocreate.app/latest/CoCreate.min.css" type="text/css" data-element_id="dglweFaWdH143820">
     <!--<link rel="stylesheet" href="https://server.cocreate.app/CoCreate-components/CoCreate-overlay-scroll/CoCreate-overlay-scroll.css" type="text/css" />-->
    
     <!-- Font Awesome -->
