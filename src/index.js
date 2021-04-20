@@ -42,7 +42,7 @@ window.elementConfig = elementConfig;
 
 
 let isDndFindDef = false;
-let canvas, canvasDocument, canvasWindow, crdtCon;
+let canvas, canvasDocument, canvasWindow, crdtCon, linkCrdtCon;
 let ccAttributes;
 
 
@@ -70,6 +70,15 @@ function resolveCanvas() {
     canvasDocument = canvasWindow.document || canvas.contentDocument;
     canvasDocument.ccdefaultView = canvasWindow;
 
+    let link = document.querySelector('link[data-collection][data-document_id][name]')
+    linkCrdtCon = 
+    {
+        collection: link.getAttribute('data-collection'),
+      document_id: link.getAttribute('data-document_id'),
+      name: link.getAttribute('name'),
+    }
+    
+     crdt.init(linkCrdtCon);
     // domReader.register(canvasWindow)
 
     // canvas get load event sooner then parent so it will not get change to execute
@@ -202,7 +211,7 @@ function renderIframe(window) {
 
   // init ccCss
   ccCss.setOnStyleChange(function(isFirst, styleList) {
-    crdt.replaceText({ ...crdtCon, name: 'css', value: styleList.join('\r\n') })
+    crdt.replaceText({ ...linkCrdtCon, name: 'css', value: styleList.join('\r\n') })
   })
 
 
