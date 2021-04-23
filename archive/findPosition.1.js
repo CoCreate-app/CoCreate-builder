@@ -292,11 +292,11 @@ let html = `
     					
     					<div class="width:100% display:inline-block text-align:center padding-bottom:20px font-size:21px border-bottom:1px_solid_white" data-element_id="DswWFojOzf143820">
     						<ul class="padding-0px list-style-type:none justify-content:center display:flex" data-element_id="XTkNGBplwb143820">
-    							<li class="padding:0px_15px" data-element_id="eqOzhiVFwK143820"><a href="#" class="color:white" data-network="facebook" title="Share on Facebook" data-element_id="tvOsaBcfVA143820"><i class="fab fa-facebook-f" data-element_id="JdMFeFgdLl143820"></i></a></li>
-    							<li class="padding:0px_15px" data-element_id="kdUSVlfrmF143820"><a href="#" class="color:white" data-network="twitter" data-element_id="eFebkvIQRb143820"><i class="fab fa-twitter" data-element_id="vSFXAGKdFj143820"></i></a></li>
-    							<li class="padding:0px_15px" data-element_id="fOPMORLgEC143820"><a href="#" class="color:white" data-network="google" data-element_id="PLDfipXVpU143820"><i class="fab fa-google-plus-g color:white" data-element_id="JZmmVwahGb143820"></i></a></li>
-    							<li class="padding:0px_15px" data-element_id="kajqvfArjE143820"><a href="#" class="color:white" data-network="linkedin" data-element_id="qgsCEhsKnE143820"><i class="fab fa-linkedin-in" data-element_id="pqbvJbDCEC143820"></i></a></li>
-    							<li class="padding:0px_15px" data-element_id="nByLJsZiAs143820"><a href="#" class="color:white" data-network="pintrest" data-element_id="wYKNDFnZuS143820"><i class="fab fa-pinterest-p" data-element_id="GaYugODeYS143820"></i></a></li>
+    							<li class="padding:0px_15px" data-element_id="eqOzhiVFwK143820"><a href="#" class="color:white" data-share_network="facebook" title="Share on Facebook" data-element_id="tvOsaBcfVA143820"><i class="fab fa-facebook-f" data-element_id="JdMFeFgdLl143820"></i></a></li>
+    							<li class="padding:0px_15px" data-element_id="kdUSVlfrmF143820"><a href="#" class="color:white" data-share_network="twitter" data-element_id="eFebkvIQRb143820"><i class="fab fa-twitter" data-element_id="vSFXAGKdFj143820"></i></a></li>
+    							<li class="padding:0px_15px" data-element_id="fOPMORLgEC143820"><a href="#" class="color:white" data-share_network="google" data-element_id="PLDfipXVpU143820"><i class="fab fa-google-plus-g color:white" data-element_id="JZmmVwahGb143820"></i></a></li>
+    							<li class="padding:0px_15px" data-element_id="kajqvfArjE143820"><a href="#" class="color:white" data-share_network="linkedin" data-element_id="qgsCEhsKnE143820"><i class="fab fa-linkedin-in" data-element_id="pqbvJbDCEC143820"></i></a></li>
+    							<li class="padding:0px_15px" data-element_id="nByLJsZiAs143820"><a href="#" class="color:white" data-share_network="pintrest" data-element_id="wYKNDFnZuS143820"><i class="fab fa-pinterest-p" data-element_id="GaYugODeYS143820"></i></a></li>
     						</ul>
     					</div>				
     
@@ -336,7 +336,7 @@ let html = `
 
 
   <!--CoCreateJS-->
-  <script src="https://server.cocreate.app/js/CoCreate.min.js" data-element_id="KSGgDgkbKu143820"></script>
+  <script src="https://cdn.cocreate.app/latest/CoCreate.min.js" data-element_id="KSGgDgkbKu143820"></script>
   <!--<script src="https://server.cocreate.app/CoCreate-components/CoCreate-overlay-scroll/CoCreate-overlay-scroll.js"></script>-->
 
   

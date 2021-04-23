@@ -32,7 +32,7 @@
 
 
 //   <!--CoCreateJS-->
-//   <script data-element_id="script2" src="https://server.cocreate.app/js/CoCreate.min.js"></script>
+//   <script data-element_id="script2" src="https://cdn.cocreate.app/latest/CoCreate.min.js"></script>
     // <script type="text/javascript" src="../dist/CoCreate-quill.js" async></script>
 
 // 	</body>
