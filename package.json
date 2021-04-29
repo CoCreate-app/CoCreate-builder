@@ -77,6 +77,7 @@
     "@cocreate/toolbar": "^1.1.2",
     "@cocreate/utils": "^1.0.3",
     "@cocreate/vdom": "^1.0.2",
-    "mini-css-extract-plugin": "^1.5.0"
+    "mini-css-extract-plugin": "^1.5.0",
+    "yjs": "^13.5.5"
   }
 }
