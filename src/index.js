@@ -63,21 +63,20 @@ function resolveCanvas() {
       name: canvas.getAttribute('name'),
 
     };
-
+    window.crdtCon = crdtCon;
     crdt.init(crdtCon);
     canvasWindow = canvas.contentWindow;
     canvasDocument = canvasWindow.document || canvas.contentDocument;
     canvasDocument.ccdefaultView = canvasWindow;
 
     let link = document.querySelector('link[data-collection][data-document_id][name]')
-    linkCrdtCon = 
-    {
-        collection: link.getAttribute('data-collection'),
+    linkCrdtCon = {
+      collection: link.getAttribute('data-collection'),
       document_id: link.getAttribute('data-document_id'),
       name: link.getAttribute('name'),
     }
-    
-     crdt.init(linkCrdtCon);
+
+    crdt.init(linkCrdtCon);
     // domReader.register(canvasWindow)
 
     // canvas get load event sooner then parent so it will not get change to execute
@@ -105,23 +104,22 @@ function initAttributes() {
       element,
       unit
     }) => {
-      if (canvasDocument.contains(element))
-      {
+      if (canvasDocument.contains(element)) {
         let target = element.getAttribute("data-element_id");
         switch (type) {
           case 'attribute':
-            domModifier.setAttribute({target, name: property, value })
+            domModifier.setAttribute({ target, name: property, value })
             break;
           case 'classstyle':
-            domModifier.setClass({target, classname: property  })
+            domModifier.setClass({ target, classname: property })
             break;
           case 'style':
-            domModifier.setStyle({target, style: property, value: value + unit  })
+            domModifier.setStyle({ target, style: property, value: value + unit })
             break;
           case 'innerText':
-            domModifier.setInnerText({target, value  })
+            domModifier.setInnerText({ target, value })
             break;
-          
+
           default:
             console.error('ccAttribute to domModifier no action')
             // code
@@ -141,9 +139,25 @@ function init() {
   console.log('dnd loaded init')
   console.log('document init')
   resolveCanvas();
-      let html = crdt.getText(crdtCon);
+  let html = crdt.getText(crdtCon);
   domModifier = new classDomModifier(html, canvasDocument.documentElement)
-  
+  domModifier.setCallback({
+    addCallback:  function({ value, position }) {
+    crdt.insertText({
+      ...crdtCon,
+      value,
+      position,
+    });
+  },
+  removeCallback: function({ from, to }) {
+    crdt.deleteText({
+      ...crdtCon,
+      position: from,
+      length: to - from,
+    });
+  }
+  })
+
   hasInit = true;
 }
 
@@ -282,13 +296,13 @@ function initAgain() {
               position,
               target: dropedEl.getAttribute("data-element_id"),
               element: dragedEl.getAttribute("data-element_id"),
-      
+
             });
 
             break;
           case "data-cloneable":
             domModifier.insertAdjacentElement({
-             position,
+              position,
               target: dropedEl.getAttribute("data-element_id"),
               elementValue: dragedEl.outerHTML,
             });
