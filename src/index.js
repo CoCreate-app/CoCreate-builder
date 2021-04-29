@@ -26,7 +26,7 @@ import text from '@cocreate/text'
 import cursors from '@cocreate/cursors'
 import dnd from '@cocreate/dnd'
 // import domReader from '@cocreate/dnd/util/domReader'
-import domToText from '@cocreate/dom-to-text'
+import classDomModifier from '@cocreate/text-to-dom'
 import select from '@cocreate/select'
 import { UUID, configMatch } from '@cocreate/utils'
 
@@ -43,8 +43,7 @@ window.elementConfig = elementConfig;
 
 let isDndFindDef = false;
 let canvas, canvasDocument, canvasWindow, crdtCon, linkCrdtCon;
-let ccAttributes;
-
+let ccAttributes, domModifier;
 
 
 
@@ -107,15 +106,29 @@ function initAttributes() {
       unit
     }) => {
       if (canvasDocument.contains(element))
-        domToText.domToText({
-          method: type == 'attribute' ? 'setAttribute' : type,
-          property: property,
-          target: element.getAttribute("data-element_id"),
-          tagName: element.tagName,
-          value: value,
-          unit,
-          ...crdtCon
-        })
+      {
+        let target = element.getAttribute("data-element_id");
+        switch (type) {
+          case 'attribute':
+            domModifier.setAttribute({target, name: property, value })
+            break;
+          case 'classstyle':
+            domModifier.setClass({target, classname: property  })
+            break;
+          case 'style':
+            domModifier.setStyle({target, style: property, value: value + unit  })
+            break;
+          case 'innerText':
+            domModifier.setInnerText({target, value  })
+            break;
+          
+          default:
+            console.error('ccAttribute to domModifier no action')
+            // code
+        }
+
+      }
+
 
     },
   });
@@ -128,6 +141,9 @@ function init() {
   console.log('dnd loaded init')
   console.log('document init')
   resolveCanvas();
+      let html = crdt.getText(crdtCon);
+  domModifier = new classDomModifier(html, canvasDocument.documentElement)
+  
   hasInit = true;
 }
 
@@ -256,46 +272,25 @@ function initAgain() {
           id = dragedEl.getAttribute("data-element_id");
           dragedEl = canvasDocument.querySelector(`[data-element_id="${id}"]`)
 
-          dragNextSib = domToText.getNextSibling(dragedEl);
-          dropNextSib = domToText.getNextSibling(dropedEl);
+
           dropedEl.insertAdjacentElement(position, dragedEl);
         }
         else if (!canvasDocument.contains(dropedEl)) return; //probably not necss since we fixed groups
         switch (dropType) {
           case "data-draggable":
-            domToText.domToText({
-              method: "insertAdjacentElement",
-              property: position,
-              target: {
-                target: dropedEl.getAttribute("data-element_id"),
-                tagName: dropedEl.tagName,
-                nextSibling: dropNextSib[0],
-                skip: dropNextSib[1],
-              },
-              element: {
-                target: dragedEl.getAttribute("data-element_id"),
-                tagName: dragedEl.tagName,
-                nextSibling: dragNextSib[0],
-                skip: dragNextSib[1],
-              },
-              ...crdtCon
+            domModifier.insertAdjacentElement({
+              position,
+              target: dropedEl.getAttribute("data-element_id"),
+              element: dragedEl.getAttribute("data-element_id"),
+      
             });
 
             break;
           case "data-cloneable":
-            domToText.domToText({
-              method: "insertAdjacentElement",
-              property: position,
-              target: {
-                target: dropedEl.getAttribute("data-element_id"),
-                tagName: dropedEl.tagName,
-                nextSibling: dropNextSib[0],
-                skip: dropNextSib[1],
-              },
-              element: {
-                value: dragedEl.outerHTML,
-              },
-              ...crdtCon
+            domModifier.insertAdjacentElement({
+             position,
+              target: dropedEl.getAttribute("data-element_id"),
+              elementValue: dragedEl.outerHTML,
             });
             break;
         }
@@ -316,8 +311,6 @@ function initAgain() {
             else return;
       },
       onDndSuccess: (detail) => {
-        detail.dragNextSib = domToText.getNextSibling(detail.dragedEl);
-        detail.dropNextSib = domToText.getNextSibling(detail.dropedEl);
         if (!detail.dragedEl.getAttribute("data-element_id"))
           detail.dragedEl.setAttribute("data-element_id", UUID());
       },
