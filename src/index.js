@@ -47,7 +47,27 @@ let ccAttributes, domModifier;
 
 
 
-
+let defaultHtml = `<!DOCTYPE html><html>
+	<head>
+	</head>
+	<body data-element_id="body" style="padding:1;">
+		
+		<h1 data-element_id="t1" name="1">test 1</h1>
+		<h1 data-element_id="t3" name="3">test 3</h1>
+		<h1 data-element_id="t2" name="2">test 2</h1>
+		<h1 data-element_id="t4" name="4">test 4</h1>
+			
+        <script data-element_id="script1">
+            var config = {
+              apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
+              securityKey: 'f26baf68-e3a9-45fc-effe-502e47116265',
+              organization_Id: '5de0387b12e200ea63204d6c'
+            }
+        </script>
+        
+   
+	</body>
+</html>`;
 
 
 
@@ -65,6 +85,8 @@ function resolveCanvas() {
     };
     window.crdtCon = crdtCon;
     crdt.init(crdtCon);
+    
+ 
     canvasWindow = canvas.contentWindow;
     canvasDocument = canvasWindow.document || canvas.contentDocument;
     canvasDocument.ccdefaultView = canvasWindow;
@@ -139,23 +161,32 @@ function init() {
   console.log('dnd loaded init')
   console.log('document init')
   resolveCanvas();
+  
+  // while(true){
+  //   let a = crdt.getText(crdtCon);
+  //   if(a)
+  //   crdt.replaceText({...crdtCon, value: ''})
+  //   else 
+  //   break;
+  // }
+  //   crdt.replaceText({...crdtCon, value: defaultHtml})
   let html = crdt.getText(crdtCon);
   domModifier = new classDomModifier(html, canvasDocument.documentElement)
   domModifier.setCallback({
-    addCallback:  function({ value, position }) {
-    crdt.insertText({
-      ...crdtCon,
-      value,
-      position,
-    });
-  },
-  removeCallback: function({ from, to }) {
-    crdt.deleteText({
-      ...crdtCon,
-      position: from,
-      length: to - from,
-    });
-  }
+    addCallback: function({ value, position }) {
+      crdt.insertText({
+        ...crdtCon,
+        value,
+        position,
+      });
+    },
+    removeCallback: function({ from, to }) {
+      crdt.deleteText({
+        ...crdtCon,
+        position: from,
+        length: to - from,
+      });
+    }
   })
 
   hasInit = true;
