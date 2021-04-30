@@ -133,10 +133,10 @@ function initAttributes() {
             domModifier.setAttribute({ target, name: property, value })
             break;
           case 'classstyle':
-            domModifier.setClass({ target, classname: property })
+            domModifier.setClassStyle({ target, styleName: property,  value: value + unit  })
             break;
           case 'style':
-            domModifier.setStyle({ target, style: property, value: value + unit })
+            domModifier.setStyle({ target, styleName: property, value: value + unit })
             break;
           case 'innerText':
             domModifier.setInnerText({ target, value })
