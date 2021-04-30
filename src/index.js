@@ -85,8 +85,8 @@ function resolveCanvas() {
     };
     window.crdtCon = crdtCon;
     crdt.init(crdtCon);
-    
- 
+
+
     canvasWindow = canvas.contentWindow;
     canvasDocument = canvasWindow.document || canvas.contentDocument;
     canvasDocument.ccdefaultView = canvasWindow;
@@ -161,7 +161,7 @@ function init() {
   console.log('dnd loaded init')
   console.log('document init')
   resolveCanvas();
-  
+
   // while(true){
   //   let a = crdt.getText(crdtCon);
   //   if(a)
@@ -271,10 +271,9 @@ function renderIframe(window) {
   init()
 
   // init ccCss
-  ccCss.setOnStyleChange(function(isFirst, styleList) {
+  canvasWindow.addEventListener('newCoCreateCssStyles', function(isFirst, styleList) {
     crdt.replaceText({ ...linkCrdtCon, name: 'css', value: styleList.join('\r\n') })
   })
-
 
 
   // init ccAttribute
