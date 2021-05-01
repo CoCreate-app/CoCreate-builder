@@ -133,7 +133,7 @@ function initAttributes() {
             domModifier.setAttribute({ target, name: property, value })
             break;
           case 'classstyle':
-            domModifier.setClassStyle({ target, styleName: property,  value: value + unit  })
+            domModifier.setClass({ target, classname: property,  value: value + unit  })
             break;
           case 'style':
             domModifier.setStyle({ target, styleName: property, value: value + unit })
@@ -162,14 +162,14 @@ function init() {
   console.log('document init')
   resolveCanvas();
 
-  // while(true){
-  //   let a = crdt.getText(crdtCon);
-  //   if(a)
-  //   crdt.replaceText({...crdtCon, value: ''})
-  //   else 
-  //   break;
-  // }
-  //   crdt.replaceText({...crdtCon, value: defaultHtml})
+  while(true){
+    let a = crdt.getText(crdtCon);
+    if(a)
+    crdt.replaceText({...crdtCon, value: ''})
+    else 
+    break;
+  }
+    crdt.replaceText({...crdtCon, value: defaultHtml})
   let html = crdt.getText(crdtCon);
   domModifier = new classDomModifier(html, canvasDocument.documentElement)
   domModifier.setCallback({
