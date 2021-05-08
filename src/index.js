@@ -25,8 +25,7 @@ import input from '@cocreate/input'
 import text from '@cocreate/text'
 import cursors from '@cocreate/cursors'
 import dnd from '@cocreate/dnd'
-// import domReader from '@cocreate/dnd/util/domReader'
-import classDomModifier from '@cocreate/text-to-dom'
+import classDomModifier from '@cocreate/domtext'
 import select from '@cocreate/select'
 import { UUID, configMatch } from '@cocreate/utils'
 
@@ -91,14 +90,17 @@ function resolveCanvas() {
     canvasDocument = canvasWindow.document || canvas.contentDocument;
     canvasDocument.ccdefaultView = canvasWindow;
 
-    let link = document.querySelector('link[data-collection][data-document_id][name]')
-    linkCrdtCon = {
-      collection: link.getAttribute('data-collection'),
-      document_id: link.getAttribute('data-document_id'),
-      name: link.getAttribute('name'),
-    }
+    // let link = document.querySelector('link[data-collection][data-document_id][name]');
+    // if (link) {
 
-    crdt.init(linkCrdtCon);
+    //   linkCrdtCon = {
+    //     collection: link.getAttribute('data-collection'),
+    //     document_id: link.getAttribute('data-document_id'),
+    //     name: link.getAttribute('name'),
+    //   }
+
+    //   crdt.init(linkCrdtCon);
+    // }
     // domReader.register(canvasWindow)
 
     // canvas get load event sooner then parent so it will not get change to execute
@@ -133,7 +135,7 @@ function initAttributes() {
             domModifier.setAttribute({ target, name: property, value })
             break;
           case 'classstyle':
-            domModifier.setClass({ target, classname: property,  value: value + unit  })
+            domModifier.setClass({ target, classname: property, value: value + unit })
             break;
           case 'style':
             domModifier.setStyle({ target, styleName: property, value: value + unit })
@@ -162,18 +164,30 @@ function init() {
   console.log('document init')
   resolveCanvas();
 
-  while(true){
-    let a = crdt.getText(crdtCon);
-    if(a)
-    crdt.replaceText({...crdtCon, value: ''})
-    else 
-    break;
-  }
-    crdt.replaceText({...crdtCon, value: defaultHtml})
+  // while(true){
+  //   let a = crdt.getText(crdtCon);
+  //   if(a)
+  //   crdt.replaceText({...crdtCon, value: ''})
+  //   else 
+  //   break;
+  // }
+  //   crdt.replaceText({...crdtCon, value: defaultHtml})
   let html = crdt.getText(crdtCon);
   domModifier = new classDomModifier(html, canvasDocument.documentElement)
+  window.insertTextList = [];
   domModifier.setCallback({
     addCallback: function({ value, position }) {
+      let html = crdt.getText(crdtCon)
+      if (html)
+        window.insertTextList.push({
+          value,
+          position,
+          virtual: this.html.substring(html.from - 20, html.from) +
+            "\x1b[31m<here>\x1b[0m" +
+            this.html.substring(html.from, html.from + 40)
+        })
+      else
+        window.insertTextList.push({ value, position, virtual: 'crdt.getText returned nothing' })
       crdt.insertText({
         ...crdtCon,
         value,
