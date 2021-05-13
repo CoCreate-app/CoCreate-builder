@@ -25,8 +25,7 @@ import input from '@cocreate/input'
 import text from '@cocreate/text'
 import cursors from '@cocreate/cursors'
 import dnd from '@cocreate/dnd'
-// import domReader from '@cocreate/dnd/util/domReader'
-import domToText from '@cocreate/dom-to-text'
+import classDomModifier from '@cocreate/domtext'
 import select from '@cocreate/select'
 import { UUID, configMatch } from '@cocreate/utils'
 
@@ -43,12 +42,31 @@ window.elementConfig = elementConfig;
 
 let isDndFindDef = false;
 let canvas, canvasDocument, canvasWindow, crdtCon, linkCrdtCon;
-let ccAttributes;
+let ccAttributes, domModifier;
 
 
 
-
-
+let defaultHtml = `<!DOCTYPE html><html>
+	<head>
+	</head>
+	<body data-element_id="body" style="padding:1;">
+		
+		<h1 data-element_id="t1" name="1">test 1</h1>
+		<h1 data-element_id="t3" name="3">test 3</h1>
+		<h1 data-element_id="t2" name="2">test 2</h1>
+		<h1 data-element_id="t4" name="4">test 4</h1>
+			
+        <script data-element_id="script1">
+            var config = {
+              apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
+              securityKey: 'f26baf68-e3a9-45fc-effe-502e47116265',
+              organization_Id: '5de0387b12e200ea63204d6c'
+            }
+        </script>
+        
+   
+	</body>
+</html>`;
 
 
 
@@ -64,21 +82,25 @@ function resolveCanvas() {
       name: canvas.getAttribute('name'),
 
     };
-
+    window.crdtCon = crdtCon;
     crdt.init(crdtCon);
+
+
     canvasWindow = canvas.contentWindow;
     canvasDocument = canvasWindow.document || canvas.contentDocument;
     canvasDocument.ccdefaultView = canvasWindow;
 
-    let link = document.querySelector('link[data-collection][data-document_id][name]')
-    linkCrdtCon = 
-    {
-        collection: link.getAttribute('data-collection'),
-      document_id: link.getAttribute('data-document_id'),
-      name: link.getAttribute('name'),
-    }
-    
-     crdt.init(linkCrdtCon);
+    // let link = document.querySelector('link[data-collection][data-document_id][name]');
+    // if (link) {
+
+    //   linkCrdtCon = {
+    //     collection: link.getAttribute('data-collection'),
+    //     document_id: link.getAttribute('data-document_id'),
+    //     name: link.getAttribute('name'),
+    //   }
+
+    //   crdt.init(linkCrdtCon);
+    // }
     // domReader.register(canvasWindow)
 
     // canvas get load event sooner then parent so it will not get change to execute
@@ -106,16 +128,29 @@ function initAttributes() {
       element,
       unit
     }) => {
-      if (canvasDocument.contains(element))
-        domToText.domToText({
-          method: type == 'attribute' ? 'setAttribute' : type,
-          property: property,
-          target: element.getAttribute("data-element_id"),
-          tagName: element.tagName,
-          value: value,
-          unit,
-          ...crdtCon
-        })
+      if (canvasDocument.contains(element)) {
+        let target = element.getAttribute("data-element_id");
+        switch (type) {
+          case 'attribute':
+            domModifier.setAttribute({ target, name: property, value })
+            break;
+          case 'classstyle':
+            domModifier.setClass({ target, classname: property, value: value + unit })
+            break;
+          case 'style':
+            domModifier.setStyle({ target, styleName: property, value: value + unit })
+            break;
+          case 'innerText':
+            domModifier.setInnerText({ target, value })
+            break;
+
+          default:
+            console.error('ccAttribute to domModifier no action')
+            // code
+        }
+
+      }
+
 
     },
   });
@@ -128,6 +163,46 @@ function init() {
   console.log('dnd loaded init')
   console.log('document init')
   resolveCanvas();
+
+  // while(true){
+  //   let a = crdt.getText(crdtCon);
+  //   if(a)
+  //   crdt.replaceText({...crdtCon, value: ''})
+  //   else 
+  //   break;
+  // }
+  //   crdt.replaceText({...crdtCon, value: defaultHtml})
+  let html = crdt.getText(crdtCon);
+  domModifier = new classDomModifier(html, canvasDocument.documentElement)
+  window.insertTextList = [];
+  domModifier.setCallback({
+    addCallback: function({ value, position }) {
+      let html = crdt.getText(crdtCon)
+      if (html)
+        window.insertTextList.push({
+          value,
+          position,
+          virtual: this.html.substring(html.from - 20, html.from) +
+            "\x1b[31m<here>\x1b[0m" +
+            this.html.substring(html.from, html.from + 40)
+        })
+      else
+        window.insertTextList.push({ value, position, virtual: 'crdt.getText returned nothing' })
+      crdt.insertText({
+        ...crdtCon,
+        value,
+        position,
+      });
+    },
+    removeCallback: function({ from, to }) {
+      crdt.deleteText({
+        ...crdtCon,
+        position: from,
+        length: to - from,
+      });
+    }
+  })
+
   hasInit = true;
 }
 
@@ -210,10 +285,9 @@ function renderIframe(window) {
   init()
 
   // init ccCss
-  ccCss.setOnStyleChange(function(isFirst, styleList) {
+  canvasWindow.addEventListener('newCoCreateCssStyles', function(isFirst, styleList) {
     crdt.replaceText({ ...linkCrdtCon, name: 'css', value: styleList.join('\r\n') })
   })
-
 
 
   // init ccAttribute
@@ -256,46 +330,25 @@ function initAgain() {
           id = dragedEl.getAttribute("data-element_id");
           dragedEl = canvasDocument.querySelector(`[data-element_id="${id}"]`)
 
-          dragNextSib = domToText.getNextSibling(dragedEl);
-          dropNextSib = domToText.getNextSibling(dropedEl);
+
           dropedEl.insertAdjacentElement(position, dragedEl);
         }
         else if (!canvasDocument.contains(dropedEl)) return; //probably not necss since we fixed groups
         switch (dropType) {
           case "data-draggable":
-            domToText.domToText({
-              method: "insertAdjacentElement",
-              property: position,
-              target: {
-                target: dropedEl.getAttribute("data-element_id"),
-                tagName: dropedEl.tagName,
-                nextSibling: dropNextSib[0],
-                skip: dropNextSib[1],
-              },
-              element: {
-                target: dragedEl.getAttribute("data-element_id"),
-                tagName: dragedEl.tagName,
-                nextSibling: dragNextSib[0],
-                skip: dragNextSib[1],
-              },
-              ...crdtCon
+            domModifier.insertAdjacentElement({
+              position,
+              target: dropedEl.getAttribute("data-element_id"),
+              element: dragedEl.getAttribute("data-element_id"),
+
             });
 
             break;
           case "data-cloneable":
-            domToText.domToText({
-              method: "insertAdjacentElement",
-              property: position,
-              target: {
-                target: dropedEl.getAttribute("data-element_id"),
-                tagName: dropedEl.tagName,
-                nextSibling: dropNextSib[0],
-                skip: dropNextSib[1],
-              },
-              element: {
-                value: dragedEl.outerHTML,
-              },
-              ...crdtCon
+            domModifier.insertAdjacentElement({
+              position,
+              target: dropedEl.getAttribute("data-element_id"),
+              elementValue: dragedEl.outerHTML,
             });
             break;
         }
@@ -316,8 +369,6 @@ function initAgain() {
             else return;
       },
       onDndSuccess: (detail) => {
-        detail.dragNextSib = domToText.getNextSibling(detail.dragedEl);
-        detail.dropNextSib = domToText.getNextSibling(detail.dropedEl);
         if (!detail.dragedEl.getAttribute("data-element_id"))
           detail.dragedEl.setAttribute("data-element_id", UUID());
       },

@@ -3176,7 +3176,7 @@ y-websocket@^1.2.5:
     ws "^6.2.1"
     y-leveldb "^0.1.0"
 
-yjs@^13.0.0-89:
+yjs@^13.0.0-89, yjs@^13.5.5:
   version "13.5.5"
   resolved "https://registry.yarnpkg.com/yjs/-/yjs-13.5.5.tgz#8a52a7354006e04a54dc62c9ffbbd7c606e20ded"
   integrity sha512-sbE4G+bSP0jw71aJ9Hqi5UxOTy8JGkObIaCSpY6krRoNqssPCWq05rqV9PQcuMqcrHD3twzko92fVaF1S3id/Q==
