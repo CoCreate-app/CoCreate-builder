@@ -63,7 +63,7 @@ let defaultHtml = `<!DOCTYPE html><html>
               organization_Id: '5de0387b12e200ea63204d6c'
             }
         </script>
-        
+                <script src="./CoCreate-builder-canvas.js"></script>
    
 	</body>
 </html>`;
@@ -164,14 +164,14 @@ function init() {
   console.log('document init')
   resolveCanvas();
 
-  while(true){
+  while (true) {
     let a = crdt.getText(crdtCon);
-    if(a)
-    crdt.replaceText({...crdtCon, value: ''})
-    else 
-    break;
+    if (a)
+      crdt.replaceText({ ...crdtCon, value: '' })
+    else
+      break;
   }
-    crdt.replaceText({...crdtCon, value: defaultHtml})
+  crdt.replaceText({ ...crdtCon, value: defaultHtml })
   let html = crdt.getText(crdtCon);
   domModifier = new classDomModifier(html, canvasDocument.documentElement)
   window.insertTextList = [];
