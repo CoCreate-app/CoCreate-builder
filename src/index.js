@@ -164,14 +164,14 @@ function init() {
   console.log('document init')
   resolveCanvas();
 
-  // while(true){
-  //   let a = crdt.getText(crdtCon);
-  //   if(a)
-  //   crdt.replaceText({...crdtCon, value: ''})
-  //   else 
-  //   break;
-  // }
-  //   crdt.replaceText({...crdtCon, value: defaultHtml})
+  while(true){
+    let a = crdt.getText(crdtCon);
+    if(a)
+    crdt.replaceText({...crdtCon, value: ''})
+    else 
+    break;
+  }
+    crdt.replaceText({...crdtCon, value: defaultHtml})
   let html = crdt.getText(crdtCon);
   domModifier = new classDomModifier(html, canvasDocument.documentElement)
   window.insertTextList = [];
@@ -182,9 +182,9 @@ function init() {
         window.insertTextList.push({
           value,
           position,
-          virtual: this.html.substring(html.from - 20, html.from) +
+          virtual: html.substring(html.from - 20, html.from) +
             "\x1b[31m<here>\x1b[0m" +
-            this.html.substring(html.from, html.from + 40)
+            html.substring(html.from, html.from + 40)
         })
       else
         window.insertTextList.push({ value, position, virtual: 'crdt.getText returned nothing' })
