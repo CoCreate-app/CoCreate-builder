@@ -1,3 +1,17 @@
+## [1.1.5](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.1.4...v1.1.5) (2021-05-13)
+
+
+### Bug Fixes
+
+* readme and documentation. Removed securitykeys ([cca3a92](https://github.com/CoCreate-app/CoCreate-builder/commit/cca3a9263bf586baef01f36079989e8592860790))
+
+## [1.1.4](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.1.3...v1.1.4) (2021-05-08)
+
+
+### Bug Fixes
+
+* add css auto parse and save to docs. ([0295750](https://github.com/CoCreate-app/CoCreate-builder/commit/0295750753ca08cee51bdb52d2b05a732a797424))
+
 ## [1.1.3](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.1.2...v1.1.3) (2021-04-19)
 
 
