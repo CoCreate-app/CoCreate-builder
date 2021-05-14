@@ -2,7 +2,7 @@
   import crdt from '@cocreate/crdt';
 
 
-let defaultHtml = `<!DOCTYPE html><html>
+  let defaultHtml = `<!DOCTYPE html><html>
 	<head>
   <style>body {background: red;}</style>
 	
@@ -24,12 +24,12 @@ let defaultHtml = `<!DOCTYPE html><html>
 
   canvas = document.querySelector("#canvas");
   if (!canvas)
-      console.error("builder config failed, can not find canvas iframe");
+    console.error("builder config failed, can not find canvas iframe");
 
   crdtCon = {
-      collection: canvas.getAttribute('data-collection'),
-      document_id: canvas.getAttribute('data-document_id'),
-      name: canvas.getAttribute('name'),
+    collection: canvas.getAttribute('data-collection'),
+    document_id: canvas.getAttribute('data-document_id'),
+    name: canvas.getAttribute('name'),
 
   };
   window.crdtCon = crdtCon;
@@ -42,34 +42,34 @@ let defaultHtml = `<!DOCTYPE html><html>
 
 
 
-    export default new Promise(function(resolve, reject) {
+  export default new Promise(function(resolve, reject) {
 
-      setTimeout(() => {
-          let html = crdt.getText({ crud: false, ...crdtCon });
 
-          canvasDocument.documentElement.remove();
-          canvasDocument.append((new DOMParser().parseFromString(defaultHtml, "text/html")).documentElement);
+    setTimeout(() => {
+      // crdt.replaceText({ crud: false, ...crdtCon, value: defaultHtml })
+      let html = crdt.getText({ crud: false, ...crdtCon });
 
-          let apiInfo = document.createElement('script');
-          apiInfo.innerHTML = `     var config = {
+
+      canvasDocument.documentElement.remove();
+      canvasDocument.append((new DOMParser().parseFromString(html, "text/html")).documentElement);
+
+      let apiInfo = document.createElement('script');
+      apiInfo.innerHTML = `     var config = {
           apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
           securityKey: 'f26baf68-e3a9-45fc-effe-502e47116265',
           organization_Id: '5de0387b12e200ea63204d6c'
         }`
-          canvasDocument.head.appendChild(apiInfo);
+      canvasDocument.head.appendChild(apiInfo);
 
-          let canvasScript = document.createElement('script');
-          canvasScript.setAttribute('src', './CoCreate-builder-canvas.js');
-          canvasScript.addEventListener('load', function() {
-              canvasWindow.dispatchEvent(new Event("DOMContentLoaded", { "bubbles": true, "cancelable": false }))
-              canvasWindow.dispatchEvent(new Event("load", { "bubbles": true, "cancelable": false }))
-          })
-          canvasDocument.head.appendChild(canvasScript);
-          resolve({ crdtCon, canvas, canvasDocument, canvasWindow })
+      let canvasScript = document.createElement('script');
+      canvasScript.setAttribute('src', './CoCreate-builder-canvas.js');
+      canvasScript.addEventListener('load', function() {
+        canvasWindow.dispatchEvent(new Event("DOMContentLoaded", { "bubbles": true, "cancelable": false }))
+        canvasWindow.dispatchEvent(new Event("load", { "bubbles": true, "cancelable": false }))
+      })
+      canvasDocument.head.appendChild(canvasScript);
+      resolve({ crdtCon, canvas, canvasDocument, canvasWindow })
 
-      }, 500)
+    }, 500)
   })
-  
-  
-
   
