@@ -88,5 +88,5 @@ const elementConfig = [
       selectable2: true,
     },
   ].reverse();
-  
+  window.elementConfig = elementConfig;
   export default elementConfig;
