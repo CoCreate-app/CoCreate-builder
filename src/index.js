@@ -48,6 +48,8 @@ let ccAttributes, domModifier;
 
 let defaultHtml = `<!DOCTYPE html><html>
 	<head>
+  <style>body {background: red;}</style>
+	
 	</head>
 	<body data-element_id="body" style="padding:1;">
 		
@@ -56,21 +58,23 @@ let defaultHtml = `<!DOCTYPE html><html>
 		<h1 data-element_id="t2" name="2">test 2</h1>
 		<h1 data-element_id="t4" name="4">test 4</h1>
 			
-        <script data-element_id="script1">
-            var config = {
-              apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
-              securityKey: 'f26baf68-e3a9-45fc-effe-502e47116265',
-              organization_Id: '5de0387b12e200ea63204d6c'
-            }
-        </script>
-                <script src="./CoCreate-builder-canvas.js"></script>
+
+        
    
 	</body>
 </html>`;
 
+// <script data-element_id="script1">
+//     var config = {
+//       apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
+//       securityKey: 'f26baf68-e3a9-45fc-effe-502e47116265',
+//       organization_Id: '5de0387b12e200ea63204d6c'
+//     }
+//     window.config = config;
+// </script>
 
 
-function resolveCanvas() {
+async function resolveCanvas() {
   try {
     canvas = document.querySelector("#canvas");
     if (!canvas)
@@ -89,26 +93,44 @@ function resolveCanvas() {
     canvasWindow = canvas.contentWindow;
     canvasDocument = canvasWindow.document || canvas.contentDocument;
     canvasDocument.ccdefaultView = canvasWindow;
+    return new Promise(function(resolve, reject) {
 
-    // let link = document.querySelector('link[data-collection][data-document_id][name]');
-    // if (link) {
+      setTimeout(() => {
+        let html = crdt.getText({ crud: false, ...crdtCon });
+        
+        canvasDocument.documentElement.remove();
+        canvasDocument.append((new DOMParser().parseFromString(defaultHtml, "text/html")).documentElement);
 
-    //   linkCrdtCon = {
-    //     collection: link.getAttribute('data-collection'),
-    //     document_id: link.getAttribute('data-document_id'),
-    //     name: link.getAttribute('name'),
-    //   }
+        let apiInfo = document.createElement('script');
+        apiInfo.innerHTML = `     var config = {
+          apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
+          securityKey: 'f26baf68-e3a9-45fc-effe-502e47116265',
+          organization_Id: '5de0387b12e200ea63204d6c'
+        }`
+        canvasDocument.head.appendChild(apiInfo);
 
-    //   crdt.init(linkCrdtCon);
-    // }
-    // domReader.register(canvasWindow)
+        let canvasScript = document.createElement('script');
+        canvasScript.setAttribute('src', './CoCreate-builder-canvas.js');
+        canvasScript.addEventListener('load', function(){
+          console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>');
+              canvasWindow.dispatchEvent(new CustomEvent("DOMContentLoaded", {"bubbles":true, "cancelable":false}))
+    canvasWindow.dispatchEvent(new Event("DOMContentLoaded", {"bubbles":true, "cancelable":false}))
+    canvasWindow.dispatchEvent(new CustomEvent("load", {"bubbles":true, "cancelable":false}))
+    canvasWindow.dispatchEvent(new Event("load", {"bubbles":true, "cancelable":false}))
+        } )
+        canvasDocument.head.appendChild(canvasScript);
 
-    // canvas get load event sooner then parent so it will not get change to execute
-    // canvasWindow.addEventListener("load", (e) => initBuilder("iframe", e));
 
-    // uuid should be changed in server before loading    
-    // canvasDocument.body.querySelectorAll('*')
-    //   .forEach(el => el.getAttribute('data-element_id') || el.setAttribute('data-element_id', UUID()))
+        resolve()
+
+
+
+    
+
+      }, 500)
+    })
+
+
   }
   catch (error) {
     console.error("canvas not found init error", error, document.URL);
@@ -156,39 +178,29 @@ function initAttributes() {
   });
 }
 
-console.log('dnd loaded start')
+
 let hasInit = false;
 
-function init() {
-  console.log('dnd loaded init')
-  console.log('document init')
-  resolveCanvas();
+function initDomText() {
 
-  while (true) {
-    let a = crdt.getText(crdtCon);
-    if (a)
-      crdt.replaceText({ ...crdtCon, value: '' })
-    else
-      break;
-  }
-  crdt.replaceText({ ...crdtCon, value: defaultHtml })
-  let html = crdt.getText(crdtCon);
+  let html = crdt.getText({ crud: false, ...crdtCon });
   domModifier = new classDomModifier(html, canvasDocument.documentElement)
   window.insertTextList = [];
   domModifier.setCallback({
     addCallback: function({ value, position }) {
-      let html = crdt.getText(crdtCon)
-      if (html)
-        window.insertTextList.push({
-          value,
-          position,
-          virtual: html.substring(html.from - 20, html.from) +
-            "\x1b[31m<here>\x1b[0m" +
-            html.substring(html.from, html.from + 40)
-        })
-      else
-        window.insertTextList.push({ value, position, virtual: 'crdt.getText returned nothing' })
+      let html = crdt.getText({ crud: false, ...crdtCon })
+      // if (html)
+      // window.insertTextList.push({
+      //   value,
+      //   position,
+      //   virtual: html.substring(html.from - 20, html.from) +
+      //     "\x1b[31m<here>\x1b[0m" +
+      //     html.substring(html.from, html.from + 40)
+      // })
+      // else
+      // window.insertTextList.push({ value, position, virtual: 'crdt.getText returned nothing' })
       crdt.insertText({
+        crud: false,
         ...crdtCon,
         value,
         position,
@@ -196,116 +208,38 @@ function init() {
     },
     removeCallback: function({ from, to }) {
       crdt.deleteText({
+        crud: false,
         ...crdtCon,
         position: from,
         length: to - from,
       });
     }
   })
-
   hasInit = true;
 }
 
-// window.addEventListener("load", (e) => {
-//   if(!canvas)
-//     init()
-// })
 
-
-// window.addEventListener("CoCreateHtmlTags-rendered", async(e) => {
-
-
-//   if (document.readyState === 'loading') {
-//     try {
-//       await new Promise((resolve, reject) => {
-//         window.addEventListener('load', (e) => resolve())
-//       });
-//     }
-//     catch (err) {
-//       console.error('content load error')
-//     }
-
-//   }
-
-//   if (!canvas)
-//     init()
-//   else {
-
-//     if (ccAttributes)
-//       ccAttributes.scanNewElement()
-//   }
-
-
-
-//   initAgain();
-
-
-//   console.log('canvas reloaddedddddddddd')
-
-
-
-//   // let canvas = document
-//   //   .querySelector('iframe#canvas')
-//   // canvas && canvas.removeAttribute("data-document_id");
-// });
-if (document.readyState === 'loading')
-  window.addEventListener("load", (e) => {
-    if (!hasInit) init()
-  })
-else if (!hasInit)
-  init()
-
-window.addEventListener("CoCreateHtmlTags-rendered", async(e) => {
-  let { window } = e.detail;
-  console.log('dnd loaded CoCreateHtmlTags-rendered', window.document);
-  console.log('dnd loaded ', window.document.readyState)
-
-  renderIframe(window);
-  // setTimeout(()=> {
-  //     if (window.document.readyState != 'complete')
-  //   window.addEventListener("load", () => {
-  //       setTimeout(()=> {renderIframe(window);}, 1)
-
-  //   });
-  // else
-  //   renderIframe(window);
-
-  // }, 1)
-
-});
-
-function renderIframe(window) {
-
-
-
-  console.log('dnd loaded CoCreateHtmlTags-rendered', window)
-
-
-  // init iframe
-  init()
-
-  // init ccCss
-  canvasWindow.addEventListener('newCoCreateCssStyles', function(isFirst, styleList) {
-    crdt.replaceText({ ...linkCrdtCon, name: 'css', value: styleList.join('\r\n') })
-  })
-
-
-  // init ccAttribute
-  if (ccAttributes)
-    ccAttributes.scanNewElement()
+(async function init() {
+  if (hasInit)
+    return
+  if (document.readyState === 'loading')
+    window.addEventListener("load", async(e) => {
+      await initBuilder()
+    })
   else
-    initAttributes();
+    await initBuilder()
 
 
-  // init other components
-  initAgain();
-}
+})()
 
-function initAgain() {
-  resolveCanvas()
-  console.log('dnd loaded initAgain')
-  // window.ss[i++] = window.CoCreateSelected.config ? true : false;
-  console.log('init again')
+
+async function initBuilder() {
+
+
+  await resolveCanvas();
+
+  initDomText()
+  initAttributes()
 
   try {
     // domReader.register(canvasWindow)
@@ -440,6 +374,8 @@ function initAgain() {
     console.error("vdom init error", error, document.URL);
   }
 
+
+  
 }
 
 
