@@ -3,10 +3,7 @@
 
 
   let defaultHtml = `<!DOCTYPE html><html>
-	<head>
-  <style>body {background: red;}</style>
-	
-	</head>
+  
 	<body data-element_id="body" style="padding:1;">
 		
 		<h1 data-element_id="t1" name="1">test 1</h1>
@@ -70,6 +67,6 @@
       canvasDocument.head.appendChild(canvasScript);
       resolve({ crdtCon, canvas, canvasDocument, canvasWindow })
 
-    }, 500)
+    }, 2000)
   })
   
