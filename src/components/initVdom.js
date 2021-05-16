@@ -5,7 +5,8 @@
     let vdomTargets = document.querySelector("[data-vdom_target]");
     let vdomRealDom = document.querySelector("[data-vdom_id]");
     vdomRealDom = vdomRealDom.contentDocument.body.parentNode;
-    vdomTargets.innerText = "";
+    if (vdomTargets)
+      vdomTargets.innerText = "";
     if (vdomRealDom && vdomTargets)
       window.vdomObject = vdom.initVdom({
         realdom: vdomRealDom,
