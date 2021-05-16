@@ -22,13 +22,16 @@
               domTexti.setAttribute({ target, name: property, value })
               break;
             case 'classstyle':
-              domTexti.setClass({ target, classname: property, value: value + unit })
+              domTexti.setClassStyle({ target, classname: property, value, unit })
               break;
             case 'style':
-              domTexti.setStyle({ target, styleName: property, value: value + unit })
+              domTexti.setStyle({ target, styleName: property, value, unit })
               break;
             case 'innerText':
               domTexti.setInnerText({ target, value })
+              break;
+            case 'class':
+              domTexti.setClass({ target, value })
               break;
 
             default:
