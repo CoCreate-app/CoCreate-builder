@@ -38,12 +38,11 @@
   canvasDocument.ccdefaultView = canvasWindow;
 
 
-
   export default new Promise(function(resolve, reject) {
 
 
     setTimeout(() => {
-      // crdt.replaceText({ crud: false, ...crdtCon, value: defaultHtml })
+      crdt.replaceText({ crud: false, ...crdtCon, value: defaultHtml })
       let html = crdt.getText({ crud: false, ...crdtCon });
 
 
@@ -55,7 +54,7 @@
           apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
           securityKey: 'f26baf68-e3a9-45fc-effe-502e47116265',
           organization_Id: '5de0387b12e200ea63204d6c'
-        }`
+        }`;
       canvasDocument.head.appendChild(apiInfo);
 
       let canvasScript = document.createElement('script');
