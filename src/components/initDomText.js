@@ -37,8 +37,30 @@
           length: to - from,
         });
       }
-    })
+    });
+    let domTextiTextToDom = new domText(html, canvasDocument.documentElement)
+    window.addEventListener('cocreate-crdt-update', function(e) {
+      let detail = event.detail;
 
+      if (detail['collection'] !== crdtCon['collection'] || detail['name'] !== crdtCon['name'] || detail['document_id'] !== crdtCon['document_id'])
+        return;
+
+      let info = detail.eventDelta;
+      let pos = isFinite(info[0].retain) ? info[0].retain : 0;
+ 
+      if (info[1].insert) {
+        let changeStr = info[1].insert;
+
+        domTextiTextToDom.addToDom({ pos, changeStr });
+        console.log(pos, changeStr);
+      }
+      else {
+        let removeLength = info[1].delete;
+        domTextiTextToDom.removeFromDom({ pos, removeLength });
+        console.log(pos, removeLength);
+      }
+
+    })
     return domTexti;
 
 
