@@ -3,6 +3,13 @@
   import domText from '@cocreate/domtext'
   import resolveCanvas from './resolveCanvas';
 
+  function sleep(tt) {
+    return new Promise(function(resolve) {
+      setTimeout(() => {
+        resolve()
+      }, tt)
+    })
+  }
 
   export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument, canvasWindow }) {
 
@@ -41,13 +48,18 @@
     let domTextiTextToDom = new domText(html, canvasDocument.documentElement)
     window.addEventListener('cocreate-crdt-update', function(e) {
       let detail = event.detail;
-
+      console.log('eee>>>>',event)
       if (detail['collection'] !== crdtCon['collection'] || detail['name'] !== crdtCon['name'] || detail['document_id'] !== crdtCon['document_id'])
         return;
 
+      // sleep(200)
+      
+      let html  = crdt.getText(crdtCon);
+      domTextiTextToDom.html = domTexti.html = html;
+
       let info = detail.eventDelta;
       let pos = isFinite(info[0].retain) ? info[0].retain : 0;
- 
+
       if (info[1].insert) {
         let changeStr = info[1].insert;
 
@@ -59,6 +71,7 @@
         domTextiTextToDom.removeFromDom({ pos, removeLength });
         console.log(pos, removeLength);
       }
+      // domTexti.html = domTextiTextToDom.html;
 
     })
     return domTexti;

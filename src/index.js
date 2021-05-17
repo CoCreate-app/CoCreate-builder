@@ -15,7 +15,7 @@
 import select from '@cocreate/select'
 import ccCss from '@cocreate/cocreatecss';
 import './style.css'
-
+import observer from '@cocreate/observer'
 import './components/initAttributes'
 import './components/initDnd'
 import './components/initToolbar'
@@ -27,4 +27,4 @@ import crdt from '@cocreate/crdt'
 
 
 
-export default { crdt }
+export default { crdt, observer }

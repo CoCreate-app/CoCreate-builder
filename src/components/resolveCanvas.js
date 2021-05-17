@@ -1,6 +1,13 @@
   /*global DOMParser, Event*/
   import crdt from '@cocreate/crdt';
 
+function sleep(tt){
+  return new Promise(function(resolve){
+    setTimeout(()=>{
+      resolve()
+    }, tt)
+  })
+}
 
   let defaultHtml = `<!DOCTYPE html><html>
   
@@ -38,11 +45,22 @@
   canvasDocument.ccdefaultView = canvasWindow;
 
 
-  export default new Promise(function(resolve, reject) {
+  export default new Promise(async function(resolve, reject) {
 
 
     setTimeout(() => {
+      
+      while(true)
+      {
+        let html = crdt.getText({ crud: false, ...crdtCon });
+        if(html)
+          crdt.replaceText({ crud: false, ...crdtCon, value: '' });
+          else
+          break;
+          sleep(200);
+      }
       crdt.replaceText({ crud: false, ...crdtCon, value: defaultHtml })
+      
       let html = crdt.getText({ crud: false, ...crdtCon });
 
 
