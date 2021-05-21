@@ -17,6 +17,7 @@
       }) => {
         if (canvasDocument.contains(element)) {
           let target = element.getAttribute("data-element_id");
+          unit = unit || '';
           switch (type) {
             case 'attribute':
               domTexti.setAttribute({ target, name: property, value })
