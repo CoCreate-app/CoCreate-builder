@@ -63,10 +63,9 @@ function sleep(tt){
       
       let html = crdt.getText({ crud: false, ...crdtCon });
 
-
       canvasDocument.documentElement.remove();
       canvasDocument.append((new DOMParser().parseFromString(html, "text/html")).documentElement);
-
+    
       let apiInfo = document.createElement('script');
       apiInfo.innerHTML = `     var config = {
           apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',

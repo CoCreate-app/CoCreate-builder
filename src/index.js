@@ -3,7 +3,7 @@
   // lazy loading because of webpack warning for large bundle size
 
   import ('@cocreate/sidenav')
-  import ('@cocreate/modal')
+  // import ('@cocreate/modal')
   import ('@cocreate/fetch')
   import ('@cocreate/floating-label')
   import ('@cocreate/htmltags')
