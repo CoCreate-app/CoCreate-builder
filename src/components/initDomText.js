@@ -58,6 +58,7 @@
       domTextiTextToDom.html = domTexti.html = html;
 
       let info = detail.eventDelta;
+      if(!info[1]) return;
       let pos = isFinite(info[0].retain) ? info[0].retain : 0;
 
       if (info[1].insert) {
