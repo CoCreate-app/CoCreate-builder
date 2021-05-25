@@ -136,7 +136,31 @@
                 <!-- Vdom -->
                 <div id="vdom" data-vdom_target="test" data-group_name="test" class="left-panel display:none">vdom</div>
                 <!-- Files -->
-                <div id="files" class="left-panel display:none">files</div>
+                <div id="files" class="left-panel display:none">
+                    <!-- File Tree -->
+                    <div data-template_id="file-tree" data-fetch_collection="files" data-order_type="asc">
+                            
+                        <!-- File Tree Template -->
+                        <div class="templat" data-template_id="file-tre">
+                            <span class="">
+                                <i class="fa fa-caret-down" data-toggle="fa-caret-right, fa-caret-down"></i>
+                            </span>
+                            <span class="name">/</span>
+                            <div data-template_id="file" data-fetch_collection="files" data-order_type="asc">
+                                
+                                <!-- File Tree Template -->
+                                <div class="template" data-template_id="file">
+                                    <span class="padding:5px">
+                                        <i class="fab fa-html5"></i>
+                                    </span>
+                                    <span class="name">{{data.name}}</span>
+                                    <div data-collection="" data-documentent_id="" name="{{data.filetype}}">folder</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
 
             </div>
         </div>
