@@ -17,20 +17,20 @@
     </style>   
     
     <form id="domEditorPanel" data-collection="builder" data-document_id="null">
-        <div class="">
+        <div class="padding-left:5px padding-top:5px">
             <div class="display:flex font-size:16px tabs">
-                <div class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_target="#styles" data-selected_group="editor-panels" selected><i class="fas fa-paint-brush"></i></div>
-                <div class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_target="#database" data-selected_group="editor-panels"><i class="fas fa-database"></i></div>
-                <div class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_target="#broadcast" data-selected_group="editor-panels"><i class="fas fa-broadcast-tower"></i></div>
-                <div class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_target="#logic" data-selected_group="editor-panels"><i class="fas fa-brain"></i></div>
-                <div class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_target="#broadcast" data-selected_group="editor-panels"><i class="fas fa-plug"></i></div>
-                <div class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_target="#settings" data-selected_group="editor-panels"><i class="fas fa-cog"></i></div>
+                <div className="tab" class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_target="#styles" data-selected_group="editor-panels" selected><i class="fas fa-paint-brush"></i></div>
+                <div class="tab" data-selected="active" data-selected_target="#database" data-selected_group="editor-panels"><i class="fas fa-database"></i></div>
+                <div class="tab" data-selected="active" data-selected_target="#broadcast" data-selected_group="editor-panels"><i class="fas fa-broadcast-tower"></i></div>
+                <div class="tab" data-selected="active" data-selected_target="#logic" data-selected_group="editor-panels"><i class="fas fa-brain"></i></div>
+                <div class="tab" data-selected="active" data-selected_target="#broadcast" data-selected_group="editor-panels"><i class="fas fa-plug"></i></div>
+                <div class="tab" data-selected="active" data-selected_target="#settings" data-selected_group="editor-panels"><i class="fas fa-cog"></i></div>
             </div>
-            <div class="overflow:auto height:90vh">
-                <div class="background:silver">
+            <div class="overflow:auto height:90vh margin-top:10px">
+                <div class="">
                  <!--Styles -->
                 <div id="styles" class="editor-panel display:none active" >
-                    <div class="padding:10px_5px_20px_5px">
+                    <div class="padding:0px_5px_20px_5px">
                         <cocreate-select class="floating-label sortable" multiple placeholder="Classes" data-attributes="class" data-collection="builder" data-document_id="null">
                           <input class="template-search" placeholder="Search">
                         </cocreate-select>
