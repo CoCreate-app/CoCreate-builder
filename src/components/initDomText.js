@@ -48,30 +48,43 @@
     let domTextiTextToDom = new domText(html, canvasDocument.documentElement)
     window.addEventListener('cocreate-crdt-update', function(e) {
       let detail = event.detail;
-      console.log('eee>>>>',event)
+      console.log('eee>>>>', event)
       if (detail['collection'] !== crdtCon['collection'] || detail['name'] !== crdtCon['name'] || detail['document_id'] !== crdtCon['document_id'])
         return;
 
       // sleep(200)
-      
-      let html  = crdt.getText(crdtCon);
+
+      let html = crdt.getText(crdtCon);
       domTextiTextToDom.html = domTexti.html = html;
 
-      let info = detail.eventDelta;
-      if(!info[1]) return;
-      let pos = isFinite(info[0].retain) ? info[0].retain : 0;
+      let eventDelta = detail.eventDelta;
+      // if(!info[1]) return;
+      let pos = 0;
+      for (let i = 0; i < eventDelta.length; i++) {
+        if (eventDelta[i].retain)
+          pos = eventDelta[i].retain;
+        else {
+          if (eventDelta[i].insert) {
+            let changeStr = eventDelta[i].insert;
 
-      if (info[1].insert) {
-        let changeStr = info[1].insert;
+            domTextiTextToDom.addToDom({ pos, changeStr });
 
-        domTextiTextToDom.addToDom({ pos, changeStr });
-        console.log(pos, changeStr);
+            console.log(pos, changeStr);
+          }
+          else {
+            let removeLength = eventDelta[i].delete;
+            domTextiTextToDom.removeFromDom({ pos, removeLength });
+            console.log(pos, removeLength);
+          }
+          pos = 0;
+        }
+
+
+
       }
-      else {
-        let removeLength = info[1].delete;
-        domTextiTextToDom.removeFromDom({ pos, removeLength });
-        console.log(pos, removeLength);
-      }
+
+
+
       // domTexti.html = domTextiTextToDom.html;
 
     })
