@@ -16,17 +16,17 @@
         }
     </style>   
     
-    <form id="domEditorPanel" data-collection="builder" data-document_id="null">
+    <form id="domEditorPanel" data-collection="builder" data-document_id="null" class="min-width:305px">
         <div class="padding-left:5px padding-top:5px">
-            <div class="display:flex font-size:16px tabs">
+            <div class="display:flex margin-bottom:5px font-size:16px tabs">
                 <div className="tab" class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_target="#styles" data-selected_group="editor-panels" selected><i class="fas fa-paint-brush"></i></div>
                 <div class="tab" data-selected="active" data-selected_target="#database" data-selected_group="editor-panels"><i class="fas fa-database"></i></div>
                 <div class="tab" data-selected="active" data-selected_target="#broadcast" data-selected_group="editor-panels"><i class="fas fa-broadcast-tower"></i></div>
                 <div class="tab" data-selected="active" data-selected_target="#logic" data-selected_group="editor-panels"><i class="fas fa-brain"></i></div>
-                <div class="tab" data-selected="active" data-selected_target="#broadcast" data-selected_group="editor-panels"><i class="fas fa-plug"></i></div>
+                <div class="tab" data-selected="active" data-selected_target="#plugins" data-selected_group="editor-panels"><i class="fas fa-plug"></i></div>
                 <div class="tab" data-selected="active" data-selected_target="#settings" data-selected_group="editor-panels"><i class="fas fa-cog"></i></div>
             </div>
-            <div class="overflow:auto height:90vh margin-top:10px">
+            <div class="overflow:auto height:90vh">
                 <div class="">
                  <!--Styles -->
                 <div id="styles" class="editor-panel display:none active" >
@@ -42,7 +42,7 @@
                         <span>Layout</span>
                     </div>
                     <div class="sizing padding-bottom:20px">
-                        <div class="margin:0_5px">
+                        <div class="margin:5px">
                             <span>Visibility</span>
                             <div class="display:flex">
                                 <div class="card background:darkgrey width:50% text-align:center">
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="margin:0_5px">
+                        <div class="margin:5px">
                             <span>Behaviour</span>
                             <div class="display:flex">
                                 <div class="card background:darkgrey width:50% text-align:center">
@@ -70,28 +70,28 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="margin:0_5px">
+                        <div class="margin:5px">
                             <span> Vertical Align</span>
                             <div class="display:flex">
                                 <div class="card background:darkgrey text-align:center width:20% height:90% padding:10px">
                                     <input type="radio" id="stretch" class="display:none" >
-                                    <span class="" for="stretch"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000" fill-rule="nonzero" d="M15 19H9V6h6v13zM8 6v13H0v1h24v-1h-8V6h8V5H0v1h8z"></path></svg></span>
+                                    <span class="" for="stretch"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="30px"><path fill="#000" fill-rule="nonzero" d="M15 19H9V6h6v13zM8 6v13H0v1h24v-1h-8V6h8V5H0v1h8z"></path></svg></span>
                                 </div>
                                 <div class="card background:darkgrey text-align:center width:20% height:90% padding:10px">
                                     <input type="radio" id="top" class="display:none"  >
-                                    <span class="" for="top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000" fill-rule="nonzero" d="M18 6H6v13h12V6zM5 6H0V5h24v1h-5v13c0 .6-.4 1-1 1H6a1 1 0 01-1-1V6zm14 6v1H5v-1h14z"></path></svg></span>
+                                    <span class="" for="top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="30px"><path fill="#000" fill-rule="nonzero" d="M18 6H6v13h12V6zM5 6H0V5h24v1h-5v13c0 .6-.4 1-1 1H6a1 1 0 01-1-1V6zm14 6v1H5v-1h14z"></path></svg></span>
                                 </div>
                                 <div class="card background:darkgrey text-align:center width:20% height:90% padding:10px">
                                     <input type="radio" id="center" class="display:none" >
-                                    <span class="" for="center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000" fill-rule="nonzero" d="M18 6H6v13h12V6zm1 0v13c0 .6-.4 1-1 1H6a1 1 0 01-1-1V6c0-.6.4-1 1-1h12c.6 0 1 .4 1 1zm5 6v1H0v-1h24z"></path></svg></span>
+                                    <span class="" for="center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="30px"><path fill="#000" fill-rule="nonzero" d="M18 6H6v13h12V6zm1 0v13c0 .6-.4 1-1 1H6a1 1 0 01-1-1V6c0-.6.4-1 1-1h12c.6 0 1 .4 1 1zm5 6v1H0v-1h24z"></path></svg></span>
                                 </div>
                                 <div class="card background:darkgrey text-align:center width:20% height:90% padding:10px">
                                     <input type="radio" id="bottom" class="display:none">
-                                    <span class="" for="bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000" fill-rule="nonzero" d="M18 19H6V6h12v13zM5 19H0v1h24v-1h-5V6c0-.6-.4-1-1-1H6a1 1 0 00-1 1v13zm14-6v-1H5v1h14z"></path></svg></span>
+                                    <span class="" for="bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="30px"><path fill="#000" fill-rule="nonzero" d="M18 19H6V6h12v13zM5 19H0v1h24v-1h-5V6c0-.6-.4-1-1-1H6a1 1 0 00-1 1v13zm14-6v-1H5v1h14z"></path></svg></span>
                                 </div>
                                 <div class="card background:darkgrey text-align:center width:20% height:90% padding:10px">
                                     <input type="radio" id="baseline" class="display:none">
-                                    <span class="" for="baseline"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M19 14h1.1a.5.5 0 01.4.8L19 17.3a.5.5 0 01-.8 0l-1.6-2.5a.5.5 0 01.4-.8H18V5.5a.5.5 0 111 0V14zM0 19h24v1H0v-1zM13.4 5l.1 2.9h-.3l-.2-1c-.2-.4-.5-.7-.8-.8-.3-.2-.7-.3-1.2-.3H9.4V15c0 .8 0 1.2.2 1.4.2.3.6.4 1 .4h.4v.3H6v-.3h.4c.5 0 .9-.2 1-.5.2-.2.3-.6.3-1.3V6H5c-.4.2-.6.4-.8.7-.2.3-.4.7-.4 1.3h-.4L3.7 5h9.7z"></path></svg></span>
+                                    <span class="" for="baseline"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="30px"><path fill="#000" fill-rule="evenodd" d="M19 14h1.1a.5.5 0 01.4.8L19 17.3a.5.5 0 01-.8 0l-1.6-2.5a.5.5 0 01.4-.8H18V5.5a.5.5 0 111 0V14zM0 19h24v1H0v-1zM13.4 5l.1 2.9h-.3l-.2-1c-.2-.4-.5-.7-.8-.8-.3-.2-.7-.3-1.2-.3H9.4V15c0 .8 0 1.2.2 1.4.2.3.6.4 1 .4h.4v.3H6v-.3h.4c.5 0 .9-.2 1-.5.2-.2.3-.6.3-1.3V6H5c-.4.2-.6.4-.8.7-.2.3-.4.7-.4 1.3h-.4L3.7 5h9.7z"></path></svg></span>
                                 </div>
                             </div>
                         </div>
@@ -389,16 +389,16 @@
                                     <ul class="options z-index:7 margin-top:5px">
                                         <cc-option value="left">
                                             <label class="fa fa-align-left"></label>
-                                        </li>
+                                        </cc-option>
                                         <cc-option value="center">
                                             <label class="fa fa-align-center"></label>
-                                        </li>
+                                        </cc-option>
                                         <cc-option value="right">
                                             <label class="fa fa-align-right"></label>
-                                        </li>
+                                        </cc-option>
                                         <cc-option value="justify">
                                             <label class="fa fa-align-justify"></label>
-                                        </li>
+                                        </cc-option>
                                     </ul>
                                 </cocreate-select>
                             </div>
@@ -407,13 +407,13 @@
                                     <ul class="options z-index:7 margin-top:5px">
                                         <cc-option value="x">
                                             <span class="fa fa-times"></span>
-                                        </li>
+                                        </cc-option>
                                         <cc-option value="u">
                                             <span class="fa fa-underline"></span>
-                                        </li>
+                                        </cc-option>
                                         <cc-option value="s">
                                             <span class="fa fa-strikethrough"></span>
-                                        </li>
+                                        </cc-option>
                                     </ul>
                                 </cocreate-select>
                             </div>
@@ -423,10 +423,10 @@
                                 <ul class="options z-index:7 margin-top:5px">
                                     <cc-option value="a">
                                         <label class="fa fa-font"></label>
-                                    </li>
+                                    </cc-option>
                                     <cc-option value="em">
                                         <label class="fa fa-italic"></label>
-                                    </li>
+                                    </cc-option>
                                 </ul>
                             </cocreate-select>
                         </div>
@@ -614,15 +614,15 @@
                                 <ul class="options z-index:7 margin-top:5px">
                                     <cc-option value="none"><span>none</span></cc-option>
                                     <cc-option value="auto"><span>Auto</span></cc-option>
-                                    <cc-option value="default"><span></span>Default</li>
-                                    <cc-option value="none"><span></span>None</li>
-                                    <cc-option value="unset"><span></span>Unset</li>
-                                    <cc-option value="alias"><span></span>Alias</li>
+                                    <cc-option value="default"><span></span>Default</cc-option>
+                                    <cc-option value="none"><span></span>None</cc-option>
+                                    <cc-option value="unset"><span></span>Unset</cc-option>
+                                    <cc-option value="acc-optionas"><span></span>Alias</cc-option>
                                     <cc-option value="col-resize"><span>Column resize</span></cc-option>
                                     <cc-option value="row-resize"><span>Row resize</span></cc-option>
                                     <cc-option value="context-menu"><span>Context menu</span></cc-option>
                                     <cc-option value="copy"><span>Copy</span></cc-option>
-                                    <cc-option value="crosshair"><span></span>Crosshair</li>
+                                    <cc-option value="crosshair"><span></span>Crosshair</cc-option>
                                     <cc-option value="n-resize"><span>Resize N</span></cc-option>
                                     <cc-option value="ne-resize"><span>Resize NE</span></cc-option>
                                     <cc-option value="e-resize"><span>Resize E</span></cc-option>
@@ -736,7 +736,7 @@
                         </div>
                     </div>
                 </div>
-                <!--data Base  -->
+                <!--dataBase  -->
                 <div id="database" class="editor-panel display:none">
                     <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".database" data-hide=".database">
                         <span class="database hidden"><i class="fas fa-plus"></i></span>
@@ -848,7 +848,42 @@
                         <input data-attributes="data-template_id" type="text" class="floating-label" placeholder="data-template_id"  id="data-template_id" data-collection="builder" data-document_id="null" active>    
                     </div>
                 </div>
-                 <!--Logic -->
+                <!--Broadcast -->
+                <div id="broadcast" class="editor-panel display:none">
+                    <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".broadcast" data-hide=".broadcast">
+                        <span class="broadcast hidden"><i class="fas fa-plus"></i></span>
+                        <span class="broadcast"><i class="fas fa-minus"></i></span>
+                        <span>Broadcast</span>
+                    </div>
+                    <div class="broadcast padding-bottom:20px margin:0_5px">
+                        <cocreate-select class="floating-label" id="data-pass_collection" placeholder="broadcast" data-attributes="data-pass_collection"  data-collection="builder" data-document_id="null" active>
+                            <ul class="options z-index:7 margin-top:5px">
+                                <cc-option value=""><span>none</span></cc-option>
+                                <cc-option value="true"><span>true</span></cc-option>
+                                <cc-option value="false"><span>false</span></cc-option>
+                            </ul>
+                        </cocreate-select>
+                        <cocreate-select class="floating-label" id="data-pass_document_id" placeholder="broadcast-sender" data-attributes="data-pass_document_id"  data-collection="builder" data-document_id="null" active>
+                            <ul class="options z-index:7 margin-top:5px">
+                                <cc-option value=""><span>none</span></cc-option>
+                                <cc-option value="true"><span>true</span></cc-option>
+                                <cc-option value="false"><span>false</span></cc-option>
+                            </ul>
+                        </cocreate-select>
+                        <input data-attributes="data-pass_value" type="text" class="floating-label" placeholder="namespace"  id="data-pass_value" data-collection="builder" data-document_id="null" active>
+                        <input data-attributes="data-pass_value" type="text" class="floating-label" placeholder="room"  id="data-pass_value" data-collection="builder" data-document_id="null" active>
+                    </div>
+                    <!--Messages -->
+                    <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".calculator" data-hide=".calculator">
+                        <span class="calculator hidden"><i class="fas fa-plus"></i></span>
+                        <span class="calculator"><i class="fas fa-minus"></i></span>
+                        <span>messages</span>
+                    </div>
+                    <div class="calculator padding-bottom:20px margin:0_5px">
+                        <input data-attributes="data-calculation" type="text" class="floating-label" placeholder="messages"  id="data-calculation" data-collection="builder" data-document_id="null" active>
+                    </div>
+                </div>
+                <!--Logic -->
                 <div id="logic" class="editor-panel display:none">
                     <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".logic" data-hide=".logic">
                         <span class="logic hidden"><i class="fas fa-plus"></i></span>
@@ -1026,6 +1061,55 @@
                     </div>
                     <div class="calculator padding-bottom:20px margin:0_5px">
                         <input data-attributes="data-calculation" type="text" class="floating-label" placeholder="data-calculation"  id="data-calculation" data-collection="builder" data-document_id="null" active>
+                    </div>
+                </div>
+                <!--Plugins -->
+                <div id="plugins" class="editor-panel display:none">
+                    <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".plugins" data-hide=".plugins">
+                        <span class="plugins hidden"><i class="fas fa-plus"></i></span>
+                        <span class="plugins"><i class="fas fa-minus"></i></span>
+                        <span>stripe</span>
+                    </div>
+                    <div class="plugins padding-bottom:20px margin:0_5px">
+                        <cocreate-select class="floating-label" id="data-pass_collection" placeholder="data-stripe" data-attributes="data-stripe"  data-collection="builder" data-document_id="null" active>
+                            <ul class="options z-index:7 margin-top:5px">
+                                <cc-option value=""><span>none</span></cc-option>
+                                <cc-option value="createCustomer.email"><span>email</span></cc-option>
+                                <cc-option value="createCustomer.description"><span>description</span></cc-option>
+                            </ul>
+                        </cocreate-select>
+                        <cocreate-select class="floating-label" id="data-pass_document_id" placeholder="data-action" data-attributes="data-action"  data-collection="builder" data-document_id="null" active>
+                            <ul class="options z-index:7 margin-top:5px">
+                                <cc-option value=""><span>none</span></cc-option>
+                                <cc-option value="createCustomer"><span>createCustomer</span></cc-option>
+                                <cc-option value="getBalance"><span>getBalance</span></cc-option>
+                            </ul>
+                        </cocreate-select>
+                    </div>
+                    <!--sendgrd -->
+                    <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".calculator" data-hide=".calculator">
+                        <span class="calculator hidden"><i class="fas fa-plus"></i></span>
+                        <span class="calculator"><i class="fas fa-minus"></i></span>
+                        <span>sendgrid</span>
+                    </div>
+                    <div class="calculator padding-bottom:20px margin:0_5px">
+                        <cocreate-select class="floating-label" id="data-pass_collection" placeholder="data-sendgrid" data-attributes="data-stripe"  data-collection="builder" data-document_id="null" active>
+                            <ul class="options z-index:7 margin-top:5px">
+                                <cc-option value=""><span>none</span></cc-option>
+                                <cc-option value="sendEmail.to"><span>to</span></cc-option>
+                                <cc-option value="sendEmail.from"><span>from</span></cc-option>
+                                <cc-option value="sendEmail.subject"><span>subject</span></cc-option>
+                                <cc-option value="sendEmail.html"><span>html</span></cc-option>
+                                <cc-option value="sendEmail.text"><span>text</span></cc-option>
+                            </ul>
+                        </cocreate-select>
+                        <cocreate-select class="floating-label" id="data-pass_document_id" placeholder="data-action" data-attributes="data-action"  data-collection="builder" data-document_id="null" active>
+                            <ul class="options z-index:7 margin-top:5px">
+                                <cc-option value=""><span>none</span></cc-option>
+                                <cc-option value="sendEmail"><span>sendEmail</span></cc-option>
+                                <cc-option value="domainAuthentication"><span>domainAuthentication</span></cc-option>
+                            </ul>
+                        </cocreate-select>
                     </div>
                 </div>
                 </div>
