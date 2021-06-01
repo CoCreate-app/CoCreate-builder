@@ -58,7 +58,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
   dnd.initIframe({ isIframe: true, frame: canvas });
   dnd.init({
     mode: 'function',
-    target: canvasDocument.body,
+    target: canvasDocument,
     onDnd: (element, request) => {
       // disable touch for dnd
       // element.style.touchAction = "none";
