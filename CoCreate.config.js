@@ -37,12 +37,26 @@ module.exports = {
             }
         },
         {
-            "entry": "./demo/components/editor-panel.html",
+            "entry": "./demo/components/right-panel.html",
             "collection": "module-views",
             "document_id": "5fb16c742fc8e61e01b43c15",
             "key": "html",
             "data": {
-                "name": "builder editor panel",
+                "name": "builder right panel",
+                "domains": [
+                    "cocreate.app",
+                    "server.cocreate.app",
+                    "ws.cocreate.app"
+                ]
+            }
+        },
+        {
+            "entry": "./demo/components/left-panel.html",
+            "collection": "module-views",
+            "document_id": "60b3e29dc3df330a601b0ef0",
+            "key": "html",
+            "data": {
+                "name": "builder left panel",
                 "domains": [
                     "cocreate.app",
                     "server.cocreate.app",
