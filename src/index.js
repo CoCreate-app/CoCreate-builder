@@ -14,7 +14,7 @@
 })();
 
 import ccCss from '@cocreate/cocreatecss';
-import './style.css'
+import './index.css'
 import observer from '@cocreate/observer'
 import './components/initAttributes'
 import './components/initDnd'
