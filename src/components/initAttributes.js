@@ -15,32 +15,37 @@
         element,
         unit
       }) => {
-        if (canvasDocument.contains(element)) {
-          let target = element.getAttribute("data-element_id");
-          unit = unit || '';
-          switch (type) {
-            case 'attribute':
-              domTexti.setAttribute({ target, name: property, value })
-              break;
-            case 'classstyle':
-              domTexti.setClassStyle({ target, classname: property, value, unit })
-              break;
-            case 'style':
-              domTexti.setStyle({ target, styleName: property, value, unit })
-              break;
-            case 'innerText':
-              domTexti.setInnerText({ target, value })
-              break;
-            case 'class':
-              domTexti.setClass({ target, value })
-              break;
 
-            default:
-              console.error('ccAttribute to domText no action')
-              // code
+        try {
+          if (canvasDocument.contains(element)) {
+            let target = element.getAttribute("data-element_id");
+            unit = unit || '';
+            switch (type) {
+              case 'attribute':
+                domTexti.setAttribute({ target, name: property, value })
+                break;
+              case 'classstyle':
+                domTexti.setClassStyle({ target, classname: property, value, unit })
+                break;
+              case 'style':
+                domTexti.setStyle({ target, styleName: property, value, unit })
+                break;
+              case 'innerText':
+                domTexti.setInnerText({ target, value })
+                break;
+              case 'class':
+                domTexti.setClass({ target, value })
+                break;
+
+              default:
+                console.error('ccAttribute to domText no action')
+                // code
+            }
+
           }
-
         }
+        catch (err) { console.log('domText: dom-to-text: ' + err) }
+
 
 
       },

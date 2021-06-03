@@ -47,42 +47,48 @@
     });
     let domTextiTextToDom = new domText(html, canvasDocument.documentElement)
     window.addEventListener('cocreate-crdt-update', function(e) {
-      let detail = event.detail;
-      console.log('eee>>>>', event)
-      if (detail['collection'] !== crdtCon['collection'] || detail['name'] !== crdtCon['name'] || detail['document_id'] !== crdtCon['document_id'])
-        return;
+      try {
+        let detail = event.detail;
+        console.log('eee>>>>', event)
+        if (detail['collection'] !== crdtCon['collection'] || detail['name'] !== crdtCon['name'] || detail['document_id'] !== crdtCon['document_id'])
+          return;
 
-      // sleep(200)
+        // sleep(200)
 
-      let html = crdt.getText(crdtCon);
-      domTextiTextToDom.html = domTexti.html = html;
+        let html = crdt.getText(crdtCon);
+        domTextiTextToDom.html = domTexti.html = html;
 
-      let eventDelta = detail.eventDelta;
-      // if(!info[1]) return;
-      let pos = 0;
-      for (let i = 0; i < eventDelta.length; i++) {
-        if (eventDelta[i].retain)
-          pos = eventDelta[i].retain;
-        else {
-          if (eventDelta[i].insert) {
-            let changeStr = eventDelta[i].insert;
-
-            domTextiTextToDom.addToDom({ pos, changeStr });
-
-            console.log(pos, changeStr);
-          }
+        let eventDelta = detail.eventDelta;
+        // if(!info[1]) return;
+        let pos = 0;
+        for (let i = 0; i < eventDelta.length; i++) {
+          if (eventDelta[i].retain)
+            pos = eventDelta[i].retain;
           else {
-            let removeLength = eventDelta[i].delete;
-            domTextiTextToDom.removeFromDom({ pos, removeLength });
-            console.log(pos, removeLength);
+            if (eventDelta[i].insert) {
+              let changeStr = eventDelta[i].insert;
+
+              domTextiTextToDom.addToDom({ pos, changeStr });
+
+              console.log(pos, changeStr);
+            }
+            else {
+              let removeLength = eventDelta[i].delete;
+              domTextiTextToDom.removeFromDom({ pos, removeLength });
+              console.log(pos, removeLength);
+            }
+            pos = 0;
           }
-          pos = 0;
+
+
+
         }
 
 
-
       }
-
+      catch (err) {
+        console.log('domText: text-to-dom: ' + err)
+      }
 
 
       // domTexti.html = domTextiTextToDom.html;

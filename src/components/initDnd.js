@@ -31,7 +31,8 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
       dropedEl.insertAdjacentElement(position, dragedEl);
     }
     else if (!canvasDocument.contains(dropedEl)) return; //probably not necss since we fixed groups
-    switch (dropType) {
+    try{
+          switch (dropType) {
       case "data-draggable":
         domTexti.insertAdjacentElement({
           position,
@@ -49,6 +50,11 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
         });
         break;
     }
+      
+    }catch(err){
+      console.log('domText: dom-to-text: ' + err)
+    }
+
   }
   
   
