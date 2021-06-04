@@ -82,7 +82,7 @@
               domTextiTextToDom.removeFromDom({ pos, removeLength });
               console.log(pos, removeLength);
             }
-            pos = 0;
+            // pos = 0;
           }
 
 
