@@ -7,9 +7,9 @@ import domText from './initDomText';
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument, canvasWindow }) {
   const domTexti = await domText;
-  
-  
-  let onDnd =  (e) => {
+
+
+  let onDnd = (e) => {
 
     let {
       position,
@@ -31,33 +31,34 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
       dropedEl.insertAdjacentElement(position, dragedEl);
     }
     else if (!canvasDocument.contains(dropedEl)) return; //probably not necss since we fixed groups
-    try{
-          switch (dropType) {
-      case "data-draggable":
-        domTexti.insertAdjacentElement({
-          position,
-          target: dropedEl.getAttribute("data-element_id"),
-          element: dragedEl.getAttribute("data-element_id"),
+    try {
+      switch (dropType) {
+        case "data-draggable":
+          domTexti.insertAdjacentElement({
+            position,
+            target: dropedEl.getAttribute("data-element_id"),
+            element: dragedEl.getAttribute("data-element_id"),
 
-        });
+          });
 
-        break;
-      case "data-cloneable":
-        domTexti.insertAdjacentElement({
-          position,
-          target: dropedEl.getAttribute("data-element_id"),
-          elementValue: dragedEl.outerHTML,
-        });
-        break;
+          break;
+        case "data-cloneable":
+          domTexti.insertAdjacentElement({
+            position,
+            target: dropedEl.getAttribute("data-element_id"),
+            elementValue: dragedEl.outerHTML,
+          });
+          break;
+      }
+
     }
-      
-    }catch(err){
+    catch (err) {
       console.log('domText: dom-to-text: ' + err)
     }
 
   }
-  
-  
+
+
   window.addEventListener("dndsuccess", onDnd);
 
 

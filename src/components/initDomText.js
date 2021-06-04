@@ -49,6 +49,7 @@
     window.addEventListener('cocreate-crdt-update', function(e) {
       try {
         let detail = event.detail;
+        
         console.log('eee>>>>', event)
         if (detail['collection'] !== crdtCon['collection'] || detail['name'] !== crdtCon['name'] || detail['document_id'] !== crdtCon['document_id'])
           return;
