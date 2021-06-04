@@ -91,7 +91,7 @@
     <main data-main_content_id="canvas" class="height:100vh">
         <!--<textarea data-collection="apples" data-document_id="60ac06d5741a03083ab0740f" name='html' class="width:100%"></textarea>-->
         <div class="canvas-container height:100% margin:auto">
-            <iframe data-vdom_id="test" id="canvas" data-collection="apples" data-document_id="60b420f5297df20010addc40" name='html' data-read_value="false" frameborder="0" width="100%" height="100%"></iframe>
+            <iframe data-vdom_id="test" id="canvas" data-collection="apples" data-document_id="60ba94e8297df20010adf7c9" name='html' data-read_value="false" frameborder="0" width="100%" height="100%"></iframe>
         </div>
     </main>
 
@@ -249,6 +249,29 @@
     </div>
     <!-- End Hover Toolbar -->
     
+    <!-- Collaboration Toolbar -->
+    <div id="collabElementcoc" data-toolbar_placent="top" data-toolbar_target="" class="position:absolute pointer-events:none display:non">
+        <div class="toolbar width:100%">
+            <span id="bold-button"><i class="fa fa-bold"></i></span>
+            <span id="italic-button"><i class="fa fa-italic"></i></span>
+            <span id="link-button"><i class="fa fa-link"></i></span>
+            <span id="blockquote-button"><i class="fa fa-quote-right"></i></span>
+            <span id="header-1-button"><i class="fa fa-header"><sub>1</sub></i></span>
+            <span id="header-2-button"><i class="fa fa-header"><sub>2</sub></i></span>
+            <div id="sidebar-controls">
+                <span id="show-controls"><i class="fa fa-plus"></i></span>
+                <span class="controls">
+                    <span id="image-button"><i class="fa fa-camera"></i></span>
+                    <span id="video-button"><i class="fa fa-play"></i></span>
+                    <span id="tweet-button"><i class="fa fa-twitter"></i></span>
+                    <span id="divider-button"><i class="fa fa-minus"></i></span>
+                </span>
+            </div>
+        </div>
+        <div class="height:100% width:100%"></div>
+    </div>
+    <!-- End Collaboration Toolbar -->
+    
     <script>
         var config = {
             apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
@@ -259,7 +282,7 @@
     </script>
     
     <script src="https://server.cocreate.app/CoCreateJS/dist/CoCreate.js"></script>
-    <!--<script src="https://cdn.cocreate.app/latest/CoCreate.min.js" ></script>-->
+    <!--<script src="https://cdn.cocreate.app/latest/CoCreate.min.js"></script>-->
 
 </body>
 
