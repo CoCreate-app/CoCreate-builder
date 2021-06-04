@@ -60,6 +60,10 @@
         domTextiTextToDom.html = domTexti.html = html;
 
         let eventDelta = detail.eventDelta;
+        if(!window.savedDelta)
+        window.savedDelta = []
+        else
+        window.savedDelta.push(eventDelta)
         // if(!info[1]) return;
         let pos = 0;
         for (let i = 0; i < eventDelta.length; i++) {
