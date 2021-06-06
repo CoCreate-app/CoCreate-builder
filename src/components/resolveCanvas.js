@@ -1,6 +1,10 @@
   /*global DOMParser, Event*/
   import crdt from '@cocreate/crdt';
 
+
+// it works if compoentToLoad has 'builder' in it
+
+
   function sleep(tt) {
     return new Promise(function(resolve) {
       setTimeout(() => {
