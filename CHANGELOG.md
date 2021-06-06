@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.1.5...v1.2.0) (2021-06-06)
+
+
+### Features
+
+* select units collabrotive ([7ca2081](https://github.com/CoCreate-app/CoCreate-builder/commit/7ca2081b14c1d1fec991f2fd9c38f30037962d44))
+
 ## [1.1.5](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.1.4...v1.1.5) (2021-05-13)
 
 
