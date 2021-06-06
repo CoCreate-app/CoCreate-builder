@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.2.0...v1.2.1) (2021-06-06)
+
+
+### Bug Fixes
+
+* add missing dependencies ([a9ff84e](https://github.com/CoCreate-app/CoCreate-builder/commit/a9ff84ebd014b563df3fec6278c803280399fa05))
+
 # [1.2.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.1.5...v1.2.0) (2021-06-06)
 
 
