@@ -1077,7 +1077,7 @@
     "@cocreate/docs" "^1.0.3"
     mini-css-extract-plugin "^1.5.0"
 
-"@cocreate/select@^1.0.13":
+"@cocreate/select@^1.0.6":
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/@cocreate/select/-/select-1.0.13.tgz#4081bba664b01af2c4fe6d11be447c5e9ce651a1"
   integrity sha512-sRIonmgwI69q0utZ1PGqrdPJWrhasduvYgqpQ1MuWB4qAtRR23DGIuG9fPgxO9UwOsCZFUJcKEQOPpsTgvJ6Pw==
