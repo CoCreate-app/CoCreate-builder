@@ -1,4 +1,5 @@
 // import '@cocreate/render/src'
+
 (async() => {
   // lazy loading because of webpack warning for large bundle size
 
@@ -22,6 +23,7 @@ import './components/initToolbar'
 import './components/initVdom'
 import './components/initSelected'
 import './components/initSelect'
+import './components/contentEditable'
 
 import crdt from '@cocreate/crdt'
 

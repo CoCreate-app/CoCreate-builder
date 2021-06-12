@@ -45,7 +45,7 @@
           }
         }
         catch (err) { console.log('domText: dom-to-text: ' + err) }
-
+        
 
 
       },

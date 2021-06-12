@@ -1,7 +1,6 @@
 module.exports = {
     "config": {
         "apiKey": "c2b08663-06e3-440c-ef6f-13978b42883a",
-        "securityKey": "f26baf68-e3a9-45fc-effe-502e47116265",
         "organization_Id": "5de0387b12e200ea63204d6c",
         "host": "server.cocreate.app:8088"
     },
@@ -9,7 +8,7 @@ module.exports = {
         {
             "entry": "./demo/index.html",
             "collection": "files",
-            "document_id": "60972231624235187e4d6978",
+            "document_id": "60c144278fb9652e2dfd839f",
             "key": "src",
             "data": {
                 "name": "Builder",
@@ -37,12 +36,12 @@ module.exports = {
             }
         },
         {
-            "entry": "./demo/components/right-panel.html",
-            "collection": "module-views",
-            "document_id": "5fb16c742fc8e61e01b43c15",
+            "entry": "./demo/components/nav.html",
+            "collection": "components",
+            "document_id": "60c26fdd7492af700086929c",
             "key": "html",
             "data": {
-                "name": "builder right panel",
+                "name": "builder nav",
                 "domains": [
                     "cocreate.app",
                     "server.cocreate.app",
@@ -62,6 +61,50 @@ module.exports = {
                     "server.cocreate.app",
                     "ws.cocreate.app"
                 ]
+            }
+        },
+        {
+            "entry": "./demo/components/right-panel.html",
+            "collection": "module-views",
+            "document_id": "5fb16c742fc8e61e01b43c15",
+            "key": "html",
+            "data": {
+                "name": "builder right panel",
+                "domains": [
+                    "cocreate.app",
+                    "server.cocreate.app",
+                    "ws.cocreate.app"
+                ]
+            }
+        },
+        {
+            "entry": "./demo/components/code-editor.html",
+            "collection": "files",
+            "document_id": "60c01ce2df12fd0d3939ac2b",
+            "key": "src",
+            "data": {
+                "name": "Code Editor",
+                "domains": [
+                    "cocreate.app",
+                    "server.cocreate.app",
+                    "ws.cocreate.app"
+                ],
+                "path": "/code-editor"
+            }
+        },
+        {
+            "entry": "./demo/components/block-form.html",
+            "collection": "files",
+            "document_id": "60c02a57df12fd0d3939aca0",
+            "key": "src",
+            "data": {
+                "name": "Block Form",
+                "domains": [
+                    "cocreate.app",
+                    "server.cocreate.app",
+                    "ws.cocreate.app"
+                ],
+                "path": "/block-form"
             }
         }
     ]

@@ -17,7 +17,7 @@
     let domTexti = new domText(html, canvasDocument.documentElement)
     // window.insertTextList = [];
     domTexti.setCallback({
-      addCallback: function({ value, position }) {
+      addCallback: function({ value, position, avoidTextToDom }) {
         let html = crdt.getText({ crud: false, ...crdtCon })
         // if (html)
         // window.insertTextList.push({
@@ -30,14 +30,16 @@
         // else
         // window.insertTextList.push({ value, position, virtual: 'crdt.getText returned nothing' })
         crdt.insertText({
+          attributes: { avoidTextToDom },
           crud: false,
           ...crdtCon,
           value,
           position,
         });
       },
-      removeCallback: function({ from, to }) {
+      removeCallback: function({ from, to, avoidTextToDom }) {
         crdt.deleteText({
+          attributes: { avoidTextToDom },
           crud: false,
           ...crdtCon,
           position: from,
@@ -49,7 +51,12 @@
     window.addEventListener('cocreate-crdt-update', function(e) {
       try {
         let detail = event.detail;
-        
+
+        let { avoidTextToDom } = e.detail;
+        if (avoidTextToDom && detail['collection'] && detail['name'] && detail['document_id'])
+          return;
+
+
         console.log('eee>>>>', event)
         if (detail['collection'] !== crdtCon['collection'] || detail['name'] !== crdtCon['name'] || detail['document_id'] !== crdtCon['document_id'])
           return;
@@ -60,10 +67,10 @@
         domTextiTextToDom.html = domTexti.html = html;
 
         let eventDelta = detail.eventDelta;
-        if(!window.savedDelta)
-        window.savedDelta = []
+        if (!window.savedDelta)
+          window.savedDelta = []
         else
-        window.savedDelta.push(eventDelta)
+          window.savedDelta.push(eventDelta)
         // if(!info[1]) return;
         let pos = 0;
         for (let i = 0; i < eventDelta.length; i++) {
