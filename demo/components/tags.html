@@ -6,7 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="https://cdn.cocreate.app/favicon.ico" type="image/ico" sizes="16x16">
-		<title>Block form | CoCreate</title>
+		<title>Tags | CoCreate</title>
 		
 		<!-- CoCreateCSS -->
 		<link rel="stylesheet" href="https://cdn.cocreate.app/latest/CoCreate.min.css" type="text/css" data-parse="true"/>
@@ -97,28 +97,11 @@
 		<!-- Main Content -->
 		<div class="padding:10px" data-main_content_id="content">
 	  
-			<form data-pass_id="form-fields" data-collection="blocks" data-document_id="">
+			<form data-pass_id="form-fields" data-collection="tags" data-document_id="">
 				<input type="hidden" name="module_id" data-pass_id="module_id">
-				<input type="text" name="name" class="floating-label" placeholder="Name" data-pass_id="form-fields">
-				<input type="text" name="icon" class="floating-label" placeholder="Icon" data-pass_id="form-fields">
-				<input type="number" name="position" class="floating-label" placeholder="Position" data-pass_id="form-fields">
-				<input type="text" name="category" class="floating-label" placeholder="Category" data-pass_id="form-fields">
-				<cocreate-select class="floating-label" name="category" placeholder="Category-select">
-					<input class="text">
-					<ul class="display:flex flex-direction:column background:whitesmoke width:100%" data-fetch_collection="tags" data-template_id="categories">
-						<cc-option class="template" data-template_id="categories" data-collection="{{collection}}" data-document_id="{{data._id}}" name="name">Layout</cc-option>
-					</ul>
-				</cocreate-select>
-				<!--<select class="floating-label" name="category" placeholder="Category">-->
-				<!--	<option class="background:whitesmoke" value="60c0ca3bf3d0a20018e62e07">Layout</option>-->
-				<!--	<option class="background:whitesmoke" value="60c0b785f3d0a20018e62db6">Basics</option>-->
-				<!--	<option class="background:whitesmoke" value="60c0dcf6f3d0a20018e62e5b">Components</option>-->
-				<!--	<option class="background:whitesmoke" value="60c0ca69f3d0a20018e62e09">Form</option>-->
-				<!--	<option class="background:whitesmoke" value="60c0d5f5f3d0a20018e62e3b">Typography</option>-->
-				<!--	<option class="background:whitesmoke" value="60c0dc66f3d0a20018e62e58">Media</option>-->
-				<!--</select>-->
-				<!--<input type="text" name="description" class="floating-label" placeholder="Description">-->
-				<textarea name="html" class="floating-label" placeholder="html" data-pass_id="form-fields"></textarea>
+				<input type="text" name="name" class="floating-label" placeholder="Tag Name">
+				<input type="text" name="module" class="floating-label" placeholder="Module">
+				<input type="text" name="position" class="floating-label" placeholder="Position">
 				<button class="submitBtn position:fixed bottom:15px right:15px padding:15px background:dodgerblue grow-hover border-radius:50%">
 					<i class="far fa-save"></i>
 				</button>
