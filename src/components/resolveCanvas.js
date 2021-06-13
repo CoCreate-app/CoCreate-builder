@@ -2,7 +2,7 @@
   import crdt from '@cocreate/crdt';
 
 
-// it works if compoentToLoad has 'builder' in it
+  // it works if compoentToLoad has 'builder' in it
 
 
   function sleep(tt) {
@@ -53,23 +53,33 @@
   crdt.init(crdtCon);
 
 
+  function weirdCrdtInit(crdtCon, crdt) {
+    let newCrdtCon = Object.assign({}, crdtCon);
+
+    newCrdtCon.collection = newCrdtCon.document_id;
+    newCrdtCon.document_id = 'null';
+    delete newCrdtCon.name;
+    crdt.init(newCrdtCon);
+    return newCrdtCon
+  }
+  let weirdCrdtCon =  weirdCrdtInit(crdtCon, crdt)
+
   export default new Promise(async function(resolve, reject) {
 
 
     setTimeout(() => {
-        if (window.location.href.endsWith('/CoCreate-builder/dist/index.html'))
-        {
-          
-          while (true) {
-            let html = crdt.getText({ crud: false, ...crdtCon });
-            if (html)
-              crdt.replaceText({ crud: false, ...crdtCon, value: '' });
-            else
-              break;
-            sleep(200);
-          }
-          crdt.replaceText({ crud: false, ...crdtCon, value: defaultHtml })
+      if (window.location.href.endsWith('/CoCreate-builder/dist/index.html')) {
+
+        while (true) {
+          let html = crdt.getText({ crud: false, ...crdtCon });
+          if (html)
+            crdt.replaceText({ crud: false, ...crdtCon, value: '' });
+          else
+            break;
+          sleep(200);
         }
+        crdt.replaceText({ crud: false, ...crdtCon, value: defaultHtml })
+      }
 
       let html = crdt.getText({ crud: false, ...crdtCon });
 
@@ -108,10 +118,11 @@
         canvasWindow = newIframe.contentWindow;
         canvasDocument = canvasWindow.document || newIframe.contentDocument;
         canvasDocument.ccdefaultView = canvasWindow;
-        resolve({ crdtCon, canvas: newIframe, canvasDocument, canvasWindow })
+        resolve({ crdtCon, weirdCrdtCon, canvas: newIframe, canvasDocument, canvasWindow })
+        weirdCrdtInit(crdtCon, canvasWindow.CoCreate.crdt)
       })
 
 
-    }, 2000)
+    }, 5000)
   })
   

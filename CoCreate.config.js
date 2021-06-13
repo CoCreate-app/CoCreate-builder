@@ -106,6 +106,21 @@ module.exports = {
                 ],
                 "path": "/block-form"
             }
+        },
+        {
+            "entry": "./demo/components/app-list.html",
+            "collection": "files",
+            "document_id": "60c624d829e7550bebd6faa7",
+            "key": "src",
+            "data": {
+                "name": "app list",
+                "domains": [
+                    "cocreate.app",
+                    "server.cocreate.app",
+                    "ws.cocreate.app"
+                ],
+                "path": "/applist"
+            }
         }
     ]
 }

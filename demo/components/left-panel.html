@@ -19,9 +19,9 @@
                 <div id="blocks" class="left-panel display:none position:relative active">
                             
                     <div class="display:flex justify-content:center position:relative margin-bottom:30px">
-                        <div class="card background:darkgrey width:50% text-align:center padding:5px" data-selected="active" data-selected_target="#elements" data-selected_group="components" selected>Elements</div>
-                        <div class="card background:darkgrey width:50% text-align:center padding:5px" data-selected="active" data-selected_target="#components" data-selected_group="components" selected>Components</div>
-                        <button target="modal" href="./block-form"  data-pass_to="form-field" data-modal_width="320px" data-modal_header="false" class="position:absolute top:13px padding:5px background:darkgrey color:#505050 grow-hover border-radius:50%">
+                        <div class="card background:gainsboro width:50% text-align:center padding:5px" data-selected="active" data-selected_target="#elements" data-selected_group="components" selected>Elements</div>
+                        <div class="card background:gainsboro width:50% text-align:center padding:5px" data-selected="active" data-selected_target="#components" data-selected_group="components" selected>Components</div>
+                        <button target="modal" href="./applist"  data-pass_to="form-field" data-modal_width="830px" data-modal_header="false" class="position:absolute top:13px padding:5px background:gainsboro color:#505050 grow-hover border-radius:50%">
                             <i class="fas fa-plus"></i>
                         </button>
                     </div>
@@ -31,7 +31,7 @@
                             
                          <!--Block Categories Template -->
                         <div class="template" data-template_id="block-categories" data-render_key="tag" data-render_array="tag.data" data-document_id="{{tag._id}}">
-                            <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".category{{tag._id}}" data-hide=".category{{tag._id}}">
+                            <div class="padding:5px background:gainsboro" data-show=".category{{tag._id}}" data-hide=".category{{tag._id}}">
                                 <span class="category{{tag._id}} hidden"><i class="fas fa-plus"></i></span>
                                 <span class="category{{tag._id}}"><i class="fas fa-minus"></i></span>
                                 <span data-collection="{{tag.collection}}" data-document_id="{{tag._id}}" name="name">Category Name</span>
@@ -63,7 +63,7 @@
                             
                          <!--Block Categories Template -->
                         <div class="template" data-template_id="component-categories" data-render_key="tag" data-render_array="tag.data" data-document_id="{{tag._id}}">
-                            <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".category{{tag._id}}" data-hide=".category{{tag._id}}">
+                            <div class="padding:5px background:gainsboro" data-show=".category{{tag._id}}" data-hide=".category{{tag._id}}">
                                 <span class="category{{tag._id}} hidden"><i class="fas fa-plus"></i></span>
                                 <span class="category{{tag._id}}"><i class="fas fa-minus"></i></span>
                                 <span data-collection="{{tag.collection}}" data-document_id="{{tag._id}}" name="name">Category Name</span>
@@ -89,7 +89,7 @@
                             </div>
                         </div>
                     </div>
-                        <!--<button target="modal" href="./block-form"  data-pass_to="form-field" data-modal_width="320px" data-modal_header="false" class="position:fixed bottom:15px left:15px padding:15px background:darkgrey color:#505050 grow-hover border-radius:50%">-->
+                        <!--<button target="modal" href="./block-form"  data-pass_to="form-field" data-modal_width="320px" data-modal_header="false" class="position:fixed bottom:15px left:15px padding:15px background:gainsboro color:#505050 grow-hover border-radius:50%">-->
                         <!--    <i class="fas fa-plus"></i>-->
                         <!--</button>               -->
                 </div>
@@ -125,7 +125,7 @@
                         <div class="margin-left:10px sortable" data-template_id="file" data-fetch_collection="files" data-filter_name="" data-filter_value="" data-filter_operator="$eq" data-order_by="name" data-fetch_count="6">
                              <!--File Template -->
                             <div class="template padding:5px" data-template_id="file" data-document_id="{{data._id}}">
-                                <span class=""><i class="fab fa-html5"></i></span>
+                                <span class="{{data.content-type}}"><i class="fab fa-html5"></i></span>
                                 <span class="margin-left:5px" data-collection="files" data-document_id="{{data._id}}" name="name">{{data.name}}</span>
                             </div>
                         </div>

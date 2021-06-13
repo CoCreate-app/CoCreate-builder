@@ -2,7 +2,7 @@
   import crdt from '@cocreate/crdt';
   import domText from './initDomText';
 
-  export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument, canvasWindow }) {
+  export default resolveCanvas.then(async function({ crdtCon, weirdCrdtCon, canvas, canvasDocument, canvasWindow }) {
     const domTexti = await domText;
 
     canvasDocument.addEventListener('dblclick', (e) => {
@@ -24,24 +24,19 @@
       element.setAttribute('data-collection', `builder`)
       element.setAttribute('data-document_id', `null`);
 
-      let con = {
-        collection: 'builder',
-        document_id: 'null',
-        name: `innertext-${id}`
-      };
 
-      
-      crdt.init(con)
+
+
       setTimeout(() => {
-        if ((crdt.getText(con) || !element.innerText ) && (!crdt.getText(con) || element.innerText ) )
+        if ((crdt.getText(weirdCrdtCon) || !element.innerText ) && (!crdt.getText(weirdCrdtCon) || element.innerText ) )
           crdt.replaceText({
             crud: false,
-            ...con,
+            ...weirdCrdtCon,
             value: vv,
           });
 
 
-      }, 1000)
+      }, 0)
 
     })
   })

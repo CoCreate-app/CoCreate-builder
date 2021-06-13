@@ -17,7 +17,7 @@
     let domTexti = new domText(html, canvasDocument.documentElement)
     // window.insertTextList = [];
     domTexti.setCallback({
-      addCallback: function({ value, position, avoidTextToDom }) {
+      addCallback: function({ value, position, avoidTextToDom = 'fff'}) {
         let html = crdt.getText({ crud: false, ...crdtCon })
         // if (html)
         // window.insertTextList.push({
@@ -29,7 +29,7 @@
         // })
         // else
         // window.insertTextList.push({ value, position, virtual: 'crdt.getText returned nothing' })
-        crdt.insertText({
+        CoCreate.crdt.insertText({
           attributes: { avoidTextToDom },
           crud: false,
           ...crdtCon,
@@ -37,8 +37,11 @@
           position,
         });
       },
-      removeCallback: function({ from, to, avoidTextToDom }) {
-        crdt.deleteText({
+      removeCallback: function({ from, to, avoidTextToDom = 'fff' }) {
+        
+        
+        
+        CoCreate.crdt.deleteText({
           attributes: { avoidTextToDom },
           crud: false,
           ...crdtCon,

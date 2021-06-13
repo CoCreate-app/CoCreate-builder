@@ -1,7 +1,7 @@
 import selected from '@cocreate/selected'
 import resolveCanvas from './resolveCanvas';
 
-export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument, canvasWindow }) {
+export default resolveCanvas.then(function({ crdtCon, weirdCrdtCon, canvas, canvasDocument, canvasWindow }) {
 
   selected.config({
     srcDocument: canvasDocument,
@@ -11,8 +11,11 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument, ca
     callback: (element, target) => {
       target.setAttribute('name', target.id + '-' + element.getAttribute('data-element_id'))
       target.setAttribute('data-attributes_target', `#${canvas.id};[data-element_id="${element.getAttribute('data-element_id')}"]`);
+      target.setAttribute('collection', weirdCrdtCon.collection)
     }
   });
+
+
 
   selected.config({
     srcDocument: canvasDocument,
@@ -20,7 +23,8 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument, ca
     selector: "*",
     target: ".styleunit",
     callback: (element, target) => {
-      target.setAttribute('name', target.id + '-' + element.getAttribute('data-element_id'))
+      target.setAttribute('name', target.id + '-' + element.getAttribute('data-element_id'));
+      target.setAttribute('collection', weirdCrdtCon.collection)
     }
   });
 
