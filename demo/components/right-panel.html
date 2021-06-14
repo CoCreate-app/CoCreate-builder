@@ -7,7 +7,8 @@
             background:none;
         }
         .pickr{
-            padding:8px;
+            padding:0px;
+            width:100%;
         }
         .pickr .pcr-button{
             height:24px;
@@ -130,7 +131,7 @@
                         </div>
                         <div class="display:flex height:50px">
                             <div class="width:50% margin:0_5px">
-                                <input id="margin-top" class="floating-label z-index:0" placeholder="margin-top:" data-attributes="classstyle" data-attributes_property="margin-top"   data-collection="builder" data-document_id="null" active>
+                                <input id="margin-top" class="floating-label z-index:0" placeholder="margin-top:" data-attributes="classstyle" data-attributes_property="margin-top" data-collection="builder" data-document_id="null" active>
                                 <div class="position:relative width:40px top:-32px right:8px float:right cursor:pointer">
                                     <cocreate-select id="margin-top-unit" class="styleunit remove-none border:none padding:0 min-height:24px!important background:#eee" data-collection="builder" data-document_id="null" data-attributes="data-attributes_unit" data-attributes_target="#margin-top">
 
@@ -202,12 +203,12 @@
                         </div>
                     </div>
                      <!--Size -->
-                    <div class="padding:5px background:gainsboro" data-show=".sizeing" data-hide=".sizeing">
-                        <span class="sizeing hidden"><i class="fas fa-plus"></i></span>
-                        <span class="sizeing"><i class="fas fa-minus"></i></span>
+                    <div class="padding:5px background:gainsboro" data-show=".size" data-hide=".size">
+                        <span class="size hidden"><i class="fas fa-plus"></i></span>
+                        <span class="size"><i class="fas fa-minus"></i></span>
                         <span>Size</span>
                     </div>
-                    <div class="sizeing padding-bottom:20px">
+                    <div class="size padding-bottom:20px">
                         <div class="display:flex height:50px">
                             <div class="width:50% margin:0_5px">
                                 <input id="width" class="floating-label z-index:0" placeholder="width:" data-attributes="classstyle" data-attributes_property="width"   data-collection="builder" data-document_id="null" active>
@@ -343,7 +344,7 @@
                         <span class="typography"><i class="fas fa-minus"></i></span>
                         <span>Typography</span>
                     </div>
-                    <div class="typography padding:10px_0_20px_0">
+                    <div class="typography padding-bottom:20px">
                         <div class="margin:0_5px">
                             <cocreate-select class="floating-label" id="font-family" placeholder="font-family:" data-attributes="classstyle" data-attributes_property="font-family"  data-collection="builder" data-document_id="null" active>
                                 <input class="search-options" placeholder="Search" data-item_selector=".option">
@@ -381,11 +382,12 @@
                             </div>
                         </div>
                         <div class="margin:0_5px">
-                            <div id="color" class="color-picker floating-label" data-attributes="classstyle" data-attributes_property="color" placeholder="color"   data-collection="builder" data-document_id="null" name="color" active></div>
+                            <div class="floating-label" placeholder="color" active>
+                                <div id="color" class="color-picker" data-attributes="classstyle" data-attributes_property="color" data-collection="builder" data-document_id="null" name="color"></div>
+                            </div>
                         </div>
-                        <div class="display:flex height:50px">
-                            <div class="width:50% margin:0_5px">
-                                <cocreate-select class="floating-label" id="font-align" placeholder="font-align:" data-attributes="classstyle" data-attributes_property="font-align"  data-collection="builder" data-document_id="null" active>
+                        <div class="margin:0_5px">
+                                <cocreate-select id="font-align" class="floating-label" placeholder="font-align:" data-attributes="classstyle" data-attributes_property="font-align"  data-collection="builder" data-document_id="null" active>
                                     <ul class="options z-index:7 margin-top:5px">
                                         <cc-option value="left">
                                             <label class="fa fa-align-left"></label>
@@ -401,9 +403,9 @@
                                         </cc-option>
                                     </ul>
                                 </cocreate-select>
-                            </div>
-                            <div class="width:50% margin:0_5px">
-                                <cocreate-select class="floating-label" placeholder="text-decoration:" data-attributes="classstyle" data-attributes_property="text-decoration"  data-collection="builder" data-document_id="null" active>
+                        </div>
+                        <div class="margin:0_5px">
+                                <cocreate-select id="text-decoration" class="floating-label" placeholder="text-decoration:" data-attributes="classstyle" data-attributes_property="text-decoration" data-collection="builder" data-document_id="null" active>
                                     <ul class="options z-index:7 margin-top:5px">
                                         <cc-option value="x">
                                             <span class="fa fa-times"></span>
@@ -416,7 +418,6 @@
                                         </cc-option>
                                     </ul>
                                 </cocreate-select>
-                            </div>
                         </div>
                         <div class="margin:0_5px">
                             <cocreate-select class="remove-none floating-label" placeholder="font-style:" data-attributes="classstyle" data-attributes_property="font-style"  data-collection="builder" data-document_id="null" active>
@@ -468,7 +469,9 @@
                             </div>
                         </div>
                         <div class="margin:0_5px">
-                            <div id="border-color" class="color-picker floating-label" data-attributes="classstyle" data-attributes_property="border-color" placeholder="border-color" data-collection="builder" data-document_id="null" name="border-color" active></div>
+                            <div class="floating-label" placeholder="border-color" active>
+                                <div id="border-color" class="color-picker" data-attributes="classstyle" data-attributes_property="border-color" data-collection="builder" data-document_id="null" name="border-color"></div>
+                            </div>
                         </div>
                         <div class="margin:0_5px">
                             <input id="border-radius" class="floating-label z-index:0" placeholder="border-radius:" step="100" data-attributes="classstyle" data-attributes_property="border-radius"   data-collection="builder" data-document_id="null" active>
@@ -487,7 +490,7 @@
                         <span class="shadow"><i class="fas fa-minus"></i></span>
                         <span>Shadow</span>
                     </div>
-                    <div class="shadow padding:10px">
+                    <div class="shadow padding-bottom:20px">
                         <!--Box Shadow -->
                         <div class="card padding:10px_0px">
                             <div class="display:flex height:50px">
@@ -543,16 +546,16 @@
                             </div>
                         </div>
                     </div>    
-                         <!--Text Shadow -->
-                     <!--Background-->
+                    <!--Background-->
                     <div class="padding:5px background:gainsboro" data-show=".backgroundset" data-hide=".backgroundset">
                         <span class="backgroundset hidden"><i class="fas fa-plus"></i></span>
                         <span class="backgroundset"><i class="fas fa-minus"></i></span>
                         <span>Background</span>
                     </div>
-                    <div class="backgroundset padding:5px_5px_20px_5px">
-                        <div id="background-color" class="color-picker floating-label" data-attributes="classstyle" data-attributes_sync="background-color" placeholder="background-color" data-collection="builder" data-document_id="null" active></div>
-                        
+                    <div class="backgroundset padding-bottom:20px">
+                        <div class="floating-label" placeholder="background-color" active>
+                            <div id="background-color" class="color-picker" data-attributes="classstyle" data-attributes_sync="background-color" data-collection="builder" data-document_id="null"></div>
+                        </div>
                         <input id="background-image" type="file" class="floating-label z-index:0 display:none" placeholder="image:" step="100" data-attributes="classstyle" data-attributes_sync="background-image"  data-collection="builder" data-document_id="null" active>
                         <cocreate-select class="floating-label" id="background-repeat" placeholder="background-repeat:" data-attributes="classstyle" data-attributes_property="background-repeat"  data-collection="builder" data-document_id="null" active>
 
@@ -746,7 +749,7 @@
                     <div class="database padding-bottom:20px">
                         <div class="display:flex height:50px">
                             <div class="width:50% margin:0_5px">
-                                 <cocreate-select class="floating-label" id="data-realtime" placeholder="data-realtime:" data-attributes="data-realtime"  data-collection="builder" data-document_id="null" active>
+                                <cocreate-select class="floating-label" id="data-realtime" placeholder="data-realtime:" data-attributes="data-realtime"  data-collection="builder" data-document_id="null" active>
                                     <ul class="options z-index:7 margin-top:5px" data-search_id="search_01">
                                         <cc-option value=""><span>none</span></cc-option>
                                         <cc-option value="true"><span>true</span></cc-option>
@@ -774,23 +777,21 @@
                             </cocreate-select>
                         </div>
                         <div class="margin:0_5px">
-                             <cocreate-select class="floating-label" id="data-docuemnt_id" placeholder="data-docuemnt_id:" data-attributes="data-docuemnt_id"  data-collection="builder" data-document_id="null" active>
-                                    <ul class="options z-index:7 margin-top:5px">
-                                        <cc-option value=""><span>none</span></cc-option>
-                                        <cc-option value="true"><span>true</span></cc-option>
-                                        <cc-option value="false"><span>false</span></cc-option>
-                                    </ul>
+                            <cocreate-select class="floating-label" id="data-docuemnt_id" placeholder="data-docuemnt_id:" data-attributes="data-docuemnt_id" data-collection="builder" data-document_id="null" active>
+                                <ul class="options z-index:7 margin-top:5px">
+                                    <cc-option value=""><span>none</span></cc-option>
+                                    <cc-option value="true"><span>true</span></cc-option>
+                                    <cc-option value="false"><span>false</span></cc-option>
+                                </ul>
                             </cocreate-select>
                         </div>
                         <div class="display:flex height:50px">
                             <div class="width:50% margin:0_5px">
-                                <input data-attributes="data-prefix" type="text" class="floating-label" placeholder="data-prefix"  id="data-prefix" data-collection="builder" data-document_id="null" active>
+                                <input data-attributes="data-prefix" type="text" class="floating-label" placeholder="data-prefix" id="data-prefix" data-collection="builder" data-document_id="null" active>
                             </div>
                             <div class="width:50% margin:0_5px">
-                                <input data-attributes="name" type="text" class="floating-label" placeholder="Name"  id="name" data-collection="builder" data-document_id="null" active>
+                                <input data-attributes="name" type="text" class="floating-label" placeholder="Name" id="name" data-collection="builder" data-document_id="null" active>
                             </div>
-                        </div>
-                        <div class="margin:0_5px">
                         </div>
                         <div class="display:flex height:50px">
                             <div class="width:50% margin:0_5px">
@@ -880,7 +881,7 @@
                         <span>messages</span>
                     </div>
                     <div class="calculator padding-bottom:20px margin:0_5px">
-                        <input data-attributes="data-calculation" type="text" class="floating-label" placeholder="messages"  id="data-calculation" data-collection="builder" data-document_id="null" active>
+                        <input data-attributes="data-calculation" type="text" class="floating-label" placeholder="messages" id="data-calculation" data-collection="builder" data-document_id="null" active>
                     </div>
                 </div>
                 <!--Logic -->
@@ -891,8 +892,8 @@
                         <span>Logic</span>
                     </div>
                     <div class="logic padding-bottom:20px margin:0_5px">
-                        <input data-attributes="data-pass_to" type="text" class="floating-label" placeholder="data-pass_to"  data-collection="builder" data-document_id="null" active>
-                        <input data-attributes="data-pass_id" type="text" class="floating-label" placeholder="data-pass_id"  data-collection="builder" data-document_id="null" active>
+                        <input data-attributes="data-pass_to" type="text" class="floating-label" placeholder="data-pass_to" data-collection="builder" data-document_id="null" active>
+                        <input data-attributes="data-pass_id" type="text" class="floating-label" placeholder="data-pass_id" data-collection="builder" data-document_id="null" active>
                         <cocreate-select class="floating-label" id="data-pass_collection" placeholder="data-pass_collection:" data-attributes="data-pass_collection"  data-collection="builder" data-document_id="null" active>
                             <ul class="options z-index:7 margin-top:5px">
                                 <cc-option value=""><span>none</span></cc-option>
@@ -908,10 +909,10 @@
                             </ul>
                         </cocreate-select>
                         <div class="display:flex height:50px">
-                            <div class="width:50% margin:0_5px">
+                            <div class="width:50% margin-right:5px">
                                 <input data-attributes="data-pass_prefix" type="text" class="floating-label" placeholder="data-pass_prefix"  id="data-pass_prefix" data-collection="builder" data-document_id="null" active>
                             </div>
-                            <div class="width:50% margin:0_5px">
+                            <div class="width:50% margin-left:5px">
                                 <input data-attributes="data-pass_name" type="text" class="floating-label" placeholder="data-pass_name"  id="data-pass_name" data-collection="builder" data-document_id="null" active>
                             </div>
                         </div>
@@ -985,7 +986,7 @@
                         <span>Hover</span>
                     </div>
                     <div class="hoverattr padding-bottom:20px margin:0_5px">
-                        <input type="text" class="floating-label" data-attributes="data-hover"  id="data-hover" data-collection="builder" data-document_id="null" active>
+                        <input type="text" class="floating-label" data-attributes="data-hover" placeholder="data-hover" id="data-hover" data-collection="builder" data-document_id="null" active>
                         <input type="text" data-attributes="data-hover_attribute" class="floating-label" placeholder="data-hover_attribute"  id="data-hover_attribute" data-collection="builder" data-document_id="null" active>
                         <input type="text" data-attributes="data-hover_target" class="floating-label" placeholder="data-hover_target"  id="data-hover_target" data-collection="builder" data-document_id="null" active>
                         <input type="text" data-attributes="data-hover_closest" class="floating-label" placeholder="data-hover_closest"  id="data-hover_closest" data-collection="builder" data-document_id="null" active>
