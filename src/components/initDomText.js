@@ -17,7 +17,7 @@
     let domTexti = new domText(html, canvasDocument.documentElement)
     // window.insertTextList = [];
     domTexti.setCallback({
-      addCallback: function({ value, position, avoidTextToDom = 'fff'}) {
+      addCallback: function({ value, position, avoidTextToDom = false }) {
         let html = crdt.getText({ crud: false, ...crdtCon })
         // if (html)
         // window.insertTextList.push({
@@ -30,19 +30,19 @@
         // else
         // window.insertTextList.push({ value, position, virtual: 'crdt.getText returned nothing' })
         CoCreate.crdt.insertText({
-          attributes: { avoidTextToDom },
+          // attributes: { avoidTextToDom },
           crud: false,
           ...crdtCon,
           value,
           position,
         });
       },
-      removeCallback: function({ from, to, avoidTextToDom = 'fff' }) {
-        
-        
-        
+      removeCallback: function({ from, to, avoidTextToDom = false }) {
+
+
+
         CoCreate.crdt.deleteText({
-          attributes: { avoidTextToDom },
+          // attributes: { avoidTextToDom },
           crud: false,
           ...crdtCon,
           position: from,
@@ -55,28 +55,42 @@
       try {
         let detail = event.detail;
 
-        let { avoidTextToDom } = e.detail;
-        if (avoidTextToDom && detail['collection'] && detail['name'] && detail['document_id'])
-          return;
+        // let { avoidTextToDom } = e.detail;
+        // if (avoidTextToDom && detail['collection'] && detail['name'] && detail['document_id'])
+        //   return;
 
 
         console.log('eee>>>>', event)
         if (detail['collection'] !== crdtCon['collection'] || detail['name'] !== crdtCon['name'] || detail['document_id'] !== crdtCon['document_id'])
           return;
 
-        // sleep(200)
 
+
+
+        // sleep(200)
+        let eventDelta = detail.eventDelta;
+
+        for (let i = 0; i < eventDelta.length; i++) {
+
+          if (eventDelta[i]?.attributes?.avoidTextToDom)
+            return;
+        }
         let html = crdt.getText(crdtCon);
         domTextiTextToDom.html = domTexti.html = html;
 
-        let eventDelta = detail.eventDelta;
+
         if (!window.savedDelta)
           window.savedDelta = []
         else
           window.savedDelta.push(eventDelta)
         // if(!info[1]) return;
+
+
+
+
         let pos = 0;
         for (let i = 0; i < eventDelta.length; i++) {
+
           if (eventDelta[i].retain)
             pos = eventDelta[i].retain;
           else {

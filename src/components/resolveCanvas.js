@@ -53,16 +53,29 @@
   crdt.init(crdtCon);
 
 
-  function weirdCrdtInit(crdtCon, crdt) {
+  function weirdCrdtInit(crdtCon, crdt, doc) {
     let newCrdtCon = Object.assign({}, crdtCon);
 
     newCrdtCon.collection = newCrdtCon.document_id;
     newCrdtCon.document_id = 'null';
-    delete newCrdtCon.name;
+    // delete newCrdtCon.name;
     crdt.init(newCrdtCon);
+
+    let el = doc.createElement('div')
+    el.setAttribute('contenteditable', '')
+    el.style.display = 'none';
+    el.setAttribute('data-document_id', newCrdtCon.document_id)
+    el.setAttribute('data-collection', newCrdtCon.collection)
+    el.setAttribute('name', newCrdtCon.name);
+    doc.body.appendChild(el);
+
+
+
+
     return newCrdtCon
   }
-  let weirdCrdtCon =  weirdCrdtInit(crdtCon, crdt)
+  let weirdCrdtCon = weirdCrdtInit(crdtCon, crdt, document)
+
 
   export default new Promise(async function(resolve, reject) {
 
@@ -106,7 +119,9 @@
       newIframe.srcdoc = html;
 
       // canvas.appendChild(canvasDocument);
-
+      // let script = document.createElement('script');
+      // script.setAttribute('src', 'cc-contenteditable/dist/index.js')
+      // document.appendChild(script);
 
       for (let att of canvas.attributes) {
         newIframe.setAttribute(att.name, att.value);
@@ -118,8 +133,9 @@
         canvasWindow = newIframe.contentWindow;
         canvasDocument = canvasWindow.document || newIframe.contentDocument;
         canvasDocument.ccdefaultView = canvasWindow;
+
+        let weirdCrdtCon = weirdCrdtInit(crdtCon, canvasWindow.CoCreate.crdt, canvasDocument);
         resolve({ crdtCon, weirdCrdtCon, canvas: newIframe, canvasDocument, canvasWindow })
-        weirdCrdtInit(crdtCon, canvasWindow.CoCreate.crdt)
       })
 
 

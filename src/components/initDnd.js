@@ -38,7 +38,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
             position,
             target: dropedEl.getAttribute("data-element_id"),
             element: dragedEl.getAttribute("data-element_id"),
-
+            metadata: { type: 'dnd' }
           });
 
           break;
@@ -47,6 +47,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
             position,
             target: dropedEl.getAttribute("data-element_id"),
             elementValue: dragedEl.outerHTML,
+            metadata: { type: 'dnd' }
           });
           break;
       }

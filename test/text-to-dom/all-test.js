@@ -31,9 +31,17 @@
 // drag and drop crdt text test
 
 // init crdt 
-// CoCreate.crdt.init({collection: "apples",
-// document_id: "60a59d2ea8e31d7406d05bdb",
-// name: "html"});
+/*
+CoCreate.crdt.init({
+	collection: "apples",
+	document_id: "60bfee00e1aabf0011a15c54",
+	name: "html"});
+	
+CoCreate.crdt.init({
+	collection: "60bfee00e1aabf0011a15c54",
+	document_id: "null",
+	name: "html"});
+*/
 
 // drag element 3
 CoCreate.crdt.deleteText({collection: "apples",

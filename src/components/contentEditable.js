@@ -4,29 +4,37 @@
 
   export default resolveCanvas.then(async function({ crdtCon, weirdCrdtCon, canvas, canvasDocument, canvasWindow }) {
     const domTexti = await domText;
-
+    // ***
+    // let contenteditableImport = await import('@cocreate/contenteditable');
+    // let contenteditable = contenteditableImport.default;
+    // // *** is the same as 
+    // import('@cocreate/contenteditable').then(({contenteditable})=>{
+      
+      
+    // })
+    // //*** is the same as non-lazy load version of import which will not work in here! just for the reference  
+    // import contenteditable from "@cocreate/contenteditable";
+    //***
+    
+    
+    // g_CoCreateContentEditable()
     canvasDocument.addEventListener('dblclick', (e) => {
+      
+      
       
       let element = e.target;
       if(element.hasAttribute('contenteditable'))
       return;
       
+      let vv = element.innerText;
+
       let id = element.getAttribute('data-element_id');
       element.setAttribute('contenteditable', true);
-      element.addEventListener('input', () => {
-        // if (!element.hasAttribute('name') || !element.hasAttribute('data-collection') || !element.hasAttribute('data-document_id'))
-          domTexti.setInnerText({ target: id, value: element.innerText, avoidTextToDom: true })
-      })
-      
-      let vv = element.innerText;
-      element.setAttribute('data-realtime', true)
+      console.log("hereeeeeeeeeeeeeeee", weirdCrdtCon)
       element.setAttribute('name', `innertext-${id}`)
-      element.setAttribute('data-collection', `builder`)
-      element.setAttribute('data-document_id', `null`);
-
-
-
-
+      element.setAttribute('data-collection',  weirdCrdtCon.collection)
+      element.setAttribute('data-document_id', weirdCrdtCon.document_id);
+      
       setTimeout(() => {
         if ((crdt.getText(weirdCrdtCon) || !element.innerText ) && (!crdt.getText(weirdCrdtCon) || element.innerText ) )
           crdt.replaceText({
@@ -34,9 +42,12 @@
             ...weirdCrdtCon,
             value: vv,
           });
-
-
       }, 0)
+      
+      element.addEventListener('input', () => {
+        // if (!element.hasAttribute('name') || !element.hasAttribute('data-collection') || !element.hasAttribute('data-document_id'))
+          domTexti.setInnerText({ target: id, value: element.innerText, avoidTextToDom: true })
+      })
 
     })
   })
