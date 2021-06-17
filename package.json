@@ -77,7 +77,7 @@
     "@cocreate/select": "latest",
     "@cocreate/selected": "latest",
     "@cocreate/sidenav": "latest",
-    "@cocreate/text": "^latest",
+    "@cocreate/text": "latest",
     "@cocreate/toolbar": "latest",
     "@cocreate/utils": "latest",
     "@cocreate/vdom": "latest"
