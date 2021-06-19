@@ -5,9 +5,9 @@
 
   import ('@cocreate/sidenav')
   // import ('@cocreate/modal')
-  import ('@cocreate/fetch')
+  // import ('@cocreate/fetch')
   import ('@cocreate/floating-label')
-  import ('@cocreate/htmltags')
+  // import ('@cocreate/htmltags')
   import ('@cocreate/input')
   import ('@cocreate/text')
   import ('@cocreate/cursors')
