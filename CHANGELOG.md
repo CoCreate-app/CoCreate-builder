@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.2.2...v1.2.3) (2021-06-17)
+
+
+### Bug Fixes
+
+* package.json syntax error ([c1ef73d](https://github.com/CoCreate-app/CoCreate-builder/commit/c1ef73d1001c02b076905f1738a46f61c934fd34))
+
 ## [1.2.2](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.2.1...v1.2.2) (2021-06-16)
 
 
