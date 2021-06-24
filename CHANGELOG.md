@@ -1,3 +1,11 @@
+## [1.2.5](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.2.4...v1.2.5) (2021-06-24)
+
+
+### Bug Fixes
+
+* add method to turn on and off console.log while in development ([9875b7e](https://github.com/CoCreate-app/CoCreate-builder/commit/9875b7e8ea867cdac1a8ecdbaeae9fc6123a599e))
+* update all [@cocreate](https://github.com/cocreate) to use latest versions ([8dbc111](https://github.com/CoCreate-app/CoCreate-builder/commit/8dbc1118cd9ea772e808906ec0de25a46fae6df2))
+
 ## [1.2.4](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.2.3...v1.2.4) (2021-06-20)
 
 
