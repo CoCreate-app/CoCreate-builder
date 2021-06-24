@@ -3,18 +3,18 @@
 (async() => {
   // lazy loading because of webpack warning for large bundle size
 
-  import ('@cocreate/sidenav')
+  // import ('@cocreate/sidenav')
   // import ('@cocreate/modal')
   // import ('@cocreate/fetch')
-  import ('@cocreate/floating-label')
+  // import ('@cocreate/floating-label')
   // import ('@cocreate/htmltags')
-  import ('@cocreate/input')
-  import ('@cocreate/text')
-  import ('@cocreate/cursors')
+  // import ('@cocreate/input')
+  // import ('@cocreate/text')
+  // import ('@cocreate/cursors')
 
 })();
 
-import ccCss from '@cocreate/cocreatecss';
+// import ccCss from '@cocreate/cocreatecss';
 import './index.css'
 import observer from '@cocreate/observer'
 import './components/initAttributes'
@@ -24,10 +24,11 @@ import './components/initVdom'
 import './components/initSelected'
 import './components/initSelect'
 import './components/contentEditable'
+import './components/clipboard.js'
 
 import crdt from '@cocreate/crdt'
 
 
 
 
-export default { crdt, observer }
+export default { observer, crdt }
