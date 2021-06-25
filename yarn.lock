@@ -876,7 +876,7 @@
     "@cocreate/docs" "^1.1.13"
     "@cocreate/hosting" "^1.1.3"
 
-"@cocreate/attributes@^1.0.21":
+"@cocreate/attributes@^1.0.22":
   version "1.0.22"
   resolved "https://registry.yarnpkg.com/@cocreate/attributes/-/attributes-1.0.22.tgz#1f2eff4b6d0c0ca87b6148124c26a4489201029f"
   integrity sha512-aGU+0NhSQwtwp5JQkntcpoCHazD09gsh4MSDsBGDExdjDV8T33Gc6UbQ9PUROJSB9HmVqZ6o8+8Z+iVxNQSpeA==
@@ -887,7 +887,7 @@
     "@cocreate/pickr" "^1.1.16"
     "@cocreate/select" "^1.0.16"
 
-"@cocreate/cocreatecss@^1.4.2":
+"@cocreate/cocreatecss@^1.4.3":
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/@cocreate/cocreatecss/-/cocreatecss-1.4.3.tgz#10b304b129edc0af221d7ba43df99883cb0747ae"
   integrity sha512-uqZ9Gap3Yx8ev/o2FCSkS4g05b5ZQdAegypamTENBhEdaN5MvMXXLc1SSP6AfdO+iaISqcfcViHoR5H3sPK9xg==
@@ -910,7 +910,7 @@
     "@cocreate/observer" "^1.0.0"
     mini-css-extract-plugin "^1.5.0"
 
-"@cocreate/crdt@^1.0.0", "@cocreate/crdt@^1.0.10", "@cocreate/crdt@^1.1.11":
+"@cocreate/crdt@^1.0.0", "@cocreate/crdt@^1.0.10", "@cocreate/crdt@^1.1.11", "@cocreate/crdt@^1.1.12":
   version "1.1.12"
   resolved "https://registry.yarnpkg.com/@cocreate/crdt/-/crdt-1.1.12.tgz#bd16157293ca8611769b6cf19b985ad21a975d97"
   integrity sha512-sBeaVxcoB0TF5LcXtpfmD0TmcL0Pe3oVvVQ9rdElicwZLbgiDGE5Lq4wqkyBoWbGHMEn+s3UZps3xoSypi/Qhg==
@@ -929,7 +929,7 @@
     "@cocreate/docs" "^1.0.0"
     "@cocreate/socket-client" "^1.0.0"
 
-"@cocreate/cursors@^1.0.0", "@cocreate/cursors@^1.1.15":
+"@cocreate/cursors@^1.0.0", "@cocreate/cursors@^1.1.15", "@cocreate/cursors@^1.1.16":
   version "1.1.16"
   resolved "https://registry.yarnpkg.com/@cocreate/cursors/-/cursors-1.1.16.tgz#3812b1e1215db2bb4a458bba2cef05bb531021d9"
   integrity sha512-L4Ea0bEU8Oe7n55P5yJtFhuP7TJU4ll/lgsFIQwx/pRy2tqqEQllvCtwTFuJVRinYICLr02dv9RKkxfAWAGuyA==
@@ -938,7 +938,7 @@
     "@cocreate/observer" "^1.0.0"
     "@cocreate/uuid" "^1.0.0"
 
-"@cocreate/dnd@^0.10.15":
+"@cocreate/dnd@^0.10.16":
   version "0.10.16"
   resolved "https://registry.yarnpkg.com/@cocreate/dnd/-/dnd-0.10.16.tgz#6597943735a89fce79b543014a4c1a237c160583"
   integrity sha512-fMdhSC10wFVPsNj+2Ehz6TyemXTK3Paj/l0dWqGTFy35sSOlut8IVQ+dXyNWBq+G6xVBFRnNukyqB9Jp7NJnKA==
@@ -949,7 +949,7 @@
     "@cocreate/utils" "^1.0.0"
     mini-css-extract-plugin "^1.5.0"
 
-"@cocreate/docs@^1.0.0", "@cocreate/docs@^1.0.3", "@cocreate/docs@^1.1.13":
+"@cocreate/docs@^1.0.0", "@cocreate/docs@^1.0.3", "@cocreate/docs@^1.1.13", "@cocreate/docs@^1.1.14":
   version "1.1.14"
   resolved "https://registry.yarnpkg.com/@cocreate/docs/-/docs-1.1.14.tgz#992e6e2e2d9b848e3ba65ff4f4abff07dc3ec6ab"
   integrity sha512-MBSzKticJG8bzfqdN/A1jyLaz5k140S3O6pcN67C1muYfqUpZGxA8Fb4MGZ8QlKjx90De8GgHvZ6XP/x3I4FXw==
@@ -961,14 +961,14 @@
     parse-html-comments "^1.3.1"
     ws "^7.3.1"
 
-"@cocreate/domtext@^1.0.5":
+"@cocreate/domtext@^1.0.6":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@cocreate/domtext/-/domtext-1.0.6.tgz#4fdfa3f08e35453678655ed2d5a9335986adfb8f"
   integrity sha512-HIACGlOI2SB8tS7tTlldcJ4L8d+mqQCtnew/yd2P5JyxserG5P9T94iuuSdKmbjbJ2nt1Kq9aaZDR5cwQVzE3A==
   dependencies:
     "@cocreate/docs" "^1.0.0"
 
-"@cocreate/fetch@^1.0.11":
+"@cocreate/fetch@^1.0.12":
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/@cocreate/fetch/-/fetch-1.0.12.tgz#8cc097874d215d6d604401760c6eae306bc7d8c9"
   integrity sha512-xDSFsJp86Rm5fcCZgzYNSaoJB8ihO9p5ESDQY5EESFSjtEFzIZFEaZEy4bxDmbntjocjJ2ZKRlIP91xGol0y7g==
@@ -993,7 +993,7 @@
     "@cocreate/utils" "^1.0.0"
     mini-css-extract-plugin "^1.5.0"
 
-"@cocreate/floating-label@^1.0.0", "@cocreate/floating-label@^1.0.16":
+"@cocreate/floating-label@^1.0.0", "@cocreate/floating-label@^1.0.17":
   version "1.0.17"
   resolved "https://registry.yarnpkg.com/@cocreate/floating-label/-/floating-label-1.0.17.tgz#f99ae67476d4cf6a1b503dc0cbf11ca057d51681"
   integrity sha512-7SJDscjaqpHotGF5fVhFeOtHw384pCz9lFGrlQDPb7ju0YyVrAQNQpxiGflDDMWyALDPzuH23uZrHEMptyIAiQ==
@@ -1015,7 +1015,7 @@
     "@cocreate/utils" "^1.0.0"
     "@cocreate/uuid" "^1.0.0"
 
-"@cocreate/hosting@^1.0.0", "@cocreate/hosting@^1.1.3":
+"@cocreate/hosting@^1.0.0", "@cocreate/hosting@^1.1.3", "@cocreate/hosting@^1.1.4":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@cocreate/hosting/-/hosting-1.1.4.tgz#a8dfd8e00bdab2e00150bc3e046959e9dde5423f"
   integrity sha512-d6j7AfwUeX9ocx9w3PSLPtLVboSYXDux+7BrfekfKg0xQdU3kk4EDqpZzWEa48UhAHJB2Wa8wh9NODMnXyGQ5w==
@@ -1025,7 +1025,7 @@
     "@cocreate/socket-client" "^1.0.0"
     mime-types "^2.1.30"
 
-"@cocreate/htmltags@^1.1.6":
+"@cocreate/htmltags@^1.1.7":
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/@cocreate/htmltags/-/htmltags-1.1.7.tgz#7912d3c09fa0214dd1f537131979843ddfb0eb06"
   integrity sha512-hQikxlPqy5FF88zpoPsU74s1BAYjoGH8uXx1na+YtTMuyeQU3feTlm9vhF1AExa5vNWKys1Fmwn/pTYGC+Ez3g==
@@ -1036,7 +1036,7 @@
     "@cocreate/observer" "^1.0.0"
     "@cocreate/utils" "^1.0.0"
 
-"@cocreate/input@^1.1.7":
+"@cocreate/input@^1.1.8":
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/@cocreate/input/-/input-1.1.8.tgz#4d30c615fb62bb491258cf8f1a9b92d59932beda"
   integrity sha512-Z94/pLSZgaTVufY9SDJ04FFOzEdO1Gv9W2MTxd3HUZtig2AvtbaXogqihT9ZXeM6NTb37DH6v/iiGBykAyGLsQ==
@@ -1068,7 +1068,7 @@
     "@cocreate/socket-client" "^1.0.0"
     mini-css-extract-plugin "^1.5.0"
 
-"@cocreate/modal@^1.0.15":
+"@cocreate/modal@^1.0.16":
   version "1.0.16"
   resolved "https://registry.yarnpkg.com/@cocreate/modal/-/modal-1.0.16.tgz#c182f190ce0fd58e58c3cf2de8202fc4d8bdbb68"
   integrity sha512-MFGmZ+4zrSUXS+sjTb0id88AQddhnMxXNsH8MHv/UFur6UUkm6XtTiy5wt/i98NHMK2kqDiatOvk4Z9Wllu0Zg==
@@ -1080,7 +1080,7 @@
     "@cocreate/utils" "^1.0.0"
     "@cocreate/uuid" "^1.0.0"
 
-"@cocreate/observer@^1.0.0", "@cocreate/observer@^1.2.3":
+"@cocreate/observer@^1.0.0", "@cocreate/observer@^1.2.3", "@cocreate/observer@^1.2.4":
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/@cocreate/observer/-/observer-1.2.4.tgz#d54a364164e2d555e58b7a15223d674353332d1a"
   integrity sha512-90VeQv6B2V2dVlCGrDCTfbJjCnbHx0iRL/ETWKRmrijmkqgrbUTCHVCk8ABg5sCyL6bRPaTPaWzgdMiB24yQuQ==
@@ -1106,7 +1106,7 @@
     "@cocreate/docs" "^1.0.0"
     mini-css-extract-plugin "^1.5.0"
 
-"@cocreate/select@^1.0.16":
+"@cocreate/select@^1.0.16", "@cocreate/select@^1.0.17":
   version "1.0.17"
   resolved "https://registry.yarnpkg.com/@cocreate/select/-/select-1.0.17.tgz#42dd0b3992da0ba6f5cee2379fa50d20c076b503"
   integrity sha512-30IWcZXzpo+BSIbE31HfHXvN2FHSJLIgwodxVIlwvw7yPQqVYeky0gRa6qxJxnaFt2q2B+sjzE8SClyH+gzJ7A==
@@ -1118,7 +1118,7 @@
     "@cocreate/observer" "^1.0.0"
     mini-css-extract-plugin "^1.5.0"
 
-"@cocreate/selected@^1.0.8":
+"@cocreate/selected@^1.0.9":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@cocreate/selected/-/selected-1.0.9.tgz#b1c2e1cb57e80e5b485856907f6eff1983f6fe0a"
   integrity sha512-jhUYkTvAjFCG1GkYEZPcL5YtV+c1EgmGngZJqgzSrwLItxygG2VjBvYBiJz0I8Ip8TufWe19NdsD267ICeRs/A==
@@ -1126,7 +1126,7 @@
     "@cocreate/docs" "^1.0.0"
     mini-css-extract-plugin "^1.5.0"
 
-"@cocreate/sidenav@^1.0.8":
+"@cocreate/sidenav@^1.0.9":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@cocreate/sidenav/-/sidenav-1.0.9.tgz#eaa4174cd548b70cbca7237385494d31516cfc39"
   integrity sha512-7X9ZlTegFQza57Tas9i+W9EPO89dmV562vOj44ri/bKk4ZTJNu+leHQC+NgJ5kw2PPfdcma7ZQ9JEwvps3/4gQ==
@@ -1143,7 +1143,7 @@
     "@cocreate/uuid" "^1.0.0"
     ws "^7.4.4"
 
-"@cocreate/text@^1.0.16":
+"@cocreate/text@^1.0.17":
   version "1.0.17"
   resolved "https://registry.yarnpkg.com/@cocreate/text/-/text-1.0.17.tgz#f7cc2d6ff25541d0805d53ad4d6ad65c36b40bea"
   integrity sha512-EDAt2/rrkFy42m0TMHSzRoIrMKTDkh6Xk0pw7O7yzi1P9JYxqLqulkVlbLsE8WaAivVFvS/I97r4rLVEd/KLOw==
@@ -1158,7 +1158,7 @@
     "@cocreate/utils" "^1.0.0"
     mini-css-extract-plugin "^1.0.0"
 
-"@cocreate/toolbar@^1.1.10":
+"@cocreate/toolbar@^1.1.11":
   version "1.1.11"
   resolved "https://registry.yarnpkg.com/@cocreate/toolbar/-/toolbar-1.1.11.tgz#0110f2570238156b9beb39131465605b4a76fd92"
   integrity sha512-vGihS6BeGUZ+wj2yByhrXuQ7mTzEn0LLXUFjeAl6PmJqfMtC5HQZw3znNhkE19nwNQyl/ZcecWGsMhhH/J+5tA==
@@ -1167,7 +1167,7 @@
     "@cocreate/utils" "^1.0.0"
     mini-css-extract-plugin "^1.5.0"
 
-"@cocreate/utils@^1.0.0", "@cocreate/utils@^1.0.12":
+"@cocreate/utils@^1.0.0", "@cocreate/utils@^1.0.13":
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/@cocreate/utils/-/utils-1.0.13.tgz#02ecd32c1b24d35ebcd180af2b6ffe14aac23d86"
   integrity sha512-n6MFGlu1/0dMxHH6VgloHepMHCR9sb9UP1xz9n37+BHjl7NJDEUutLSazg2B/p2K+IAyVuAebF80sfziHYi3mQ==
@@ -1183,7 +1183,7 @@
     "@cocreate/docs" "^1.0.0"
     mini-css-extract-plugin "^1.5.0"
 
-"@cocreate/vdom@^1.0.10":
+"@cocreate/vdom@^1.0.11":
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/@cocreate/vdom/-/vdom-1.0.11.tgz#97efcf1106d8578f4eae0abc847eb94f7d2c1e34"
   integrity sha512-80i+5jtuI0uwWPHURpI4AaXkOWrcFZbx5CGGcTNBd91DSHt1FiBZeDPrXsc6632VtKsKGUjpvk+41nu18Qilww==
