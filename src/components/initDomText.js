@@ -2,6 +2,8 @@
   import crdt from '@cocreate/crdt';
   import domText from '@cocreate/domtext'
   import resolveCanvas from './resolveCanvas';
+import {logger} from '@cocreate/utils';
+let consolelog = logger('off')
 
   function sleep(tt) {
     return new Promise(function(resolve) {
@@ -60,7 +62,7 @@
         //   return;
 
 
-        console.log('eee>>>>', event)
+        consolelog.log('eee>>>>', event)
         if (detail['collection'] !== crdtCon['collection'] || detail['name'] !== crdtCon['name'] || detail['document_id'] !== crdtCon['document_id'])
           return;
 
@@ -99,12 +101,12 @@
 
               domTextiTextToDom.addToDom({ pos, changeStr });
 
-              console.log(pos, changeStr);
+              consolelog.log(pos, changeStr);
             }
             else {
               let removeLength = eventDelta[i].delete;
               domTextiTextToDom.removeFromDom({ pos, removeLength });
-              console.log(pos, removeLength);
+              consolelog.log(pos, removeLength);
             }
             // pos = 0;
           }
@@ -116,7 +118,7 @@
 
       }
       catch (err) {
-        console.log('domText: text-to-dom: ' + err)
+        consolelog.log('domText: text-to-dom: ' + err)
       }
 
 
