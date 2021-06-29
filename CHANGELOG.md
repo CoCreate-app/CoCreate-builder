@@ -1,3 +1,10 @@
+## [1.2.8](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.2.7...v1.2.8) (2021-06-29)
+
+
+### Bug Fixes
+
+* add logger utility ([dbc0155](https://github.com/CoCreate-app/CoCreate-builder/commit/dbc015590b369c859cb97ba54970fb8833f0ba26))
+
 ## [1.2.7](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.2.6...v1.2.7) (2021-06-25)
 
 
