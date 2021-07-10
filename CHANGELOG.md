@@ -1,3 +1,10 @@
+## [1.2.11](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.2.10...v1.2.11) (2021-07-10)
+
+
+### Bug Fixes
+
+* gitignore all logs ([e6b5abb](https://github.com/CoCreate-app/CoCreate-builder/commit/e6b5abbe7e21bc363813983eb4cbe14f9b902111))
+
 ## [1.2.10](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.2.9...v1.2.10) (2021-06-30)
 
 
