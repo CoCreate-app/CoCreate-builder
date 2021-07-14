@@ -59,7 +59,7 @@
     "webpack-log": "^3.0.1"
   },
   "dependencies": {
-    "@cocreate/attributes": "^1.0.22",
+    "@cocreate/attributes": "^1.0.28",
     "@cocreate/cocreatecss": "^1.4.3",
     "@cocreate/contenteditable": "^1.0.5",
     "@cocreate/crdt": "^1.1.12",
