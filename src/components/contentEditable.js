@@ -32,8 +32,8 @@
       element.setAttribute('contenteditable', true);
       console.log("hereeeeeeeeeeeeeeee", weirdCrdtCon)
       element.setAttribute('name', `innertext-${id}`)
-      element.setAttribute('data-collection',  weirdCrdtCon.collection)
-      element.setAttribute('data-document_id', weirdCrdtCon.document_id);
+      element.setAttribute('collection',  weirdCrdtCon.collection)
+      element.setAttribute('document_id', weirdCrdtCon.document_id);
       
       setTimeout(() => {
         if ((crdt.getText(weirdCrdtCon) || !element.innerText ) && (!crdt.getText(weirdCrdtCon) || element.innerText ) )
@@ -45,7 +45,7 @@
       }, 0)
       
       element.addEventListener('input', () => {
-        // if (!element.hasAttribute('name') || !element.hasAttribute('data-collection') || !element.hasAttribute('data-document_id'))
+        // if (!element.hasAttribute('name') || !element.hasAttribute('collection') || !element.hasAttribute('document_id'))
           domTexti.setInnerText({ target: id, value: element.innerText, avoidTextToDom: true })
       })
 

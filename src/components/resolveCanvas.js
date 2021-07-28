@@ -44,8 +44,8 @@
     console.error("builder config failed, can not find canvas iframe");
 
   crdtCon = {
-    collection: canvas.getAttribute('data-collection'),
-    document_id: canvas.getAttribute('data-document_id'),
+    collection: canvas.getAttribute('collection'),
+    document_id: canvas.getAttribute('document_id'),
     name: canvas.getAttribute('name'),
 
   };
@@ -64,8 +64,8 @@
     let el = doc.createElement('div')
     el.setAttribute('contenteditable', '')
     el.style.display = 'none';
-    el.setAttribute('data-document_id', newCrdtCon.document_id)
-    el.setAttribute('data-collection', newCrdtCon.collection)
+    el.setAttribute('document_id', newCrdtCon.document_id)
+    el.setAttribute('collection', newCrdtCon.collection)
     el.setAttribute('name', newCrdtCon.name);
     doc.body.appendChild(el);
 

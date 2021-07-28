@@ -15,7 +15,7 @@
     <!-- CoCreate CSS -->
     <link rel="stylesheet" href="https://server.cocreate.app/CoCreateJS/dist/CoCreate.css" type="text/css" />
 
-    <link rel="stylesheet" href="https://ws.cocreate.app/test.css" data-collection="apples" data-document_id="603ffc2dc975bd2c3cfe6b5f" name="css" type="text/css"  />
+    <link rel="stylesheet" href="https://ws.cocreate.app/test.css" collection="apples" document_id="603ffc2dc975bd2c3cfe6b5f" name="css" type="text/css"  />
 
     <style>
         .editor-panel.active {
@@ -63,7 +63,7 @@
             <!--     data-modal_width="100%"-->
             <!--     data-modal_header="false">-->
             <!--    <i class="fas fa-code"></i>-->
-            <!--    <div data-pass_id="render" data-collection="module_activities" data-document_id="5edee53c3e956152355a3442" name='html' data-pass_to="code-editor"></div>-->
+            <!--    <div data-pass_id="render" collection="module_activities" document_id="5edee53c3e956152355a3442" name='html' data-pass_to="code-editor"></div>-->
             <!--  </a>-->
             <!--</li>-->
 
@@ -91,8 +91,8 @@
 
     <!-- Main Container -->
     <div data-main_content_id="canvas" class="height:100vh">
-        <!--<textarea data-collection="apples" data-document_id="" name='html' class="width:804px height:314px"></textarea>-->
-        <iframe data-vdom_id="test" id="canvas" data-collection="apples" data-document_id="60aab093ad09963911f52ef5" name='html' data-read_value="false"  frameborder="0" width="100%" height="100%"></iframe>
+        <!--<textarea collection="apples" document_id="" name='html' class="width:804px height:314px"></textarea>-->
+        <iframe data-vdom_id="test" id="canvas" collection="apples" document_id="60aab093ad09963911f52ef5" name='html' data-read_value="false"  frameborder="0" width="100%" height="100%"></iframe>
     </div>
 
     <!-- SideNav Left -->
@@ -109,8 +109,8 @@
                 <div id="blocks" data-template_id="template1" data-fetch_collection="blocks" data-filter_name="menu-position" data-filter_value="0" data-filter_value_type="number" data-filter_operator="$ne" data-order_by="menu-position" data-order_type="asc" class="left-panel display:none">
                     <!-- template -->
                     <li data-draggable="true" class="template menuItem" id="header" data-insert-html='{{data.html}}'>
-                        <span data-collection="" data-document_id="{{data._id}}" name="icon" class="padding-10px"></span>
-                        <span data-collection="" data-document_id="{{data._id}}" name="name"></span>
+                        <span collection="" document_id="{{data._id}}" name="icon" class="padding-10px"></span>
+                        <span collection="" document_id="{{data._id}}" name="name"></span>
                         <div class="float-right">
                             <a target="modal" href="block-form.html" data-pass_collection="blocks" data-pass_document_id="" data-pass_to="form-fields" data-modal_width="320px" data-modal_height="100%" data-modal_color="#229954">
                                 <i class="fas fa-pencil-alt"></i>
@@ -122,7 +122,7 @@
                         <form class="padding:5px">
                             <input type="text" class="floating-label" data-pass_value_to="results">
                             <span class="passValueBtn position:relative bottom:28px right:14px float:right font-size:18px">
-            					<a target="modal" data-pass_to="render" data-collection="website-pages" data-document_id="" data-pass_name="html" data-modal_width="900px" data-modal_color="#229954">
+            					<a target="modal" data-pass_to="render" collection="website-pages" document_id="" data-pass_name="html" data-modal_width="900px" data-modal_color="#229954">
             						<i class="fas fa-search"></i>
             					</a>
             				</span>
@@ -302,8 +302,8 @@
 
     <!-- SideNav Right -->
     <div data-main_content="canvas,content" sidenav-default_desktop="expanded" sidenav-default_tablet="expanded" sidenav-expanded_width="300px" sidenav-collapsed_width="0px" id="menuR" class="cocreate-sidenav sidenav-right background:gainsboro height:100vh">
-        <!--<textarea class="floating-label" data-collection="module-views" data-document_id="5fb16c742fc8e61e01b43c15" name="html"></textarea>-->
-        <div class="domEditor" data-collection="module-views" data-document_id="5fb16c742fc8e61e01b43c15" name="html"></div>
+        <!--<textarea class="floating-label" collection="module-views" document_id="5fb16c742fc8e61e01b43c15" name="html"></textarea>-->
+        <div class="domEditor" collection="module-views" document_id="5fb16c742fc8e61e01b43c15" name="html"></div>
         <div class="resizeHandler"></div>
     </div>
     <!-- End SideNav Right -->
