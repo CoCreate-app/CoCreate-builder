@@ -26,10 +26,10 @@
 
 <body>
     <!-- Navbar  -->
-    <div class="nav display:flex align-items:center background:whitesmoke" data-main_content_id="content" data-scroll=", hide-nav" data-scroll_up="5" data-scroll_down="5">
+    <div class="nav display:flex align-items:center background:whitesmoke" data-main_content_id="content" scroll=", hide-nav" scroll-up="5" scroll-down="5">
 
         <!-- Menu Icon Arrow Left Animations -->
-        <a aria-label="mobile menu" class="menu_icon arrow-left active" data-toggle="active" data-toggle_sidenav="menuL">
+        <a aria-label="mobile menu" class="menu_icon arrow-left active" toggle="active" toggle-sidenav="menuL">
             <span></span>
             <span></span>
             <span></span>
@@ -78,7 +78,7 @@
         </ul>
 
         <!-- Menu Icon Arrow Right Animations -->
-        <a aria-label="mobile menu" class="menu_icon arrow-right active" data-toggle="active" data-toggle_sidenav="menuR">
+        <a aria-label="mobile menu" class="menu_icon arrow-right active" toggle="active" toggle-sidenav="menuR">
             <span></span>
             <span></span>
             <span></span>
@@ -100,9 +100,9 @@
         sidenav-ontoggle_tablet="offcanvas">
         <div class="padding:5px">
             <div class="display:flex tabs">
-                <div class="padding:10px_18px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_target="#blocks" data-selected_group="left-panels"><i class="fas fa-th-large"></i></div>
-                <div class="padding:10px_20px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_target="#vdom" data-selected_group="left-panels" selected><i class="fas fa-stream"></i></div>
-                <div class="padding:10px_20px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" data-selected="active" data-selected_target="#files" data-selected_group="left-panels"><i class="fas fa-folder"></i></div>
+                <div class="padding:10px_18px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" selected-value="active" selected-target="#blocks" selected-group="left-panels"><i class="fas fa-th-large"></i></div>
+                <div class="padding:10px_20px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" selected-value="active" selected-target="#vdom" selected-group="left-panels" selected><i class="fas fa-stream"></i></div>
+                <div class="padding:10px_20px border-radius:3px_3px_0_0 font-size:16px cursor:pointer background:gainsboro background:silver:hover tab" selected-value="active" selected-target="#files" selected-group="left-panels"><i class="fas fa-folder"></i></div>
             </div>
             <div class="overflow:auto height:90vh">
                 <!-- Blocks -->
@@ -133,7 +133,7 @@
                                 <!-- Blocks -->
                                 <div id="blocks" class="block-panel display:none">
                                     <!--Layout -->
-                                    <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".sizing" data-hide=".sizing">
+                                    <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" show=".sizing" hide=".sizing">
                                         <span class="sizing hidden"><i class="fas fa-plus"></i></span>
                                         <span class="sizing"><i class="fas fa-minus"></i></span>
                                         <span>Layout</span>
@@ -163,7 +163,7 @@
                                         </div>
                                     </div>
                                     <!-- Basics -->
-                                    <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".basic-blocks" data-hide=".basic-blocks">
+                                    <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" show=".basic-blocks" hide=".basic-blocks">
                                         <span class="basic-blocks hidden"><i class="fas fa-plus"></i></span>
                                         <span class="basic-blocks"><i class="fas fa-minus"></i></span>
                                         <span>Basics</span>
@@ -192,7 +192,7 @@
                                     </div>
 
                                     <!--form-blocks -->
-                                    <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" data-show=".form-blocks" data-hide=".form-blocks">
+                                    <div class="padding:5px background:darkgrey border-bottom:1px_solid_grey" show=".form-blocks" hide=".form-blocks">
                                         <span class="form-blocks hidden"><i class="fas fa-plus"></i></span>
                                         <span class="form-blocks"><i class="fas fa-minus"></i></span>
                                         <span>Form</span>

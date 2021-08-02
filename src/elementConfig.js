@@ -1,8 +1,8 @@
 const elementConfig = [
   
   // {
-  //   selector:  'div [data-resize_handle]',
-  //   resizeLeft: '[data-resize_handle="left"]'
+  //   selector:  'div [resize_handle]',
+  //   resizeLeft: '[resize_handle="left"]'
   // },
   
   {
