@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.3.2...v1.4.0) (2021-08-03)
+
+
+### Features
+
+* on canvas load if element_id's are missing will add ([e22731f](https://github.com/CoCreate-app/CoCreate-builder/commit/e22731fe2f6beef6d3177a19dc34a090121d83f4))
+
 ## [1.3.2](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.3.1...v1.3.2) (2021-08-02)
 
 
