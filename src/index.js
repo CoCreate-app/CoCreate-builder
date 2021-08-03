@@ -23,6 +23,7 @@ import './components/initToolbar'
 import './components/initVdom'
 import './components/initSelected'
 import './components/initSelect'
+import './components/initElementId'
 import './components/contentEditable'
 import './components/clipboard.js'
 

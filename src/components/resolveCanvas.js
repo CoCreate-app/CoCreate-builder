@@ -59,7 +59,7 @@
     newCrdtCon.collection = newCrdtCon.document_id;
     newCrdtCon.document_id = 'null';
     // delete newCrdtCon.name;
-    crdt.init(newCrdtCon);
+    // crdt.init(newCrdtCon);
 
     let el = doc.createElement('div')
     el.setAttribute('contenteditable', '')
@@ -134,9 +134,9 @@
         canvasDocument = canvasWindow.document || newIframe.contentDocument;
         canvasDocument.ccdefaultView = canvasWindow;
 
-        let weirdCrdtCon = weirdCrdtInit(crdtCon, canvasWindow.CoCreate.crdt, canvasDocument);
-        resolve({ crdtCon, weirdCrdtCon, canvas: newIframe, canvasDocument, canvasWindow })
-      })
+        let weirdCrdtCon = weirdCrdtInit(crdtCon, canvasWindow, canvasDocument);
+        resolve({ crdtCon, weirdCrdtCon, canvas: newIframe, canvasDocument, canvasWindow });
+      });
 
 
     }, 5000)

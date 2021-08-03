@@ -1,7 +1,7 @@
   /*global DOMParser, Event*/
-  import crdt from '@cocreate/crdt';
-  import domText from '@cocreate/domtext'
-  import resolveCanvas from './resolveCanvas';
+import crdt from '@cocreate/crdt';
+import domText from '@cocreate/domtext'
+import resolveCanvas from './resolveCanvas';
 import {logger} from '@cocreate/utils';
 let consolelog = logger('off')
 
