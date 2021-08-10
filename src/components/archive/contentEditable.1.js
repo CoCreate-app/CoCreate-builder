@@ -26,7 +26,7 @@
       if(element.hasAttribute('contenteditable'))
       return;
       
-      let vv = element.innerText;
+      let elementValue = element.innerText;
 
       let id = element.getAttribute('data-element_id');
       element.setAttribute('contenteditable', true);
@@ -40,7 +40,7 @@
           crdt.replaceText({
             crud: false,
             ...weirdCrdtCon,
-            value: vv,
+            value: elementValue,
           });
       }, 0)
       

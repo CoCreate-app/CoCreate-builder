@@ -1,17 +1,9 @@
   /*global DOMParser, Event*/
 import crdt from '@cocreate/crdt';
+import contenteditable from '@cocreate/contenteditable';
 import domText from '@cocreate/domtext'
 import resolveCanvas from './resolveCanvas';
-import {logger} from '@cocreate/utils';
-let consolelog = logger('off')
 
-  function sleep(tt) {
-    return new Promise(function(resolve) {
-      setTimeout(() => {
-        resolve()
-      }, tt)
-    })
-  }
 
   export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument, canvasWindow }) {
 
@@ -52,6 +44,7 @@ let consolelog = logger('off')
         });
       }
     });
+    
     let domTextiTextToDom = new domText(html, canvasDocument.documentElement)
     window.addEventListener('cocreate-crdt-update', function(e) {
       try {
@@ -62,11 +55,12 @@ let consolelog = logger('off')
         //   return;
 
 
-        consolelog.log('eee>>>>', event)
         if (detail['collection'] !== crdtCon['collection'] || detail['name'] !== crdtCon['name'] || detail['document_id'] !== crdtCon['document_id'])
           return;
 
-
+      
+        		// contenteditable._updateElement(canvasDocument.documentElement, detail);
+        
 
 
         // sleep(200)
@@ -101,12 +95,12 @@ let consolelog = logger('off')
 
               domTextiTextToDom.addToDom({ pos, changeStr });
 
-              consolelog.log(pos, changeStr);
+              console.log(pos, changeStr);
             }
             else {
               let removeLength = eventDelta[i].delete;
               domTextiTextToDom.removeFromDom({ pos, removeLength });
-              consolelog.log(pos, removeLength);
+              console.log(pos, removeLength);
             }
             // pos = 0;
           }
@@ -118,7 +112,7 @@ let consolelog = logger('off')
 
       }
       catch (err) {
-        consolelog.log('domText: text-to-dom: ' + err)
+        console.log('domText: text-to-dom: ' + err)
       }
 
 

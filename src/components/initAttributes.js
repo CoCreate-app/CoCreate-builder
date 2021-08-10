@@ -1,4 +1,4 @@
-  import crdt from '@cocreate/crdt';
+  // import crdt from '@cocreate/crdt';
   import resolveCanvas from './resolveCanvas';
   import attributes from '@cocreate/attributes';
   import domText from './initDomText';

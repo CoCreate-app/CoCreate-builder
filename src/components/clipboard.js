@@ -46,8 +46,8 @@ document.querySelectorAll('textarea.clipboard').forEach(textarea => {
     {
       e.stopImmediatePropagation();
       if (!isOnlyChildren)
-        dom.setAttribute('data-element_id', uuid.generate())
-      dom.querySelectorAll('*').forEach(el => el.setAttribute('data-element_id', uuid.generate()));
+        dom.setAttribute('data-element_id', uuid.generate(6))
+      dom.querySelectorAll('*').forEach(el => el.setAttribute('data-element_id', uuid.generate(6)));
       pastedValue = isOnlyChildren ? dom.innerHTML : dom.outerHTML;
       textarea.dispatchEvent(new CustomEvent('paste', { bubbles: true, detail: { data: pastedValue } }));
     }

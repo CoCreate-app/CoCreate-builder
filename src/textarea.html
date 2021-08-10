@@ -1,52 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="https://cdn.cocreate.app/favicon.ico" type="image/ico" sizes="16x16">
-    <title>CoCreate-builder | CoCreate</title>
-    <meta name="description" content="Website and web app Builder framework using Cocreate Componets" />
-    <meta name="keywords" content="helper classes, utility classes, css framework, css library, inline style classes" />
-    <meta name="robots" content="index,follow" />
+        <link rel="icon" href="https://cdn.cocreate.app/favicon.ico" type="image/ico" sizes="16x16">
+        <title>CoCreate-builder | CoCreate</title>
+        <meta name="description" content="Website and web app Builder framework using Cocreate Componets" />
+        <meta name="keywords" content="helper classes, utility classes, css framework, css library, inline style classes" />
+        <meta name="robots" content="index,follow" />
 
-    <!-- CoCreate CSS -->
-    <link rel="stylesheet" href="https://server.cocreate.app/CoCreateJS/dist/CoCreate.css" type="text/css" />
+        <!-- CoCreate CSS -->
+        <link rel="stylesheet" href="https://server.cocreate.app/CoCreateJS/dist/CoCreate.css" type="text/css" />
 
-    <link rel="stylesheet" href="https://ws.cocreate.app/test.css" collection="apples" document_id="603ffc2dc975bd2c3cfe6b5f" name="css" type="text/css" />
+        <link rel="stylesheet" href="https://ws.cocreate.app/test.css" collection="apples" document_id="603ffc2dc975bd2c3cfe6b5f" name="css" type="text/css" />
 
-    <style>
-        .editor-panel.active {
-            display: block
-        }
-    </style>
-</head>
+        <style>
+            .editor-panel.active {
+                display: block
+            }
+        </style>
+    </head>
 
-<body>
-    <!-- Navbar  -->
-
-    <!-- Modal viewport -->
-    <div class="position:fixed z-index:12!important" data-main_content_id="" id="modal-viewport"></div>
-
-    <!-- Main Container -->
-        <textarea id="textarea" collection="apples" document_id="60aab093ad09963911f52ef5" name='html' class="width:804px; height:314px; clipboard" style="width:100%; height:314px;" ></textarea>
-    <!-- End Hover Toolbar -->
-    <script>
-        var config = {
-            apiKey: 'c2b08663-06e3-440c-ef6f-13978b42883a',
-            organization_Id: '5de0387b12e200ea63204d6c',
-            // host: 'wss://ws.cocreate.app'
-        }
-    </script>
-    <!--<script src="./apikey.js"></script>-->
-
-    <script src="https://server.cocreate.app/CoCreateJS/dist/CoCreate.js" ></script>
-    <!--<script src="https://server.cocreate.app/CoCreateCSS/dist/CoCreateCSS.js"></script>-->
-    <!--<script src="https://server.cocreate.app/CoCreate-modules/CoCreate-builder/src/components/clipboard.js"></script>-->
+    <body>
 
 
-</body>
+        <form style="padding: 20px">
+            <textarea collection="apples" document_id="" name="src" rows="10" style="width:100%;" class="floating-label"></textarea>
+
+            <button class="position:fixed bottom:15px right:15px width:50px height:50px background:dodgerblue grow-hover border-radius:50% z-index:8 color:white">
+          		<a target="modal" modal-width="320px" modal-color="#229954">
+          			<i class="fa fa-plus"></i>
+          			<div pass_to="builder" pass-collection="apples" pass-document_id=""></div>
+          		</a>
+          	</button>
+        </form>
+
+        <script src="../../../CoCreateJS/dist/CoCreate.js"></script>
+        <!--<script src="https://server.cocreate.app/CoCreateJS/dist/CoCreate.js"></script>-->
+        <!--<script src="https://server.cocreate.app/CoCreate-modules/CoCreate-builder/src/components/clipboard.js"></script>-->
+
+
+    </body>
 
 </html>

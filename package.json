@@ -63,6 +63,7 @@
     "@cocreate/cocreatecss": "^1.4.3",
     "@cocreate/contenteditable": "^1.0.5",
     "@cocreate/crdt": "^1.1.12",
+    "@cocreate/crud-client": "^1.2.2",
     "@cocreate/cursors": "^1.1.16",
     "@cocreate/dnd": "^0.10.16",
     "@cocreate/docs": "^1.1.14",

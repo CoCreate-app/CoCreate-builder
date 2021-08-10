@@ -70,15 +70,29 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
     onDnd: (element, request) => {
       // disable touch for dnd
       // element.style.touchAction = "none";
-
+  
       for (let config of configMatch(elementConfig, element))
         for (let r of request)
-          if (config[r.substr(5)] === true) return [element, r];
+          if (config[r.substr(5)] === true) {
+            // if(element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+            
+            //     // setTimeout(function() {
+            //       if(element.selectionStart != element.selectionEnd) {
+            //         return;
+            //       }
+            //       else 
+            //         return [element, r];
+                 
+            
+            //     // }, 1000)
+            //   }          
+          return [element, r];
+          }
           else return;
     },
     onDndSuccess: (detail) => {
       if (!detail.dragedEl.getAttribute("data-element_id"))
-        detail.dragedEl.setAttribute("data-element_id", uuid.generate());
+        detail.dragedEl.setAttribute("data-element_id", uuid.generate(6));
     },
   });
 

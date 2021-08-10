@@ -4,14 +4,19 @@ const elementConfig = [
   //   selector:  'div [resize_handle]',
   //   resizeLeft: '[resize_handle="left"]'
   // },
-  
-  {
+
+    {
       selector: "*",
       editable: false,
       draggable: true,
       droppable: true,
       selectable: true,
       hoverable: true,
+    },
+    {
+      selector: "html, head, body",
+      draggable: false,
+      droppable: true,
     },
     {
       selector: "h1, h2, h3, h4, h5, h6, p, span, blockquote",
@@ -22,18 +27,10 @@ const elementConfig = [
       hoverable: true,
     },
     {
-      selector: "input",
+      selector: "input, textarea, select",
       editable: false,
-      draggable: false,
+      draggable: true,
       droppable: false,
-    },
-    {
-      selector: "textarea",
-      editable: false,
-    },
-    {
-      selector: "select",
-      editable: false,
     },
     {
       selector: "div.quill",
@@ -87,6 +84,8 @@ const elementConfig = [
       hoverable: false,
       selectable2: true,
     },
+
+
   ].reverse();
   window.elementConfig = elementConfig;
   export default elementConfig;
