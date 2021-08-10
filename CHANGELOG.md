@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.4.0...v1.5.0) (2021-08-10)
+
+
+### Features
+
+* if element is a selection dnd false ([cb58e7b](https://github.com/CoCreate-app/CoCreate-builder/commit/cb58e7b3680463c9411f02c7aef6baa11632b24d))
+
 # [1.4.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.3.2...v1.4.0) (2021-08-03)
 
 
