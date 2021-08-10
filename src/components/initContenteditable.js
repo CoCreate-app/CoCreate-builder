@@ -34,8 +34,8 @@
 				element.setAttribute('document_id', crdtCon.collection)
 			}
       
-      contenteditable.initElement(element)
-      setTimeout(() => {
+      // contenteditable.initElement(element)
+      // setTimeout(() => {
           crdt.replaceText({
             collection: crdtCon.document_id,
             document_id: crdtCon.collection,
@@ -43,7 +43,7 @@
             crud: false,
             value: elementValue,
           });
-      }, 1000)
+      // }, 1000)
       // window.addEventListener('cocreate-crdt-update', setValue, true);
 
       // function setValue(){
