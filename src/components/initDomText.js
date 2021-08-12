@@ -1,6 +1,6 @@
   /*global DOMParser, Event*/
 import crdt from '@cocreate/crdt';
-import contenteditable from '@cocreate/contenteditable';
+// import text from '@cocreate/text';
 import domText from '@cocreate/domtext'
 import resolveCanvas from './resolveCanvas';
 
@@ -59,7 +59,7 @@ import resolveCanvas from './resolveCanvas';
           return;
 
       
-        		// contenteditable._updateElement(canvasDocument.documentElement, detail);
+        		// text._updateElement(canvasDocument.documentElement, detail);
         
 
 
