@@ -1,7 +1,6 @@
   import resolveCanvas from './resolveCanvas';
   // import crud from '@cocreate/crud';
   import crdt from '@cocreate/crdt';
-  import contenteditable from '@cocreate/contenteditable';
   import domText from './initDomText';
 
   export default resolveCanvas.then(async function({ crdtCon, weirdCrdtCon, canvas, canvasDocument, canvasWindow }) {
@@ -34,7 +33,7 @@
 				element.setAttribute('document_id', crdtCon.collection)
 			}
       
-      // contenteditable.initElement(element)
+      // text.initElement(element)
       // setTimeout(() => {
           crdt.replaceText({
             collection: crdtCon.document_id,
