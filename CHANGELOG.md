@@ -1,3 +1,10 @@
+## [1.5.4](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.3...v1.5.4) (2021-08-12)
+
+
+### Bug Fixes
+
+* webpack.config ([1ffee7d](https://github.com/CoCreate-app/CoCreate-builder/commit/1ffee7d5fa7e4d495894949e119fef29dbcd0fe2))
+
 ## [1.5.3](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.2...v1.5.3) (2021-08-12)
 
 
