@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.1...v1.5.2) (2021-08-12)
+
+
+### Bug Fixes
+
+* remove contenteditable component import ([405c99e](https://github.com/CoCreate-app/CoCreate-builder/commit/405c99e1d4738f23af0410a383f18db3351d22a0))
+
 ## [1.5.1](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.0...v1.5.1) (2021-08-12)
 
 
