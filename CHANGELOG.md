@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.2...v1.5.3) (2021-08-12)
+
+
+### Bug Fixes
+
+* remove unused files ([a6003f4](https://github.com/CoCreate-app/CoCreate-builder/commit/a6003f4ef0e495edd600a03fc2a25565dae07be8))
+
 ## [1.5.2](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.1...v1.5.2) (2021-08-12)
 
 
