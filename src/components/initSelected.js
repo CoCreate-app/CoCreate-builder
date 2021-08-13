@@ -7,11 +7,11 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument, ca
     srcDocument: canvasDocument,
     destDocument: document,
     selector: "*",
-    target: "[data-attributes]:not(.styleunit)",
+    target: "[attribute]:not(.styleunit)",
     callback: (element, target) => {
       
       target.setAttribute('name', target.id + '-' + element.getAttribute('data-element_id'))
-      target.setAttribute('data-attributes_target', `#${canvas.id};[data-element_id="${element.getAttribute('data-element_id')}"]`);
+      target.setAttribute('attribute-target', `#${canvas.id};[data-element_id="${element.getAttribute('data-element_id')}"]`);
       // target.setAttribute('collection', crdtCon.document_id)
       // target.setAttribute('collection', crdtCon.collection)
       // target.setAttribute('document_id', crdtCon.document_id)
