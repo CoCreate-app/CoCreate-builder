@@ -28,10 +28,30 @@
 
 
         <form style="padding: 20px">
-            <textarea collection="apples" document_id="" name="src" rows="10" style="width:100%;" class="floating-label"></textarea>
+            <textarea collection="apples" document_id="" name="src" rows="10" style="width:100%;" class="floating-label">
+<!DOCTYPE html>
 
-            <button class="position:fixed bottom:15px right:15px width:50px height:50px background:dodgerblue grow-hover border-radius:50% z-index:8 color:white">
-          		<a target="modal" modal-width="320px" modal-color="#229954">
+<html>
+
+	<head>
+	</head>
+
+	<body data-element_id="body" style="padding:1;">
+
+		<h1 data-element_id="t1" name="1" class=" margin-left:18px margin-right:10px">test 1</h1>
+		<h1 data-element_id="t3" name="3">test 3</h1>
+		<h1 data-element_id="t2" name="2">test 2</h1>
+		<h1 data-element_id="t4" name="4" class=" margin-left:112px">test 4</h1>
+		<input data-element_id="t5" name="4">
+
+		<script src="https://server.cocreate.app/CoCreateJS/dist/CoCreate.js"></script>
+
+	</body>
+
+</html>            </textarea>
+
+            <button actions="saveDocument" class="position:fixed bottom:15px right:15px width:50px height:50px background:dodgerblue grow-hover border-radius:50% z-index:8 color:white">
+          		<a target="_blank" href="https://server.cocreate.app/CoCreate-adminUI/src/admin/builder/index.html">
           			<i class="fa fa-plus"></i>
           			<div pass_to="builder" pass-collection="apples" pass-document_id=""></div>
           		</a>
