@@ -2,8 +2,8 @@
   import resolveCanvas from './resolveCanvas';
 
   export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument, canvasWindow }) {
-    let vdomTargets = document.querySelector("[data-vdom_target]");
-    let vdomRealDom = document.querySelector("[data-vdom_id]");
+    let vdomTargets = document.querySelector("[vdom-target]");
+    let vdomRealDom = document.querySelector("[vdom-id]");
     vdomRealDom = vdomRealDom.contentDocument.body.parentNode;
     if (vdomTargets)
       vdomTargets.innerText = "";
