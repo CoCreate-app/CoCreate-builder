@@ -1,3 +1,15 @@
+## [1.5.5](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.4...v1.5.5) (2021-08-14)
+
+
+### Bug Fixes
+
+* attribute init ([d46fe4c](https://github.com/CoCreate-app/CoCreate-builder/commit/d46fe4cd8f499be7826e3a7a7c98f00c4d5ca476))
+* remove data- from dnd attributes ([be4d609](https://github.com/CoCreate-app/CoCreate-builder/commit/be4d6090ad5b04ac29aa07d17ca3f9e53843a83b))
+* removed data- from attribute ([13b65f8](https://github.com/CoCreate-app/CoCreate-builder/commit/13b65f841d47a643b9e3df079f45993389c89edd))
+* rename data-element_id to element_id ([8690d1d](https://github.com/CoCreate-app/CoCreate-builder/commit/8690d1db0faadab3dfe947e5b12b3dd405010997))
+* replace data-transform with toggle ([ff833d4](https://github.com/CoCreate-app/CoCreate-builder/commit/ff833d4d5519e61479e3fed0832099fde366d463))
+* update to  docs ([209375d](https://github.com/CoCreate-app/CoCreate-builder/commit/209375d996f9849f29c6023faf503448b90cb97f))
+
 ## [1.5.4](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.3...v1.5.4) (2021-08-12)
 
 
