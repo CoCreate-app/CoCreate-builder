@@ -33,7 +33,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
     else if (!canvasDocument.contains(dropedEl)) return; //probably not necss since we fixed groups
     try {
       switch (dropType) {
-        case "data-draggable":
+        case "draggable":
           domTexti.insertAdjacentElement({
             position,
             target: dropedEl.getAttribute("data-element_id"),
@@ -42,7 +42,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
           });
 
           break;
-        case "data-cloneable":
+        case "cloneable":
           domTexti.insertAdjacentElement({
             position,
             target: dropedEl.getAttribute("data-element_id"),
@@ -73,20 +73,8 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
   
       for (let config of configMatch(elementConfig, element))
         for (let r of request)
-          if (config[r.substr(5)] === true) {
-            // if(element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
-            
-            //     // setTimeout(function() {
-            //       if(element.selectionStart != element.selectionEnd) {
-            //         return;
-            //       }
-            //       else 
-            //         return [element, r];
-                 
-            
-            //     // }, 1000)
-            //   }          
-          return [element, r];
+          if (config[r] === true) {
+            return [element, r];
           }
           else return;
     },
