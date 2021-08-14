@@ -58,11 +58,11 @@
         var parser = new DOMParser();
         var dom = parser.parseFromString(src, "text/html");
     
-        let elements = dom.querySelectorAll('*:not(html, [data-element_id])');
+        let elements = dom.querySelectorAll('*:not(html, [element_id])');
         
         for(let el of elements) {
-          if (el.getAttribute('data-element_id') == null) {
-            el.setAttribute('data-element_id', uuid.generate(6));
+          if (el.getAttribute('element_id') == null) {
+            el.setAttribute('element_id', uuid.generate(6));
           }  
         }
         

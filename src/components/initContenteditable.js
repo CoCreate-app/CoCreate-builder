@@ -20,7 +20,7 @@
       
       let elementValue = element.innerText;
       
-      let id = element.getAttribute('data-element_id');
+      let id = element.getAttribute('element_id');
       element.setAttribute('contenteditable', true);
       
 			if (name == null) {

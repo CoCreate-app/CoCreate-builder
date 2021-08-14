@@ -18,7 +18,7 @@
 
         try {
           if (canvasDocument.contains(element)) {
-            let target = element.getAttribute("data-element_id");
+            let target = element.getAttribute("element_id");
             unit = unit || '';
             switch (type) {
               case 'attribute':

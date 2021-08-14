@@ -10,8 +10,8 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument, ca
     target: "[attribute]:not(.styleunit)",
     callback: (element, target) => {
       
-      target.setAttribute('name', target.id + '-' + element.getAttribute('data-element_id'))
-      target.setAttribute('attribute-target', `#${canvas.id};[data-element_id="${element.getAttribute('data-element_id')}"]`);
+      target.setAttribute('name', target.id + '-' + element.getAttribute('element_id'))
+      target.setAttribute('attribute-target', `#${canvas.id};[element_id="${element.getAttribute('element_id')}"]`);
       // target.setAttribute('collection', crdtCon.document_id)
       // target.setAttribute('collection', crdtCon.collection)
       // target.setAttribute('document_id', crdtCon.document_id)
@@ -26,7 +26,7 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument, ca
     selector: "*",
     target: ".styleunit",
     callback: (element, target) => {
-      target.setAttribute('name', target.id + '-' + element.getAttribute('data-element_id'));
+      target.setAttribute('name', target.id + '-' + element.getAttribute('element_id'));
       // target.setAttribute('collection', crdtCon.document_id)
       // target.setAttribute('collection', crdtCon.collection)
       // target.setAttribute('document_id', crdtCon.document_id)

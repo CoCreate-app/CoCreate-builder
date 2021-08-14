@@ -22,10 +22,10 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 
     // check if it's vdom convert it to canvas
     if (dropedEl.classList.contains('vdom-item')) {
-      let id = dropedEl.getAttribute("data-element_id");
-      dropedEl = canvasDocument.querySelector(`[data-element_id="${id}"]`)
-      id = dragedEl.getAttribute("data-element_id");
-      dragedEl = canvasDocument.querySelector(`[data-element_id="${id}"]`)
+      let id = dropedEl.getAttribute("element_id");
+      dropedEl = canvasDocument.querySelector(`[element_id="${id}"]`)
+      id = dragedEl.getAttribute("element_id");
+      dragedEl = canvasDocument.querySelector(`[element_id="${id}"]`)
 
 
       dropedEl.insertAdjacentElement(position, dragedEl);
@@ -36,8 +36,8 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
         case "draggable":
           domTexti.insertAdjacentElement({
             position,
-            target: dropedEl.getAttribute("data-element_id"),
-            element: dragedEl.getAttribute("data-element_id"),
+            target: dropedEl.getAttribute("element_id"),
+            element: dragedEl.getAttribute("element_id"),
             metadata: { type: 'dnd' }
           });
 
@@ -45,7 +45,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
         case "cloneable":
           domTexti.insertAdjacentElement({
             position,
-            target: dropedEl.getAttribute("data-element_id"),
+            target: dropedEl.getAttribute("element_id"),
             elementValue: dragedEl.outerHTML,
             metadata: { type: 'dnd' }
           });
@@ -79,8 +79,8 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
           else return;
     },
     onDndSuccess: (detail) => {
-      if (!detail.dragedEl.getAttribute("data-element_id"))
-        detail.dragedEl.setAttribute("data-element_id", uuid.generate(6));
+      if (!detail.dragedEl.getAttribute("element_id"))
+        detail.dragedEl.setAttribute("element_id", uuid.generate(6));
     },
   });
 
