@@ -1,3 +1,10 @@
+## [1.5.6](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.5...v1.5.6) (2021-08-15)
+
+
+### Bug Fixes
+
+* remove data- from data-parse and data-save attributes ([c21225e](https://github.com/CoCreate-app/CoCreate-builder/commit/c21225e4f6411c456b9e62547f552799818f1adc))
+
 ## [1.5.5](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.4...v1.5.5) (2021-08-14)
 
 
