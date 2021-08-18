@@ -19,7 +19,6 @@
     collection: canvas.getAttribute('collection'),
     document_id: canvas.getAttribute('document_id'),
     name: canvas.getAttribute('name'),
-
   };
 
   export default new Promise(async function(resolve, reject) {
@@ -28,7 +27,6 @@
  
     window.crdtCon = crdtCon;
     
-    // setTimeout(function(){ crdt.init(crdtCon); }, 3000);
     crdt.init(crdtCon);
   
     function initCanvas() { 
