@@ -42,12 +42,7 @@ export default new Promise(async function(resolve, reject) {
 
 					let eid = elementId(src);
 					if(eid == false) return;
-					canvasWindow = canvas.contentWindow;
-					canvasDocument = canvasWindow.document;
-					canvasDocument.ccdefaultView = canvasWindow;
-					canvasDocument.documentElement.innerHTML = src;
-					window.removeEventListener('cocreate-crdt-update', initCanvas, true);
-					resolve({ crdtCon, canvas, canvasDocument, canvasWindow });
+					createIframe(src);
 				}
 			}
 		}
@@ -82,4 +77,22 @@ export default new Promise(async function(resolve, reject) {
 		}
 	}
 
+	function createIframe(src) {
+		let newIframe = document.createElement('iframe');
+		newIframe.srcdoc = src;
+
+		for(let att of canvas.attributes) {
+			newIframe.setAttribute(att.name, att.value);
+		}
+
+		canvas.replaceWith(newIframe);
+		newIframe.addEventListener('load', () => {
+			newIframe.removeAttribute('srcdoc')
+			canvasWindow = newIframe.contentWindow;
+			canvasDocument = canvasWindow.document || newIframe.contentDocument;
+			canvasDocument.ccdefaultView = canvasWindow;
+			resolve({ crdtCon, canvas: newIframe, canvasDocument, canvasWindow });
+		});
+		window.removeEventListener('cocreate-crdt-update', initCanvas, true);
+	}
 })
