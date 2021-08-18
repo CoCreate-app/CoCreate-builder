@@ -1,3 +1,12 @@
+## [1.5.7](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.6...v1.5.7) (2021-08-18)
+
+
+### Bug Fixes
+
+* canvas uses existing iframe rather than replacing ([b68b224](https://github.com/CoCreate-app/CoCreate-builder/commit/b68b2244624e3af4c4d2ed7d453266683bf4cf2c))
+* double clicking to make element content editable and vdom init ([ef4350f](https://github.com/CoCreate-app/CoCreate-builder/commit/ef4350f3a9071711a3b3a44bf46089d48918f799))
+* removed devwebpackconfig ([0ea4db2](https://github.com/CoCreate-app/CoCreate-builder/commit/0ea4db2b8bd4e8edaf4dba8f3d6bcd347f1a9393))
+
 ## [1.5.6](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.5...v1.5.6) (2021-08-15)
 
 
