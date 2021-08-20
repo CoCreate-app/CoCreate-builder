@@ -1,4 +1,4 @@
-import toolbar from '@cocreate/toolbar'
+import toolbar from '@cocreate/toolbar';
 import resolveCanvas from './resolveCanvas';
 import elementConfig from '../elementConfig';
 
@@ -20,7 +20,5 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument, ca
 		configKey: "hoverable",
 		document: canvasDocument,
 	});
-
-
 
 })
