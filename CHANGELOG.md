@@ -1,3 +1,10 @@
+## [1.5.8](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.7...v1.5.8) (2021-08-20)
+
+
+### Performance Improvements
+
+* resolveCanvas ([e36f203](https://github.com/CoCreate-app/CoCreate-builder/commit/e36f203abcfec4cc269bfd9faced8bfccea9b8ec))
+
 ## [1.5.7](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.6...v1.5.7) (2021-08-18)
 
 
