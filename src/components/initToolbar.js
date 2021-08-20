@@ -21,4 +21,4 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument, ca
 		document: canvasDocument,
 	});
 
-})
+});
