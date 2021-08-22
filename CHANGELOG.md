@@ -1,3 +1,10 @@
+## [1.5.10](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.9...v1.5.10) (2021-08-22)
+
+
+### Bug Fixes
+
+* bump package versions ([070ff19](https://github.com/CoCreate-app/CoCreate-builder/commit/070ff196d0dd2d0ce9b5f3b125f62a3762bb7cc2))
+
 ## [1.5.9](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.8...v1.5.9) (2021-08-22)
 
 
