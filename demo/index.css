@@ -1,5 +1,13 @@
-.vdom-item.collapse>.vdom-item {
-    display: none;
+.left-panel.active, .right-panel.active, .blocks.active, .components.active, .editor-panel.active {
+    display: block
+}
+
+.uppy-Dashboard-inner {
+    background-color: whitesmoke!important;
+}
+
+.uppy-DashboardTab-btn {
+    justify-content: flex-start;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -17,21 +25,11 @@ input[type=number]::-webkit-outer-spin-button {
 .tab[selected] {
     background: darkgrey;
 }
+
 li[selected-group="screen-size"][selected] {
-    background:gainsboro;
+    background: gainsboro;
 }
+
 .card:hover {
     background: rgba(0, 0, 0, 0.2);
-}
-.editor-panel.active {
-    display: block
-}
-.block-panel.active {
-    display: block
-}
-.left-panel.active {
-    display: block
-}
-.right-panel.active {
-    display: block
 }
