@@ -63,7 +63,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
   window.addEventListener("dndsuccess", onDnd);
 
 
-  dnd.initIframe({ isIframe: true, frame: canvas });
+  dnd.initIframe(canvas);
   dnd.init({
     mode: 'function',
     target: canvasDocument,
