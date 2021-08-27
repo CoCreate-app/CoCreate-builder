@@ -5,7 +5,7 @@ import elementConfig from '../elementConfig';
 import resolveCanvas from './resolveCanvas';
 import domText from './initDomText';
 
-export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument, canvasWindow }) {
+export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
   const domTexti = await domText;
 
 

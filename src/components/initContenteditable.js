@@ -2,7 +2,7 @@ import resolveCanvas from './resolveCanvas';
 import crdt from '@cocreate/crdt';
 import domText from './initDomText';
 
-export default resolveCanvas.then(async function({ crdtCon, weirdCrdtCon, canvas, canvasDocument, canvasWindow }) {
+export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
 	const domTexti = await domText;
 
 	canvasDocument.addEventListener('dblclick', (e) => {

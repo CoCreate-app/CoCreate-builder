@@ -5,7 +5,7 @@ import domText from '@cocreate/domtext'
 import resolveCanvas from './resolveCanvas';
 
 
-export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument, canvasWindow }) {
+export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) {
 
 	let html = crdt.getText({ crud: false, ...crdtCon });
 	let domTexti = new domText(html, canvasDocument.documentElement)

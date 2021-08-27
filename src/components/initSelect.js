@@ -5,7 +5,7 @@ import crdt from '@cocreate/crdt';
 const whiteList = { 'auto': true, 'inherit': true, 'initial': true };
 
 
-export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument, canvasWindow }) {
+export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) {
     
     function checkEvent(e) {
         let select = e.target;

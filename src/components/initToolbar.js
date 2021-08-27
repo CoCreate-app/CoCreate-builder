@@ -3,7 +3,7 @@ import resolveCanvas from './resolveCanvas';
 import elementConfig from '../elementConfig';
 
 
-export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument, canvasWindow }) {
+export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) {
 
 	toolbar.init({
 		selector: "#selectedElementcoc",

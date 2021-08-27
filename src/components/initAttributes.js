@@ -3,7 +3,7 @@
   import attributes from '@cocreate/attributes/src/attributes.js';
   import domText from './initDomText';
 
-  export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument, canvasWindow }) {
+  export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
     const domTexti = await domText;
     return attributes.init({
       document,
