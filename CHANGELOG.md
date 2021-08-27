@@ -1,3 +1,11 @@
+## [1.5.13](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.12...v1.5.13) (2021-08-27)
+
+
+### Bug Fixes
+
+* attributes and vdom bug. Removed convasWindow variable ([e3588ad](https://github.com/CoCreate-app/CoCreate-builder/commit/e3588ad84741181a6d25bb59a14910a2fa39869f))
+* removed initVdom ([3f32507](https://github.com/CoCreate-app/CoCreate-builder/commit/3f3250736ec580445c2bf17132c0f378541b06e6))
+
 ## [1.5.12](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.11...v1.5.12) (2021-08-23)
 
 
