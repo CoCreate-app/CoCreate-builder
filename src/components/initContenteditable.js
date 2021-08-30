@@ -17,7 +17,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		let document_id = element.getAttribute('document_id');
 		let name = element.getAttribute('name');
 
-		let elementValue = element.innerText;
+		let elementValue = element.innerHTML;
 
 		let id = element.getAttribute('element_id');
 		element.setAttribute('contenteditable', true);
@@ -49,7 +49,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		}
 
 		element.addEventListener('input', () => {
-			domTexti.setInnerText({ target: id, value: element.innerText, avoidTextToDom: true });
+			domTexti.setInnerText({ target: id, value: element.innerHTML, avoidTextToDom: true });
 		});
 
 	});

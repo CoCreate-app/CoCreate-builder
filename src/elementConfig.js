@@ -14,9 +14,15 @@ const elementConfig = [
       hoverable: true,
     },
     {
-      selector: "html, head, body",
+      selector: "html, head",
+      droppable: true,
+    },
+    {
+      selector: "body",
       draggable: false,
       droppable: true,
+      selectable: true,
+      hoverable: true,
     },
     {
       selector: "h1, h2, h3, h4, h5, h6, p, span, blockquote",
@@ -25,12 +31,15 @@ const elementConfig = [
       droppable: false,
       selectable: true,
       hoverable: true,
+      mouseover: true
     },
     {
       selector: "input, textarea, select",
       editable: false,
       draggable: true,
       droppable: false,
+      selectable: true,
+      hoverable: true,
     },
     {
       selector: "div.quill",

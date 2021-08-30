@@ -45,15 +45,7 @@ export default new Promise(async function(resolve, reject) {
 					canvasDocument = canvas.contentDocument;
 					canvasDocument.documentElement.innerHTML = src;
 					window.removeEventListener('cocreate-crdt-update', initCanvas, true);
-					let scripts = canvasDocument.querySelectorAll('script')
-					for (let script of scripts) {
-						var newScript = document.createElement("script");
-						newScript.src = script.src;
-						newScript.type = 'text/javascript';
-						script.remove()
-						canvasDocument.body.appendChild(newScript);	
-						resolve({ crdtCon, canvas, canvasDocument });
-					}
+					resolve({ crdtCon, canvas, canvasDocument });
 				}
 			}
 		}
@@ -89,3 +81,11 @@ export default new Promise(async function(resolve, reject) {
 	}
 
 })
+
+       let canvasScript = document.createElement('script');
+       canvasScript.setAttribute('src', './CoCreate-builder-canvas.js');
+       canvasScript.addEventListener('load', function() {
+         canvasWindow.dispatchEvent(new Event("DOMContentLoaded", { "bubbles": true, "cancelable": false }))
+         canvasWindow.dispatchEvent(new Event("load", { "bubbles": true, "cancelable": false }))
+       })
+       canvasDocument.head.appendChild(canvasScript);

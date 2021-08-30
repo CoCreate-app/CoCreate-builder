@@ -7,6 +7,7 @@ import './components/initSelected';
 import './components/initSelect';
 import './components/initToolbar';
 import './components/clipboard.js';
+import './components/initRichText.js';
 
 (async() => {
   // lazy load

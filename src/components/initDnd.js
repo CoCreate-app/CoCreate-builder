@@ -6,83 +6,81 @@ import resolveCanvas from './resolveCanvas';
 import domText from './initDomText';
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
-  const domTexti = await domText;
+	const domTexti = await domText;
 
 
-  let onDnd = (e) => {
+	let onDnd = (e) => {
 
-    let {
-      position,
-      dragedEl,
-      dropedEl,
-      dropType,
-      dragNextSib,
-      dropNextSib
-    } = e.detail;
+		let {
+			position,
+			dragedEl,
+			dropedEl,
+			dropType,
+			dragNextSib,
+			dropNextSib
+		} = e.detail;
 
-    // check if it's vdom convert it to canvas
-    if (dropedEl.classList.contains('vdom-item')) {
-      let id = dropedEl.getAttribute("element_id");
-      dropedEl = canvasDocument.querySelector(`[element_id="${id}"]`)
-      id = dragedEl.getAttribute("element_id");
-      dragedEl = canvasDocument.querySelector(`[element_id="${id}"]`)
-
-
-      dropedEl.insertAdjacentElement(position, dragedEl);
-    }
-    else if (!canvasDocument.contains(dropedEl)) return; //probably not necss since we fixed groups
-    try {
-      switch (dropType) {
-        case "draggable":
-          domTexti.insertAdjacentElement({
-            position,
-            target: dropedEl.getAttribute("element_id"),
-            element: dragedEl.getAttribute("element_id"),
-            metadata: { type: 'dnd' }
-          });
-
-          break;
-        case "cloneable":
-          domTexti.insertAdjacentElement({
-            position,
-            target: dropedEl.getAttribute("element_id"),
-            elementValue: dragedEl.outerHTML,
-            metadata: { type: 'dnd' }
-          });
-          break;
-      }
-
-    }
-    catch (err) {
-      console.log('domText: dom-to-text: ' + err)
-    }
-
-  }
+		// check if it's vdom convert it to canvas
+		if(dropedEl.classList.contains('vdom-item')) {
+			let id = dropedEl.getAttribute("element_id");
+			dropedEl = canvasDocument.querySelector(`[element_id="${id}"]`)
+			id = dragedEl.getAttribute("element_id");
+			dragedEl = canvasDocument.querySelector(`[element_id="${id}"]`)
 
 
-  window.addEventListener("dndsuccess", onDnd);
+			dropedEl.insertAdjacentElement(position, dragedEl);
+		}
+		else if(!canvasDocument.contains(dropedEl)) return; //probably not necss since we fixed groups
+		try {
+			switch(dropType) {
+				case "draggable":
+					domTexti.insertAdjacentElement({
+						position,
+						target: dropedEl.getAttribute("element_id"),
+						element: dragedEl.getAttribute("element_id"),
+						metadata: { type: 'dnd' }
+					});
+
+					break;
+				case "cloneable":
+					domTexti.insertAdjacentElement({
+						position,
+						target: dropedEl.getAttribute("element_id"),
+						elementValue: dragedEl.outerHTML,
+						metadata: { type: 'dnd' }
+					});
+					break;
+			}
+
+		}
+		catch(err) {
+			console.log('domText: dom-to-text: ' + err)
+		}
+
+	}
 
 
-  dnd.initIframe(canvas);
-  dnd.init({
-    mode: 'function',
-    target: canvasDocument,
-    onDnd: (element, request) => {
-      // disable touch for dnd
-      // element.style.touchAction = "none";
-  
-      for (let config of configMatch(elementConfig, element))
-        for (let r of request)
-          if (config[r] === true) {
-            return [element, r];
-          }
-          else return;
-    },
-    onDndSuccess: (detail) => {
-      if (!detail.dragedEl.getAttribute("element_id"))
-        detail.dragedEl.setAttribute("element_id", uuid.generate(6));
-    },
-  });
+	window.addEventListener("dndsuccess", onDnd);
+
+	// dnd.initIframe(canvas);
+	dnd.init({
+		targetDocument: canvasDocument,
+		onDrag: (element, request) => {
+			// disable touch for dnd
+			// element.style.touchAction = "none";
+
+			for(let config of configMatch(elementConfig, element))
+				for(let r of request)
+					if(config[r] === true) {
+						return [element, r];
+					}
+			else return;
+		},
+		onDrop: (detail) => {
+			if(!detail.dragedEl.getAttribute("element_id"))
+				detail.dragedEl.setAttribute("element_id", uuid.generate(6));
+		},
+	});
 
 
 
