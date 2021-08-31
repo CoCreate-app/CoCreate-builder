@@ -1,3 +1,11 @@
+# [1.6.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.14...v1.6.0) (2021-08-31)
+
+
+### Features
+
+* richtext editor ([ffff76a](https://github.com/CoCreate-app/CoCreate-builder/commit/ffff76ab0af7163d7bd5425748004f7ab466296d))
+* traverse elements ([07145ab](https://github.com/CoCreate-app/CoCreate-builder/commit/07145abe107e65d2fb86d34fa903e0d414d31eef))
+
 ## [1.5.14](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.13...v1.5.14) (2021-08-27)
 
 
