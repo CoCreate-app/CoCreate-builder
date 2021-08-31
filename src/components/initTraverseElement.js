@@ -1,4 +1,4 @@
-/*global CoCreate, CustomEvent, navigator*/
+/*global CoCreate, CustomEvent*/
 import resolveCanvas from './resolveCanvas';
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {

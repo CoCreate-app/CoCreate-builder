@@ -4,7 +4,6 @@ import resolveCanvas from './resolveCanvas';
 import elementConfig from '../elementConfig';
 import text from '@cocreate/text';
 
-
 export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) {
 
 	toolbar.init({
@@ -16,7 +15,7 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 			for (let config of configMatch(elementConfig, element))
 				for (let r of request)
 					if (config[r] === true) {
-					return [element, r];
+					return true;
 				}
 			else return;
 		},
@@ -31,7 +30,7 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 			for (let config of configMatch(elementConfig, element))
 				for (let r of request)
 					if (config[r] === true) {
-					return [element, r];
+					return true;
 				}
 			else return;
 		},
@@ -47,9 +46,8 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 				for (let r of request)
 					if (config[r] === true) {
 						if (text.hasSelection(element) && element.closest('[contenteditable="true"]'))
-						return [element, r];
+						return true;
 					}
-				
 			else return;
 		},
 	});

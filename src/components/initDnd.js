@@ -49,6 +49,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 						elementValue: dragedEl.outerHTML,
 						metadata: { type: 'dnd' }
 					});
+				
 					let clickEvent = new CustomEvent('click', { bubbles: true });
 			        Object.defineProperty(clickEvent, 'target', { writable: false, value: dragedEl });
 			        canvasDocument.dispatchEvent(clickEvent);

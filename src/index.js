@@ -6,12 +6,14 @@ import './components/initDnd';
 import './components/initSelected';
 import './components/initSelect';
 import './components/initToolbar';
-import './components/clipboard.js';
+import './components/initClipboard.js';
 import './components/initRichText.js';
 import './components/initTraverseElement.js';
+import './components/initCloneElement.js';
 
 (async() => {
-  // lazy load
+  // lazy load here
 })();
 
 export default { crdtCon, canvas, canvasDocument };
+

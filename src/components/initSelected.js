@@ -18,7 +18,7 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 		srcDocument: canvasDocument,
 		destDocument: document,
 		selector: "*",
-		target: ".styleunit",
+		target: ".styleunit[attribute]",
 		callback: (element, target) => {
 			target.setAttribute('name', target.id + '-' + element.getAttribute('element_id'));
 		}
