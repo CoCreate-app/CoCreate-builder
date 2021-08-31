@@ -1,8 +1,6 @@
-/*global CoCreate, CustomEvent, navigator*/
-
-import crdt from '@cocreate/crdt';
-import text from '@cocreate/text';
+/*global CoCreate*/
 import resolveCanvas from './resolveCanvas';
+import text from '@cocreate/text';
 import attributes from '@cocreate/attributes/src/attributes.js';
 import domText from './initDomText';
 

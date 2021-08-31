@@ -8,6 +8,7 @@ import './components/initSelect';
 import './components/initToolbar';
 import './components/clipboard.js';
 import './components/initRichText.js';
+import './components/initTraverseElement.js';
 
 (async() => {
   // lazy load

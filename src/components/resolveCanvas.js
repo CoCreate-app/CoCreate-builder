@@ -1,13 +1,14 @@
+/*global DOMParser,  */
 import crdt from '@cocreate/crdt';
 import uuid from '@cocreate/uuid';
 
-function sleep(tt) {
-	return new Promise(function(resolve) {
-		setTimeout(() => {
-			resolve();
-		}, tt);
-	});
-}
+// function sleep(tt) {
+// 	return new Promise(function(resolve) {
+// 		setTimeout(() => {
+// 			resolve();
+// 		}, tt);
+// 	});
+// }
 
 let canvas, canvasDocument, crdtCon;
 
