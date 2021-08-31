@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.6.0...v1.6.1) (2021-08-31)
+
+
+### Bug Fixes
+
+* initTraverseElement.js ([03f7760](https://github.com/CoCreate-app/CoCreate-builder/commit/03f7760d60c89d744ad387c56da9a1392d963fd0))
+
 # [1.6.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.5.14...v1.6.0) (2021-08-31)
 
 
