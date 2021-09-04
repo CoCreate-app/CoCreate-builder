@@ -1,7 +1,7 @@
 /*global CoCreate*/
 import resolveCanvas from './resolveCanvas';
 import text from '@cocreate/text';
-import attributes from '@cocreate/attributes/src/attributes.js';
+// import attributes from '@cocreate/attributes';
 import domText from './initDomText';
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
