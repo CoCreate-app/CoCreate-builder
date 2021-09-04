@@ -1,3 +1,15 @@
+# [1.7.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.6.1...v1.7.0) (2021-09-04)
+
+
+### Bug Fixes
+
+* update attributeInit to event ([1243efd](https://github.com/CoCreate-app/CoCreate-builder/commit/1243efd79fda8546ee3997254c129d5cb3878aca))
+
+
+### Features
+
+* clone and remove elemenebts from toolbar ([d11b7e4](https://github.com/CoCreate-app/CoCreate-builder/commit/d11b7e443051e65bd6df04f6bc3e0586afc4405c))
+
 ## [1.6.1](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.6.0...v1.6.1) (2021-08-31)
 
 
