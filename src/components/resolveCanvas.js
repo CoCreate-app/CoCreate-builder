@@ -2,14 +2,6 @@
 import crdt from '@cocreate/crdt';
 import uuid from '@cocreate/uuid';
 
-// function sleep(tt) {
-// 	return new Promise(function(resolve) {
-// 		setTimeout(() => {
-// 			resolve();
-// 		}, tt);
-// 	});
-// }
-
 let canvas, canvasDocument, crdtCon;
 
 canvas = document.querySelector("#canvas");
@@ -23,7 +15,7 @@ crdtCon = {
 };
 
 export default new Promise(async function(resolve, reject) {
-
+	if (!crdtCon.collection || !crdtCon.document_id || !crdtCon.name) return;
 	window.addEventListener('cocreate-crdt-update', initCanvas, true);
 
 	window.crdtCon = crdtCon;
