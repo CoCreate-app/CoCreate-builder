@@ -16,4 +16,3 @@ import './components/initCloneElement.js';
 })();
 
 export default { crdtCon, canvas, canvasDocument };
-

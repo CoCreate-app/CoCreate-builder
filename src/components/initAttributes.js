@@ -1,6 +1,6 @@
 import crdt from '@cocreate/crdt';
 import resolveCanvas from './resolveCanvas';
-import attributes from '@cocreate/attributes/src/attributes.js';
+// import attributes from '@cocreate/attributes/src/attributes.js';
 // import attributes from '@cocreate/attributes';
 import domText from './initDomText';
 
