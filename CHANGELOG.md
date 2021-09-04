@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.7.1...v1.7.2) (2021-09-04)
+
+
+### Bug Fixes
+
+* attribute path ([f3fdb36](https://github.com/CoCreate-app/CoCreate-builder/commit/f3fdb36f8b60319fa891f49270222188af15a3b1))
+
 ## [1.7.1](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.7.0...v1.7.1) (2021-09-04)
 
 
