@@ -1,4 +1,4 @@
-import selected from '@cocreate/selected'
+import selected from '@cocreate/selected';
 import resolveCanvas from './resolveCanvas';
 
 export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) {
@@ -9,7 +9,7 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 		selector: "*",
 		target: "[attribute]:not(.styleunit)",
 		callback: (element, target) => {
-			target.setAttribute('name', target.id + '-' + element.getAttribute('element_id'))
+			target.setAttribute('name', target.id + '-' + element.getAttribute('element_id'));
 			target.setAttribute('attribute-target', `#${canvas.id};[element_id="${element.getAttribute('element_id')}"]`);
 		}
 	});
@@ -23,5 +23,15 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 			target.setAttribute('name', target.id + '-' + element.getAttribute('element_id'));
 		}
 	});
+	
+	selected.config({
+		srcDocument: canvasDocument,
+		destDocument: document,
+		selector: "img",
+		target: "[actions='attributes'][attribute='src']",
+		callback: (element, target) => {
+			target.setAttribute('attribute-target', `#${canvas.id};[element_id="${element.getAttribute('element_id')}"]`);
+		}
+	});
 
-})
+});

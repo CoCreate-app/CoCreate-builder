@@ -70,7 +70,7 @@
     "@cocreate/select": "^1.1.10",
     "@cocreate/selected": "^1.1.11",
     "@cocreate/text": "^1.5.9",
-    "@cocreate/toolbar": "^1.4.1",
+    "@cocreate/toolbar": "^1.4.3",
     "@cocreate/utils": "^1.1.9",
     "@cocreate/vdom": "^1.2.8"
   }
