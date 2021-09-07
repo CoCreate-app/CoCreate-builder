@@ -1,3 +1,10 @@
+## [1.7.5](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.7.4...v1.7.5) (2021-09-07)
+
+
+### Bug Fixes
+
+* update @cocreate/dnd @cocreate/vdom ([1a7ceef](https://github.com/CoCreate-app/CoCreate-builder/commit/1a7ceef66c484a12476f34b20bbe69b544d94109))
+
 ## [1.7.4](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.7.3...v1.7.4) (2021-09-06)
 
 
