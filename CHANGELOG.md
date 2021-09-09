@@ -1,3 +1,10 @@
+## [1.7.6](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.7.5...v1.7.6) (2021-09-09)
+
+
+### Bug Fixes
+
+* CoCreate.config directory, path, name and  public ([a4ad0e0](https://github.com/CoCreate-app/CoCreate-builder/commit/a4ad0e0200a13aa6cced1bd654ca5676fa122665))
+
 ## [1.7.5](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.7.4...v1.7.5) (2021-09-07)
 
 
