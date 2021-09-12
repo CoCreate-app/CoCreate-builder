@@ -12,7 +12,7 @@
 
     <body>
         <!-- Navbar  -->
-        <nav class="nav display:flex position:relative align-items:center box-shadow-bottom" main-content_id="content" scroll=", hide-nav" scroll-up="5" scroll-down="5" collection="fils" document_id="60de0fae14b5ab0c2dd2feb9" name="src">
+        <nav class="nav display:flex position:relative align-items:center box-shadow-bottom" content_id="content" scroll=", hide-nav" scroll-up="5" scroll-down="5" collection="fils" document_id="60de0fae14b5ab0c2dd2feb9" name="src">
             <!-- Menu Icon Arrow Left Animations -->
             <a aria-label="mobile menu" class="menu_icon arrow-left" toggle="active" toggle-sidenav="menuL">
                 <span></span>
@@ -77,16 +77,15 @@
         </main>
 
         <!-- SideNav Left -->
-        <sidenav id="menuL" class="cocreate-sidenav background:whitesmoke height:100vh" data-main_content="canvas,content" sidenav-default_desktop="expanded" sidenav-default_tablet="expanded" sidenav-default_phone="offcanvas" sidenav-ontoggle_desktop="offcanvas"
-            sidenav-ontoggle_tablet="offcanvas" sidenav-expanded_width="260px">
+        <sidenav id="menuL" class="position:fixed top:0px left:0px background:whitesmoke height:100vh width:50px width:300px:hover width:0px@xs" resizable resize-target="[content_id='content']" resize-property="margin-left" resize-value="width">
             <div class="domEditor" collection="files" document_id="60de0fae14b5ab0c2dd2feba" name="src"></div>
-            <div class="resizeHandler"></div>
+            <div resize="right"></div>
         </sidenav>
 
         <!-- SideNav Right -->
         <sidenav data-main_content="canvas,content" sidenav-default_desktop="expanded" sidenav-default_tablet="offcanvas" sidenav-expanded_width="305px" sidenav-collapsed_width="0px" id="menuR" class="cocreate-sidenav sidenav-right background:whitesmoke height:100vh">
             <div class="domEditor" collection="files" document_id="60de0fae14b5ab0c2dd2febb" name="src"></div>
-            <div class="resizeHandler"></div>
+            <div resize="right"></div>
         </sidenav>
 
         <!-- Selected Toolbar -->
