@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.7.12...v1.8.0) (2021-09-16)
+
+
+### Features
+
+* contenteditable checks parents elements to find closest editble element ([c4fae8b](https://github.com/CoCreate-app/CoCreate-builder/commit/c4fae8b70f4a193af8af51665fcc8f39312911cb))
+
 ## [1.7.12](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.7.11...v1.7.12) (2021-09-14)
 
 
