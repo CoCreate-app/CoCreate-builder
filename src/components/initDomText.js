@@ -11,8 +11,8 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 	let domTexti = new domText(html, canvasDocument.documentElement)
 	// window.insertTextList = [];
 	domTexti.setCallback({
-		addCallback: function({ value, position, avoidTextToDom = false }) {
-			let html = crdt.getText({ crud: false, ...crdtCon })
+		addCallback: function({ value, position, avoidTextToDom = false, metadata }) {
+			// let html = crdt.getText({ crud: false, ...crdtCon })
 			// if (html)
 			// window.insertTextList.push({
 			//   value,
@@ -24,19 +24,19 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 			// else
 			// window.insertTextList.push({ value, position, virtual: 'crdt.getText returned nothing' })
 			CoCreate.crdt.insertText({
-				// attributes: { avoidTextToDom },
+				attributes: { metadata },
 				crud: false,
 				...crdtCon,
 				value,
 				position,
 			});
 		},
-		removeCallback: function({ from, to, avoidTextToDom = false }) {
+		removeCallback: function({ from, to, avoidTextToDom = false, metadata }) {
 
 
 
 			CoCreate.crdt.deleteText({
-				// attributes: { avoidTextToDom },
+				// attributes: { metadata },
 				crud: false,
 				...crdtCon,
 				position: from,
@@ -66,11 +66,11 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 			// sleep(200)
 			let eventDelta = detail.eventDelta;
 
-			for(let i = 0; i < eventDelta.length; i++) {
+			// for(let i = 0; i < eventDelta.length; i++) {
 
-				if(eventDelta[i]?.attributes?.avoidTextToDom)
-					return;
-			}
+			// 	if(eventDelta[i]?.attributes?.avoidTextToDom)
+			// 		return;
+			// }
 			let html = crdt.getText(crdtCon);
 			domTextiTextToDom.html = domTexti.html = html;
 

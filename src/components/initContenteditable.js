@@ -55,7 +55,8 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		}
 
 		element.addEventListener('input', () => {
-			domTexti.setInnerText({ target: id, value: element.innerHTML, avoidTextToDom: true });
+			let metadata = {target: id}
+			domTexti.setInnerText({ target: id, value: element.innerHTML, avoidTextToDom: true, metadata });
 		});
 
 	});

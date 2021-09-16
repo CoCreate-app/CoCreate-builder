@@ -48,23 +48,11 @@ const elementConfig = [
     {
       selector: "div.floating-label_field",
       draggable: true,
-      droppable: false,
-      selectable: false,
-      hoverable: false,
-    },
-    {
-      selector: "div.ql-editor *",
-      draggable: false,
-      droppable: false,
-      // selectable: false,
-      // hoverable: false,
     },
     {
       tagName: "icon",
       selector: "a.menu_icon",
-      editable: false,
-      draggable: false,
-      droppable: false,
+      draggable: true,
       selectable: true,
       hoverable: true,
     },
@@ -72,18 +60,7 @@ const elementConfig = [
       selector: "a.menu_icon span",
       selectable: false,
       hoverable: false,
-    },
-    {
-      selector: "menu_icon.span",
-      editable: false,
-      draggable: false,
-      droppable: false,
-      selectable: false,
-      hoverable: false,
-      selectable2: true,
-    },
-
-
+    }
   ].reverse();
   window.elementConfig = elementConfig;
   export default elementConfig;
