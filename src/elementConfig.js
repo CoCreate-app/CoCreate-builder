@@ -1,13 +1,7 @@
 const elementConfig = [
   
-  // {
-  //   selector:  'div [resize_handle]',
-  //   resizeLeft: '[resize_handle="left"]'
-  // },
-
     {
       selector: "*",
-      editable: false,
       draggable: true,
       droppable: true,
       selectable: true,
@@ -19,7 +13,6 @@ const elementConfig = [
     },
     {
       selector: "body",
-      draggable: false,
       droppable: true,
       selectable: true,
       hoverable: true,
@@ -28,25 +21,21 @@ const elementConfig = [
       selector: "h1, h2, h3, h4, h5, h6, p, span, blockquote",
       editable: true,
       draggable: true,
-      droppable: false,
       selectable: true,
       hoverable: true,
       mouseover: true
     },
     {
       selector: "input, textarea, select",
-      editable: false,
       draggable: true,
-      droppable: false,
       selectable: true,
       hoverable: true,
     },
     {
       selector: "div.quill",
       draggable: true,
-      droppable: false,
       selectable: true,
-      hoverable: false,
+      hoverable: true,
     },
     {
       selector: "div.nav",
