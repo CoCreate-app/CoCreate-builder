@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.8.0...v1.9.0) (2021-09-16)
+
+
+### Features
+
+* add support for domText metadata. and add initElementConfig.js ([ff4c177](https://github.com/CoCreate-app/CoCreate-builder/commit/ff4c177a5d0406127d0ab3e641eeff6e1fa8475f))
+
 # [1.8.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.7.12...v1.8.0) (2021-09-16)
 
 
