@@ -4,7 +4,7 @@ import uuid from '@cocreate/uuid';
 
 let canvas, canvasDocument, crdtCon;
 
-canvas = document.querySelector("#canvas");
+canvas = document.querySelector("[editor='dom']");
 if(!canvas)
 	console.error("builder config failed, can not find canvas iframe");
 
