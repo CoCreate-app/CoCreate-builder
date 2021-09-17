@@ -60,7 +60,9 @@ const elementConfig = [
       selector: "a.menu_icon span",
       selectable: false,
       hoverable: false,
-    }
+    },
+
+
   ].reverse();
   window.elementConfig = elementConfig;
   export default elementConfig;

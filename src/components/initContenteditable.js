@@ -2,23 +2,24 @@ import resolveCanvas from './resolveCanvas';
 import crdt from '@cocreate/crdt';
 import domText from './initDomText';
 import elementConfig from '../elementConfig';
-// import { configMatch } from '@cocreate/utils';
+
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
 	const domTexti = await domText;
 
 	canvasDocument.addEventListener('dblclick', (e) => {
+
 		let element = e.target;
-		if(element.matches('input, textarea', 'select')) return;
+		if(element.matches('input, textarea', 'select')) {
+			return;
+		}
 		if(element.hasAttribute('contenteditable')) return;
 		
 		element = checkParent(element);
-		
+
 		let options = ['editable'];
 		if (!checkElementConfig(element, options)) return;
 		
-			
-
 		let collection = element.getAttribute('collection');
 		let document_id = element.getAttribute('document_id');
 		let name = element.getAttribute('name');
@@ -55,12 +56,12 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		}
 
 		element.addEventListener('input', () => {
-			let metadata = {target: id}
+			let metadata = {target: id};
 			domTexti.setInnerText({ target: id, value: element.innerHTML, avoidTextToDom: true, metadata });
 		});
 
 	});
-	
+
 	function checkParent(element, selectors){
 	    selectors = 'h1, h2, h3, h4, h5, h6, p, span, blockquote';
 	    let parentElement;
@@ -95,5 +96,6 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 	  }
 	  return;
 	}
+
 
 });
