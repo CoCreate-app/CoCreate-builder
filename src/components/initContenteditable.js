@@ -1,21 +1,29 @@
 import resolveCanvas from './resolveCanvas';
 import crdt from '@cocreate/crdt';
 import domText from './initDomText';
-import elementConfig from '../elementConfig';
+import {checkElementConfig, checkParent, getSelectors} from './initElementConfig';
 
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
 	const domTexti = await domText;
-
-	canvasDocument.addEventListener('dblclick', (e) => {
-
-		let element = e.target;
-		if(element.matches('input, textarea', 'select')) {
-			return;
+	let selectors = getSelectors('editable') || 'h1, h2, h3, h4, h5, h6, p, span, blockquote';
+	if (selectors) {
+		let elements = canvasDocument.querySelectorAll(selectors);
+		for (let element of elements){
+			initContentEditable(element);
 		}
+	}
+	canvasDocument.addEventListener('dblclick', (e) => {
+		let element = e.target;
+		if (element.matches('input, textarea', 'select')) return;
+		initContentEditable(element);
+
+	});
+
+	function initContentEditable(element){
 		if(element.hasAttribute('contenteditable')) return;
 		
-		element = checkParent(element);
+		element = checkParent(element, selectors);
 
 		let options = ['editable'];
 		if (!checkElementConfig(element, options)) return;
@@ -55,47 +63,15 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 			}
 		}
 
-		element.addEventListener('input', () => {
-			let metadata = {target: id};
-			domTexti.setInnerText({ target: id, value: element.innerHTML, avoidTextToDom: true, metadata });
-		});
-
-	});
-
-	function checkParent(element, selectors){
-	    selectors = 'h1, h2, h3, h4, h5, h6, p, span, blockquote';
-	    let parentElement;
-	    do {
-		    if(element.parentElement.matches(selectors)) {
-	    		parentElement = element.parentElement;
-		    } else {
-				parentElement = element.closest(selectors)
-				if (parentElement == element) return element;
-		    }
-		    element = parentElement;
-	    } while (parentElement);
+		element.removeEventListener('input', setInnerText);
+		element.addEventListener('input', setInnerText);
 	}
 	
-	function checkElementConfig(element, options){
-		for(let config of configMatch(elementConfig, element)) {
-			for(let option of options) {
-				if(config[option] === true) {
-					return true;
-				}
-				else return false;
-			}
-		}
+	function setInnerText(e){
+		let element = e.target;
+		let id = element.getAttribute('element_id');
+		let metadata = {target: id};
+		domTexti.setInnerText({ target: id, value: e.detail.value, start: e.detail.start, end: e.detail.end, avoidTextToDom: true, metadata });
 	}
 	
-	function* configMatch(elementConfig, element) {
-	  for (let config of elementConfig) {
-	    // if (!Array.isArray(config.selector))
-	    //   config.selector = [config.selector];
-	
-	    if (config.selector && element.matches(config.selector)) yield config;
-	  }
-	  return;
-	}
-
-
 });

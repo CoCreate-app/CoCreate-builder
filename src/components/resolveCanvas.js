@@ -45,8 +45,8 @@ export default new Promise(async function(resolve, reject) {
 						newScript.type = 'text/javascript';
 						script.remove()
 						canvasDocument.body.appendChild(newScript);	
-						resolve({ crdtCon, canvas, canvasDocument });
 					}
+					resolve({ crdtCon, canvas, canvasDocument });
 				}
 			}
 		}

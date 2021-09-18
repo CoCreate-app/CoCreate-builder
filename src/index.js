@@ -6,10 +6,11 @@ import './components/initDnd';
 import './components/initSelected';
 import './components/initSelect';
 import './components/initToolbar';
-import './components/initClipboard.js';
-import './components/initRichText.js';
-import './components/initTraverseElement.js';
-import './components/initCloneElement.js';
+import './components/initClipboard';
+import './components/initRichText';
+import './components/initTraverseElement';
+import './components/initCloneElement';
+import './components/initElementConfig';
 
 (async() => {
   // lazy load here
