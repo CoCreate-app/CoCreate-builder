@@ -3,11 +3,11 @@ import { configMatch } from '@cocreate/utils';
 import uuid from '@cocreate/uuid';
 import elementConfig from '../elementConfig';
 import resolveCanvas from './resolveCanvas';
-import domText from './initDomText';
+import domText from '@cocreate/domtext';
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
-	const domTexti = await domText;
-
+	// const domTexti = await domText;
+	let domTextEl = canvasDocument.documentElement;
 
 	let onDnd = (e) => {
 
@@ -34,7 +34,8 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		try {
 			switch(dropType) {
 				case "draggable":
-					domTexti.insertAdjacentElement({
+					domText.insertAdjacentElement({
+						domTextEl,
 						position,
 						target: dropedEl.getAttribute("element_id"),
 						element: dragedEl.getAttribute("element_id"),
@@ -43,7 +44,8 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 
 					break;
 				case "cloneable":
-					domTexti.insertAdjacentElement({
+					domText.insertAdjacentElement({
+						domTextEl,
 						position,
 						target: dropedEl.getAttribute("element_id"),
 						elementValue: dragedEl.outerHTML,

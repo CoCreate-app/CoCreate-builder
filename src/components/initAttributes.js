@@ -2,10 +2,11 @@ import crdt from '@cocreate/crdt';
 import resolveCanvas from './resolveCanvas';
 // import attributes from '@cocreate/attributes/src/attributes.js';
 // import attributes from '@cocreate/attributes';
-import domText from './initDomText';
+import domText from '@cocreate/domtext';
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
-	const domTexti = await domText;
+	// const domTexti = await domText;
+	let domTextEl = canvasDocument.documentElement;
 	document.addEventListener('attributes', function(e) {
 		let detail = e.detail
 		let value = detail.value;
@@ -19,19 +20,19 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 				unit = unit || '';
 				switch(type) {
 					case 'attribute':
-						domTexti.setAttribute({ target, name: property, value })
+						domText.setAttribute({ domTextEl, target, name: property, value })
 						break;
 					case 'classstyle':
-						domTexti.setClassStyle({ target, classname: property, value, unit })
+						domText.setClassStyle({ domTextEl, target, classname: property, value, unit })
 						break;
 					case 'style':
-						domTexti.setStyle({ target, styleName: property, value, unit })
+						domText.setStyle({ domTextEl, target, styleName: property, value, unit })
 						break;
 					case 'innerText':
-						domTexti.setInnerText({ target, value })
+						domText.setInnerText({ domTextEl, target, value })
 						break;
 					case 'class':
-						domTexti.setClass({ target, value })
+						domText.setClass({ domTextEl, target, value })
 						break;
 
 					default:

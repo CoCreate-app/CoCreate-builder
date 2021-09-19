@@ -8,13 +8,12 @@ import elementConfig from '../elementConfig';
 	function checkParent(element, selectors){
 	    let parentElement;
 	    do {
-		    if(element.parentElement.matches(selectors)) {
-	    		parentElement = element.parentElement;
+	    	parentElement = element.parentElement.closest(selectors);
+	    	if(parentElement) {
+		    	element = parentElement;
 		    } else {
-				parentElement = element.closest(selectors);
-				if (parentElement == element) return element;
+				return element;
 		    }
-		    element = parentElement;
 	    } while (parentElement);
 	}
 	

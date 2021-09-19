@@ -1,11 +1,12 @@
 import resolveCanvas from './resolveCanvas';
 import crdt from '@cocreate/crdt';
-import domText from './initDomText';
+import domText from '@cocreate/domtext';
 import {checkElementConfig, checkParent, getSelectors} from './initElementConfig';
 
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
-	const domTexti = await domText;
+	// const domTexti = await domText;
+	let domTextEl = canvasDocument.documentElement;
 	let selectors = getSelectors('editable') || 'h1, h2, h3, h4, h5, h6, p, span, blockquote';
 	if (selectors) {
 		let elements = canvasDocument.querySelectorAll(selectors);
@@ -35,6 +36,8 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		let elementValue = element.innerHTML;
 
 		let id = element.getAttribute('element_id');
+		
+		element.domText = true;
 		element.setAttribute('contenteditable', true);
 
 		if(name == null) {
@@ -62,7 +65,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 				});		
 			}
 		}
-
+		
 		element.removeEventListener('input', setInnerText);
 		element.addEventListener('input', setInnerText);
 	}
@@ -71,7 +74,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		let element = e.target;
 		let id = element.getAttribute('element_id');
 		let metadata = {target: id};
-		domTexti.setInnerText({ target: id, value: e.detail.value, start: e.detail.start, end: e.detail.end, avoidTextToDom: true, metadata });
+		domText.setInnerText({ domTextEl, target: id, value: e.detail.value, start: e.detail.start, end: e.detail.end, avoidTextToDom: true, metadata });
 	}
 	
 });

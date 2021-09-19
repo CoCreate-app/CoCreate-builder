@@ -6,21 +6,22 @@ import resolveCanvas from './resolveCanvas';
 
 
 export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) {
-
+	let domTextEl = canvasDocument.documentElement;
 	let html = crdt.getText({ crud: false, ...crdtCon });
-	let domTexti = new domText(html, canvasDocument.documentElement);
-
-	domTexti.setCallback({
-		addCallback: function({ value, position, avoidTextToDom = false }) {
+	domTextEl.domTextHtml = html;
+	// let domTexti = new domText(html, canvasDocument.documentElement);
+	// domTexti.setCallback({
+	// canvasDocument.documentElement = {
+	domTextEl.addCallback = function({ value, position, avoidTextToDom = false, metadata }) {
 			CoCreate.crdt.insertText({
-				// attributes: { avoidTextToDom },
+				// attributes: { metadata },
 				crud: false,
 				...crdtCon,
 				value,
 				position,
 			});
 		},
-		removeCallback: function({ start, end, avoidTextToDom = false }) {
+	domTextEl.removeCallback = function({ start, end, avoidTextToDom = false, metadata }) {
 			CoCreate.crdt.deleteText({
 				// attributes: { avoidTextToDom },
 				crud: false,
@@ -29,23 +30,16 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 				length: end - start,
 			});
 		}
-	});
+	// };
 
-	let domTextiTextToDom = new domText(html, canvasDocument.documentElement);
+	// let domTextiTextToDom = new domText(html, canvasDocument.documentElement);
 	window.addEventListener('cocreate-crdt-update', function(e) {
-		try {
 			let detail = event.detail;
 
 			if(detail['collection'] !== crdtCon['collection'] || detail['name'] !== crdtCon['name'] || detail['document_id'] !== crdtCon['document_id'])
 				return;
 			
 			updateDomText(detail);
-			// updateDom(detail);
-
-		}
-		catch(err) {
-			console.log('domText: text-to-dom: ' + err);
-		}
 	});
 	
 	function updateDomText(detail){
@@ -57,12 +51,7 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 				return;
 		}
 		let html = crdt.getText(crdtCon);
-		domTextiTextToDom.html = domTexti.html = html;
-
-		if(!window.savedDelta)
-			window.savedDelta = [];
-		else
-			window.savedDelta.push(eventDelta);
+		domTextEl.domTextHtml = html;
 
 		let pos = 0;
 		for(let i = 0; i < eventDelta.length; i++) {
@@ -72,30 +61,21 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 			else {
 				if(eventDelta[i].insert) {
 					let changeStr = eventDelta[i].insert;
-
-					domTextiTextToDom.addToDom({ pos, changeStr });
+					if (changeStr != domTextEl.domTextHtml)
+						domText.addToDom({ domTextEl, pos, changeStr });
 
 					console.log(pos, changeStr);
 				}
 				else {
 					let removeLength = eventDelta[i].delete;
-					domTextiTextToDom.removeFromDom({ pos, removeLength });
+					domText.removeFromDom({ domTextEl, pos, removeLength });
 					console.log(pos, removeLength);
 				}
 			}
 		}
+		// canvasDocument.documentElement.domTextHtml = html;
 	}
 	
-	// function updateDom(detail){
- //       let d = detail;
- //       let info = {collection: d.collection, document_id: d.document_id, name: d.name, eventDelta: {retain: d.eventDelta.retain, insert: { value: d.eventDelta.value, position: d.eventDelta.position - 125 }}};
-	// 	let element = canvasDocument.documentElement;
-	// 	element.contentEditable = true;
- //       CoCreate.text.updateElement(element, info);
-	// 	// element.contentEditable = false;
-	// }
-
-	
-	return domTexti;
+	// return domTexti;
 
 });

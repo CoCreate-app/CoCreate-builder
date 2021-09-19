@@ -2,18 +2,19 @@
 import resolveCanvas from './resolveCanvas';
 import uuid from '@cocreate/uuid';
 import toolbar from '@cocreate/toolbar';
-import domText from './initDomText';
+import domText from '@cocreate/domtext';
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
-	const domTexti = await domText;
-
+	// const domTexti = await domText;
+	let domTextEl = canvasDocument.documentElement;
 	function  cloneElement(btn) {
 		let element = btn.closest('toolbar, .toolbar');
 		let targetElement = element.toolbar.target;
 		var clone = targetElement.cloneNode(true);
 		clone.setAttribute('element_id', uuid.generate(6));
 		
-		domTexti.insertAdjacentElement({
+		domText.insertAdjacentElement({
+			domTextEl,
 			position: 'afterend',
 			target: targetElement.getAttribute("element_id"),
 			elementValue: clone.outerHTML,
@@ -34,8 +35,9 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		let element = btn.closest('toolbar, .toolbar');
 		let targetElement = element.toolbar.target;
 		
-		domTexti.removeElement({
-			element: targetElement.getAttribute("element_id"),
+		domText.removeElement({
+			domTextEl,
+			target: targetElement.getAttribute("element_id"),
 			// metadata: { type: 'dnd' }
 		});
 		
