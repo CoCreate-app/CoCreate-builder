@@ -50,8 +50,6 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 			if(eventDelta[i]?.attributes?.avoidTextToDom)
 				return;
 		}
-		let html = crdt.getText(crdtCon);
-		domTextEl.domTextHtml = html;
 
 		let pos = 0;
 		for(let i = 0; i < eventDelta.length; i++) {
@@ -61,12 +59,16 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 			else {
 				if(eventDelta[i].insert) {
 					let changeStr = eventDelta[i].insert;
-					if (changeStr != domTextEl.domTextHtml)
+					if (changeStr != domTextEl.domTextHtml) {
+						let html = crdt.getText(crdtCon);
+						domTextEl.domTextHtml = html;
 						domText.addToDom({ domTextEl, pos, changeStr });
-
+					}
 					console.log(pos, changeStr);
 				}
 				else {
+					let html = crdt.getText(crdtCon);
+					domTextEl.domTextHtml = html;
 					let removeLength = eventDelta[i].delete;
 					domText.removeFromDom({ domTextEl, pos, removeLength });
 					console.log(pos, removeLength);
