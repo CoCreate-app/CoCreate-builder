@@ -8,7 +8,7 @@ import resolveCanvas from './resolveCanvas';
 export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) {
 	let domTextEl = canvasDocument.documentElement;
 	let html = crdt.getText({ crud: false, ...crdtCon });
-	domTextEl.domTextHtml = html;
+	domTextEl.htmlString = html;
 	// let domTexti = new domText(html, canvasDocument.documentElement);
 	// domTexti.setCallback({
 	// canvasDocument.documentElement = {
@@ -59,23 +59,23 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 			else {
 				if(eventDelta[i].insert) {
 					let changeStr = eventDelta[i].insert;
-					if (changeStr != domTextEl.domTextHtml) {
+					if (changeStr != domTextEl.htmlString) {
 						let html = crdt.getText(crdtCon);
-						domTextEl.domTextHtml = html;
+						domTextEl.htmlString = html;
 						domText.addToDom({ domTextEl, pos, changeStr });
 					}
 					console.log(pos, changeStr);
 				}
 				else {
 					let html = crdt.getText(crdtCon);
-					domTextEl.domTextHtml = html;
+					domTextEl.htmlString = html;
 					let removeLength = eventDelta[i].delete;
 					domText.removeFromDom({ domTextEl, pos, removeLength });
 					console.log(pos, removeLength);
 				}
 			}
 		}
-		// canvasDocument.documentElement.domTextHtml = html;
+		// canvasDocument.documentElement.htmlString = html;
 	}
 	
 	// return domTexti;

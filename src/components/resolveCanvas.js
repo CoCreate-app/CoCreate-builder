@@ -37,7 +37,7 @@ export default new Promise(async function(resolve, reject) {
 					if(eid == false) return;
 					canvasDocument = canvas.contentDocument;
 					canvasDocument.documentElement.innerHTML = src;
-					canvasDocument.documentElement.domTextHtml = src;
+					canvasDocument.documentElement.htmlString = src;
 
 					window.removeEventListener('cocreate-crdt-update', initCanvas, true);
 					let scripts = canvasDocument.querySelectorAll('script')

@@ -6,7 +6,6 @@ import './components/initDnd';
 import './components/initSelected';
 import './components/initSelect';
 import './components/initToolbar';
-import './components/initClipboard';
 import './components/initRichText';
 import './components/initTraverseElement';
 import './components/initCloneElement';
