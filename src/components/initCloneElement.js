@@ -6,7 +6,7 @@ import domText from '@cocreate/domtext';
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
 	// const domTexti = await domText;
-	let domTextEl = canvasDocument.documentElement;
+	let domTextEditor = canvasDocument.documentElement;
 	function  cloneElement(btn) {
 		let element = btn.closest('toolbar, .toolbar');
 		let targetElement = element.toolbar.target;
@@ -14,7 +14,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		clone.setAttribute('element_id', uuid.generate(6));
 		
 		domText.insertAdjacentElement({
-			domTextEl,
+			domTextEditor,
 			position: 'afterend',
 			target: targetElement.getAttribute("element_id"),
 			elementValue: clone.outerHTML,
@@ -36,7 +36,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		let targetElement = element.toolbar.target;
 		
 		domText.removeElement({
-			domTextEl,
+			domTextEditor,
 			target: targetElement.getAttribute("element_id"),
 			// metadata: { type: 'dnd' }
 		});

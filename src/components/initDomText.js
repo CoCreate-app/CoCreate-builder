@@ -6,13 +6,13 @@ import resolveCanvas from './resolveCanvas';
 
 
 export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) {
-	let domTextEl = canvasDocument.documentElement;
+	let domTextEditor = canvasDocument.documentElement;
 	let html = crdt.getText({ crud: false, ...crdtCon });
-	domTextEl.htmlString = html;
+	domTextEditor.htmlString = html;
 	// let domTexti = new domText(html, canvasDocument.documentElement);
 	// domTexti.setCallback({
 	// canvasDocument.documentElement = {
-	domTextEl.addCallback = function({ value, position, avoidTextToDom = false, metadata }) {
+	domTextEditor.addCallback = function({ value, position, avoidTextToDom = false, metadata }) {
 			CoCreate.crdt.insertText({
 				// attributes: { metadata },
 				crud: false,
@@ -21,7 +21,7 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 				position,
 			});
 		},
-	domTextEl.removeCallback = function({ start, end, avoidTextToDom = false, metadata }) {
+	domTextEditor.removeCallback = function({ start, end, avoidTextToDom = false, metadata }) {
 			CoCreate.crdt.deleteText({
 				// attributes: { avoidTextToDom },
 				crud: false,
@@ -59,18 +59,18 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
 			else {
 				if(eventDelta[i].insert) {
 					let changeStr = eventDelta[i].insert;
-					if (changeStr != domTextEl.htmlString) {
+					if (changeStr != domTextEditor.htmlString) {
 						let html = crdt.getText(crdtCon);
-						domTextEl.htmlString = html;
-						domText.addToDom({ domTextEl, pos, changeStr });
+						domTextEditor.htmlString = html;
+						domText.addToDom({ domTextEditor, pos, changeStr });
 					}
 					console.log(pos, changeStr);
 				}
 				else {
 					let html = crdt.getText(crdtCon);
-					domTextEl.htmlString = html;
+					domTextEditor.htmlString = html;
 					let removeLength = eventDelta[i].delete;
-					domText.removeFromDom({ domTextEl, pos, removeLength });
+					domText.removeFromDom({ domTextEditor, pos, removeLength });
 					console.log(pos, removeLength);
 				}
 			}

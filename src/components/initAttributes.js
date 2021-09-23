@@ -6,7 +6,7 @@ import domText from '@cocreate/domtext';
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
 	// const domTexti = await domText;
-	let domTextEl = canvasDocument.documentElement;
+	let domTextEditor = canvasDocument.documentElement;
 	document.addEventListener('attributes', function(e) {
 		let detail = e.detail
 		let value = detail.value;
@@ -20,19 +20,19 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 				unit = unit || '';
 				switch(type) {
 					case 'attribute':
-						domText.setAttribute({ domTextEl, target, name: property, value })
+						domText.setAttribute({ domTextEditor, target, name: property, value })
 						break;
 					case 'classstyle':
-						domText.setClassStyle({ domTextEl, target, classname: property, value, unit })
+						domText.setClassStyle({ domTextEditor, target, classname: property, value, unit })
 						break;
 					case 'style':
-						domText.setStyle({ domTextEl, target, styleName: property, value, unit })
+						domText.setStyle({ domTextEditor, target, styleName: property, value, unit })
 						break;
 					case 'innerText':
-						domText.setInnerText({ domTextEl, target, value })
+						domText.setInnerText({ domTextEditor, target, value })
 						break;
 					case 'class':
-						domText.setClass({ domTextEl, target, value })
+						domText.setClass({ domTextEditor, target, value })
 						break;
 
 					default:

@@ -5,7 +5,7 @@ import text from '@cocreate/text';
 import domText from '@cocreate/domtext';
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
-	let domTextEl = canvasDocument.documentElement;
+	let domTextEditor = canvasDocument.documentElement;
 	let element;
 	
 	function  nodeName(btn) {
@@ -42,7 +42,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		if (!element || !e.target) return;
 		if (element == e.target) { 
 			let id = element.getAttribute('element_id');
-			domText.setInnerText({ domTextEl, target: id, value: element.innerHTML, avoidTextToDom: true });
+			domText.setInnerText({ domTextEditor, target: id, value: element.innerHTML, avoidTextToDom: true });
 			element.removeEventListener('textChange', domCanvas, true);
 			element = '';
 		}

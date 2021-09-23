@@ -6,7 +6,7 @@ import {checkElementConfig, checkParent, getSelectors} from './initElementConfig
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
 	// const domTexti = await domText;
-	let domTextEl = canvasDocument.documentElement;
+	let domTextEditor = canvasDocument.documentElement;
 	let selectors = getSelectors('editable') || 'h1, h2, h3, h4, h5, h6, p, span, blockquote';
 	if (selectors) {
 		let elements = canvasDocument.querySelectorAll(selectors);
@@ -74,7 +74,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		let element = e.target;
 		let id = element.getAttribute('element_id');
 		let metadata = {target: id};
-		domText.setInnerText({ domTextEl, target: id, value: e.detail.value, start: e.detail.start, end: e.detail.end, avoidTextToDom: true, metadata });
+		domText.setInnerText({ domTextEditor, target: id, value: e.detail.value, start: e.detail.start, end: e.detail.end, avoidTextToDom: true, metadata });
 	}
 	
 });

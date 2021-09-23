@@ -7,7 +7,7 @@ import domText from '@cocreate/domtext';
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
 	// const domTexti = await domText;
-	let domTextEl = canvasDocument.documentElement;
+	let domTextEditor = canvasDocument.documentElement;
 
 	let onDnd = (e) => {
 
@@ -35,7 +35,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 			switch(dropType) {
 				case "draggable":
 					domText.insertAdjacentElement({
-						domTextEl,
+						domTextEditor,
 						position,
 						target: dropedEl.getAttribute("element_id"),
 						element: dragedEl.getAttribute("element_id"),
@@ -45,7 +45,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 					break;
 				case "cloneable":
 					domText.insertAdjacentElement({
-						domTextEl,
+						domTextEditor,
 						position,
 						target: dropedEl.getAttribute("element_id"),
 						elementValue: dragedEl.outerHTML,
