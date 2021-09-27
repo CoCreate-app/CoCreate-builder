@@ -1,3 +1,18 @@
+# [1.10.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.9.2...v1.10.0) (2021-09-27)
+
+
+### Bug Fixes
+
+* archived initDomText and initContenteditable ([46187de](https://github.com/CoCreate-app/CoCreate-builder/commit/46187deae7245eb137f7090dde1e970e88d0d48d))
+* duplicate elements when cloning ([0f8ce73](https://github.com/CoCreate-app/CoCreate-builder/commit/0f8ce73b8f1134f1870689b7de3ba61711e8a685))
+* update domTextEl to domTextEditor ([3f33c3b](https://github.com/CoCreate-app/CoCreate-builder/commit/3f33c3b6fc437d553a671e1871dd1f5a958b6620))
+* update to new domTextEl and archive initClipboard ([99d7a8f](https://github.com/CoCreate-app/CoCreate-builder/commit/99d7a8f4d552ee60993151fd476038dbc13c61a8))
+
+
+### Features
+
+* initElementConfig functions to get selector by option, initContentedtiable element on page load ([3ef9819](https://github.com/CoCreate-app/CoCreate-builder/commit/3ef98195cf09111c4e3452fa76634996538b0c23))
+
 ## [1.9.2](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.9.1...v1.9.2) (2021-09-17)
 
 
