@@ -1,6 +1,7 @@
 /*global DOMParser,  */
 import crdt from '@cocreate/crdt';
 import uuid from '@cocreate/uuid';
+import text from '@cocreate/text';
 
 let canvas, canvasDocument, crdtCon;
 
@@ -38,7 +39,11 @@ export default new Promise(async function(resolve, reject) {
 					canvasDocument = canvas.contentDocument;
 					canvasDocument.documentElement.innerHTML = src;
 					canvasDocument.documentElement.htmlString = src;
-
+					canvasDocument.documentElement.crdt = {init: false};
+					// canvasDocument.documentElement.domTextEditor = canvas;
+					canvasDocument.documentElement.contentEditable = true;
+					text._addEventListeners(canvasDocument.documentElement)
+					
 					window.removeEventListener('cocreate-crdt-update', initCanvas, true);
 					let scripts = canvasDocument.querySelectorAll('script')
 					for (let script of scripts) {

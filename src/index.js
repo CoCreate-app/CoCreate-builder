@@ -1,9 +1,9 @@
 import { crdtCon, canvas, canvasDocument } from './components/resolveCanvas';
 
 import './components/initAttributes';
-import './components/initContenteditable';
+// import './components/initContenteditable';
 import './components/initDnd';
-import './components/initDomText';
+// import './components/initDomText';
 import './components/initSelected';
 import './components/initSelect';
 import './components/initToolbar';

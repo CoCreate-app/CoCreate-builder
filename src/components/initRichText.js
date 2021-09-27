@@ -29,13 +29,13 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		
 		let value = selection.toString();
 		
-		const { start, end } = text.getSelections(element);
+		const { start, end, range } = text.getSelections(element);
 	    if(start != end) {
-	        text.deleteText(element, start, end);
+	        text.deleteText(element, start, end, range);
 	    }
 	    
 	    let newValue = `<${name}>${value}</${name}>`;
-	    text.insertText(element, newValue, start);
+	    text.insertText(element, newValue, start, range);
 	}
 	
 	function domCanvas(e) {
