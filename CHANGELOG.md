@@ -1,3 +1,10 @@
+## [1.9.2](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.9.1...v1.9.2) (2021-09-17)
+
+
+### Bug Fixes
+
+* domText metadata was creating a bug and removing html ([1f18ee2](https://github.com/CoCreate-app/CoCreate-builder/commit/1f18ee2c08505797dfeca87d8d6d0b3b99a7d85c))
+
 ## [1.9.1](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.9.0...v1.9.1) (2021-09-16)
 
 
