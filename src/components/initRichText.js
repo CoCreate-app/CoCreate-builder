@@ -2,10 +2,8 @@
 import resolveCanvas from './resolveCanvas';
 import text from '@cocreate/text';
 // import attributes from '@cocreate/attributes';
-import domText from '@cocreate/domtext';
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
-	let domTextEditor = canvasDocument.documentElement;
 	let element;
 	
 	function  nodeName(btn) {
@@ -20,33 +18,25 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 				[documentSelector, targetSelector] = targetSelector.split(';');
 				let frame = document.querySelector(documentSelector);
 				Document = frame.contentDocument;
+				element = Document.documentElement;
 			}
 		}
 		
 		const selection = Document.getSelection();
-		element = selection.anchorNode.parentElement;
-	    element.addEventListener('textChange', domCanvas, true);
-		
+		if(!element)
+			element = selection.anchorNode.parentElement;
+
 		let value = selection.toString();
 		
 		const { start, end, range } = text.getSelections(element);
 	    if(start != end) {
 	        text.deleteText(element, start, end, range);
 	    }
-	    
-	    let newValue = `<${name}>${value}</${name}>`;
+	    let id = CoCreate.uuid.generate(6);
+	    let newValue = `<${name} element_id="${id}">${value}</${name}>`;
 	    text.insertText(element, newValue, start, range);
 	}
 	
-	function domCanvas(e) {
-		if (!element || !e.target) return;
-		if (element == e.target) { 
-			let id = element.getAttribute('element_id');
-			domText.setInnerText({ domTextEditor, target: id, value: element.innerHTML, avoidTextToDom: true });
-			element.removeEventListener('textChange', domCanvas, true);
-			element = '';
-		}
-	}
 
 	CoCreate.action.init({
 		action: "nodeName",

@@ -1,12 +1,13 @@
+/*globals CustomEvent*/
+
 import dnd from '@cocreate/dnd';
 import { configMatch } from '@cocreate/utils';
 import uuid from '@cocreate/uuid';
 import elementConfig from '../elementConfig';
 import resolveCanvas from './resolveCanvas';
-import domText from '@cocreate/domtext';
+import text from '@cocreate/text';
 
 export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
-	// const domTexti = await domText;
 	let domTextEditor = canvasDocument.documentElement;
 
 	let onDnd = (e) => {
@@ -34,7 +35,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		try {
 			switch(dropType) {
 				case "draggable":
-					domText.insertAdjacentElement({
+					text.insertAdjacentElement({
 						domTextEditor,
 						position,
 						target: dropedEl.getAttribute("element_id"),
@@ -44,7 +45,7 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 
 					break;
 				case "cloneable":
-					domText.insertAdjacentElement({
+					text.insertAdjacentElement({
 						domTextEditor,
 						position,
 						target: dropedEl.getAttribute("element_id"),
@@ -60,21 +61,16 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 
 		}
 		catch(err) {
-			console.log('domText: dom-to-text: ' + err)
+			console.log('domText: dom-to-text: ' + err);
 		}
 
-	}
-
+	};
 
 	window.addEventListener("dndsuccess", onDnd);
 
-	// dnd.initIframe(canvas);
 	dnd.init({
 		targetDocument: canvasDocument,
 		onDrag: (element, request) => {
-			// disable touch for dnd
-			// element.style.touchAction = "none";
-
 			for(let config of configMatch(elementConfig, element))
 				for(let r of request)
 					if(config[r] === true) {
@@ -88,6 +84,4 @@ export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocume
 		},
 	});
 
-
-
-})
+});

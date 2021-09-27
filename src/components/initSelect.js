@@ -1,6 +1,6 @@
 import resolveCanvas from './resolveCanvas';
-import { containerSelector } from '@cocreate/select/src/config'
-import { container } from '@cocreate/select'
+import { containerSelector } from '@cocreate/select/src/config';
+import { container } from '@cocreate/select';
 import crdt from '@cocreate/crdt';
 const whiteList = { 'auto': true, 'inherit': true, 'initial': true };
 
@@ -31,11 +31,11 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
                     name: input.getAttribute('name'),
                     value: value + '',
                     position: '0',
-                })
+                });
                 
             }
         }
     }
     
-    document.addEventListener('input', checkEvent)
-})
+    document.addEventListener('input', checkEvent);
+});

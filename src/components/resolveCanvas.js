@@ -40,17 +40,16 @@ export default new Promise(async function(resolve, reject) {
 					canvasDocument.documentElement.innerHTML = src;
 					canvasDocument.documentElement.htmlString = src;
 					canvasDocument.documentElement.crdt = {init: false};
-					// canvasDocument.documentElement.domTextEditor = canvas;
 					canvasDocument.documentElement.contentEditable = true;
-					text._addEventListeners(canvasDocument.documentElement)
+					text._addEventListeners(canvasDocument.documentElement);
 					
 					window.removeEventListener('cocreate-crdt-update', initCanvas, true);
-					let scripts = canvasDocument.querySelectorAll('script')
+					let scripts = canvasDocument.querySelectorAll('script');
 					for (let script of scripts) {
 						var newScript = document.createElement("script");
 						newScript.src = script.src;
 						newScript.type = 'text/javascript';
-						script.remove()
+						script.remove();
 						canvasDocument.body.appendChild(newScript);	
 					}
 					resolve({ crdtCon, canvas, canvasDocument });
