@@ -1,3 +1,10 @@
+## [1.10.3](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.10.2...v1.10.3) (2021-09-29)
+
+
+### Bug Fixes
+
+* upgrade crdt and text package ([088e1ca](https://github.com/CoCreate-app/CoCreate-builder/commit/088e1ca9779cf6fd8dc82aaa72c4fb5dc9943306))
+
 ## [1.10.2](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.10.1...v1.10.2) (2021-09-28)
 
 
