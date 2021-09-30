@@ -4,7 +4,7 @@ import resolveCanvas from './resolveCanvas';
 import elementConfig from '../elementConfig';
 import text from '@cocreate/text';
 
-export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) {
+export default resolveCanvas.then(function({ canvas, canvasDocument }) {
 
 	toolbar.init({
 		selector: "#selectedElement",

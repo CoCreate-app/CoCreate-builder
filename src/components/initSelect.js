@@ -5,7 +5,7 @@ import crdt from '@cocreate/crdt';
 const whiteList = { 'auto': true, 'inherit': true, 'initial': true };
 
 
-export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) {
+export default resolveCanvas.then(function({ canvas, canvasDocument }) {
     
     function checkEvent(e) {
         let select = e.target;
@@ -26,8 +26,8 @@ export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) 
                 if (!input) return;
                 
                 crdt.replaceText({
-                    collection: crdtCon.collection,
-                    document_id: crdtCon.document_id,
+                    collection: canvas.getAttribute('collection'),
+                    document_id: canvas.getAttribute('document_id'),
                     name: input.getAttribute('name'),
                     value: value + '',
                     position: '0',

@@ -1,7 +1,7 @@
 import selected from '@cocreate/selected';
 import resolveCanvas from './resolveCanvas';
 
-export default resolveCanvas.then(function({ crdtCon, canvas, canvasDocument }) {
+export default resolveCanvas.then(function({ canvas, canvasDocument }) {
 
 	selected.config({
 		srcDocument: canvasDocument,

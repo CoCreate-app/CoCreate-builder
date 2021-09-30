@@ -1,7 +1,7 @@
 import resolveCanvas from './resolveCanvas';
 import text from '@cocreate/text';
 
-export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
+export default resolveCanvas.then(async function({ canvas, canvasDocument }) {
 	let domTextEditor = canvasDocument.documentElement;
 	document.addEventListener('attributes', function(e) {
 		let detail = e.detail;

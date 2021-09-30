@@ -7,7 +7,7 @@ import elementConfig from '../elementConfig';
 import resolveCanvas from './resolveCanvas';
 import text from '@cocreate/text';
 
-export default resolveCanvas.then(async function({ crdtCon, canvas, canvasDocument }) {
+export default resolveCanvas.then(async function({ canvas, canvasDocument }) {
 	let domTextEditor = canvasDocument.documentElement;
 
 	let onDnd = (e) => {
