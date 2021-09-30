@@ -1,3 +1,10 @@
+## [1.10.4](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.10.3...v1.10.4) (2021-09-30)
+
+
+### Bug Fixes
+
+* rendering canvas now handeled by cocreate/text, rich-text and cloneElement handeled by new component cocreate/rich-text, trvrseElements moved to cocreate/toolbar ([cb6d83d](https://github.com/CoCreate-app/CoCreate-builder/commit/cb6d83db922474815cbe9ef53c134801eaca11b3))
+
 ## [1.10.3](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.10.2...v1.10.3) (2021-09-29)
 
 
