@@ -5,5 +5,4 @@ export default new Promise(async function(resolve, reject) {
 	
 	canvasDocument = canvas.contentDocument;
 	resolve({ canvas, canvasDocument });
-
 });

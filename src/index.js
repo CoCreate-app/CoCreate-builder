@@ -4,9 +4,6 @@ import './components/initDnd';
 import './components/initSelected';
 import './components/initSelect';
 import './components/initToolbar';
-// import './components/initRichText';
-// import './components/initTraverseElement';
-// import './components/initCloneElement';
 import './components/initElementConfig';
 
 (async() => {
