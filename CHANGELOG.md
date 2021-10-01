@@ -1,3 +1,10 @@
+## [1.10.9](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.10.8...v1.10.9) (2021-10-01)
+
+
+### Bug Fixes
+
+* cloneELement ([5704d3e](https://github.com/CoCreate-app/CoCreate-builder/commit/5704d3e9be1789f6e70e08f33d769dfde9c4604e))
+
 ## [1.10.8](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.10.7...v1.10.8) (2021-10-01)
 
 
