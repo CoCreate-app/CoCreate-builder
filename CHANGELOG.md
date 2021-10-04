@@ -1,3 +1,11 @@
+## [1.10.10](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.10.9...v1.10.10) (2021-10-04)
+
+
+### Bug Fixes
+
+* relocated initAttributes.. it is now handled by @cocreate/attributes ([15d79a5](https://github.com/CoCreate-app/CoCreate-builder/commit/15d79a5779a2bc33509feb18e99f622350a8d15e))
+* removed toolbar and replaced utlis configMatch with @cocreate/element-config ([524ea15](https://github.com/CoCreate-app/CoCreate-builder/commit/524ea15630cf06a24d82c7135a0ae5f4c8eda481))
+
 ## [1.10.9](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.10.8...v1.10.9) (2021-10-01)
 
 
