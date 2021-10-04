@@ -62,7 +62,6 @@ const elementConfig = [
       hoverable: false,
     },
 
-
   ].reverse();
-  window.elementConfig = elementConfig;
+  
   export default elementConfig;

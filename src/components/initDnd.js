@@ -1,9 +1,8 @@
 /*globals CustomEvent*/
-
 import dnd from '@cocreate/dnd';
-import { configMatch } from '@cocreate/utils';
+import { checkElementConfig } from '@cocreate/element-config';
 import uuid from '@cocreate/uuid';
-import elementConfig from '../elementConfig';
+// import elementConfig from '../elementConfig';
 import resolveCanvas from './resolveCanvas';
 import text from '@cocreate/text';
 
@@ -71,11 +70,8 @@ export default resolveCanvas.then(async function({ canvas, canvasDocument }) {
 	dnd.init({
 		targetDocument: canvasDocument,
 		onDrag: (element, request) => {
-			for(let config of configMatch(elementConfig, element))
-				for(let r of request)
-					if(config[r] === true) {
-						return [element, r];
-					}
+			if (checkElementConfig(element, request))
+				return true;
 			else return;
 		},
 		onDrop: (detail) => {
