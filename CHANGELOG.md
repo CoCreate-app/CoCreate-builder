@@ -1,3 +1,10 @@
+## [1.10.11](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.10.10...v1.10.11) (2021-10-04)
+
+
+### Bug Fixes
+
+* update dependencies ([d020e93](https://github.com/CoCreate-app/CoCreate-builder/commit/d020e93f8a244f304a5450572407ada0d06140b9))
+
 ## [1.10.10](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.10.9...v1.10.10) (2021-10-04)
 
 
