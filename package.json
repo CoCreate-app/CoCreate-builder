@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/builder",
-  "version": "1.10.12",
+  "version": "1.11.0",
   "description": "A simple builder component in vanilla javascript. Easily configured using HTML5 data-attributes and/or JavaScript API.",
   "keywords": [
     "builder",

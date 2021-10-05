@@ -1,3 +1,16 @@
+# [1.11.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.10.12...v1.11.0) (2021-10-05)
+
+
+### Bug Fixes
+
+* add missing dependency @cocreate/crdt ([ac1cd51](https://github.com/CoCreate-app/CoCreate-builder/commit/ac1cd518de6f4d6297da3f61305214da05d3c6f1))
+* website_id in CoCreate.config ([4243be4](https://github.com/CoCreate-app/CoCreate-builder/commit/4243be4eab450671d25c2cd8352138f3b3951ebd))
+
+
+### Features
+
+* dnd logig and init now handled by @cocreate/dnd. iframe needs class sortable same as any other element ([b213f98](https://github.com/CoCreate-app/CoCreate-builder/commit/b213f98eb082e1bd28f8251b3e0c3b0724df80f3))
+
 ## [1.10.12](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.10.11...v1.10.12) (2021-10-04)
 
 
