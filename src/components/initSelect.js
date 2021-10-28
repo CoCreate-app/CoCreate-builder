@@ -29,8 +29,7 @@ export default resolveCanvas.then(function({ canvas, canvasDocument }) {
                     collection: canvas.getAttribute('collection'),
                     document_id: canvas.getAttribute('document_id'),
                     name: input.getAttribute('name'),
-                    value: value + '',
-                    position: '0',
+                    value: value + ''
                 });
                 
             }

@@ -1,4 +1,5 @@
 import selected from '@cocreate/selected';
+import uuid from '@cocreate/uuid';
 import resolveCanvas from './resolveCanvas';
 
 export default resolveCanvas.then(function({ canvas, canvasDocument }) {
@@ -9,8 +10,13 @@ export default resolveCanvas.then(function({ canvas, canvasDocument }) {
 		selector: "*",
 		target: "[attribute]:not(.styleunit)",
 		callback: (element, target) => {
-			target.setAttribute('name', target.id + '-' + element.getAttribute('element_id'));
-			target.setAttribute('attribute-target', `#${canvas.id};[element_id="${element.getAttribute('element_id')}"]`);
+			let eid = element.getAttribute('eid');
+			if(!eid) {
+				eid = uuid.generate(6);
+				element.setAttribute('eid', eid)
+			}
+			target.setAttribute('name', target.id + '-' + eid);
+			target.setAttribute('attribute-target', `#${canvas.id};[eid="${eid}"]`);
 		}
 	});
 
@@ -20,7 +26,7 @@ export default resolveCanvas.then(function({ canvas, canvasDocument }) {
 		selector: "*",
 		target: ".styleunit[attribute]",
 		callback: (element, target) => {
-			target.setAttribute('name', target.id + '-' + element.getAttribute('element_id'));
+			target.setAttribute('name', target.id + '-' + element.getAttribute('eid'));
 		}
 	});
 	
@@ -30,7 +36,7 @@ export default resolveCanvas.then(function({ canvas, canvasDocument }) {
 		selector: "img",
 		target: "[actions='attributes'][attribute='src']",
 		callback: (element, target) => {
-			target.setAttribute('attribute-target', `#${canvas.id};[element_id="${element.getAttribute('element_id')}"]`);
+			target.setAttribute('attribute-target', `#${canvas.id};[eid="${element.getAttribute('eid')}"]`);
 		}
 	});
 
