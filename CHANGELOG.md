@@ -1,3 +1,10 @@
+## [1.11.9](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.11.8...v1.11.9) (2021-10-29)
+
+
+### Bug Fixes
+
+* update from element_id to eid ([dd31a5e](https://github.com/CoCreate-app/CoCreate-builder/commit/dd31a5ed4e8514c88d3ceea6f000198aba6575c3))
+
 ## [1.11.8](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.11.7...v1.11.8) (2021-10-17)
 
 
