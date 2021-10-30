@@ -15,6 +15,7 @@ export default resolveCanvas.then(function({ canvas, canvasDocument }) {
 				eid = uuid.generate(6);
 				element.setAttribute('eid', eid)
 			}
+			target.value = '';
 			target.setAttribute('name', target.id + '-' + eid);
 			target.setAttribute('attribute-target', `#${canvas.id};[eid="${eid}"]`);
 		}
