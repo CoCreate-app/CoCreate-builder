@@ -1,3 +1,10 @@
+## [1.11.11](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.11.10...v1.11.11) (2021-10-30)
+
+
+### Bug Fixes
+
+* empty attribute input values before updating target and name ([f0c5b42](https://github.com/CoCreate-app/CoCreate-builder/commit/f0c5b42c89924b550f9fc41d9ec7134b5ba6a367))
+
 ## [1.11.10](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.11.9...v1.11.10) (2021-10-29)
 
 
