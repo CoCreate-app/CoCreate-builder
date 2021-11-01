@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.12.1...v1.13.0) (2021-11-01)
+
+
+### Features
+
+* removed resolveCanvas... Builder can now 100% be created using html attributes ([c24aed6](https://github.com/CoCreate-app/CoCreate-builder/commit/c24aed66af51770da6a33ee735277e8887155014))
+
 ## [1.12.1](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.12.0...v1.12.1) (2021-11-01)
 
 
