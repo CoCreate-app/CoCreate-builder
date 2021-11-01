@@ -7,11 +7,6 @@ export default new Promise(async function(resolve, reject) {
 	
 	canvasDocument = canvas.contentDocument;
 	canvasDocument.elementConfig = elementConfig;
-	// canvasDocument.configFunctions = {editable: (element, request) => {
-	// 		if (CoCreate.text.hasSelection(element) && element.closest('[contenteditable="true"]'))
-	// 			return true;
-	// 		else return false;
-	// 	}
-	// }
+
 	resolve({ canvas, canvasDocument });
 });
