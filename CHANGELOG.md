@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.11.11...v1.12.0) (2021-11-01)
+
+
+### Features
+
+* removed Select and selected logic is now handled by the respective components. micro headless components acheivedyarn unlink @cocreate/observer! ([837fcbd](https://github.com/CoCreate-app/CoCreate-builder/commit/837fcbd6bd504295f1cb69d9cca20fedde1c4acb))
+
 ## [1.11.11](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.11.10...v1.11.11) (2021-10-30)
 
 
