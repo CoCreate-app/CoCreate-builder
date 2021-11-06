@@ -1,3 +1,10 @@
+## [1.13.3](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.2...v1.13.3) (2021-11-06)
+
+
+### Bug Fixes
+
+* removed cdn from workflows as modules dont have javascript and are built using existing componennts ([87848f9](https://github.com/CoCreate-app/CoCreate-builder/commit/87848f9b89cb6efc32f0b0675f5d4b3ce5618cd7))
+
 ## [1.13.2](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.1...v1.13.2) (2021-11-04)
 
 
