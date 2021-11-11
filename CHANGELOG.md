@@ -1,3 +1,10 @@
+## [1.13.5](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.4...v1.13.5) (2021-11-11)
+
+
+### Bug Fixes
+
+* update readme ([df1fdc2](https://github.com/CoCreate-app/CoCreate-builder/commit/df1fdc2cf3792eaabebd9b92cee049dc03582485))
+
 ## [1.13.4](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.3...v1.13.4) (2021-11-06)
 
 
