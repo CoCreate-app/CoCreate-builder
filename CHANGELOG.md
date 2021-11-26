@@ -1,3 +1,10 @@
+## [1.13.14](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.13...v1.13.14) (2021-11-26)
+
+
+### Bug Fixes
+
+* docs sidenav width ([e018abb](https://github.com/CoCreate-app/CoCreate-builder/commit/e018abb5a9c63a65f588651e797559848ba946bf))
+
 ## [1.13.13](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.12...v1.13.13) (2021-11-26)
 
 
