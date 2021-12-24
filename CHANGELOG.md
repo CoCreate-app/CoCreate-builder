@@ -1,3 +1,10 @@
+## [1.13.20](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.19...v1.13.20) (2021-12-24)
+
+
+### Bug Fixes
+
+* update pass-fetch_collection to pass-fetch-collection ([7769d6d](https://github.com/CoCreate-app/CoCreate-builder/commit/7769d6de667a5cd3211c69cfdf90c54d7c7b04c9))
+
 ## [1.13.19](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.18...v1.13.19) (2021-12-15)
 
 
