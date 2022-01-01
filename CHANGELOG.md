@@ -1,3 +1,10 @@
+## [1.13.21](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.20...v1.13.21) (2022-01-01)
+
+
+### Bug Fixes
+
+* removed data- from attributes ([845fd99](https://github.com/CoCreate-app/CoCreate-builder/commit/845fd9953976c532b1e665d7606b7f3a72d56af2))
+
 ## [1.13.20](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.19...v1.13.20) (2021-12-24)
 
 
