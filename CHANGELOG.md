@@ -1,3 +1,10 @@
+## [1.13.23](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.22...v1.13.23) (2022-01-16)
+
+
+### Bug Fixes
+
+* update class overflow:overlay to overflow:auto ([b3a0a00](https://github.com/CoCreate-app/CoCreate-builder/commit/b3a0a0028d2dee223d1cf54bf6cf178eeb9dfab0))
+
 ## [1.13.22](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.21...v1.13.22) (2022-01-01)
 
 
