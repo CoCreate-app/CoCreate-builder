@@ -1,3 +1,10 @@
+## [1.13.26](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.25...v1.13.26) (2022-02-03)
+
+
+### Bug Fixes
+
+* replaced show and hide class hidden with attribute hidden ([eedfb48](https://github.com/CoCreate-app/CoCreate-builder/commit/eedfb48de4dfa2774397cd1826be6d5b700c34dd))
+
 ## [1.13.25](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.24...v1.13.25) (2022-02-01)
 
 
