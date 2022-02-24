@@ -1,3 +1,10 @@
+## [1.13.30](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.29...v1.13.30) (2022-02-24)
+
+
+### Bug Fixes
+
+* CoCreate.config replace CoCreate.app with * ([acbabec](https://github.com/CoCreate-app/CoCreate-builder/commit/acbabec6db223696e8cef86699284b16931680cb))
+
 ## [1.13.29](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.28...v1.13.29) (2022-02-16)
 
 
