@@ -1,3 +1,10 @@
+## [1.13.32](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.31...v1.13.32) (2022-04-15)
+
+
+### Bug Fixes
+
+* removed [] from placeholder {{...}} ([f5c2801](https://github.com/CoCreate-app/CoCreate-builder/commit/f5c28013d5b8dbec974f4b7db5c79495866c09d6))
+
 ## [1.13.31](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.30...v1.13.31) (2022-03-21)
 
 
