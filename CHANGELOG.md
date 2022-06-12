@@ -1,3 +1,12 @@
+## [1.13.36](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.35...v1.13.36) (2022-06-12)
+
+
+### Bug Fixes
+
+* update dependencies ([cb1f28d](https://github.com/CoCreate-app/CoCreate-builder/commit/cb1f28dd38931e78c0d22146ade79fdf6d870b84))
+* update docs css document_id ([11247a3](https://github.com/CoCreate-app/CoCreate-builder/commit/11247a3a5d7e24331b13c5261b1d400222187f99))
+* update modal btn to actions ([55c04a7](https://github.com/CoCreate-app/CoCreate-builder/commit/55c04a7ed4e5fa701b958674dd0db2106b5057a2))
+
 ## [1.13.35](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.34...v1.13.35) (2022-05-23)
 
 
