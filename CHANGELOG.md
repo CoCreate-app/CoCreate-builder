@@ -1,3 +1,10 @@
+## [1.13.38](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.37...v1.13.38) (2022-06-19)
+
+
+### Bug Fixes
+
+* update templates to use placeholder ([33e9455](https://github.com/CoCreate-app/CoCreate-builder/commit/33e9455a2fd5e6c34e74981d5820996f3ad9c2ce))
+
 ## [1.13.37](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.36...v1.13.37) (2022-06-18)
 
 
