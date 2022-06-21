@@ -1,3 +1,10 @@
+## [1.13.39](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.38...v1.13.39) (2022-06-21)
+
+
+### Bug Fixes
+
+* bump cdn version to 1.20.1 ([fbc36f5](https://github.com/CoCreate-app/CoCreate-builder/commit/fbc36f50bf59344c5a8e9d6dc917f52b4a2e4f7d))
+
 ## [1.13.38](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.37...v1.13.38) (2022-06-19)
 
 
