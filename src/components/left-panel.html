@@ -39,15 +39,15 @@
                              <!-- Blocks  -->
                             <div class="category{{tag._id}} display:flex flex-wrap:wrap justify-content:center text-align:center padding-bottom:20px" template_id="{{tag._id}}" fetch-collection="blocks" filter-name="category" filter-value="{{tag._id}}" filter-sort-name="position" filter-sort-type="asc">
                                  <!-- Blocks Template -->
-                                <div template_id="{{tag._id}}" class="template card position:relative flex-grow:1 width:70px height:75px margin:5px padding:5px" hover="display:block!important" hover-target="#editblock{{data._id}}" document_id="{{data._id}}">
-                                    <div id="editblock{{data._id}}" class="position:absolute top:8px right:8px font-size:11px display:none">
-                                        <a target="modal" href="../blocks/form.html" pass-collection="{{collection}}" pass-document_id="{{data._id}}" pass_to="form-fields" modal-width="320px">
+                                <div template_id="{{tag._id}}" class="template card position:relative flex-grow:1 width:70px height:75px margin:5px padding:5px" hover="display:block!important" hover-target="#editblock{{document._id}}" document_id="{{document._id}}">
+                                    <div id="editblock{{document._id}}" class="position:absolute top:8px right:8px font-size:11px display:none">
+                                        <a target="modal" href="../blocks/form.html" pass-collection="{{document.collection}}" pass-document_id="{{document._id}}" pass_to="form-fields" modal-width="320px">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
                                     </div>
-                                    <div cloneable="true" cloneable-html='{{data.html}}' class="height:65px padding:5px">
-                                        <i>{{data.icon}}</i>
-                                        <p class="font-size:11px">{{data.name}}</p>
+                                    <div cloneable="true" cloneable-html='{{document.html}}' class="height:65px padding:5px">
+                                        <i>{{document.icon}}</i>
+                                        <p class="font-size:11px">{{document.name}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -67,15 +67,15 @@
                              <!-- Components -->
                             <div class="category{{tag._id}} display:flex flex-wrap:wrap justify-content:center text-align:center padding-bottom:20px" template_id="{{tag._id}}" fetch-collection="blocks" filter-name="category" filter-value="{{tag._id}}" filter-sort-name="position" filter-sort-type="asc">
                                  <!-- Components Template -->
-                                <div template_id="{{tag._id}}" class="template card position:relative flex-grow:1 width:70px height:125px margin:5px padding:5px" hover="display:block!important" hover-target="#editblock{{data._id}}" document_id="{{data._id}}">
-                                    <div id="editblock{{data._id}}" class="position:absolute top:8px right:8px font-size:11px display:none">
-                                        <a target="modal" href="../blocks/form.html" pass-collection="{{collection}}" pass-document_id="{{data._id}}" pass_to="form-fields" modal-width="320px">
+                                <div template_id="{{tag._id}}" class="template card position:relative flex-grow:1 width:70px height:125px margin:5px padding:5px" hover="display:block!important" hover-target="#editblock{{document._id}}" document_id="{{document._id}}">
+                                    <div id="editblock{{document._id}}" class="position:absolute top:8px right:8px font-size:11px display:none">
+                                        <a target="modal" href="../blocks/form.html" pass-collection="{{document.collection}}" pass-document_id="{{document._id}}" pass_to="form-fields" modal-width="320px">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
                                     </div>
-                                    <div cloneable="true" cloneable-html='{{data.html}}' class="height:115px padding:5px">
-                                        <i>{{data.icon}}</i>
-                                        <p class="font-size:11px">{{data.name}}</p>
+                                    <div cloneable="true" cloneable-html='{{document.html}}' class="height:115px padding:5px">
+                                        <i>{{document.icon}}</i>
+                                        <p class="font-size:11px">{{document.name}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -145,21 +145,21 @@
                     <!-- Assets -->
                     <div id="fetch-assets" class="display:flex flex-wrap:wrap justify-content:center width:100% text-align:center padding-bottom:20px" template_id="assets" fetch-collection="" filter-name="content-type" filter-value="image, video" filter-sort-name="position" filter-sort-type="asc">
                          <!-- Asset Template -->
-                        <div template_id="assets" class="template card position:relative flex-grow:1 width:105px height:90px margin:5px padding:5px" hover="display:block!important" hover-target="#editblock{{data._id}}">
-                            <div id="editblock{{data._id}}" class="position:absolute top:8px right:8px font-size:11px display:none">
-                                <a target="modal" href="https://server.cocreate.app/CoCreate-plugins/CoCreate-tui-image-editor/demo/index.html" pass-collection="files" pass-document_id="{{data._id}}" pass_to="form-fields" modal-width="900px">
+                        <div template_id="assets" class="template card position:relative flex-grow:1 width:105px height:90px margin:5px padding:5px" hover="display:block!important" hover-target="#editblock{{document._id}}">
+                            <div id="editblock{{document._id}}" class="position:absolute top:8px right:8px font-size:11px display:none">
+                                <a target="modal" href="https://server.cocreate.app/CoCreate-plugins/CoCreate-tui-image-editor/demo/index.html" pass-collection="files" pass-document_id="{{document._id}}" pass_to="form-fields" modal-width="900px">
                                     <i class="fas fa-pencil-alt"></i>
                                 </a>
                             </div>
-                            <a actions="attributes" attribute="src" value="{{data.path}}">
+                            <a actions="attributes" attribute="src" value="{{document.path}}">
                                 <!-- image -->
-                                <div  cloneable="true" cloneable-html='<img src="{{data.path}}"></img>' class="padding:5px display:none" image-type="{{data.content-type}}">
-                                    <img width="auto" height="auto" collection="files" document_id="{{data._id}}" name="path" class="max-height:65px max-width:100%">
+                                <div  cloneable="true" cloneable-html='<img src="{{document.path}}"></img>' class="padding:5px display:none" image-type="{{document.content-type}}">
+                                    <img width="auto" height="auto" collection="files" document_id="{{document._id}}" name="path" class="max-height:65px max-width:100%">
                                 </div>
                                 <!-- Video -->
-                                <div cloneable="true" cloneable-html='<video><source src="{{data.path}}"></video>' class="padding:5px display:none" video-type="{{data.content-type}}">
+                                <div cloneable="true" cloneable-html='<video><source src="{{document.path}}"></video>' class="padding:5px display:none" video-type="{{document.content-type}}">
                                     <video width="auto" height="auto" class="max-height:65px max-width:100%">
-                                        <source collection="files" document_id="{{data._id}}" name="path" src="{{data.path}}" type="{{data.content-type}}">
+                                        <source collection="files" document_id="{{document._id}}" name="path" src="{{document.path}}" type="{{document.content-type}}">
                                     </video>
                                 </div>
                             </a>
