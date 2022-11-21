@@ -1,3 +1,12 @@
+## [1.13.51](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.50...v1.13.51) (2022-11-21)
+
+
+### Bug Fixes
+
+* filter-order attributes renamed to filter-sort ([21d5931](https://github.com/CoCreate-app/CoCreate-builder/commit/21d5931775e52771b48777ebda11c40e552bcded))
+* missing fetch-document ([796477a](https://github.com/CoCreate-app/CoCreate-builder/commit/796477aa412a57f89b11843c368908c6281ba781))
+* renamed {{data.key}} to {{document.key}} ([ab33de5](https://github.com/CoCreate-app/CoCreate-builder/commit/ab33de556def35a731be9fc337b093fa0d3e173f))
+
 ## [1.13.50](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.49...v1.13.50) (2022-10-02)
 
 
