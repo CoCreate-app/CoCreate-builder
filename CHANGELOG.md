@@ -1,3 +1,11 @@
+## [1.13.64](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.63...v1.13.64) (2022-12-02)
+
+
+### Bug Fixes
+
+* bump dependencies ([efd115c](https://github.com/CoCreate-app/CoCreate-builder/commit/efd115c236245dc63f051b4722326f8142d46482))
+* renamed filter-sort-type to filter-sort-direction ([fde80d1](https://github.com/CoCreate-app/CoCreate-builder/commit/fde80d17b07992537f485098bb5095e0120096f5))
+
 ## [1.13.63](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.62...v1.13.63) (2022-11-28)
 
 
