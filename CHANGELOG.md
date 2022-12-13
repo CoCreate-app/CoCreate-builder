@@ -1,3 +1,10 @@
+## [1.13.73](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.72...v1.13.73) (2022-12-13)
+
+
+### Bug Fixes
+
+* removed un used devDependencies ([2ab0e66](https://github.com/CoCreate-app/CoCreate-builder/commit/2ab0e66378c037c765a6b3c9ce67dbec30c21e78))
+
 ## [1.13.72](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.71...v1.13.72) (2022-12-13)
 
 
