@@ -1,3 +1,11 @@
+## [1.13.79](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.78...v1.13.79) (2022-12-25)
+
+
+### Bug Fixes
+
+* bump dependencies ([320ec11](https://github.com/CoCreate-app/CoCreate-builder/commit/320ec11f00fa28764ab974fa0d7e49242f2d40ca))
+* type="modal" and pass_to updated to action="pass, openModal" ([8cd1c82](https://github.com/CoCreate-app/CoCreate-builder/commit/8cd1c8210585845580796934693b1f872c94758d))
+
 ## [1.13.78](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.13.77...v1.13.78) (2022-12-23)
 
 
