@@ -1,5 +1,5 @@
         <div class="padding:5px min-width:260px">
-            
+
             <div class="display:flex margin-bottom:5px font-size:16px tabs">
                 <div class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab" selected-value="active" selected-target="#vdom" selected-group="left-panels" toggle="#canvas" toggle-target="#vdom" toggle-attribute="vdom-target"><i class="fas fa-stream"></i></div>
                 <div class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab" selected-value="active" selected-target="#assets" selected-group="left-panels" toggle="files" toggle-target="#fetch-assets" toggle-attribute="fetch-collection">
@@ -12,11 +12,11 @@
                 </div>
                 <div className="left-tabs" class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab" selected-value="active" selected-target="#blocks" selected-group="left-panels" selected><i class="fas fa-th-large"></i></div>
             </div>
-            
+
             <div class="overflow:auto height:90vh">
                  <!-- Blocks -->
                 <div id="blocks" class="left-panel display:none position:relative active">
-                            
+
                     <div class="display:flex justify-content:center position:relative margin-bottom:30px">
                         <div class="card background:gainsboro width:50% text-align:center padding:5px" selected-value="active" selected-target="#elements" selected-group="components" selected>Elements</div>
                         <div class="card background:gainsboro width:50% text-align:center padding:5px" selected-value="active" selected-target="#components" selected-group="components" selected>Components</div>
@@ -24,13 +24,13 @@
                             <a actions="pass, openModal" modal-src="../marketplace/list.html" modal-width="830px"><i class="fas fa-plus"></i></a>
                         </button>
                     </div>
-                    
+
                      <!-- Block Categories -->
 					<!--<div template_id="block-categories" filter-name="type" filter-value="611829a9c0e9580010ea589d"></div>-->
                     <div  id="elements" class="components display:none active" template_id="block-categories" fetch-collection="tags" filter-name="module_id" filter-value="5ff747727005da1c27274194" filter-sort-name="position" filter-sort-direction="asc" render_id="tag">
-                            
+
                          <!-- Block Categories Template -->
-                        <div class="template" template_id="block-categories" document_id="{{tag._id}}">
+                        <div template="block-categories" document_id="{{tag._id}}">
                             <div class="padding:5px background:gainsboro" show=".category{{tag._id}}" hide=".category{{tag._id}}">
                                 <span class="category{{tag._id}}" hidden><i class="fas fa-plus"></i></span>
                                 <span class="category{{tag._id}}"><i class="fas fa-minus"></i></span>
@@ -39,7 +39,7 @@
                              <!-- Blocks  -->
                             <div class="category{{tag._id}} display:flex flex-wrap:wrap justify-content:center text-align:center padding-bottom:20px" template_id="{{tag._id}}" fetch-collection="blocks" filter-name="category" filter-value="{{tag._id}}" filter-sort-name="position" filter-sort-direction="asc">
                                  <!-- Blocks Template -->
-                                <div template_id="{{tag._id}}" class="template card position:relative flex-grow:1 width:70px height:75px margin:5px padding:5px" hover="display:block!important" hover-target="#editblock{{document._id}}" document_id="{{document._id}}">
+                                <div template="{{tag._id}}" class="card position:relative flex-grow:1 width:70px height:75px margin:5px padding:5px" hover="display:block!important" hover-target="#editblock{{document._id}}" document_id="{{document._id}}">
                                     <div id="editblock{{document._id}}" class="position:absolute top:8px right:8px font-size:11px display:none">
                                         <a actions="pass, openModal" modal-src="../blocks/form.html" pass-collection="{{document.collection}}" pass-document_id="{{document._id}}" pass_to="form-fields" modal-width="320px">
                                             <i class="fas fa-pencil-alt"></i>
@@ -53,12 +53,12 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Component Categories -->
                     <div id="components" class="components display:none" template_id="component-categories" fetch-collection="tags" filter-name="module_id" filter-value="5ffb889df11d2d00103c452b" filter-sort-name="position" filter-sort-direction="asc" render_id="tag">
-                            
+
                          <!-- Components Categories Template -->
-                        <div class="template" template_id="component-categories" document_id="{{tag._id}}">
+                        <div template="component-categories" document_id="{{tag._id}}">
                             <div class="padding:5px background:gainsboro" show=".category{{tag._id}}" hide=".category{{tag._id}}">
                                 <span class="category{{tag._id}}" hidden><i class="fas fa-plus"></i></span>
                                 <span class="category{{tag._id}}"><i class="fas fa-minus"></i></span>
@@ -67,7 +67,7 @@
                              <!-- Components -->
                             <div class="category{{tag._id}} display:flex flex-wrap:wrap justify-content:center text-align:center padding-bottom:20px" template_id="{{tag._id}}" fetch-collection="blocks" filter-name="category" filter-value="{{tag._id}}" filter-sort-name="position" filter-sort-direction="asc">
                                  <!-- Components Template -->
-                                <div template_id="{{tag._id}}" class="template card position:relative flex-grow:1 width:70px height:125px margin:5px padding:5px" hover="display:block!important" hover-target="#editblock{{document._id}}" document_id="{{document._id}}">
+                                <div template="{{tag._id}}" class="card position:relative flex-grow:1 width:70px height:125px margin:5px padding:5px" hover="display:block!important" hover-target="#editblock{{document._id}}" document_id="{{document._id}}">
                                     <div id="editblock{{document._id}}" class="position:absolute top:8px right:8px font-size:11px display:none">
                                         <a actions="pass, openModal" modal-src="../blocks/form.html" pass-collection="{{document.collection}}" pass-document_id="{{document._id}}" pass_to="form-fields" modal-width="320px">
                                             <i class="fas fa-pencil-alt"></i>
@@ -82,15 +82,15 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Vdom -->
                 <div id="vdom" vdom-target="" dnd-group-name="vdom" class="left-panel display:none">vdom</div>
-                
+
                 <!-- uploader -->
                 <div id="uploader" class="left-panel display:none">
-                    <div id="uppy" uploader="uppy" collection="files"></div> 
+                    <div id="uppy" uploader="uppy" collection="files"></div>
                 </div>
-                
+
                 <!-- Files -->
                 <div id="files" class="left-panel display:none">
                     <!-- Search Files -->
@@ -109,12 +109,12 @@
                         <div id="fetch-files" class="fetch-files margin-left:10px " sortable template_id="$auto" fetch-collection="" fetch-document filter-name="directory" filter-value="/" filter-operator="$eq" filter-sort-name="name" filter-sort-direction="asc" render_id="$auto">
                             <div template_id="$auto" filter-name="content-type" filter-value="text/directory"></div>
                             <!--Folder Template -->
-                            <div class="template padding:5px" template_id="$auto" document_id="{{$auto._id}}">
+                            <div class="padding:5px" template="$auto" document_id="{{$auto._id}}">
                                 <span class="" show="#directory{{$auto._id}}" hide="#directory{{$auto._id}}" toggle="fa-caret-down, fa-caret-right" toggle-target="#icon{{$auto._id}}">
                                     <i id="icon{{$auto._id}}" class="fa fa-caret-right" ></i>
                                 </span>
                                 <span class="margin-left:5px" collection="files" document_id="{{$auto._id}}" name="name"></span>
-                                
+
                                 <!-- fetches folder and file template. This loops until tree ends -->
                                 <div id="directory{{$auto._id}}" class="domEditor margin-left:10px" hidden collection="files" document_id="611ab5d9251afa96bd20f6cc" name="src" filter-value="{{$auto.path}}"></div>
                             </div>
@@ -123,14 +123,14 @@
                             <div template_id="$auto" filter-name="content-type" filter-value="text/directory" filter-operator="$ne"></div>
 
                              <!-- File Template -->
-                            <div class="template padding:5px" template_id="$auto" document_id="{{$auto._id}}">
+                            <div class="padding:5px" template="$auto" document_id="{{$auto._id}}">
                                 <span class="{{$auto.content-type}}"><i class="fab fa-html5"></i></span>
                                 <span class="margin-left:5px" collection="files" document_id="{{$auto._id}}" name="name"></span>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Assets -->
                 <div id="assets" class="left-panel display:none">
                     <!-- Search Assets-->
@@ -145,7 +145,7 @@
                     <!-- Assets -->
                     <div id="fetch-assets" class="display:flex flex-wrap:wrap justify-content:center width:100% text-align:center padding-bottom:20px" template_id="assets" fetch-collection="" fetch-document filter-name="content-type" filter-value="image, video" filter-sort-name="position" filter-sort-direction="asc">
                          <!-- Asset Template -->
-                        <div template_id="assets" class="template card position:relative flex-grow:1 width:105px height:90px margin:5px padding:5px" hover="display:block!important" hover-target="#editblock{{document._id}}">
+                        <div template="assets" class="card position:relative flex-grow:1 width:105px height:90px margin:5px padding:5px" hover="display:block!important" hover-target="#editblock{{document._id}}">
                             <div id="editblock{{document._id}}" class="position:absolute top:8px right:8px font-size:11px display:none">
                                 <a actions="pass, openModal" modal-src="https://server.cocreate.app/CoCreate-plugins/CoCreate-tui-image-editor/demo/index.html" pass-collection="files" pass-document_id="{{document._id}}" pass_to="form-fields" modal-width="900px">
                                     <i class="fas fa-pencil-alt"></i>
@@ -165,7 +165,7 @@
                             </a>
                         </div>
                     </div>
-                        
+
                 </div>
             </div>
         </div>
