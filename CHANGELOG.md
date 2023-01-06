@@ -1,3 +1,11 @@
+## [1.14.2](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.14.1...v1.14.2) (2023-01-06)
+
+
+### Bug Fixes
+
+* bump dependencies, worklow [@v3](https://github.com/v3) ([af5dcce](https://github.com/CoCreate-app/CoCreate-builder/commit/af5dcce19b9851b1a4de72dcb5b34ab35b53cc21))
+* edit in github btn styles ([6e6deff](https://github.com/CoCreate-app/CoCreate-builder/commit/6e6deffcefba84324af77c8adccbc732da3a6eba))
+
 ## [1.14.1](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.14.0...v1.14.1) (2023-01-05)
 
 
