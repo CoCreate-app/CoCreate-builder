@@ -1,3 +1,10 @@
+## [1.15.3](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.15.2...v1.15.3) (2023-03-30)
+
+
+### Bug Fixes
+
+* bump [@cocreate](https://github.com/cocreate) dependencies' ([1df9d25](https://github.com/CoCreate-app/CoCreate-builder/commit/1df9d253431e805aaac98ee5c64d52e68333f280))
+
 ## [1.15.2](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.15.1...v1.15.2) (2023-03-16)
 
 
