@@ -1,3 +1,10 @@
+## [1.15.4](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.15.3...v1.15.4) (2023-04-11)
+
+
+### Bug Fixes
+
+* renamed domains to hosts ([51158e7](https://github.com/CoCreate-app/CoCreate-builder/commit/51158e7922879e7ef16cccb40a872c961b405ebc))
+
 ## [1.15.3](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.15.2...v1.15.3) (2023-03-30)
 
 
