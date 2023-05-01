@@ -1,3 +1,10 @@
+## [1.16.4](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.3...v1.16.4) (2023-05-01)
+
+
+### Bug Fixes
+
+* replace fontawesome with svg ([34da764](https://github.com/CoCreate-app/CoCreate-builder/commit/34da7640d6dc39a678b2f13575bc8050ba19bde1))
+
 ## [1.16.3](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.2...v1.16.3) (2023-04-30)
 
 
