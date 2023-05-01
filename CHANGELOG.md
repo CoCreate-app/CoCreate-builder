@@ -1,3 +1,10 @@
+## [1.16.6](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.5...v1.16.6) (2023-05-01)
+
+
+### Bug Fixes
+
+* replaced icon toggles with new svg ([5579888](https://github.com/CoCreate-app/CoCreate-builder/commit/55798882ba880315529b3b4f842bde0a16e7432f))
+
 ## [1.16.5](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.4...v1.16.5) (2023-05-01)
 
 
