@@ -1,3 +1,11 @@
+## [1.16.7](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.6...v1.16.7) (2023-05-06)
+
+
+### Bug Fixes
+
+* bump [@cocreate](https://github.com/cocreate) dependencies ([bf4117f](https://github.com/CoCreate-app/CoCreate-builder/commit/bf4117fa95e480473165fccb5a04d4e7c02a2ceb))
+* filter-sort icon ([bb823fa](https://github.com/CoCreate-app/CoCreate-builder/commit/bb823fa2e2caaf3e2137afa9b838c01f0770af7d))
+
 ## [1.16.6](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.5...v1.16.6) (2023-05-01)
 
 
