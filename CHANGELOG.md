@@ -1,3 +1,10 @@
+## [1.16.11](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.10...v1.16.11) (2023-06-02)
+
+
+### Bug Fixes
+
+* format demo html ([f727b77](https://github.com/CoCreate-app/CoCreate-builder/commit/f727b7799054e600f78048fec99d02d81eea6630))
+
 ## [1.16.10](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.9...v1.16.10) (2023-05-21)
 
 
