@@ -1,3 +1,11 @@
+## [1.16.13](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.12...v1.16.13) (2023-06-04)
+
+
+### Bug Fixes
+
+* replaced secert GITHUB_TOKEN with GITHUB ([a699b94](https://github.com/CoCreate-app/CoCreate-builder/commit/a699b94c9cd66478ca67f41d4a276310ab096647))
+* Update dependencies versions for [@cocreate](https://github.com/cocreate) libraries ([1fd9ce9](https://github.com/CoCreate-app/CoCreate-builder/commit/1fd9ce93aeec584f6e3be4a4794791e43dcf2190))
+
 ## [1.16.12](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.11...v1.16.12) (2023-06-04)
 
 
