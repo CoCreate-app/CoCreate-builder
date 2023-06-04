@@ -1,3 +1,10 @@
+## [1.16.12](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.11...v1.16.12) (2023-06-04)
+
+
+### Bug Fixes
+
+* **semantic-release:** worklow error solved by running node version 14 ([35d5afc](https://github.com/CoCreate-app/CoCreate-builder/commit/35d5afc63e75ecb7ae2a60c31397ba69387e344c))
+
 ## [1.16.11](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.10...v1.16.11) (2023-06-02)
 
 
