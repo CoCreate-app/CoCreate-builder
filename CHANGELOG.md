@@ -1,3 +1,10 @@
+## [1.16.26](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.25...v1.16.26) (2023-06-11)
+
+
+### Bug Fixes
+
+* Update dependencies versions for [@cocreate](https://github.com/cocreate) libraries ([c257fa7](https://github.com/CoCreate-app/CoCreate-builder/commit/c257fa7b6ecc1d85a3360e4e8ce1389cf472fe4f))
+
 ## [1.16.25](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.24...v1.16.25) (2023-06-11)
 
 
