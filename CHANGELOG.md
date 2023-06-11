@@ -1,3 +1,10 @@
+## [1.16.19](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.18...v1.16.19) (2023-06-11)
+
+
+### Bug Fixes
+
+* postintall error ([861a0ff](https://github.com/CoCreate-app/CoCreate-builder/commit/861a0ffee5ed3c49a57d31f6c6f609ae1585bf91))
+
 ## [1.16.18](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.17...v1.16.18) (2023-06-11)
 
 
