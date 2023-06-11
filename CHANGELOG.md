@@ -1,3 +1,10 @@
+## [1.16.24](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.23...v1.16.24) (2023-06-11)
+
+
+### Bug Fixes
+
+* testing workflow ([c2ff8f7](https://github.com/CoCreate-app/CoCreate-builder/commit/c2ff8f714df359005fe618f95d905376839444ef))
+
 ## [1.16.23](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.22...v1.16.23) (2023-06-11)
 
 
