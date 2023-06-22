@@ -33,7 +33,7 @@
                 class="menu_icon arrow-left"
                 click="active"
                 toggle="width:0px,width:310px"
-                toggle-target="#menuL"
+                toggle-selector="#menuL"
                 toggle-attribute="style">
                 <span></span>
                 <span></span>
@@ -113,7 +113,7 @@
                 <li
                     class="margin-right:15px min-width:40px line-height:40px border-radius:50% text-align:center background:whitesmoke"
                     selected-value="max-width:100%"
-                    selected-target=".canvas-container"
+                    selected-selector=".canvas-container"
                     selected-group="screen-size"
                     selected>
                     <a id="desktop-view" class=""
@@ -125,7 +125,7 @@
                 <li
                     class="margin-right:15px min-width:40px line-height:40px border-radius:50% text-align:center background:whitesmoke"
                     selected-value="max-width:768px"
-                    selected-target=".canvas-container"
+                    selected-selector=".canvas-container"
                     selected-group="screen-size">
                     <a id="tablet-view" class=""
                         ><i
@@ -136,7 +136,7 @@
                 <li
                     class="margin-right:15px min-width:40px line-height:40px border-radius:50% text-align:center background:whitesmoke"
                     selected-value="max-width:375px"
-                    selected-target=".canvas-container"
+                    selected-selector=".canvas-container"
                     selected-group="screen-size">
                     <a id="mobile-view" class=""
                         ><i
@@ -147,7 +147,7 @@
 
                 <li
                     actions="disableLinks"
-                    link-target="#canvas;"
+                    link-selector="#canvas;"
                     class="margin-right:15px"
                     show="[actions='enableLinks']"
                     hide="[actions='disableLinks']">
@@ -157,7 +157,7 @@
                 </li>
                 <li
                     actions="enableLinks"
-                    link-target="#canvas;"
+                    link-selector="#canvas;"
                     class="margin-right:15px color:red"
                     hidden
                     show="[actions='disableLinks']"
@@ -206,7 +206,7 @@
                 class="menu_icon arrow-right"
                 click="active"
                 toggle="width:0px,width:260px"
-                toggle-target="#menuR"
+                toggle-selector="#menuR"
                 toggle-attribute="style">
                 <span></span>
                 <span></span>
@@ -244,7 +244,7 @@
             id="menuL"
             class="position:fixed top:0px left:0px overflow:hidden background:whitesmoke height:100vh width:260px width:0px@xs@sm@md"
             resizable
-            resize-target="[content_id='canvas']"
+            resize-selector="[content_id='canvas']"
             resize-property="margin-left"
             resize-value="width">
             <div
@@ -260,7 +260,7 @@
             id="menuR"
             class="position:fixed top:0px right:0px overflow:hidden background:whitesmoke height:100vh width:310px width:0px@xs@sm@md"
             resizable
-            resize-target="[content_id='canvas']"
+            resize-selector="[content_id='canvas']"
             resize-property="margin-right"
             resize-value="width">
             <input type="hidden" attribute="eid" />
@@ -275,7 +275,7 @@
         <!-- Selected Toolbar -->
         <toolbar
             toolbar-placement="top"
-            toolbar-target="iframe;"
+            toolbar-selector="iframe;"
             toolbar-event="click"
             config-key="selectable"
             class="position:absolute pointer-events:none display:none">
@@ -316,7 +316,7 @@
         <!-- Hover Toolbar -->
         <toolbar
             toolbar-placent="top"
-            toolbar-target="iframe;"
+            toolbar-selector="iframe;"
             toolbar-event="mouseover"
             config-key="hoverable"
             class="position:absolute pointer-events:none display:none">
@@ -334,7 +334,7 @@
         <!-- Collaboration Toolbar -->
         <div
             toolbar-placent="top"
-            toolbar-target="iframe;"
+            toolbar-selector="iframe;"
             toolbar-event="mouseup"
             config-key="editable"
             class="toolbar position:absolute pointer-events:none display:none">
@@ -401,7 +401,7 @@
                     class="rte-btn"
                     id="heading-btn"
                     hover="width:fit-content"
-                    hover-target="#headings">
+                    hover-selector="#headings">
                     <i
                         class="height:20px fill:#505050"
                         src="/assets/svg/heading.svg"></i>
@@ -409,7 +409,7 @@
                 <div
                     id="headings"
                     hover="width:fit-content"
-                    hover-target="#headings"
+                    hover-selector="#headings"
                     class="position:absolute display:flex align-items:center transition:0.4s width:0px background:gainsboro overflow:hidden height:28px border-radius:5px">
                     <div
                         actions="nodeName"
@@ -519,7 +519,7 @@
 
         <!-- element-config -->
         <script
-            config-target="iframe; html"
+            config-selector="iframe; html"
             collection=""
             document_id=""
             name="">
@@ -579,7 +579,7 @@
         </script>
 
         <!-- element-config Example using html elements and attributes to define config -->
-        <!--<element-config config-target="iframe; html" collection="" document_id="" name="" style="display:none">-->
+        <!--<element-config config-selector="iframe; html" collection="" document_id="" name="" style="display:none">-->
         <!--    <config selector="*" editable="true" draggable="true" selectable="true" hoverable="true" mouseover="true"></config>-->
         <!--    <config selector="h1, h2, h3, h4, h5, h6, p, span, blockquote" editable="true" draggable="true" selectable="true" hoverable="true" mouseover="true"></config>-->
         <!--</element-config>-->
