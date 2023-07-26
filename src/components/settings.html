@@ -172,17 +172,14 @@
 
                     <ul
                         class="options overflow:auto"
-                        fetch-collection="modules"
+                        collection="modules"
                         filter-value="5f94ff945412e75f9b414a3e"
                         filter-name="_id"
                         filter-operator="$eq"
-                        fetch-name="units"
-                        template_id="units"
+                        name="units"
+                        render-selector="[template]"
                         search_id="search-units">
-                        <li
-                            class="option"
-                            template="units"
-                            value="{{units.--}}">
+                        <li class="option" template value="{{units.--}}">
                             <h3 value="{{units.--}}">Unit Name</h3>
                         </li>
                     </ul>

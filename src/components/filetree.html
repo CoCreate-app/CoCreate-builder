@@ -3,20 +3,21 @@
 <div
     class="margin-left:10px"
     sortable
-    template_id="$auto"
-    fetch-collection="files"
+    collection="files"
     filter-name="directory"
     filter-value="parent"
     filter-operator="$eq"
     filter-sort-name="directory"
     order_type="asc"
-    render_id="$auto">
+    render_id="$auto"
+    render-selector=":last-child">
     <div
-        template_id="$auto"
         filter-name="content-type"
-        filter-value="directory"></div>
+        filter-value="directory"
+        filter-parent></div>
+
     <!--Folder Template -->
-    <div class="padding:5px" template="$auto" document_id="{{$auto._id}}">
+    <div class="padding:5px" template>
         <span
             class=""
             show="#directory{{$auto._id}}"
@@ -45,21 +46,21 @@
 <div
     class="margin-left:10px"
     sortable
-    template_id="$auto"
-    fetch-collection="files"
+    collection="files"
     filter-name="directory"
     filter-value="parent"
     filter-operator="$eq"
     filter-sort-name="directory"
-    render_id="$auto">
+    render_id="$auto"
+    render-selector=":last-child">
     <div
-        template_id="$auto"
         filter-name="content-type"
         filter-value="text/directory"
-        filter-operator="$ne"></div>
+        filter-operator="$ne"
+        filter-parent></div>
 
     <!--File Template -->
-    <div class="padding:5px" template="$auto" document_id="{{$auto._id}}">
+    <div class="padding:5px" template>
         <span class=""
             ><i class="height:20px fill:#505050" src="/assets/svg/html5.svg"></i
         ></span>
