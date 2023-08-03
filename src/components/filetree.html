@@ -3,7 +3,7 @@
 <div
     class="margin-left:10px"
     sortable
-    collection="files"
+    array="files"
     filter-name="directory"
     filter-value="parent"
     filter-operator="$eq"
@@ -28,8 +28,8 @@
         </span>
         <span
             class="margin-left:5px"
-            collection="files"
-            document_id="{{$auto._id}}"
+            array="files"
+            object="{{$auto._id}}"
             name="name"
             >Folder name</span
         >
@@ -37,8 +37,8 @@
             id="directory{{$auto._id}}"
             class="domEditor margin-left:10px"
             hidden
-            collection="files"
-            document_id="611ab5d9251afa96bd20f6cc"
+            array="files"
+            object="611ab5d9251afa96bd20f6cc"
             name="src"
             filter-value="{{$auto.path}}"></div>
     </div>
@@ -46,7 +46,7 @@
 <div
     class="margin-left:10px"
     sortable
-    collection="files"
+    array="files"
     filter-name="directory"
     filter-value="parent"
     filter-operator="$eq"
@@ -66,8 +66,8 @@
         ></span>
         <span
             class="margin-left:5px"
-            collection="files"
-            document_id="{{$auto._id}}"
+            array="files"
+            object="{{$auto._id}}"
             name="name"></span>
     </div>
 </div>
