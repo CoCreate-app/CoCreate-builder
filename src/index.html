@@ -15,13 +15,13 @@
             href="./index.css"
             array="files"
             object="610cb468c0e9580010e5ba50"
-            name="src"
+            key="src"
             type="text/css" />
         <link rel="manifest" href="/manifest.webmanifest" />
     </head>
 
     <body>
-        <!--<nav class="nav display:flex position:relative align-items:center box-shadow-bottom" content_id="canvas" scroll=", hide-nav" scroll-up="5" scroll-down="5" array="files" object="60de0fae14b5ab0c2dd2feb9" name="src">-->
+        <!--<nav class="nav display:flex position:relative align-items:center box-shadow-bottom" content_id="canvas" scroll=", hide-nav" scroll-up="5" scroll-down="5" array="files" object="60de0fae14b5ab0c2dd2feb9" key="src">-->
         <nav
             class="nav display:flex position:relative align-items:center box-shadow-bottom"
             content_id="canvas"
@@ -87,7 +87,7 @@
                         pass_id="builder"
                         array=""
                         object=""
-                        name="src"
+                        key="src"
                         ><i
                             class="height:20px fill:#505050"
                             src="/assets/svg/save.svg"></i
@@ -181,7 +181,7 @@
                             pass_id="builder"
                             pass-array=""
                             pass-object=""
-                            name=""
+                            key=""
                             pass_to="code-editor"></div>
                     </a>
                 </li>
@@ -229,7 +229,7 @@
                     pass_id="builder"
                     array=""
                     object=""
-                    name="src"
+                    key="src"
                     read="false"
                     update="false"
                     crud="false"
@@ -251,7 +251,7 @@
                 class="domEditor"
                 array="files"
                 object="60de0fae14b5ab0c2dd2feba"
-                name="src"></div>
+                key="src"></div>
             <div resize="right"></div>
         </sidenav>
 
@@ -268,7 +268,7 @@
                 class="domEditor"
                 array="files"
                 object="60de0fae14b5ab0c2dd2febb"
-                name="src"></div>
+                key="src"></div>
             <div resize="left"></div>
         </sidenav>
 
@@ -342,9 +342,9 @@
                 class="display:flex align-items:center width:fit-content background:gainsboro border-radius:5px pointer-events:auto">
                 <div
                     actions="nodeName"
-                    nodename="b"
+                    nodekey="b"
                     nodetarget="#canvas;"
-                    classname="rte-btn"
+                    classkey="rte-btn"
                     class="padding:5px"
                     id="bold-button">
                     <i
@@ -353,7 +353,7 @@
                 </div>
                 <div
                     actions="nodeName"
-                    nodename="i"
+                    nodekey="i"
                     nodetarget="#canvas;"
                     class="rte-btn"
                     id="italic-button">
@@ -370,10 +370,10 @@
                     id="link"
                     class="position:absolute display:flex align-items:center transition:0.4s background:gainsboro height:28px border-radius:5px"
                     hidden>
-                    <input type="text" name="" />
+                    <input type="text" key="" />
                     <div
                         actions="nodeName"
-                        nodename="a"
+                        nodekey="a"
                         nodetarget="#canvas;"
                         class="rte-btn"
                         id="nodename">
@@ -389,7 +389,7 @@
                 </div>
                 <div
                     actions="nodeName"
-                    nodename="q"
+                    nodekey="q"
                     nodetarget="#canvas;"
                     class="rte-btn"
                     id="quote-button">
@@ -413,7 +413,7 @@
                     class="position:absolute display:flex align-items:center transition:0.4s width:0px background:gainsboro overflow:hidden height:28px border-radius:5px">
                     <div
                         actions="nodeName"
-                        nodename="h1"
+                        nodekey="h1"
                         nodetarget="#canvas;"
                         class="rte-btn"
                         id="header-1-button">
@@ -424,7 +424,7 @@
                     </div>
                     <div
                         actions="nodeName"
-                        nodename="h2"
+                        nodekey="h2"
                         nodetarget="#canvas;"
                         class="rte-btn"
                         id="header-2-button">
@@ -435,7 +435,7 @@
                     </div>
                     <div
                         actions="nodeName"
-                        nodename="h3"
+                        nodekey="h3"
                         nodetarget="#canvas;"
                         class="rte-btn"
                         id="header-3-button">
@@ -446,7 +446,7 @@
                     </div>
                     <div
                         actions="nodeName"
-                        nodename="h4"
+                        nodekey="h4"
                         nodetarget="#canvas;"
                         class="rte-btn"
                         id="header-4-button">
@@ -457,7 +457,7 @@
                     </div>
                     <div
                         actions="nodeName"
-                        nodename="h5"
+                        nodekey="h5"
                         nodetarget="#canvas;"
                         class="rte-btn"
                         id="header-5-button">
@@ -468,7 +468,7 @@
                     </div>
                     <div
                         actions="nodeName"
-                        nodename="h6"
+                        nodekey="h6"
                         nodetarget="#canvas;"
                         class="rte-btn"
                         id="header-6-button">
@@ -518,7 +518,7 @@
         <!-- End Collaboration Toolbar -->
 
         <!-- element-config -->
-        <script config-selector="iframe; html" array="" object="" name="">
+        <script config-selector="iframe; html" array="" object="" key="">
             [
                 {
                     selector: "*",
@@ -575,7 +575,7 @@
         </script>
 
         <!-- element-config Example using html elements and attributes to define config -->
-        <!--<element-config config-selector="iframe; html" array="" object="" name="" style="display:none">-->
+        <!--<element-config config-selector="iframe; html" array="" object="" key="" style="display:none">-->
         <!--    <config selector="*" editable="true" draggable="true" selectable="true" hoverable="true" mouseover="true"></config>-->
         <!--    <config selector="h1, h2, h3, h4, h5, h6, p, span, blockquote" editable="true" draggable="true" selectable="true" hoverable="true" mouseover="true"></config>-->
         <!--</element-config>-->

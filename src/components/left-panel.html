@@ -48,7 +48,7 @@
                 src="/assets/svg/cloud-upload-alt.svg"></i>
         </div>
         <div
-            classname="left-tabs"
+            classkey="left-tabs"
             class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab"
             selected-value="active"
             selected-selector="#blocks"
@@ -101,9 +101,9 @@
                 id="elements"
                 class="components display:none active"
                 array="tags"
-                filter-name="module_id"
+                filter-key="module_id"
                 filter-value="5ff747727005da1c27274194"
-                filter-sort-name="position"
+                filter-sort-key="position"
                 filter-sort-direction="asc"
                 render-selector=":last-child">
                 <!-- Block Categories Template -->
@@ -125,7 +125,7 @@
                         <span
                             array="{{tag.array}}"
                             object="{{tag._id}}"
-                            name="name"
+                            key="name"
                             >Category Name</span
                         >
                     </div>
@@ -133,9 +133,9 @@
                     <div
                         class="category{{tag._id}} display:flex flex-wrap:wrap justify-content:center text-align:center padding-bottom:20px"
                         array="blocks"
-                        filter-name="category"
+                        filter-key="category"
                         filter-value="{{tag._id}}"
-                        filter-sort-name="position"
+                        filter-sort-key="position"
                         filter-sort-direction="asc"
                         render-selector=":last-child">
                         <!-- Blocks Template -->
@@ -177,9 +177,9 @@
                 id="components"
                 class="components display:none"
                 array="tags"
-                filter-name="module_id"
+                filter-key="module_id"
                 filter-value="5ffb889df11d2d00103c452b"
-                filter-sort-name="position"
+                filter-sort-key="position"
                 filter-sort-direction="asc"
                 render-selector=":last-child">
                 <!-- Components Categories Template -->
@@ -201,7 +201,7 @@
                         <span
                             array="{{tag.array}}"
                             object="{{tag._id}}"
-                            name="name"
+                            key="name"
                             >Category Name</span
                         >
                     </div>
@@ -209,9 +209,9 @@
                     <div
                         class="category{{tag._id}} display:flex flex-wrap:wrap justify-content:center text-align:center padding-bottom:20px"
                         array="blocks"
-                        filter-name="category"
+                        filter-key="category"
                         filter-value="{{tag._id}}"
-                        filter-sort-name="position"
+                        filter-sort-key="position"
                         filter-sort-direction="asc"
                         render-selector=":last-child">
                         <!-- Components Template -->
@@ -253,7 +253,7 @@
         <div
             id="vdom"
             vdom-selector=""
-            dnd-group-name="vdom"
+            dnd-group-key="vdom"
             class="left-panel display:none">
             vdom
         </div>
@@ -291,7 +291,7 @@
                         pass_to="render"
                         array="website-pages"
                         object=""
-                        pass-name="src"
+                        pass-key="src"
                         modal-width="900px"
                         modal-color="#229954">
                         <i
@@ -311,7 +311,7 @@
                     class="margin-left:5px"
                     array="websites"
                     object=""
-                    name="name"
+                    key="name"
                     >Project name</span
                 >
                 <div
@@ -320,14 +320,14 @@
                     sortable
                     array=""
                     document
-                    filter-name="directory"
+                    filter-key="directory"
                     filter-value="/"
                     filter-operator="$eq"
-                    filter-sort-name="name"
+                    filter-sort-key="name"
                     filter-sort-direction="asc"
                     render-selector=":last-child">
                     <div
-                        filter-name="content-type"
+                        filter-key="content-type"
                         filter-value="text/directory"
                         filter-parent></div>
                     <!--Folder Template -->
@@ -350,7 +350,7 @@
                             class="margin-left:5px"
                             array="files"
                             object="{{$auto._id}}"
-                            name="name"></span>
+                            key="name"></span>
 
                         <!-- fetches folder and file template. This loops until tree ends -->
                         <div
@@ -359,7 +359,7 @@
                             hidden
                             array="files"
                             object="611ab5d9251afa96bd20f6cc"
-                            name="src"
+                            key="src"
                             filter-value="{{$auto.path}}"></div>
                     </div>
                 </div>
@@ -368,13 +368,13 @@
                     sortable
                     array=""
                     document
-                    filter-name="directory"
+                    filter-key="directory"
                     filter-value="/"
                     filter-operator="$eq"
-                    filter-sort-name="name"
+                    filter-sort-key="name"
                     render-selector=":last-child">
                     <div
-                        filter-name="content-type"
+                        filter-key="content-type"
                         filter-value="text/directory"
                         filter-operator="$ne"
                         filter-parent></div>
@@ -390,7 +390,7 @@
                             class="margin-left:5px"
                             array="files"
                             object="{{$auto._id}}"
-                            name="name"></span>
+                            key="name"></span>
                     </div>
                 </div>
             </div>
@@ -408,7 +408,7 @@
                         pass_to="render"
                         array="website-pages"
                         object=""
-                        pass-name="src"
+                        pass-key="src"
                         modal-width="900px"
                         modal-color="#229954">
                         <i
@@ -423,9 +423,9 @@
                 class="display:flex flex-wrap:wrap justify-content:center width:100% text-align:center padding-bottom:20px"
                 array=""
                 document
-                filter-name="content-type"
+                filter-key="content-type"
                 filter-value="image, video"
-                filter-sort-name="position"
+                filter-sort-key="position"
                 filter-sort-direction="asc"
                 render-selector=":last-child">
                 <!-- Asset Template -->
@@ -464,7 +464,7 @@
                                 height="auto"
                                 array="files"
                                 object="{{object._id}}"
-                                name="path"
+                                key="path"
                                 class="max-height:65px max-width:100%" />
                         </div>
                         <!-- Video -->
@@ -480,7 +480,7 @@
                                 <source
                                     array="files"
                                     object="{{object._id}}"
-                                    name="path"
+                                    key="path"
                                     src="{{object.path}}"
                                     type="{{object.content-type}}" />
                             </video>

@@ -15,7 +15,7 @@
             href="./index.css"
             array="files"
             object="610cb468c0e9580010e5ba50"
-            name="src"
+            key="src"
             type="text/css" />
         <link rel="manifest" href="/manifest.webmanifest" />
     </head>
@@ -104,7 +104,7 @@
                             pass_id="render"
                             pass-array=""
                             pass-object=""
-                            pass-name=""
+                            pass-key=""
                             pass_to="code-editor"></div>
                     </a>
                 </li>
@@ -121,7 +121,7 @@
                             pass_id="render"
                             pass-array=""
                             pass-object=""
-                            pass-name=""
+                            pass-key=""
                             pass_to="builder"></div>
                     </a>
                 </li>
@@ -146,12 +146,12 @@
                 array="modules"
                 object="5f94ff945412e75f9b414a3e"
                 autocomplete="off">
-                <input type="hidden" name="module_id" pass_id="module_id" />
+                <input type="hidden" key="module_id" pass_id="module_id" />
 
                 <input
                     type="text"
                     object=""
-                    name="name"
+                    key="name"
                     class="floating-label"
                     placeholder="Name"
                     pass_id="form-fields"
@@ -160,7 +160,7 @@
                 <cocreate-select
                     sortable
                     class="floating-label"
-                    name="units"
+                    key="units"
                     array="modules"
                     object="5f94ff945412e75f9b414a3e"
                     placeholder=""
@@ -174,9 +174,9 @@
                         class="options overflow:auto"
                         array="modules"
                         filter-value="5f94ff945412e75f9b414a3e"
-                        filter-name="_id"
+                        filter-key="_id"
                         filter-operator="$eq"
-                        name="units"
+                        key="units"
                         render-selector="[template]"
                         search_id="search-units">
                         <li class="option" template value="{{units.--}}">

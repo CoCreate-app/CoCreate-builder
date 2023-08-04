@@ -4,17 +4,14 @@
     class="margin-left:10px"
     sortable
     array="files"
-    filter-name="directory"
+    filter-key="directory"
     filter-value="parent"
     filter-operator="$eq"
-    filter-sort-name="directory"
+    filter-sort-key="directory"
     order_type="asc"
     render_id="$auto"
     render-selector=":last-child">
-    <div
-        filter-name="content-type"
-        filter-value="directory"
-        filter-parent></div>
+    <div filter-key="content-type" filter-value="directory" filter-parent></div>
 
     <!--Folder Template -->
     <div class="padding:5px" template>
@@ -30,7 +27,7 @@
             class="margin-left:5px"
             array="files"
             object="{{$auto._id}}"
-            name="name"
+            key="name"
             >Folder name</span
         >
         <div
@@ -39,7 +36,7 @@
             hidden
             array="files"
             object="611ab5d9251afa96bd20f6cc"
-            name="src"
+            key="src"
             filter-value="{{$auto.path}}"></div>
     </div>
 </div>
@@ -47,14 +44,14 @@
     class="margin-left:10px"
     sortable
     array="files"
-    filter-name="directory"
+    filter-key="directory"
     filter-value="parent"
     filter-operator="$eq"
-    filter-sort-name="directory"
+    filter-sort-key="directory"
     render_id="$auto"
     render-selector=":last-child">
     <div
-        filter-name="content-type"
+        filter-key="content-type"
         filter-value="text/directory"
         filter-operator="$ne"
         filter-parent></div>
@@ -68,6 +65,6 @@
             class="margin-left:5px"
             array="files"
             object="{{$auto._id}}"
-            name="name"></span>
+            key="name"></span>
     </div>
 </div>
