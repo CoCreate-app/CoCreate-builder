@@ -1,3 +1,20 @@
+# [1.17.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.27...v1.17.0) (2023-08-16)
+
+
+### Bug Fixes
+
+* crud attributes renamed ([4213bf2](https://github.com/CoCreate-app/CoCreate-builder/commit/4213bf26a40d51f7ca259826aaa59fe1ef54dd72))
+* Refactor file upload components and simplify CSS styles ([6666b96](https://github.com/CoCreate-app/CoCreate-builder/commit/6666b96f06892cbc29ae67ef7f6f191c8e4b20af))
+* replace -target -selector ([c1ebd07](https://github.com/CoCreate-app/CoCreate-builder/commit/c1ebd07b44374cf86cf1600714ff8203cac1eb0c))
+* webpack.config and package.json make use of mode=production instead of process.env ([9352e05](https://github.com/CoCreate-app/CoCreate-builder/commit/9352e053e0fc304dbef3b021c7b0a8c8d5178fea))
+
+
+### Features
+
+* name attribute and variable renamed to key ([7acd91b](https://github.com/CoCreate-app/CoCreate-builder/commit/7acd91bef4cdaa188ef31a1b949773a6da9c1ae9))
+* renamed CRUD attributes and params ([6303954](https://github.com/CoCreate-app/CoCreate-builder/commit/63039544c52c3da0eb30191af756c370beb50d1d))
+* update template_id to render-selector attribute. update filter attributes to filter selector-attributes ([98d1817](https://github.com/CoCreate-app/CoCreate-builder/commit/98d1817e4c67d5799d400c18fc33f369c36dd829))
+
 ## [1.16.27](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.16.26...v1.16.27) (2023-06-14)
 
 
