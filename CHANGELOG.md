@@ -1,3 +1,11 @@
+## [1.19.2](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.19.1...v1.19.2) (2023-09-18)
+
+
+### Bug Fixes
+
+*  Add path and pathname ([c928777](https://github.com/CoCreate-app/CoCreate-builder/commit/c928777bfff685c1e8be6f90c5b5b841ce09bed7))
+* Update CoCreate depndencies to latest versions ([8b08a67](https://github.com/CoCreate-app/CoCreate-builder/commit/8b08a67cc64a281e0e9e9bfdf0175b83eb867b81))
+
 ## [1.19.1](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.19.0...v1.19.1) (2023-08-21)
 
 
