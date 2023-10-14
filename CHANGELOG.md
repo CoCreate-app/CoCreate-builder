@@ -1,3 +1,10 @@
+## [1.19.3](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.19.2...v1.19.3) (2023-10-14)
+
+
+### Bug Fixes
+
+* update pass-refresh to pass-overwrite ([98fcf9f](https://github.com/CoCreate-app/CoCreate-builder/commit/98fcf9f23aff06f4948be2540dc25f79f9edeca6))
+
 ## [1.19.2](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.19.1...v1.19.2) (2023-09-18)
 
 
