@@ -1,3 +1,11 @@
+## [1.19.6](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.19.5...v1.19.6) (2023-11-09)
+
+
+### Bug Fixes
+
+* meta name typo ([02cc648](https://github.com/CoCreate-app/CoCreate-builder/commit/02cc6484cbdfe9c1aecce64fd7498cd21aa20eeb))
+* update host ([581a29c](https://github.com/CoCreate-app/CoCreate-builder/commit/581a29cf407a3c9109c5835fab680cc8552055d9))
+
 ## [1.19.5](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.19.4...v1.19.5) (2023-11-03)
 
 
