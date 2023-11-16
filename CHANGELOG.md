@@ -1,3 +1,10 @@
+## [1.19.8](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.19.7...v1.19.8) (2023-11-16)
+
+
+### Bug Fixes
+
+* filter-name renamed to filter-key ([6967092](https://github.com/CoCreate-app/CoCreate-builder/commit/6967092909e8666ae7e4ff7487f91abc6b06817f))
+
 ## [1.19.7](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.19.6...v1.19.7) (2023-11-12)
 
 
