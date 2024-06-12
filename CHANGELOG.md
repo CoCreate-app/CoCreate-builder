@@ -1,3 +1,12 @@
+## [1.22.4](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.22.3...v1.22.4) (2024-06-12)
+
+
+### Bug Fixes
+
+* bump cocreate dependencies ([71f6366](https://github.com/CoCreate-app/CoCreate-builder/commit/71f6366c3a29c42fcda159e658eea543416b1609))
+* svg icon class ([34a8323](https://github.com/CoCreate-app/CoCreate-builder/commit/34a83230b004a2db28c1122d577473c00e7f53f8))
+* toolbar typos ([0115375](https://github.com/CoCreate-app/CoCreate-builder/commit/011537546165fe3be7508ab1f6e456e1e04e8a55))
+
 ## [1.22.3](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.22.2...v1.22.3) (2024-04-29)
 
 
