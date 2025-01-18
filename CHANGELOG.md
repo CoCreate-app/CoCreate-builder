@@ -1,3 +1,10 @@
+## [1.23.1](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.23.0...v1.23.1) (2025-01-18)
+
+
+### Bug Fixes
+
+* update filter-query-key ([222927f](https://github.com/CoCreate-app/CoCreate-builder/commit/222927f3b9d6746decaec15808666da9bbd3433d))
+
 # [1.23.0](https://github.com/CoCreate-app/CoCreate-builder/compare/v1.22.4...v1.23.0) (2024-11-04)
 
 
