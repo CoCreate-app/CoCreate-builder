@@ -5,37 +5,37 @@
 		<div
 			class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab"
 			selected-value="active"
-			selected-selector="#vdom"
+			selected-query="#vdom"
 			selected-group="left-panels"
 			toggle="#canvas"
-			toggle-selector="#vdom"
+			toggle-query="#vdom"
 			toggle-attribute="vdom-selector">
 			<i src="/assets/svg/stream.svg"></i>
 		</div>
 		<div
 			class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab"
 			selected-value="active"
-			selected-selector="#assets"
+			selected-query="#assets"
 			selected-group="left-panels"
 			toggle="files"
-			toggle-selector="#fetch-assets"
+			toggle-query="#fetch-assets"
 			toggle-attribute="array">
 			<i class="height:16px" src="/assets/svg/photo-video.svg"></i>
 		</div>
 		<div
 			class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab"
 			selected-value="active"
-			selected-selector="#files"
+			selected-query="#files"
 			selected-group="left-panels"
 			toggle="files"
-			toggle-selector=".fetch-files"
+			toggle-query=".fetch-files"
 			toggle-attribute="array">
 			<i class="height:16px" src="/assets/svg/folder.svg"></i>
 		</div>
 		<div
 			class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab"
 			selected-value="active"
-			selected-selector="#uploader"
+			selected-query="#uploader"
 			selected-group="left-panels">
 			<i class="height:16px" src="/assets/svg/cloud-upload-alt.svg"></i>
 		</div>
@@ -43,7 +43,7 @@
 			classkey="left-tabs"
 			class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover tab"
 			selected-value="active"
-			selected-selector="#blocks"
+			selected-query="#blocks"
 			selected-group="left-panels"
 			selected>
 			<i class="height:16px" src="/assets/svg/th-large.svg"></i>
@@ -60,7 +60,7 @@
 				<div
 					class="card background:gainsboro width:50% text-align:center padding:5px"
 					selected-value="active"
-					selected-selector="#elements"
+					selected-query="#elements"
 					selected-group="components"
 					selected>
 					Elements
@@ -68,7 +68,7 @@
 				<div
 					class="card background:gainsboro width:50% text-align:center padding:5px"
 					selected-value="active"
-					selected-selector="#components"
+					selected-query="#components"
 					selected-group="components"
 					selected>
 					Components
@@ -93,7 +93,7 @@
 				filter-query-value="5ff747727005da1c27274194"
 				filter-sort-key="position"
 				filter-sort-direction="asc"
-				render-selector=":last-child">
+				render-query=":last-child">
 				<!-- Block Categories Template -->
 				<div template render-as="tag">
 					<div
@@ -125,13 +125,13 @@
 						filter-query-value="{{tag._id}}"
 						filter-sort-key="position"
 						filter-sort-direction="asc"
-						render-selector=":last-child">
+						render-query=":last-child">
 						<!-- Blocks Template -->
 						<div
 							template
 							class="card position:relative flex-grow:1 width:70px height:75px margin:5px padding:5px"
 							hover="display:block!important"
-							hover-selector="#editblock{{object._id}}"
+							hover-query="#editblock{{object._id}}"
 							object="{{object._id}}">
 							<div
 								id="editblock{{object._id}}"
@@ -167,7 +167,7 @@
 				filter-query-value="5ffb889df11d2d00103c452b"
 				filter-sort-key="position"
 				filter-sort-direction="asc"
-				render-selector=":last-child">
+				render-query=":last-child">
 				<!-- Components Categories Template -->
 				<div template render-as="tag">
 					<div
@@ -199,13 +199,13 @@
 						filter-query-value="{{tag._id}}"
 						filter-sort-key="position"
 						filter-sort-direction="asc"
-						render-selector=":last-child">
+						render-query=":last-child">
 						<!-- Components Template -->
 						<div
 							template
 							class="card position:relative flex-grow:1 width:70px height:125px margin:5px padding:5px"
 							hover="display:block!important"
-							hover-selector="#editcategory{{object._id}}"
+							hover-query="#editcategory{{object._id}}"
 							object="{{object._id}}">
 							<div
 								id="editcategory{{object._id}}"
@@ -236,7 +236,7 @@
 		<!-- Vdom -->
 		<div
 			id="vdom"
-			vdom-selector=""
+			vdom-query=""
 			dnd-group-key="vdom"
 			class="left-panel display:none">
 			vdom
@@ -248,7 +248,7 @@
 				<input
 					type="file"
 					directory
-					render-closest="#uploader; [template]"
+					render-query="$closest #uploader; [template]"
 					array="files" />
 
 				<button actions="upload">upload</button>
@@ -306,11 +306,11 @@
 					filter-query-value="/"
 					filter-sort-key="name"
 					filter-sort-direction="asc"
-					render-selector=":last-child">
+					render-query=":last-child">
 					<div
 						filter-query-key="content-type"
 						filter-query-value="text/directory"
-						filter-parent></div>
+						filter-query="$parent"></div>
 					<!--Folder Template -->
 					<div
 						class="padding:5px"
@@ -322,7 +322,7 @@
 							show="#directory{{$auto._id}}"
 							hide="#directory{{$auto._id}}"
 							toggle="fa-caret-down, fa-caret-right"
-							toggle-selector="#icon{{$auto._id}}">
+							toggle-query="#icon{{$auto._id}}">
 							<i
 								id="icon{{$auto._id}}"
 								class="fa fa-caret-right"></i>
@@ -352,11 +352,11 @@
 					filter-query-key="directory.$eq"
 					filter-query-value="/"
 					filter-sort-key="name"
-					render-selector=":last-child">
+					render-query=":last-child">
 					<div
 						filter-query-key="content-type.$ne"
 						filter-query-value="text/directory"
-						filter-parent></div>
+						filter-query="$parent"></div>
 
 					<!-- File Template -->
 					<div class="padding:5px" template object="{{$auto._id}}">
@@ -402,13 +402,13 @@
 				filter-query-value="image, video"
 				filter-sort-key="position"
 				filter-sort-direction="asc"
-				render-selector=":last-child">
+				render-query=":last-child">
 				<!-- Asset Template -->
 				<div
 					template
 					class="card position:relative flex-grow:1 width:105px height:90px margin:5px padding:5px"
 					hover="display:block!important"
-					hover-selector="#editassets{{object._id}}">
+					hover-query="#editassets{{object._id}}">
 					<div
 						id="editassets{{object._id}}"
 						class="position:absolute top:8px right:8px font-size:11px display:none">
